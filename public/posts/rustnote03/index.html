@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 03 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="买卖股票的最佳时机2 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+C 解法 ： public int maxProfit(int[] prices) { if (prices == null || prices.length &lt; 2) return 0; int total = 0, index = 0, length = prices.length; while (index &lt; length) { //如果股票下跌就一直找，直到找到股票开始上涨为止 while (index &lt; length - 1 &amp;&amp; prices[index] &gt;= prices[index &#43; 1]) index&#43;&#43;; //股票上涨开始的值，也就是这段时间上涨的最小值 int min = prices[index]; //一直找到股票上涨的最大值为止 while (index &lt; length - 1 &amp;&amp; prices[index] &lt;= prices[index &#43; 1]) index&#43;&#43;; //计算这段上涨时间的差值，然后累加 total &#43;= prices[index&#43;&#43;] - min; } return total; } Rust 解法1 ： impl Solution { pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 { let mut profit = 0; for i in 1.">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 03" />
+<meta property="og:description" content="买卖股票的最佳时机2 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+C 解法 ： public int maxProfit(int[] prices) { if (prices == null || prices.length &lt; 2) return 0; int total = 0, index = 0, length = prices.length; while (index &lt; length) { //如果股票下跌就一直找，直到找到股票开始上涨为止 while (index &lt; length - 1 &amp;&amp; prices[index] &gt;= prices[index &#43; 1]) index&#43;&#43;; //股票上涨开始的值，也就是这段时间上涨的最小值 int min = prices[index]; //一直找到股票上涨的最大值为止 while (index &lt; length - 1 &amp;&amp; prices[index] &lt;= prices[index &#43; 1]) index&#43;&#43;; //计算这段上涨时间的差值，然后累加 total &#43;= prices[index&#43;&#43;] - min; } return total; } Rust 解法1 ： impl Solution { pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 { let mut profit = 0; for i in 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rustnote03/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-19T20:33:16+08:00" />
+<meta property="article:modified_time" content="2023-05-19T20:33:16+08:00" />
+
+<meta itemprop="name" content="Rust Note 03">
+<meta itemprop="description" content="买卖股票的最佳时机2 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+C 解法 ： public int maxProfit(int[] prices) { if (prices == null || prices.length &lt; 2) return 0; int total = 0, index = 0, length = prices.length; while (index &lt; length) { //如果股票下跌就一直找，直到找到股票开始上涨为止 while (index &lt; length - 1 &amp;&amp; prices[index] &gt;= prices[index &#43; 1]) index&#43;&#43;; //股票上涨开始的值，也就是这段时间上涨的最小值 int min = prices[index]; //一直找到股票上涨的最大值为止 while (index &lt; length - 1 &amp;&amp; prices[index] &lt;= prices[index &#43; 1]) index&#43;&#43;; //计算这段上涨时间的差值，然后累加 total &#43;= prices[index&#43;&#43;] - min; } return total; } Rust 解法1 ： impl Solution { pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 { let mut profit = 0; for i in 1."><meta itemprop="datePublished" content="2023-05-19T20:33:16+08:00" />
+<meta itemprop="dateModified" content="2023-05-19T20:33:16+08:00" />
+<meta itemprop="wordCount" content="1312">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 03"/>
+<meta name="twitter:description" content="买卖股票的最佳时机2 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+C 解法 ： public int maxProfit(int[] prices) { if (prices == null || prices.length &lt; 2) return 0; int total = 0, index = 0, length = prices.length; while (index &lt; length) { //如果股票下跌就一直找，直到找到股票开始上涨为止 while (index &lt; length - 1 &amp;&amp; prices[index] &gt;= prices[index &#43; 1]) index&#43;&#43;; //股票上涨开始的值，也就是这段时间上涨的最小值 int min = prices[index]; //一直找到股票上涨的最大值为止 while (index &lt; length - 1 &amp;&amp; prices[index] &lt;= prices[index &#43; 1]) index&#43;&#43;; //计算这段上涨时间的差值，然后累加 total &#43;= prices[index&#43;&#43;] - min; } return total; } Rust 解法1 ： impl Solution { pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 { let mut profit = 0; for i in 1."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 03</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-19T20:33:16+08:00">May 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="买卖股票的最佳时机2">买卖股票的最佳时机2</h2>
+<p>给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。</p>
+<p>在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。</p>
+<p>返回 你能获得的 最大 利润 。</p>
+<h2 id="c-解法-">C 解法 ：</h2>
+<pre tabindex="0"><code>public int maxProfit(int[] prices) {
+    if (prices == null || prices.length &lt; 2)
+        return 0;
+    int total = 0, index = 0, length = prices.length;
+    while (index &lt; length) {
+        //如果股票下跌就一直找，直到找到股票开始上涨为止
+        while (index &lt; length - 1 &amp;&amp; prices[index] &gt;= prices[index + 1])
+            index++;
+        //股票上涨开始的值，也就是这段时间上涨的最小值
+        int min = prices[index];
+        //一直找到股票上涨的最大值为止
+        while (index &lt; length - 1 &amp;&amp; prices[index] &lt;= prices[index + 1])
+            index++;
+        //计算这段上涨时间的差值，然后累加
+        total += prices[index++] - min;
+    }
+    return total;
+}
+</code></pre><h2 id="rust-解法1-">Rust 解法1 ：</h2>
+<pre tabindex="0"><code>impl Solution {
+    pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 {
+       let mut profit = 0;
+        for i in 1..prices.len() {
+            if prices[i] &gt; prices[i-1]{
+                profit += prices[i] - prices[i-1]
+            }
+        }
+        return profit
+    }
+}
+</code></pre><h2 id="rust-解法2-">Rust 解法2 ：</h2>
+<pre tabindex="0"><code>impl Solution {
+    pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 {
+        prices.windows(2).map(|x| x[1] - x[0]).filter(|&amp;x| x &gt; 0).sum()
+    }
+}
+</code></pre><h2 id="rust-解法3-">Rust 解法3 ：</h2>
+<pre tabindex="0"><code>impl Solution {
+    pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 {
+        let (mut buy, mut sell) = (-prices[0], 0);
+        prices.iter().skip(1).for_each(|&amp;v| {
+            buy = buy.max(sell - v);
+            sell = sell.max(v + buy);
+        });
+        sell
+    }
+}
+</code></pre><h2 id="rust-官方迭代器-">Rust 官方迭代器 ：</h2>
+<pre tabindex="0"><code>pub trait Iterator {
+    type Item;
+    
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;;
+
+    fn next_chunk&lt;const N: usize&gt;(
+        &amp;mut self
+    ) -&gt; Result&lt;[Self::Item; N], IntoIter&lt;Self::Item, N&gt;&gt; { ... }
+    fn size_hint(&amp;self) -&gt; (usize, Option&lt;usize&gt;) { ... }
+    fn count(self) -&gt; usize { ... }
+    fn last(self) -&gt; Option&lt;Self::Item&gt; { ... }
+    fn advance_by(&amp;mut self, n: usize) -&gt; Result&lt;(), usize&gt; { ... }
+    fn nth(&amp;mut self, n: usize) -&gt; Option&lt;Self::Item&gt; { ... }
+    fn step_by(self, step: usize) -&gt; StepBy&lt;Self&gt;ⓘ { ... }
+    fn chain&lt;U&gt;(self, other: U) -&gt; Chain&lt;Self, &lt;U as IntoIterator&gt;::IntoIter&gt;ⓘ
+    where
+        U: IntoIterator&lt;Item = Self::Item&gt;,
+    { ... }
+    fn zip&lt;U&gt;(self, other: U) -&gt; Zip&lt;Self, &lt;U as IntoIterator&gt;::IntoIter&gt;ⓘ
+    where
+        U: IntoIterator,
+    { ... }
+    fn intersperse(self, separator: Self::Item) -&gt; Intersperse&lt;Self&gt;ⓘ
+    where
+        Self::Item: Clone,
+    { ... }
+    fn intersperse_with&lt;G&gt;(self, separator: G) -&gt; IntersperseWith&lt;Self, G&gt;ⓘ
+    where
+        G: FnMut() -&gt; Self::Item,
+    { ... }
+    fn map&lt;B, F&gt;(self, f: F) -&gt; Map&lt;Self, F&gt;ⓘ
+    where
+        F: FnMut(Self::Item) -&gt; B,
+    { ... }
+    fn for_each&lt;F&gt;(self, f: F)
+    where
+        F: FnMut(Self::Item),
+    { ... }
+    fn filter&lt;P&gt;(self, predicate: P) -&gt; Filter&lt;Self, P&gt;ⓘ
+    where
+        P: FnMut(&amp;Self::Item) -&gt; bool,
+    { ... }
+    fn filter_map&lt;B, F&gt;(self, f: F) -&gt; FilterMap&lt;Self, F&gt;ⓘ
+    where
+        F: FnMut(Self::Item) -&gt; Option&lt;B&gt;,
+    { ... }
+    fn enumerate(self) -&gt; Enumerate&lt;Self&gt;ⓘ { ... }
+    fn peekable(self) -&gt; Peekable&lt;Self&gt;ⓘ { ... }
+    fn skip_while&lt;P&gt;(self, predicate: P) -&gt; SkipWhile&lt;Self, P&gt;ⓘ
+    where
+        P: FnMut(&amp;Self::Item) -&gt; bool,
+    { ... }
+    fn take_while&lt;P&gt;(self, predicate: P) -&gt; TakeWhile&lt;Self, P&gt;ⓘ
+    where
+        P: FnMut(&amp;Self::Item) -&gt; bool,
+    { ... }
+    fn map_while&lt;B, P&gt;(self, predicate: P) -&gt; MapWhile&lt;Self, P&gt;ⓘ
+    where
+        P: FnMut(Self::Item) -&gt; Option&lt;B&gt;,
+    { ... }
+    fn skip(self, n: usize) -&gt; Skip&lt;Self&gt;ⓘ { ... }
+    fn take(self, n: usize) -&gt; Take&lt;Self&gt;ⓘ { ... }
+    fn scan&lt;St, B, F&gt;(self, initial_state: St, f: F) -&gt; Scan&lt;Self, St, F&gt;ⓘ
+    where
+        F: FnMut(&amp;mut St, Self::Item) -&gt; Option&lt;B&gt;,
+    { ... }
+    fn flat_map&lt;U, F&gt;(self, f: F) -&gt; FlatMap&lt;Self, U, F&gt;ⓘ
+    where
+        U: IntoIterator,
+        F: FnMut(Self::Item) -&gt; U,
+    { ... }
+    fn flatten(self) -&gt; Flatten&lt;Self&gt;ⓘ
+    where
+        Self::Item: IntoIterator,
+    { ... }
+    fn fuse(self) -&gt; Fuse&lt;Self&gt;ⓘ { ... }
+    fn inspect&lt;F&gt;(self, f: F) -&gt; Inspect&lt;Self, F&gt;ⓘ
+    where
+        F: FnMut(&amp;Self::Item),
+    { ... }
+    fn by_ref(&amp;mut self) -&gt; &amp;mut Self { ... }
+    fn collect&lt;B&gt;(self) -&gt; B
+    where
+        B: FromIterator&lt;Self::Item&gt;,
+    { ... }
+    fn try_collect&lt;B&gt;(
+        &amp;mut self
+    ) -&gt; &lt;&lt;Self::Item as Try&gt;::Residual as Residual&lt;B&gt;&gt;::TryType
+    where
+        B: FromIterator&lt;&lt;Self::Item as Try&gt;::Output&gt;,
+        Self::Item: Try,
+        &lt;Self::Item as Try&gt;::Residual: Residual&lt;B&gt;,
+    { ... }
+    fn collect_into&lt;E&gt;(self, collection: &amp;mut E) -&gt; &amp;mut E
+    where
+        E: Extend&lt;Self::Item&gt;,
+    { ... }
+    fn partition&lt;B, F&gt;(self, f: F) -&gt; (B, B)
+    where
+        B: Default + Extend&lt;Self::Item&gt;,
+        F: FnMut(&amp;Self::Item) -&gt; bool,
+    { ... }
+    fn partition_in_place&lt;'a, T, P&gt;(self, predicate: P) -&gt; usize
+    where
+        T: 'a,
+        Self: DoubleEndedIterator&lt;Item = &amp;'a mut T&gt;,
+        P: FnMut(&amp;T) -&gt; bool,
+    { ... }
+    fn is_partitioned&lt;P&gt;(self, predicate: P) -&gt; bool
+    where
+        P: FnMut(Self::Item) -&gt; bool,
+    { ... }
+    fn try_fold&lt;B, F, R&gt;(&amp;mut self, init: B, f: F) -&gt; R
+    where
+        F: FnMut(B, Self::Item) -&gt; R,
+        R: Try&lt;Output = B&gt;,
+    { ... }
+    fn try_for_each&lt;F, R&gt;(&amp;mut self, f: F) -&gt; R
+    where
+        F: FnMut(Self::Item) -&gt; R,
+        R: Try&lt;Output = ()&gt;,
+    { ... }
+    fn fold&lt;B, F&gt;(self, init: B, f: F) -&gt; B
+    where
+        F: FnMut(B, Self::Item) -&gt; B,
+    { ... }
+    fn reduce&lt;F&gt;(self, f: F) -&gt; Option&lt;Self::Item&gt;
+    where
+        F: FnMut(Self::Item, Self::Item) -&gt; Self::Item,
+    { ... }
+    fn try_reduce&lt;F, R&gt;(
+        &amp;mut self,
+        f: F
+    ) -&gt; &lt;&lt;R as Try&gt;::Residual as Residual&lt;Option&lt;&lt;R as Try&gt;::Output&gt;&gt;&gt;::TryType
+    where
+        F: FnMut(Self::Item, Self::Item) -&gt; R,
+        R: Try&lt;Output = Self::Item&gt;,
+        &lt;R as Try&gt;::Residual: Residual&lt;Option&lt;Self::Item&gt;&gt;,
+    { ... }
+    fn all&lt;F&gt;(&amp;mut self, f: F) -&gt; bool
+    where
+        F: FnMut(Self::Item) -&gt; bool,
+    { ... }
+    fn any&lt;F&gt;(&amp;mut self, f: F) -&gt; bool
+    where
+        F: FnMut(Self::Item) -&gt; bool,
+    { ... }
+    fn find&lt;P&gt;(&amp;mut self, predicate: P) -&gt; Option&lt;Self::Item&gt;
+    where
+        P: FnMut(&amp;Self::Item) -&gt; bool,
+    { ... }
+    fn find_map&lt;B, F&gt;(&amp;mut self, f: F) -&gt; Option&lt;B&gt;
+    where
+        F: FnMut(Self::Item) -&gt; Option&lt;B&gt;,
+    { ... }
+    fn try_find&lt;F, R&gt;(
+        &amp;mut self,
+        f: F
+    ) -&gt; &lt;&lt;R as Try&gt;::Residual as Residual&lt;Option&lt;Self::Item&gt;&gt;&gt;::TryType
+    where
+        F: FnMut(&amp;Self::Item) -&gt; R,
+        R: Try&lt;Output = bool&gt;,
+        &lt;R as Try&gt;::Residual: Residual&lt;Option&lt;Self::Item&gt;&gt;,
+    { ... }
+    fn position&lt;P&gt;(&amp;mut self, predicate: P) -&gt; Option&lt;usize&gt;
+    where
+        P: FnMut(Self::Item) -&gt; bool,
+    { ... }
+    fn rposition&lt;P&gt;(&amp;mut self, predicate: P) -&gt; Option&lt;usize&gt;
+    where
+        P: FnMut(Self::Item) -&gt; bool,
+        Self: ExactSizeIterator + DoubleEndedIterator,
+    { ... }
+    fn max(self) -&gt; Option&lt;Self::Item&gt;
+    where
+        Self::Item: Ord,
+    { ... }
+    fn min(self) -&gt; Option&lt;Self::Item&gt;
+    where
+        Self::Item: Ord,
+    { ... }
+    fn max_by_key&lt;B, F&gt;(self, f: F) -&gt; Option&lt;Self::Item&gt;
+    where
+        B: Ord,
+        F: FnMut(&amp;Self::Item) -&gt; B,
+    { ... }
+    fn max_by&lt;F&gt;(self, compare: F) -&gt; Option&lt;Self::Item&gt;
+    where
+        F: FnMut(&amp;Self::Item, &amp;Self::Item) -&gt; Ordering,
+    { ... }
+    fn min_by_key&lt;B, F&gt;(self, f: F) -&gt; Option&lt;Self::Item&gt;
+    where
+        B: Ord,
+        F: FnMut(&amp;Self::Item) -&gt; B,
+    { ... }
+    fn min_by&lt;F&gt;(self, compare: F) -&gt; Option&lt;Self::Item&gt;
+    where
+        F: FnMut(&amp;Self::Item, &amp;Self::Item) -&gt; Ordering,
+    { ... }
+    fn rev(self) -&gt; Rev&lt;Self&gt;ⓘ
+    where
+        Self: DoubleEndedIterator,
+    { ... }
+    fn unzip&lt;A, B, FromA, FromB&gt;(self) -&gt; (FromA, FromB)
+    where
+        FromA: Default + Extend&lt;A&gt;,
+        FromB: Default + Extend&lt;B&gt;,
+        Self: Iterator&lt;Item = (A, B)&gt;,
+    { ... }
+    fn copied&lt;'a, T&gt;(self) -&gt; Copied&lt;Self&gt;ⓘ
+    where
+        T: 'a + Copy,
+        Self: Iterator&lt;Item = &amp;'a T&gt;,
+    { ... }
+    fn cloned&lt;'a, T&gt;(self) -&gt; Cloned&lt;Self&gt;ⓘ
+    where
+        T: 'a + Clone,
+        Self: Iterator&lt;Item = &amp;'a T&gt;,
+    { ... }
+    fn cycle(self) -&gt; Cycle&lt;Self&gt;ⓘ
+    where
+        Self: Clone,
+    { ... }
+    fn sum&lt;S&gt;(self) -&gt; S
+    where
+        S: Sum&lt;Self::Item&gt;,
+    { ... }
+    fn product&lt;P&gt;(self) -&gt; P
+    where
+        P: Product&lt;Self::Item&gt;,
+    { ... }
+    fn cmp&lt;I&gt;(self, other: I) -&gt; Ordering
+    where
+        I: IntoIterator&lt;Item = Self::Item&gt;,
+        Self::Item: Ord,
+    { ... }
+    fn cmp_by&lt;I, F&gt;(self, other: I, cmp: F) -&gt; Ordering
+    where
+        I: IntoIterator,
+        F: FnMut(Self::Item, &lt;I as IntoIterator&gt;::Item) -&gt; Ordering,
+    { ... }
+    fn partial_cmp&lt;I&gt;(self, other: I) -&gt; Option&lt;Ordering&gt;
+    where
+        I: IntoIterator,
+        Self::Item: PartialOrd&lt;&lt;I as IntoIterator&gt;::Item&gt;,
+    { ... }
+    fn partial_cmp_by&lt;I, F&gt;(self, other: I, partial_cmp: F) -&gt; Option&lt;Ordering&gt;
+    where
+        I: IntoIterator,
+        F: FnMut(Self::Item, &lt;I as IntoIterator&gt;::Item) -&gt; Option&lt;Ordering&gt;,
+    { ... }
+    fn eq&lt;I&gt;(self, other: I) -&gt; bool
+    where
+        I: IntoIterator,
+        Self::Item: PartialEq&lt;&lt;I as IntoIterator&gt;::Item&gt;,
+    { ... }
+    fn eq_by&lt;I, F&gt;(self, other: I, eq: F) -&gt; bool
+    where
+        I: IntoIterator,
+        F: FnMut(Self::Item, &lt;I as IntoIterator&gt;::Item) -&gt; bool,
+    { ... }
+    fn ne&lt;I&gt;(self, other: I) -&gt; bool
+    where
+        I: IntoIterator,
+        Self::Item: PartialEq&lt;&lt;I as IntoIterator&gt;::Item&gt;,
+    { ... }
+    fn lt&lt;I&gt;(self, other: I) -&gt; bool
+    where
+        I: IntoIterator,
+        Self::Item: PartialOrd&lt;&lt;I as IntoIterator&gt;::Item&gt;,
+    { ... }
+    fn le&lt;I&gt;(self, other: I) -&gt; bool
+    where
+        I: IntoIterator,
+        Self::Item: PartialOrd&lt;&lt;I as IntoIterator&gt;::Item&gt;,
+    { ... }
+    fn gt&lt;I&gt;(self, other: I) -&gt; bool
+    where
+        I: IntoIterator,
+        Self::Item: PartialOrd&lt;&lt;I as IntoIterator&gt;::Item&gt;,
+    { ... }
+    fn ge&lt;I&gt;(self, other: I) -&gt; bool
+    where
+        I: IntoIterator,
+        Self::Item: PartialOrd&lt;&lt;I as IntoIterator&gt;::Item&gt;,
+    { ... }
+    fn is_sorted(self) -&gt; bool
+    where
+        Self::Item: PartialOrd&lt;Self::Item&gt;,
+    { ... }
+    fn is_sorted_by&lt;F&gt;(self, compare: F) -&gt; bool
+    where
+        F: FnMut(&amp;Self::Item, &amp;Self::Item) -&gt; Option&lt;Ordering&gt;,
+    { ... }
+    fn is_sorted_by_key&lt;F, K&gt;(self, f: F) -&gt; bool
+    where
+        F: FnMut(Self::Item) -&gt; K,
+        K: PartialOrd&lt;K&gt;,
+    { ... }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rustnote01/">Rust Note 01</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/my-first-post/">博文总述</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote02/">Rust Note 02</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

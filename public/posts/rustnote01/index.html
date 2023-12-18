@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 01 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。
+考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：
+更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。 返回 k 。
+C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条件判断 if (A == null || A.length == 0) return 0; int left = 0; for (int right = 1; right &lt; A.length; right&#43;&#43;) //如果左指针和右指针指向的值一样，说明有重复的， //这个时候，左指针不动，右指针继续往右移。如果他俩 //指向的值不一样就把右指针指向的值往前挪 if (A[left] !">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 01" />
+<meta property="og:description" content="删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。
+考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：
+更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。 返回 k 。
+C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条件判断 if (A == null || A.length == 0) return 0; int left = 0; for (int right = 1; right &lt; A.length; right&#43;&#43;) //如果左指针和右指针指向的值一样，说明有重复的， //这个时候，左指针不动，右指针继续往右移。如果他俩 //指向的值不一样就把右指针指向的值往前挪 if (A[left] !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rustnote01/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-18T19:58:49+08:00" />
+<meta property="article:modified_time" content="2023-05-18T19:58:49+08:00" />
+
+<meta itemprop="name" content="Rust Note 01">
+<meta itemprop="description" content="删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。
+考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：
+更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。 返回 k 。
+C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条件判断 if (A == null || A.length == 0) return 0; int left = 0; for (int right = 1; right &lt; A.length; right&#43;&#43;) //如果左指针和右指针指向的值一样，说明有重复的， //这个时候，左指针不动，右指针继续往右移。如果他俩 //指向的值不一样就把右指针指向的值往前挪 if (A[left] !"><meta itemprop="datePublished" content="2023-05-18T19:58:49+08:00" />
+<meta itemprop="dateModified" content="2023-05-18T19:58:49+08:00" />
+<meta itemprop="wordCount" content="808">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 01"/>
+<meta name="twitter:description" content="删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。
+考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：
+更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。 返回 k 。
+C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条件判断 if (A == null || A.length == 0) return 0; int left = 0; for (int right = 1; right &lt; A.length; right&#43;&#43;) //如果左指针和右指针指向的值一样，说明有重复的， //这个时候，左指针不动，右指针继续往右移。如果他俩 //指向的值不一样就把右指针指向的值往前挪 if (A[left] !"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 01</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-18T19:58:49+08:00">May 18, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="删除排序数组中的重复项">删除排序数组中的重复项</h1>
+<p>给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。</p>
+<p>考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：</p>
+<p>更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。
+返回 k 。</p>
+<h2 id="c-解法">C 解法：</h2>
+<pre tabindex="0"><code>//双指针解决
+public int removeDuplicates(int[] A) {
+    //边界条件判断
+    if (A == null || A.length == 0)
+        return 0;
+    int left = 0;
+    for (int right = 1; right &lt; A.length; right++)
+        //如果左指针和右指针指向的值一样，说明有重复的，
+        //这个时候，左指针不动，右指针继续往右移。如果他俩
+        //指向的值不一样就把右指针指向的值往前挪
+        if (A[left] != A[right])
+            A[++left] = A[right];
+    return ++left;
+}
+</code></pre><h2 id="rust-解法1">Rust 解法1：</h2>
+<pre tabindex="0"><code>impl Solution {
+    pub fn remove_duplicates(nums: &amp;mut Vec&lt;i32&gt;) -&gt; i32 {
+        if nums.len() &lt; 2{//数组长度为0，1时候，直接返回数组长度即可
+            return nums.len() as i32;
+        }
+        let mut index = 0;
+        for i in 0..nums.len(){
+            //因为是递增的数组，每次都只需要和前面部分不重复数组的最后一个元素进行比较
+            if(nums[i]!=nums[index]){
+                index+=1;
+                nums[index] = nums[i];
+            }
+        }
+        index as i32 +1
+    }
+}
+</code></pre><h2 id="rust-解法2-">Rust 解法2 ：</h2>
+<pre tabindex="0"><code>impl Solution {
+    pub fn remove_duplicates(nums: &amp;mut Vec&lt;i32&gt;) -&gt; i32 {
+        nums.dedup();
+        nums.len() as i32
+    }
+}
+</code></pre><h2 id="rust-dedup-标准库函数-">Rust dedup() 标准库函数 ：</h2>
+<p>pub fn dedup(&amp;mut self)</p>
+<p>根据PartialEq特性实现移除向量中连续重复的元素。如果对向量进行排序，则会删除所有重复项。</p>
+<p>Examples：</p>
+<pre tabindex="0"><code>let mut vec = vec![1, 2, 2, 3, 2];
+vec.dedup();
+assert_eq!(vec, [1, 2, 3, 2]);
+</code></pre><p>source：</p>
+<pre tabindex="0"><code>#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
+#[inline]
+pub fn dedup(&amp;mut self) {
+    self.dedup_by(|a, b| a == b)
+}
+</code></pre><h2 id="rust-dedup_by-函数-">Rust dedup_by() 函数 ：</h2>
+<p>pub fn dedup_by<!-- raw HTML omitted -->(&amp;mut self, same_bucket: F) 
+where<br>
+    F: FnMut(&amp;mut T, &amp;mut T) -&gt; bool, </p>
+<p>移除满足给定等式关系的向量中除第一个元素之外的所有连续元素。</p>
+<p>“same_bucket”函数传递对向量中两个元素的引用，并且必须确定这些元素是否相等。元素的传递顺序与它们在切片中的顺序相反，因此如果<code>same_bucket（a，b）</code>返回<code>true</code>，<code>a</code>将被删除。</p>
+<p>如果对向量进行排序，则会删除所有重复项。</p>
+<h5 id="examples">Examples:</h5>
+<pre tabindex="0"><code>let mut vec = vec![&quot;foo&quot;, &quot;bar&quot;, &quot;Bar&quot;, &quot;baz&quot;, &quot;bar&quot;];
+
+vec.dedup_by(|a, b| a.eq_ignore_ascii_case(b));
+
+assert_eq!(vec, [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;, &quot;bar&quot;]);
+</code></pre><p>source :</p>
+<pre tabindex="0"><code>#[stable(feature = &quot;dedup_by&quot;, since = &quot;1.16.0&quot;)]
+pub fn dedup_by&lt;F&gt;(&amp;mut self, mut same_bucket: F)
+where
+    F: FnMut(&amp;mut T, &amp;mut T) -&gt; bool,
+{
+    let len = self.len();
+    if len &lt;= 1 {
+        return;
+    }
+
+    /* 不变量INVARIANT: vec.len() &gt; read &gt;= write &gt; write-1 &gt;= 0 */
+    struct FillGapOnDrop&lt;'a, T, A: core::alloc::Allocator&gt; {
+        /* 要检查的元素的偏移量是否重复*/
+        read: usize,
+
+        /* 找到非重复项时，要放置非重复项的位置的偏移量。 */
+        write: usize,
+
+        /* 如果“same_bucket”惊慌失措，需要纠正的兽医，哈哈哈 */
+        vec: &amp;'a mut Vec&lt;T, A&gt;,
+    }
+
+    impl&lt;'a, T, A: core::alloc::Allocator&gt; Drop for FillGapOnDrop&lt;'a, T, A&gt; {
+        fn drop(&amp;mut self) {
+            /* 此代码在`same_bucket`恐慌时执行 */
+
+            /* SAFETY: 不变量保证“read-write”和“len-read”永远不会溢出，并且副本总是在边界内。 */
+            unsafe {
+                let ptr = self.vec.as_mut_ptr();
+                let len = self.vec.len();
+
+                /*当`same_bucket`恐慌时，还剩多少项。
+                 * 基本上是vec[read..].len() */
+                let items_left = len.wrapping_sub(self.read);
+
+                /* 指向vec[write..write+items_left]切片中第一项的指针 */
+                let dropped_ptr = ptr.add(self.write);
+                /* 指向vec[read..]切片中第一项的指针 */
+                let valid_ptr = ptr.add(self.read);
+
+                /* 将`vec[read..]`复制到`vec[write..write+items_left]`。
+                 * 切片可以重叠，因此不能使用“copy_nonoverlapping” */
+                ptr::copy(valid_ptr, dropped_ptr, items_left);
+
+                /* 已经丢弃了多少项
+                 * 基本上是  vec[read..write].len() */
+                let dropped = self.read.wrapping_sub(self.write);
+
+                self.vec.set_len(len - dropped);
+            }
+        }
+    }
+
+    let mut gap = FillGapOnDrop { read: 1, write: 1, vec: self };
+    let ptr = gap.vec.as_mut_ptr();
+
+    /* 在执行Vec时删除项目，这应该比执行slice partition_dedup + truncate更有效*/
+
+    /* SAFETY: 由于不变量，read_ptr、prev_ptr和write_ptr始终在边界内，read_ptr从不别名prev_ptr */
+    unsafe {
+        while gap.read &lt; len {
+            let read_ptr = ptr.add(gap.read);
+            let prev_ptr = ptr.add(gap.write.wrapping_sub(1));
+
+            if same_bucket(&amp;mut *read_ptr, &amp;mut *prev_ptr) {
+                // Increase `gap.read` now since the drop may panic.
+                gap.read += 1;
+                /* We have found duplicate, drop it in-place */
+                ptr::drop_in_place(read_ptr);
+            } else {
+                let write_ptr = ptr.add(gap.write);
+
+                /* Because `read_ptr` can be equal to `write_ptr`, we either
+                 * have to use `copy` or conditional `copy_nonoverlapping`.
+                 * Looks like the first option is faster. */
+                ptr::copy(read_ptr, write_ptr, 1);
+
+                /* We have filled that place, so go further */
+                gap.write += 1;
+                gap.read += 1;
+            }
+        }
+
+        /* 从技术上讲，我们可以让“gap”用它的Drop清理干净，但当“same_bucket”保证不会惊慌时，这会让代码有点膨胀，所以我们只需手动完成 */
+        gap.vec.set_len(gap.write);
+        mem::forget(gap);
+    }
+}
+</code></pre><h2 id="rust-copy_nonoverlapping-函数-">Rust copy_nonoverlapping() 函数 ：</h2>
+<p>pub unsafe fn copy_nonoverlapping<!-- raw HTML omitted -->(src: *const T, dst: *mut T, count: usize)</p>
+<p>将 <code>count * size_of::&lt;T&gt;()</code> 字节从 <code>src</code> 复制到 <code>dst</code>。源和目标必须不重叠。</p>
+<p>对于可能重叠的内存区域，请改用 <code>copy</code>。</p>
+<p><code>copy_nonoverlapping</code> 在语义上等同于 C 的 <code>memcpy</code>，但交换了参数顺序。</p>
+<h2 id="safety-">Safety :</h2>
+<p>如果违反以下任一条件，则行为是未定义的：</p>
+<ul>
+<li>
+<p>对于 <code>count * size_of::&lt;T&gt;()</code> 字节的读取，<code>src</code> 必须是 <code>valid</code>。</p>
+</li>
+<li>
+<p>对于 <code>count * size_of::&lt;T&gt;()</code> 字节的写入，<code>dst</code> 必须是 <code>valid</code>。</p>
+</li>
+<li>
+<p><code>src</code> 和 <code>dst</code> 必须正确对齐。</p>
+</li>
+<li>
+<p>从 <code>src</code> 开始的内存区域，大小为 <code>count * size_of::&lt;T&gt; ()</code> 字节不得与以 <code>dst</code> 开始且大小相同的内存区域重叠。</p>
+</li>
+</ul>
+<p>与 <code>read</code> 一样，无论 <code>T</code> 是否为 <code>Copy</code>，<code>copy_nonoverlapping</code> 都会创建 <code>T</code> 的按位副本。 如果 <code>T</code> 不是 <code>Copy</code>，则使用两个以 <code>*src</code>开头的区域和以 <code>*dst</code> 开头的区域中的值可以 <code>违反内存安全</code>。</p>
+<p>请注意，即使有效复制的大小 (<code>count * size_of::&lt;T&gt;()</code>) 是 <code>0</code>，指针也必须非空的并且正确对齐。</p>
+<h2 id="examples-1">Examples：</h2>
+<p>手动实现 <code>Vec::append</code></p>
+<pre tabindex="0"><code>use std::ptr;
+
+/// 将 `src` 的所有元素移到 `dst`，将 `src` 留空。
+fn append&lt;T&gt;(dst: &amp;mut Vec&lt;T&gt;, src: &amp;mut Vec&lt;T&gt;) {
+    let src_len = src.len();
+    let dst_len = dst.len();
+
+    // 确保 `dst` 具有足够的容量来容纳所有 `src`。
+    dst.reserve(src_len);
+
+    unsafe {
+        // 偏移的调用始终是安全的，因为 `Vec` 分配的字节数永远不会超过 `isize::MAX` 字节。
+        let dst_ptr = dst.as_mut_ptr().offset(dst_len as isize);
+        let src_ptr = src.as_ptr();
+
+        // 截断 `src` 而不丢弃其内容。
+        // 我们首先执行此操作，以避免在 panics 处出现问题时避免出现问题。
+        src.set_len(0);
+
+        // 这两个区域不能重叠，因为可变引用没有别名，并且两个不同的 vectors 不能拥有相同的内存。
+        ptr::copy_nonoverlapping(src_ptr, dst_ptr, src_len);
+
+        // 通知 `dst` 现在包含 `src` 的内容。
+        dst.set_len(dst_len + src_len);
+    }
+}
+
+let mut a = vec!['r'];
+let mut b = vec!['u', 's', 't'];
+
+append(&amp;mut a, &amp;mut b);
+
+assert_eq!(a, &amp;['r', 'u', 's', 't']);
+assert!(b.is_empty());
+</code></pre><h2 id="source">source：</h2>
+<pre tabindex="0"><code>#[doc(alias = &quot;memcpy&quot;)]
+#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
+#[rustc_const_unstable(feature = &quot;const_intrinsic_copy&quot;, issue = &quot;80697&quot;)]
+#[inline]
+pub const unsafe fn copy_nonoverlapping&lt;T&gt;(src: *const T, dst: *mut T, count: usize) {
+    extern &quot;rust-intrinsic&quot; {
+        #[rustc_const_unstable(feature = &quot;const_intrinsic_copy&quot;, issue = &quot;80697&quot;)]
+        pub fn copy_nonoverlapping&lt;T&gt;(src: *const T, dst: *mut T, count: usize);
+    }
+
+    #[cfg(debug_assertions)]
+    fn runtime_check&lt;T&gt;(src: *const T, dst: *mut T, count: usize) {
+        if !is_aligned_and_not_null(src)
+            || !is_aligned_and_not_null(dst)
+            || !is_nonoverlapping(src, dst, count)
+        {
+            // 不要 panic，以保持代码生成的影响较小。
+            abort();
+        }
+    }
+    #[cfg(debug_assertions)]
+    const fn compiletime_check&lt;T&gt;(_src: *const T, _dst: *mut T, _count: usize) {}
+    #[cfg(debug_assertions)]
+    // SAFETY: 运行时调试断言是最好的努力基础； 在编译时不执行这些操作也没关系
+    //
+    unsafe {
+        const_eval_select((src, dst, count), compiletime_check, runtime_check);
+    }
+
+    // SAFETY: 调用者必须遵守 `copy_nonoverlapping` 的安全保证。
+    //
+    unsafe { copy_nonoverlapping(src, dst, count) }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/my-first-post/">博文总述</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

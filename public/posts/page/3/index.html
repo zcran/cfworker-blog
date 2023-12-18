@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/posts/" />
+
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-40/" class="link black dim">
+        Rust Note 40
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Fizz Buzz 给你一个整数 n ，找出从 1 到 n 各个整数的 Fizz Buzz 表示，并用字符串数组 answer（下标从 1 开始）返回结果，其中：
+answer[i] == &ldquo;FizzBuzz&rdquo; 如果 i 同时是 3 和 5 的倍数。 answer[i] == &ldquo;Fizz&rdquo; 如果 i 是 3 的倍数。 answer[i] == &ldquo;Buzz&rdquo; 如果 i 是 5 的倍数。 answer[i] == i （以字符串形式）如果上述条件全不满足。
+C 解法： class Solution { public: vector&lt;string&gt; fizzBuzz(int n) { vector&lt;string&gt; answer; for (int i = 1; i &lt;= n; i++) { string curr; if (i % 3 == 0) { curr　+= &quot;Fizz&quot;; } if (i % 5 == 0) { curr += &quot;Buzz&quot;; } if (curr.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-30/" class="link black dim">
+        Rust Note 30
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      二叉树的层序遍历 给你二叉树的根节点 root ，返回其节点值的 层序遍历 。 （即逐层地，从左到右访问所有节点）。
+C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) { vector &lt;vector &lt;int&gt;&gt; ret; if (!root) { return ret; } queue &lt;TreeNode*&gt; q; q.push(root); while (!q.empty()) { int currentLevelSize = q.size(); ret.push_back(vector &lt;int&gt; ()); for (int i = 1; i &lt;= currentLevelSize; ++i) { auto node = q.front(); q.pop(); ret.back().push_back(node-&gt;val); if (node-&gt;left) q.push(node-&gt;left); if (node-&gt;right) q.push(node-&gt;right); } } return ret; } }; Rust 解法： use std::rc::Rc; use std::cell::RefCell; impl Solution { pub fn level_order(root: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut q = vec!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-29/" class="link black dim">
+        Rust Note 29
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      对称二叉树 给你一个二叉树的根节点 root ， 检查它是否轴对称。
+C 解法：  // 递归 class Solution { public: bool check(TreeNode *p, TreeNode *q) { if (!p &amp;&amp; !q) return true; if (!p || !q) return false; return p-&gt;val == q-&gt;val &amp;&amp; check(p-&gt;left, q-&gt;right) &amp;&amp; check(p-&gt;right, q-&gt;left); } bool isSymmetric(TreeNode* root) { return check(root, root); } }; Rust 解法： use std::cell::RefCell; use std::rc::Rc; impl Solution { fn cmp(left: &amp;Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;, right: &amp;Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;) -&gt; bool { match (&amp;left, &amp;right) { (None, None) =&gt; true, (Some(left), Some(right)) =&gt; { left.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-28/" class="link black dim">
+        Rust Note 28
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      验证二叉搜索树 给你一个二叉树的根节点 root ，判断其是否是一个有效的二叉搜索树。
+有效 二叉搜索树定义如下：
+节点的左子树只包含 小于 当前节点的数。 节点的右子树只包含 大于 当前节点的数。 所有左子树和右子树自身必须也是二叉搜索树。
+C 解法： class Solution { public: bool isValidBST(TreeNode* root) { stack&lt;TreeNode*&gt; stack; long long inorder = (long long)INT_MIN - 1; while (!stack.empty() || root != nullptr) { while (root != nullptr) { stack.push(root); root = root -&gt; left; } root = stack.top(); stack.pop(); // 如果中序遍历得到的节点的值小于等于前一个 inorder，说明不是二叉搜索树 if (root -&gt; val &lt;= inorder) { return false; } inorder = root -&gt; val; root = root -&gt; right; } return true; } }; Rust 解法1： // Definition for a binary tree node.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-27/" class="link black dim">
+        Rust Note 27
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      二叉树的最大深度 给定一个二叉树，找出其最大深度。
+二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
+说明: 叶子节点是指没有子节点的节点。
+C 解法：  // 深度优先，递归 class Solution { public: int maxDepth(TreeNode* root) { if (root == nullptr) return 0; return max(maxDepth(root-&gt;left), maxDepth(root-&gt;right)) + 1; } }; Rust 解法： // Definition for a binary tree node. // #[derive(Debug, PartialEq, Eq)] // pub struct TreeNode { // pub val: i32, // pub left: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;, // pub right: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;, // } // // impl TreeNode { // #[inline] // pub fn new(val: i32) -&gt; Self { // TreeNode { // val, // left: None, // right: None // } // } // } use std::rc::Rc; use std::cell::RefCell; impl Solution { pub fn max_depth(root: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;) -&gt; i32 { Self::max_depth_traverse_impl(&amp;root, 1) } pub fn max_depth_traverse_impl(root: &amp;Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;, mut depth: i32) -&gt; i32 { use std::cmp::Ordering; if let Some(node) = root { let (left, right) = (node.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-26/" class="link black dim">
+        Rust Note 26
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      环形链表 给你一个链表的头节点 head ，判断链表中是否有环。
+如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。
+如果链表中存在环 ，则返回 true 。 否则，返回 false 。
+C 解法：  // 快慢指针，floyd判圈算法 class Solution { public: bool hasCycle(ListNode* head) { if (head == nullptr || head-&gt;next == nullptr) { return false; } ListNode* slow = head; ListNode* fast = head-&gt;next; while (slow != fast) { if (fast == nullptr || fast-&gt;next == nullptr) { return false; } slow = slow-&gt;next; fast = fast-&gt;next-&gt;next; } return true; } }; Rust 解法1：  // hash set use std::rc::Rc; use std::cell::RefCell; use std::collections::HashSet; struct ListNode{ val: i32, next: Option&lt;Rc&lt;RefCell&lt;ListNode&gt;&gt;&gt;, } impl ListNode{ pub fn new(val: i32) -&gt; ListNode { ListNode { val, next: None, } } } pub fn has_cycle(head: Option&lt;Rc&lt;RefCell&lt;ListNode&gt;&gt;&gt;) -&gt; bool { let mut set = HashSet::new(); let mut h = match head { Some(ref node) =&gt; Rc::clone(node), _ =&gt; return false, }; loop { if set.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-25/" class="link black dim">
+        Rust Note 25
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      回文链表 给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
+C 解法： class Solution { public: bool isPalindrome(ListNode* head) { vector&lt;int&gt; vals; while (head != nullptr) { vals.emplace_back(head-&gt;val); head = head-&gt;next; } for (int i = 0, j = (int)vals.size() - 1; i &lt; j; ++i, --j) { if (vals[i] != vals[j]) { return false; } } return true; } }; Rust 解法： // Definition for singly-linked list. // #[derive(PartialEq, Eq, Clone, Debug)] // pub struct ListNode { // pub val: i32, // pub next: Option&lt;Box&lt;ListNode&gt;&gt; // } // // impl ListNode { // #[inline] // fn new(val: i32) -&gt; Self { // ListNode { // next: None, // val // } // } // } impl Solution { pub fn is_palindrome(head: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; bool { if head == None { return false; } let mut vec = Vec::new(); let mut current = head; while let Some(mut tmp) = current.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-24/" class="link black dim">
+        Rust Note 24
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      合并两个有序链表 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+C 解法： class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { ListNode* preHead = new ListNode(-1); ListNode* prev = preHead; while (l1 != nullptr &amp;&amp; l2 != nullptr) { if (l1-&gt;val &lt; l2-&gt;val) { prev-&gt;next = l1; l1 = l1-&gt;next; } else { prev-&gt;next = l2; l2 = l2-&gt;next; } prev = prev-&gt;next; } // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可 prev-&gt;next = l1 == nullptr ?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-23/" class="link black dim">
+        Rust Note 23
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      反转链表 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+C 解法： class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* prev = nullptr; ListNode* curr = head; while (curr) { ListNode* next = curr-&gt;next; curr-&gt;next = prev; prev = curr; curr = next; } return prev; } }; Rust 解法： impl Solution { pub fn reverse_list(head: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; Option&lt;Box&lt;ListNode&gt;&gt; { let mut pre = None; let mut head = head; while let Some(mut node) = head { head = node.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-22/" class="link black dim">
+        Rust Note 22
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      删除链表的倒数第N个节点 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+Java 解法：  // 回溯后序遍历 public ListNode removeNthFromEnd(ListNode head, int n) { int traverse = traverse(head, n); if(traverse == n) return head.next; return head; } private int traverse(ListNode node, int n) { if(node == null) return 0; int num = traverse(node.next, n); if(num == n) node.next = node.next.next; return num + 1; } Rust 解法：  // 快慢指针法 // Definition for singly-linked list. // #[derive(PartialEq, Eq, Clone, Debug)] // pub struct ListNode { // pub val: i32, // pub next: Option&lt;Box&lt;ListNode&gt;&gt; // } // // impl ListNode { // #[inline] // fn new(val: i32) -&gt; Self { // ListNode { // next: None, // val // } // } // } impl Solution { pub fn remove_nth_from_end(head: Option&lt;Box&lt;ListNode&gt;&gt;, n: i32) -&gt; Option&lt;Box&lt;ListNode&gt;&gt; { let mut dummy = Some(Box::new(ListNode{val: 0, next: head})); let mut slow_p = &amp;mut dummy; let mut fast_p = &amp;slow_p.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

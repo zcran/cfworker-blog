@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/posts/" />
+
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/" class="link black dim">
+        Leetcode 拒绝采样2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在圆内随机生成点 给定圆的半径和圆心的位置，实现函数 randPoint ，在圆中产生均匀随机点。
+实现 Solution 类:
+Solution(double radius, double x_center, double y_center) 用圆的半径 radius 和圆心的位置 (x_center, y_center) 初始化对象 randPoint() 返回圆内的一个随机点。圆周上的一点被认为在圆内。答案作为数组返回 [x, y] 。
+struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;mut self` instead. */ impl Solution { fn new(radius: f64, x_center: f64, y_center: f64) -&gt; Self { Solution { radius, x_center, y_center } } fn rand_point(&amp;self) -&gt; Vec&lt;f64&gt; { use rand::{Rng, thread_rng}; use std::f64::consts::PI; let mut rng = thread_rng(); let (len, deg) = (rng.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/" class="link black dim">
+        Leetcode 拒绝采样1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      用rand7()实现rand10() 给定方法 rand7 可生成 [1,7] 范围内的均匀随机整数，试写一个方法 rand10 生成 [1,10] 范围内的均匀随机整数。
+你只能调用 rand7() 且不能调用其他方法。请不要使用系统的 Math.random() 方法。
+每个测试用例将有一个内部参数 n，即你实现的函数 rand10() 在测试时将被调用的次数。请注意，这不是传递给 rand10() 的参数。
+impl Solution { pub fn rand10() -&gt; i32 { let mut x = std::i32::MAX; while x &gt; 40 { x = 7 * (rand7() -1) + rand7(); } return x%10+1; } } 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-45/" class="link black dim">
+        Rust Note 45
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
+给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
+C 解法1： class Solution { public: int hammingDistance(int x, int y) { return __builtin_popcount(x ^ y); } }; C解法2: // Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数 class Solution { public: int hammingDistance(int x, int y) { int s = x ^ y, ret = 0; while (s) { s &amp;= s - 1; ret++; } return ret; } }; Rust 解法： impl Solution { pub fn hamming_distance(x: i32, y: i32) -&gt; i32 { (x ^ y).
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-46/" class="link black dim">
+        Rust Note 46
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      颠倒二进制位 颠倒给定的 32 位无符号整数的二进制位。
+提示：
+请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。 在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在 示例 2 中，输入表示有符号整数 -3，输出表示有符号整数 -1073741825。
+C 解法1： // 逐位颠倒，n(logn) class Solution { public: uint32_t reverseBits(uint32_t n) { uint32_t rev = 0; for (int i = 0; i &lt; 32 &amp;&amp; n &gt; 0; ++i) { rev |= (n &amp; 1) &lt;&lt; (31 - i); n &gt;&gt;= 1; } return rev; } }; C解法2:  // 分治 class Solution { private: const uint32_t M1 = 0x55555555; // 01010101010101010101010101010101 const uint32_t M2 = 0x33333333; // 00110011001100110011001100110011 const uint32_t M4 = 0x0f0f0f0f; // 00001111000011110000111100001111 const uint32_t M8 = 0x00ff00ff; // 00000000111111110000000011111111 public: uint32_t reverseBits(uint32_t n) { n = n &gt;&gt; 1 &amp; M1 | (n &amp; M1) &lt;&lt; 1; n = n &gt;&gt; 2 &amp; M2 | (n &amp; M2) &lt;&lt; 2; n = n &gt;&gt; 4 &amp; M4 | (n &amp; M4) &lt;&lt; 4; n = n &gt;&gt; 8 &amp; M8 | (n &amp; M8) &lt;&lt; 8; return n &gt;&gt; 16 | n &lt;&lt; 16; } }; Rust 解法： impl Solution { pub fn reverse_bits(mut x: u32) -&gt; u32 { (0.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-47/" class="link black dim">
+        Rust Note 47
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      杨辉三角 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行。
+在「杨辉三角」中，每个数是它左上方和右上方的数的和。
+C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; generate(int numRows) { vector&lt;vector&lt;int&gt;&gt; ret(numRows); for (int i = 0; i &lt; numRows; ++i) { ret[i].resize(i + 1); ret[i][0] = ret[i][i] = 1; for (int j = 1; j &lt; i; ++j) { ret[i][j] = ret[i - 1][j] + ret[i - 1][j - 1]; } } return ret; } }; Rust 解法： impl Solution { pub fn makevec(number: i32) -&gt; Vec&lt;i32&gt; { let mut r = vec!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-48/" class="link black dim">
+        Rust Note 48
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      有效的括号 给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo; 的字符串 s ，判断字符串是否有效。
+有效字符串需满足：
+左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。
+C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&lt;char, char&gt; pairs = { {')', '('}, {']', '['}, {'}', '{'} }; stack&lt;char&gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-49/" class="link black dim">
+        Rust Note 49
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      缺失数字 给定一个包含 [0, n] 中 n 个数的数组 nums ，找出 [0, n] 这个范围内没有出现在数组中的那个数。
+C 解法：  // 位运算 class Solution { public: int missingNumber(vector&lt;int&gt;&amp; nums) { int res = 0; int n = nums.size(); for (int i = 0; i &lt; n; i++) { res ^= nums[i]; } for (int i = 0; i &lt;= n; i++) { res ^= i; } return res; } }; Rust 解法： impl Solution { pub fn missing_number(nums: Vec&lt;i32&gt;) -&gt; i32 { [nums.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-41/" class="link black dim">
+        Rust Note 41
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      计数质数 给定整数 n ，返回 所有小于非负整数 n 的质数的数量 。
+C 解法： 解题思路：欧拉筛【时间复杂度O(nlgnlgn)】
+埃氏筛 假定我们要求100以内的质数，我们从2开始遍历。 遍历到2,2是质数，于是我们把2的所有倍数全部删除，比如4、6、8、10&hellip;&hellip; 遍历到3,3是质数，于是我们把3的所有倍数全都删除，比如6、9、12、15&hellip;&hellip; 遍历到4,4是合数已经删除,继续遍历，以此类推即可找到范围内所有的素数 欧拉筛 欧拉筛是埃氏筛的改进版本，由于某些合数会有很多质因数，因此在删除的过程中会重复的删除，比如6，遍历到2时会进行删除，遍历到3时也会进行删除，所以为了避免这样的开销，欧拉筛将筛选出来的质数进行记录，在删除的过程中，只通过数的最小质因数筛数。 0、1既不是质数，也不是合数。 一个数，如果只有1和它本身两个约数，这样的数叫质数或素数。一个数，如果除了1和它本身还有别的约数，这样的数叫合数。而0的约数只有0，所以既不是质数又不是合数。如果1是质数，那就要有两个因数：1=1×1；如果1是合数，那就要有三个及以上的因数：1×1×1×1……化简之后就是1=1，只有一个因数，因此，1既不是质数也不是合数。 
+ // 枚举 class Solution { public: bool isPrime(int x) { for (int i = 2; i * i &lt;= x; ++i) { if (x % i == 0) { return false; } } return true; } int countPrimes(int n) { int ans = 0; for (int i = 2; i &lt; n; ++i) { ans += isPrime(i); } return ans; } }; Rust 解法： impl Solution { pub fn count_primes(n: i32) -&gt; i32 { if n &lt;= 2 { return 0; } let n = n as usize; let mut record = vec!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-42/" class="link black dim">
+        Rust Note 42
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      3的幂 给定一个整数，写一个函数来判断它是否是 3 的幂次方。如果是，返回 true ；否则，返回 false 。
+整数 n 是 3 的幂次方需满足：存在整数 x 使得 n == 3^x
+C 解法：  // 在题目给定的32位有符号整数的范围内，最大的3的幂为 3^19 =1162261467。我们只需要判断n是否是3的约数即可。 class Solution { public: bool isPowerOfThree(int n) { return n &gt; 0 &amp;&amp; 1162261467 % n == 0; } }; Rust 解法： impl Solution { pub fn is_power_of_three(n: i32) -&gt; bool { if n == 1 { return true; } if n &lt; 3 || n % 3 !
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rust-note-43/" class="link black dim">
+        Rust Note 43
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      罗马数字转整数 罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
+字符 数值 I 1 V 5 X 10 L 50 C 100 D 500 M 1000 例如， 罗马数字 2 写做 II ，即为两个并列的 1 。12 写做 XII ，即为 X + II 。 27 写做 XXVII, 即为 XX + V + II 。
+通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：
+I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。 X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。 给定一个罗马数字，将其转换成整数。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

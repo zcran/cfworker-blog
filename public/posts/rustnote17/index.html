@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 17 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="字符串转换整数 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C&#43;&#43; 中的 atoi 函数）。
+函数 myAtoi(string s) 的算法如下：
+读入字符串并丢弃无用的前导空格 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。 读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。 将前面步骤读入的这些数字转换为整数（即，&ldquo;123&rdquo; -&gt; 123， &ldquo;0032&rdquo; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。 如果整数数超过 32 位有符号整数范围 [−231, 231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。 返回整数作为最终结果。 注意：
+本题中的空白字符只包括空格字符 &#39; &#39; 。 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+C 解法：  // 自动机 class Automaton { string state = &quot;start&quot;; unordered_map&lt;string, vector&lt;string&gt;&gt; table = { {&quot;start&quot;, {&quot;start&quot;, &quot;signed&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;signed&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;in_number&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;end&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;end&quot;, &quot;end&quot;}} }; int get_col(char c) { if (isspace(c)) return 0; if (c == &#39;&#43;&#39; or c == &#39;-&#39;) return 1; if (isdigit(c)) return 2; return 3; } public: int sign = 1; long long ans = 0; void get(char c) { state = table[state][get_col(c)]; if (state == &quot;in_number&quot;) { ans = ans * 10 &#43; c - &#39;0&#39;; ans = sign == 1 ?">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 17" />
+<meta property="og:description" content="字符串转换整数 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C&#43;&#43; 中的 atoi 函数）。
+函数 myAtoi(string s) 的算法如下：
+读入字符串并丢弃无用的前导空格 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。 读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。 将前面步骤读入的这些数字转换为整数（即，&ldquo;123&rdquo; -&gt; 123， &ldquo;0032&rdquo; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。 如果整数数超过 32 位有符号整数范围 [−231, 231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。 返回整数作为最终结果。 注意：
+本题中的空白字符只包括空格字符 &#39; &#39; 。 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+C 解法：  // 自动机 class Automaton { string state = &quot;start&quot;; unordered_map&lt;string, vector&lt;string&gt;&gt; table = { {&quot;start&quot;, {&quot;start&quot;, &quot;signed&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;signed&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;in_number&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;end&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;end&quot;, &quot;end&quot;}} }; int get_col(char c) { if (isspace(c)) return 0; if (c == &#39;&#43;&#39; or c == &#39;-&#39;) return 1; if (isdigit(c)) return 2; return 3; } public: int sign = 1; long long ans = 0; void get(char c) { state = table[state][get_col(c)]; if (state == &quot;in_number&quot;) { ans = ans * 10 &#43; c - &#39;0&#39;; ans = sign == 1 ?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rustnote17/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
+<meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
+
+<meta itemprop="name" content="Rust Note 17">
+<meta itemprop="description" content="字符串转换整数 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C&#43;&#43; 中的 atoi 函数）。
+函数 myAtoi(string s) 的算法如下：
+读入字符串并丢弃无用的前导空格 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。 读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。 将前面步骤读入的这些数字转换为整数（即，&ldquo;123&rdquo; -&gt; 123， &ldquo;0032&rdquo; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。 如果整数数超过 32 位有符号整数范围 [−231, 231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。 返回整数作为最终结果。 注意：
+本题中的空白字符只包括空格字符 &#39; &#39; 。 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+C 解法：  // 自动机 class Automaton { string state = &quot;start&quot;; unordered_map&lt;string, vector&lt;string&gt;&gt; table = { {&quot;start&quot;, {&quot;start&quot;, &quot;signed&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;signed&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;in_number&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;end&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;end&quot;, &quot;end&quot;}} }; int get_col(char c) { if (isspace(c)) return 0; if (c == &#39;&#43;&#39; or c == &#39;-&#39;) return 1; if (isdigit(c)) return 2; return 3; } public: int sign = 1; long long ans = 0; void get(char c) { state = table[state][get_col(c)]; if (state == &quot;in_number&quot;) { ans = ans * 10 &#43; c - &#39;0&#39;; ans = sign == 1 ?"><meta itemprop="datePublished" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="dateModified" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="wordCount" content="351">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 17"/>
+<meta name="twitter:description" content="字符串转换整数 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C&#43;&#43; 中的 atoi 函数）。
+函数 myAtoi(string s) 的算法如下：
+读入字符串并丢弃无用的前导空格 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。 读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。 将前面步骤读入的这些数字转换为整数（即，&ldquo;123&rdquo; -&gt; 123， &ldquo;0032&rdquo; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。 如果整数数超过 32 位有符号整数范围 [−231, 231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。 返回整数作为最终结果。 注意：
+本题中的空白字符只包括空格字符 &#39; &#39; 。 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+C 解法：  // 自动机 class Automaton { string state = &quot;start&quot;; unordered_map&lt;string, vector&lt;string&gt;&gt; table = { {&quot;start&quot;, {&quot;start&quot;, &quot;signed&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;signed&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;in_number&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}}, {&quot;end&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;end&quot;, &quot;end&quot;}} }; int get_col(char c) { if (isspace(c)) return 0; if (c == &#39;&#43;&#39; or c == &#39;-&#39;) return 1; if (isdigit(c)) return 2; return 3; } public: int sign = 1; long long ans = 0; void get(char c) { state = table[state][get_col(c)]; if (state == &quot;in_number&quot;) { ans = ans * 10 &#43; c - &#39;0&#39;; ans = sign == 1 ?"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 17</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-22T20:28:46+08:00">May 22, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="字符串转换整数">字符串转换整数</h2>
+<p>请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。</p>
+<p>函数 myAtoi(string s) 的算法如下：</p>
+<p>读入字符串并丢弃无用的前导空格
+检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。
+读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。
+将前面步骤读入的这些数字转换为整数（即，&ldquo;123&rdquo; -&gt; 123， &ldquo;0032&rdquo; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。
+如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。
+返回整数作为最终结果。
+注意：</p>
+<p>本题中的空白字符只包括空格字符 ' ' 。
+除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。</p>
+<h3 id="c-解法">C 解法：</h3>
+<pre tabindex="0"><code> // 自动机
+class Automaton {
+    string state = &quot;start&quot;;
+    unordered_map&lt;string, vector&lt;string&gt;&gt; table = {
+        {&quot;start&quot;, {&quot;start&quot;, &quot;signed&quot;, &quot;in_number&quot;, &quot;end&quot;}},
+        {&quot;signed&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}},
+        {&quot;in_number&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;in_number&quot;, &quot;end&quot;}},
+        {&quot;end&quot;, {&quot;end&quot;, &quot;end&quot;, &quot;end&quot;, &quot;end&quot;}}
+    };
+
+    int get_col(char c) {
+        if (isspace(c)) return 0;
+        if (c == '+' or c == '-') return 1;
+        if (isdigit(c)) return 2;
+        return 3;
+    }
+public:
+    int sign = 1;
+    long long ans = 0;
+
+    void get(char c) {
+        state = table[state][get_col(c)];
+        if (state == &quot;in_number&quot;) {
+            ans = ans * 10 + c - '0';
+            ans = sign == 1 ? min(ans, (long long)INT_MAX) : min(ans, -(long long)INT_MIN);
+        }
+        else if (state == &quot;signed&quot;)
+            sign = c == '+' ? 1 : -1;
+    }
+};
+
+class Solution {
+public:
+    int myAtoi(string str) {
+        Automaton automaton;
+        for (char c : str)
+            automaton.get(c);
+        return automaton.sign * automaton.ans;
+    }
+};
+</code></pre><h3 id="rust-解法">Rust 解法：</h3>
+<pre tabindex="0"><code>impl Solution {
+    pub fn my_atoi(s: String) -&gt; i32 {
+        let s = s.trim_start();
+        let mut num = 0;
+        let mut sign = 1;
+        
+        for (i, b) in s.bytes().enumerate() {
+            if i == 0 {
+                sign = match b {
+                    b'+'  =&gt; 1,
+                    b'-' =&gt; -1,
+                    b'0'..=b'9' =&gt; {
+                        num = (b - b'0') as i32;
+                        1
+                    }
+                    _ =&gt; return 0,
+                };
+            } 
+            else {
+                match b {
+                    b'0'..=b'9' =&gt; {
+                        num = match num.checked_mul(10) {
+                            Some(val) =&gt; val,
+                            None =&gt; {
+                                match sign == 1 {
+                                    true =&gt; return i32::MAX,
+                                    false =&gt; return i32::MIN,
+                                }
+                            }
+                        };
+
+                        let v = (b - b'0') as i32 * sign;
+                        num = match num.checked_add(v) {
+                            Some(val) =&gt; val,
+                            None =&gt; {
+                                match sign == 1 {
+                                    true =&gt; return i32::MAX,
+                                    false =&gt; return i32::MIN,
+                                }
+                            }
+                        };
+                    }
+                    _ =&gt; break,
+                }
+            }
+        }
+
+        num
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rustnote11/">Rust Note 11</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote12/">Rust Note 12</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote13/">Rust Note 13</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote14/">Rust Note 14</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote15/">Rust Note 15</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote16/">Rust Note 16</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote18/">Rust Note 18</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote19/">Rust Note 19</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote20/">Rust Note 20</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote10/">Rust Note 10</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote09/">Rust Note 09</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote08/">Rust Note 08</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote07/">Rust Note 07</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote06/">Rust Note 06</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote05/">Rust Note 05</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

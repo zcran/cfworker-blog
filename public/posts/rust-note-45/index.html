@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 45 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
+给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
+C 解法1： class Solution { public: int hammingDistance(int x, int y) { return __builtin_popcount(x ^ y); } }; C解法2: // Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数 class Solution { public: int hammingDistance(int x, int y) { int s = x ^ y, ret = 0; while (s) { s &amp;= s - 1; ret&#43;&#43;; } return ret; } }; Rust 解法： impl Solution { pub fn hamming_distance(x: i32, y: i32) -&gt; i32 { (x ^ y).">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 45" />
+<meta property="og:description" content="汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
+给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
+C 解法1： class Solution { public: int hammingDistance(int x, int y) { return __builtin_popcount(x ^ y); } }; C解法2: // Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数 class Solution { public: int hammingDistance(int x, int y) { int s = x ^ y, ret = 0; while (s) { s &amp;= s - 1; ret&#43;&#43;; } return ret; } }; Rust 解法： impl Solution { pub fn hamming_distance(x: i32, y: i32) -&gt; i32 { (x ^ y)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rust-note-45/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-12T10:35:06+08:00" />
+<meta property="article:modified_time" content="2023-06-12T10:35:06+08:00" />
+
+<meta itemprop="name" content="Rust Note 45">
+<meta itemprop="description" content="汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
+给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
+C 解法1： class Solution { public: int hammingDistance(int x, int y) { return __builtin_popcount(x ^ y); } }; C解法2: // Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数 class Solution { public: int hammingDistance(int x, int y) { int s = x ^ y, ret = 0; while (s) { s &amp;= s - 1; ret&#43;&#43;; } return ret; } }; Rust 解法： impl Solution { pub fn hamming_distance(x: i32, y: i32) -&gt; i32 { (x ^ y)."><meta itemprop="datePublished" content="2023-06-12T10:35:06+08:00" />
+<meta itemprop="dateModified" content="2023-06-12T10:35:06+08:00" />
+<meta itemprop="wordCount" content="85">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 45"/>
+<meta name="twitter:description" content="汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
+给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
+C 解法1： class Solution { public: int hammingDistance(int x, int y) { return __builtin_popcount(x ^ y); } }; C解法2: // Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数 class Solution { public: int hammingDistance(int x, int y) { int s = x ^ y, ret = 0; while (s) { s &amp;= s - 1; ret&#43;&#43;; } return ret; } }; Rust 解法： impl Solution { pub fn hamming_distance(x: i32, y: i32) -&gt; i32 { (x ^ y)."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 45</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-06-12T10:35:06+08:00">June 12, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="汉明距离">汉明距离</h2>
+<p>两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。</p>
+<p>给你两个整数 x 和 y，计算并返回它们之间的汉明距离。</p>
+<h3 id="c-解法1">C 解法1：</h3>
+<pre tabindex="0"><code>class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        return __builtin_popcount(x ^ y);
+    }
+};
+</code></pre><h3 id="c解法2">C解法2:</h3>
+<pre tabindex="0"><code>// Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        int s = x ^ y, ret = 0;
+        while (s) {
+            s &amp;= s - 1;
+            ret++;
+        }
+        return ret;
+    }
+};
+</code></pre><h3 id="rust-解法">Rust 解法：</h3>
+<pre tabindex="0"><code>impl Solution {
+    pub fn hamming_distance(x: i32, y: i32) -&gt; i32 {
+        (x ^ y).count_ones() as i32     
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rust-note-46/">Rust Note 46</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-47/">Rust Note 47</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-48/">Rust Note 48</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-49/">Rust Note 49</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-41/">Rust Note 41</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-42/">Rust Note 42</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-43/">Rust Note 43</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-44/">Rust Note 44</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-31/">Rust Note 31</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-32/">Rust Note 32</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-33/">Rust Note 33</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-34/">Rust Note 34</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-35/">Rust Note 35</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-36/">Rust Note 36</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-37/">Rust Note 37</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

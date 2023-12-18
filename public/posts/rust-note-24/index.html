@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 24 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="合并两个有序链表 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+C 解法： class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { ListNode* preHead = new ListNode(-1); ListNode* prev = preHead; while (l1 != nullptr &amp;&amp; l2 != nullptr) { if (l1-&gt;val &lt; l2-&gt;val) { prev-&gt;next = l1; l1 = l1-&gt;next; } else { prev-&gt;next = l2; l2 = l2-&gt;next; } prev = prev-&gt;next; } // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可 prev-&gt;next = l1 == nullptr ?">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 24" />
+<meta property="og:description" content="合并两个有序链表 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+C 解法： class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { ListNode* preHead = new ListNode(-1); ListNode* prev = preHead; while (l1 != nullptr &amp;&amp; l2 != nullptr) { if (l1-&gt;val &lt; l2-&gt;val) { prev-&gt;next = l1; l1 = l1-&gt;next; } else { prev-&gt;next = l2; l2 = l2-&gt;next; } prev = prev-&gt;next; } // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可 prev-&gt;next = l1 == nullptr ?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rust-note-24/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-04T21:15:40+08:00" />
+<meta property="article:modified_time" content="2023-06-04T21:15:40+08:00" />
+
+<meta itemprop="name" content="Rust Note 24">
+<meta itemprop="description" content="合并两个有序链表 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+C 解法： class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { ListNode* preHead = new ListNode(-1); ListNode* prev = preHead; while (l1 != nullptr &amp;&amp; l2 != nullptr) { if (l1-&gt;val &lt; l2-&gt;val) { prev-&gt;next = l1; l1 = l1-&gt;next; } else { prev-&gt;next = l2; l2 = l2-&gt;next; } prev = prev-&gt;next; } // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可 prev-&gt;next = l1 == nullptr ?"><meta itemprop="datePublished" content="2023-06-04T21:15:40+08:00" />
+<meta itemprop="dateModified" content="2023-06-04T21:15:40+08:00" />
+<meta itemprop="wordCount" content="218">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 24"/>
+<meta name="twitter:description" content="合并两个有序链表 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+C 解法： class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { ListNode* preHead = new ListNode(-1); ListNode* prev = preHead; while (l1 != nullptr &amp;&amp; l2 != nullptr) { if (l1-&gt;val &lt; l2-&gt;val) { prev-&gt;next = l1; l1 = l1-&gt;next; } else { prev-&gt;next = l2; l2 = l2-&gt;next; } prev = prev-&gt;next; } // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可 prev-&gt;next = l1 == nullptr ?"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 24</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-06-04T21:15:40+08:00">June 4, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="合并两个有序链表">合并两个有序链表</h2>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
+<h3 id="c-解法">C 解法：</h3>
+<pre tabindex="0"><code>class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        ListNode* preHead = new ListNode(-1);
+
+        ListNode* prev = preHead;
+        while (l1 != nullptr &amp;&amp; l2 != nullptr) {
+            if (l1-&gt;val &lt; l2-&gt;val) {
+                prev-&gt;next = l1;
+                l1 = l1-&gt;next;
+            } else {
+                prev-&gt;next = l2;
+                l2 = l2-&gt;next;
+            }
+            prev = prev-&gt;next;
+        }
+
+        // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可
+        prev-&gt;next = l1 == nullptr ? l2 : l1;
+
+        return preHead-&gt;next;
+    }
+};
+</code></pre><h3 id="rust-解法">Rust 解法：</h3>
+<pre tabindex="0"><code>// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option&lt;Box&lt;ListNode&gt;&gt;
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -&gt; Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_two_lists(mut list1: Option&lt;Box&lt;ListNode&gt;&gt;, mut list2: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; Option&lt;Box&lt;ListNode&gt;&gt; {
+        let mut dummy = ListNode::new(-1);
+        let mut cur = &amp;mut dummy;
+        while let (Some(l1), Some(l2)) = (list1.as_ref(), list2.as_ref()) {
+            let l = if l1.val &lt;= l2.val { &amp;mut list1 } else { &amp;mut list2 };
+            cur.next = l.take();
+            cur = cur.next.as_mut().unwrap();
+            *l = cur.next.take();
+        }
+        cur.next = list1.or(list2);
+        dummy.next
+    }
+}
+</code></pre><p>一下是chatgpt的解释：</p>
+<pre tabindex="0"><code>这是一个 Rust 语言实现的合并两个有序链表的函数。函数接收两个参数，分别是两个有序链表的头节点。函数返回合并后的有序链表的头节点。
+
+函数的实现过程如下：
+
+1.创建一个虚拟节点(dummy)，方便操作合并后的链表。
+
+2.创建一个可变引用(cur)指向虚拟节点，用于遍历合并后的链表。
+
+3.进入循环，当两个链表都非空时，比较两个链表头节点的值，将较小的节点接到当前节点(cur)的后面，同时移动指针。
+
+4.如果有一个链表为空，直接将另一个链表接到当前节点(cur)的后面。
+
+5.返回虚拟节点(dummy)的下一个节点，即为合并后的链表的头节点。
+
+该函数的实现采用了 Rust 中比较常用的 Option 和 Box 类型，其中 Option 表示某个值可能为空，Box 表示在堆上分配内存的智能指针。函数的实现方法比较巧妙，通过引用和取值操作避免了不必要的内存分配和数据复制。
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rust-note-23/">Rust Note 23</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-22/">Rust Note 22</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-21/">Rust Note 21</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote11/">Rust Note 11</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote12/">Rust Note 12</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote13/">Rust Note 13</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote14/">Rust Note 14</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote15/">Rust Note 15</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote16/">Rust Note 16</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote17/">Rust Note 17</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote18/">Rust Note 18</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote19/">Rust Note 19</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote20/">Rust Note 20</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote10/">Rust Note 10</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote09/">Rust Note 09</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,7 @@
+name = "hugo"
+usage_model = 'bundled'
+compatibility_flags = []
+workers_dev = true
+main = "workers-site/index.js"
+site = { bucket = "./public" }
+compatibility_date = "2023-05-18"

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 16 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="验证回文串 如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。
+字母和数字都属于字母数字字符。
+给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
+C 解法： class Solution { public: bool isPalindrome(string s) { int n = s.size(); int left = 0, right = n - 1; while (left &lt; right) { while (left &lt; right &amp;&amp; !isalnum(s[left])) { &#43;&#43;left; } while (left &lt; right &amp;&amp; !isalnum(s[right])) { --right; } if (left &lt; right) { if (tolower(s[left]) != tolower(s[right])) { return false; } &#43;&#43;left; --right; } } return true; } }; Rust 解法： impl Solution { pub fn is_palindrome(s: String) -&gt; bool { let s = s .">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 16" />
+<meta property="og:description" content="验证回文串 如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。
+字母和数字都属于字母数字字符。
+给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
+C 解法： class Solution { public: bool isPalindrome(string s) { int n = s.size(); int left = 0, right = n - 1; while (left &lt; right) { while (left &lt; right &amp;&amp; !isalnum(s[left])) { &#43;&#43;left; } while (left &lt; right &amp;&amp; !isalnum(s[right])) { --right; } if (left &lt; right) { if (tolower(s[left]) != tolower(s[right])) { return false; } &#43;&#43;left; --right; } } return true; } }; Rust 解法： impl Solution { pub fn is_palindrome(s: String) -&gt; bool { let s = s ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rustnote16/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
+<meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
+
+<meta itemprop="name" content="Rust Note 16">
+<meta itemprop="description" content="验证回文串 如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。
+字母和数字都属于字母数字字符。
+给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
+C 解法： class Solution { public: bool isPalindrome(string s) { int n = s.size(); int left = 0, right = n - 1; while (left &lt; right) { while (left &lt; right &amp;&amp; !isalnum(s[left])) { &#43;&#43;left; } while (left &lt; right &amp;&amp; !isalnum(s[right])) { --right; } if (left &lt; right) { if (tolower(s[left]) != tolower(s[right])) { return false; } &#43;&#43;left; --right; } } return true; } }; Rust 解法： impl Solution { pub fn is_palindrome(s: String) -&gt; bool { let s = s ."><meta itemprop="datePublished" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="dateModified" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="wordCount" content="189">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 16"/>
+<meta name="twitter:description" content="验证回文串 如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。
+字母和数字都属于字母数字字符。
+给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
+C 解法： class Solution { public: bool isPalindrome(string s) { int n = s.size(); int left = 0, right = n - 1; while (left &lt; right) { while (left &lt; right &amp;&amp; !isalnum(s[left])) { &#43;&#43;left; } while (left &lt; right &amp;&amp; !isalnum(s[right])) { --right; } if (left &lt; right) { if (tolower(s[left]) != tolower(s[right])) { return false; } &#43;&#43;left; --right; } } return true; } }; Rust 解法： impl Solution { pub fn is_palindrome(s: String) -&gt; bool { let s = s ."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 16</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-22T20:28:46+08:00">May 22, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="验证回文串">验证回文串</h2>
+<p>如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。</p>
+<p>字母和数字都属于字母数字字符。</p>
+<p>给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。</p>
+<h3 id="c-解法">C 解法：</h3>
+<pre tabindex="0"><code>class Solution {
+public:
+    bool isPalindrome(string s) {
+        int n = s.size();
+        int left = 0, right = n - 1;
+        while (left &lt; right) {
+            while (left &lt; right &amp;&amp; !isalnum(s[left])) {
+                ++left;
+            }
+            while (left &lt; right &amp;&amp; !isalnum(s[right])) {
+                --right;
+            }
+            if (left &lt; right) {
+                if (tolower(s[left]) != tolower(s[right])) {
+                    return false;
+                }
+                ++left;
+                --right;
+            }
+        }
+        return true;
+    }
+};
+</code></pre><h3 id="rust-解法">Rust 解法：</h3>
+<pre tabindex="0"><code>impl Solution {
+    pub fn is_palindrome(s: String) -&gt; bool {
+        let s = s
+            .chars()
+            .filter(|c| c.is_ascii_alphabetic() || c.is_ascii_digit())
+            .map(|c| c.to_ascii_lowercase())
+            .collect::&lt;Vec&lt;_&gt;&gt;();
+        (0..s.len() / 2).all(|i| s[i] == s[s.len() - 1 - i])
+    }
+}
+</code></pre><h3 id="rust-all函数">Rust all()函数</h3>
+<p>fn all<!-- raw HTML omitted -->(&amp;mut self, f: F) -&gt; bool
+where
+F: FnMut(Self::Item) -&gt; bool,
+测试迭代器的每个元素是否与谓词匹配。</p>
+<p>all() 接受一个返回 true 或 false 的闭包。它将这个闭包应用于迭代器的每个元素，如果它们都返回 true，那么 all() 也返回。 如果它们中的任何一个返回 false，则返回 false。</p>
+<p>all() 是短路的； 换句话说，它一旦找到 false 就会停止处理，因为无论发生什么，结果也将是 false。</p>
+<p>空的迭代器将返回 true。</p>
+<p>Examples：</p>
+<pre tabindex="0"><code>let a = [1, 2, 3];
+assert!(a.iter().all(|&amp;x| x &gt; 0));
+assert!(!a.iter().all(|&amp;x| x &gt; 2));
+</code></pre><p>在第一个 false 处停止：</p>
+<pre tabindex="0"><code>let a = [1, 2, 3];
+let mut iter = a.iter();
+assert!(!iter.all(|&amp;x| x != 2));
+// 我们仍然可以使用 `iter`，因为还有更多元素。
+assert_eq!(iter.next(), Some(&amp;3));
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rustnote11/">Rust Note 11</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote12/">Rust Note 12</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote13/">Rust Note 13</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote14/">Rust Note 14</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote15/">Rust Note 15</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote17/">Rust Note 17</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote18/">Rust Note 18</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote19/">Rust Note 19</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote20/">Rust Note 20</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote10/">Rust Note 10</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote09/">Rust Note 09</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote08/">Rust Note 08</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote07/">Rust Note 07</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote06/">Rust Note 06</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote05/">Rust Note 05</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

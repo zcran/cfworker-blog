@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 09 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+C 解法： int* twoSum(int* nums, int numsSize, int target, int* returnSize) { for (int i = 0; i &lt; numsSize; &#43;&#43;i) { for (int j = i &#43; 1; j &lt; numsSize; &#43;&#43;j) { if (nums[i] &#43; nums[j] == target) { int* ret = malloc(sizeof(int) * 2); ret[0] = i, ret[1] = j; *returnSize = 2; return ret; } } } *returnSize = 0; return NULL; } Rust 解法： use std::collections::HashMap; impl Solution { pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); for (i,val) in nums.">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 09" />
+<meta property="og:description" content="两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+C 解法： int* twoSum(int* nums, int numsSize, int target, int* returnSize) { for (int i = 0; i &lt; numsSize; &#43;&#43;i) { for (int j = i &#43; 1; j &lt; numsSize; &#43;&#43;j) { if (nums[i] &#43; nums[j] == target) { int* ret = malloc(sizeof(int) * 2); ret[0] = i, ret[1] = j; *returnSize = 2; return ret; } } } *returnSize = 0; return NULL; } Rust 解法： use std::collections::HashMap; impl Solution { pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); for (i,val) in nums." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rustnote09/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-19T21:35:49+08:00" />
+<meta property="article:modified_time" content="2023-05-19T21:35:49+08:00" />
+
+<meta itemprop="name" content="Rust Note 09">
+<meta itemprop="description" content="两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+C 解法： int* twoSum(int* nums, int numsSize, int target, int* returnSize) { for (int i = 0; i &lt; numsSize; &#43;&#43;i) { for (int j = i &#43; 1; j &lt; numsSize; &#43;&#43;j) { if (nums[i] &#43; nums[j] == target) { int* ret = malloc(sizeof(int) * 2); ret[0] = i, ret[1] = j; *returnSize = 2; return ret; } } } *returnSize = 0; return NULL; } Rust 解法： use std::collections::HashMap; impl Solution { pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); for (i,val) in nums."><meta itemprop="datePublished" content="2023-05-19T21:35:49+08:00" />
+<meta itemprop="dateModified" content="2023-05-19T21:35:49+08:00" />
+<meta itemprop="wordCount" content="130">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 09"/>
+<meta name="twitter:description" content="两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+C 解法： int* twoSum(int* nums, int numsSize, int target, int* returnSize) { for (int i = 0; i &lt; numsSize; &#43;&#43;i) { for (int j = i &#43; 1; j &lt; numsSize; &#43;&#43;j) { if (nums[i] &#43; nums[j] == target) { int* ret = malloc(sizeof(int) * 2); ret[0] = i, ret[1] = j; *returnSize = 2; return ret; } } } *returnSize = 0; return NULL; } Rust 解法： use std::collections::HashMap; impl Solution { pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); for (i,val) in nums."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 09</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-19T21:35:49+08:00">May 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="两数之和">两数之和</h2>
+<p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
+<p>你可以按任意顺序返回答案。</p>
+<h3 id="c-解法">C 解法：</h3>
+<pre tabindex="0"><code>int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    for (int i = 0; i &lt; numsSize; ++i) {
+        for (int j = i + 1; j &lt; numsSize; ++j) {
+            if (nums[i] + nums[j] == target) {
+                int* ret = malloc(sizeof(int) * 2);
+                ret[0] = i, ret[1] = j;
+                *returnSize = 2;
+                return ret;
+            }
+        }
+    }
+    *returnSize = 0;
+    return NULL;
+}
+</code></pre><h3 id="rust-解法">Rust 解法：</h3>
+<pre tabindex="0"><code>use std::collections::HashMap;
+
+impl Solution {
+    pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; {
+       let mut map = HashMap::new();
+        for (i,val) in nums.iter().enumerate() {
+            if let Some(val) = map.get(&amp;(target - val)) {
+                return vec![*val as i32, i as i32];
+            } else {
+                map.insert(val, i);
+            }
+        }
+        vec![]
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rustnote08/">Rust Note 08</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote07/">Rust Note 07</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote06/">Rust Note 06</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote05/">Rust Note 05</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote04/">Rust Note 04</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote03/">Rust Note 03</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote01/">Rust Note 01</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/my-first-post/">博文总述</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote02/">Rust Note 02</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

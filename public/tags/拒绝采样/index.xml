@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>拒绝采样 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7/</link>
+    <description>Recent content in 拒绝采样 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 12 Jun 2023 10:56:46 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 拒绝采样2</title>
+      <link>http://example.org/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/</link>
+      <pubDate>Mon, 12 Jun 2023 10:56:46 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/</guid>
+      <description>在圆内随机生成点 给定圆的半径和圆心的位置，实现函数 randPoint ，在圆中产生均匀随机点。
+实现 Solution 类:
+Solution(double radius, double x_center, double y_center) 用圆的半径 radius 和圆心的位置 (x_center, y_center) 初始化对象 randPoint() 返回圆内的一个随机点。圆周上的一点被认为在圆内。答案作为数组返回 [x, y] 。
+struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;amp;mut self` instead. */ impl Solution { fn new(radius: f64, x_center: f64, y_center: f64) -&amp;gt; Self { Solution { radius, x_center, y_center } } fn rand_point(&amp;amp;self) -&amp;gt; Vec&amp;lt;f64&amp;gt; { use rand::{Rng, thread_rng}; use std::f64::consts::PI; let mut rng = thread_rng(); let (len, deg) = (rng.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 拒绝采样1</title>
+      <link>http://example.org/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/</link>
+      <pubDate>Mon, 12 Jun 2023 10:56:45 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/</guid>
+      <description>用rand7()实现rand10() 给定方法 rand7 可生成 [1,7] 范围内的均匀随机整数，试写一个方法 rand10 生成 [1,10] 范围内的均匀随机整数。
+你只能调用 rand7() 且不能调用其他方法。请不要使用系统的 Math.random() 方法。
+每个测试用例将有一个内部参数 n，即你实现的函数 rand10() 在测试时将被调用的次数。请注意，这不是传递给 rand10() 的参数。
+impl Solution { pub fn rand10() -&amp;gt; i32 { let mut x = std::i32::MAX; while x &amp;gt; 40 { x = 7 * (rand7() -1) + rand7(); } return x%10+1; } } </description>
+    </item>
+    
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签：  - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 20 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 &ldquo;&quot;。
+C 解法：  // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &lt; num &amp;&amp; st[i] == en[i]; i &#43;&#43;); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String { let mut x:Vec&lt;_&gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0].">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 20" />
+<meta property="og:description" content="最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 &ldquo;&quot;。
+C 解法：  // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &lt; num &amp;&amp; st[i] == en[i]; i &#43;&#43;); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String { let mut x:Vec&lt;_&gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0]." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rustnote20/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
+<meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
+
+<meta itemprop="name" content="Rust Note 20">
+<meta itemprop="description" content="最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 &ldquo;&quot;。
+C 解法：  // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &lt; num &amp;&amp; st[i] == en[i]; i &#43;&#43;); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String { let mut x:Vec&lt;_&gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0]."><meta itemprop="datePublished" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="dateModified" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="wordCount" content="148">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 20"/>
+<meta name="twitter:description" content="最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 &ldquo;&quot;。
+C 解法：  // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &lt; num &amp;&amp; st[i] == en[i]; i &#43;&#43;); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String { let mut x:Vec&lt;_&gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0]."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 20</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-22T20:28:46+08:00">May 22, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="最长公共前缀">最长公共前缀</h2>
+<p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
+<p>如果不存在公共前缀，返回空字符串 &ldquo;&quot;。</p>
+<h3 id="c-解法">C 解法：</h3>
+<pre tabindex="0"><code> // 先排序，后比较头尾
+class Solution {
+public:
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+        if(strs.empty()) return string();
+        sort(strs.begin(), strs.end());
+        string st = strs.front(), en = strs.back();
+        int i, num = min(st.size(), en.size());
+        for(i = 0; i &lt; num &amp;&amp; st[i] == en[i]; i ++);
+        return string(st, 0, i);
+    }
+};
+</code></pre><h3 id="rust-解法1">Rust 解法1：</h3>
+<pre tabindex="0"><code>impl Solution {
+    pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String {
+        let mut x:Vec&lt;_&gt; = strs.iter().map(|c|c.chars()).collect(); 
+        let mut res = String::new();
+        while let Some(t) = x[0].next() {
+            for i in &amp;mut x[1..] {
+                if let Some(y) = i.next() {
+                    if (t != y) {
+                        return res;
+                    }
+                }   else {
+                    return res;
+                }
+            }
+            res.push(t)
+        }
+        res
+    }
+}
+</code></pre><h3 id="rust解法2">Rust解法2:</h3>
+<pre tabindex="0"><code>impl Solution {
+    pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String {
+        strs.iter()
+            .max()
+            .unwrap()
+            .chars()
+            .zip(strs.iter().min().unwrap().chars())
+            .take_while(|x| x.0 == x.1)
+            .map(|x| x.0)
+            .collect()
+    }
+}
+</code></pre><p>以下是chatgpt给出的解释：</p>
+<pre tabindex="0"><code>这是一个Rust语言实现的函数，用于找出给定字符串数组中最长的公共前缀。具体实现步骤如下：
+
+通过iter()方法将字符串数组转化为迭代器；
+利用max()方法将字符串数组中最长的字符串取出；
+利用unwrap()方法获取最长的字符串的值；
+对最长的字符串调用chars()方法，返回一个Unicode字符迭代器，在下一步与其他字符串的字符逐一比较；
+提取其他字符串中的最小值，使用min()方法获得并获取其中的值；
+将最长字符串的每个字符与其他字符串的每个字符进行逐一比较，使用zip()方法将两个字符迭代器进行连接；
+使用take_while()方法遍历两个字符迭代器，并取出它们相同的部分；
+对于每一组相同的字符，使用map()方法将它们的第一个字符添加到新建Vector的末尾；
+返回新建Vector中的所有字符，作为最长公共前缀字符串。
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rustnote11/">Rust Note 11</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote12/">Rust Note 12</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote13/">Rust Note 13</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote14/">Rust Note 14</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote15/">Rust Note 15</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote16/">Rust Note 16</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote17/">Rust Note 17</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote18/">Rust Note 18</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote19/">Rust Note 19</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote10/">Rust Note 10</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote09/">Rust Note 09</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote08/">Rust Note 08</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote07/">Rust Note 07</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote06/">Rust Note 06</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote05/">Rust Note 05</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

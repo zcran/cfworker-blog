@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>拒绝采样 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/tags/%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="拒绝采样" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/tags/%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7/" />
+
+<meta itemprop="name" content="拒绝采样">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="拒绝采样"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          拒绝采样
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “拒绝采样”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/" class="link black dim">
+        Leetcode 拒绝采样2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在圆内随机生成点 给定圆的半径和圆心的位置，实现函数 randPoint ，在圆中产生均匀随机点。
+实现 Solution 类:
+Solution(double radius, double x_center, double y_center) 用圆的半径 radius 和圆心的位置 (x_center, y_center) 初始化对象 randPoint() 返回圆内的一个随机点。圆周上的一点被认为在圆内。答案作为数组返回 [x, y] 。
+struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;mut self` instead. */ impl Solution { fn new(radius: f64, x_center: f64, y_center: f64) -&gt; Self { Solution { radius, x_center, y_center } } fn rand_point(&amp;self) -&gt; Vec&lt;f64&gt; { use rand::{Rng, thread_rng}; use std::f64::consts::PI; let mut rng = thread_rng(); let (len, deg) = (rng.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/" class="link black dim">
+        Leetcode 拒绝采样1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      用rand7()实现rand10() 给定方法 rand7 可生成 [1,7] 范围内的均匀随机整数，试写一个方法 rand10 生成 [1,10] 范围内的均匀随机整数。
+你只能调用 rand7() 且不能调用其他方法。请不要使用系统的 Math.random() 方法。
+每个测试用例将有一个内部参数 n，即你实现的函数 rand10() 在测试时将被调用的次数。请注意，这不是传递给 rand10() 的参数。
+impl Solution { pub fn rand10() -&gt; i32 { let mut x = std::i32::MAX; while x &gt; 40 { x = 7 * (rand7() -1) + rand7(); } return x%10+1; } } 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签：  - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划  
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

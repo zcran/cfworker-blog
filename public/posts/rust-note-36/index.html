@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 36 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="最大子序和 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+子数组 是数组中的一个连续部分。
+C 解法1： // 动态规划 class Solution { public: int maxSubArray(vector&lt;int&gt;&amp; nums) { int pre = 0, maxAns = nums[0]; for (const auto &amp;x: nums) { pre = max(pre &#43; x, x); maxAns = max(maxAns, pre); } return maxAns; } }; C解法2:  // 分治法 class Solution { public: struct Status { int lSum, rSum, mSum, iSum; }; Status pushUp(Status l, Status r) { int iSum = l.">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 36" />
+<meta property="og:description" content="最大子序和 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+子数组 是数组中的一个连续部分。
+C 解法1： // 动态规划 class Solution { public: int maxSubArray(vector&lt;int&gt;&amp; nums) { int pre = 0, maxAns = nums[0]; for (const auto &amp;x: nums) { pre = max(pre &#43; x, x); maxAns = max(maxAns, pre); } return maxAns; } }; C解法2:  // 分治法 class Solution { public: struct Status { int lSum, rSum, mSum, iSum; }; Status pushUp(Status l, Status r) { int iSum = l." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rust-note-36/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-10T19:51:15+08:00" />
+<meta property="article:modified_time" content="2023-06-10T19:51:15+08:00" />
+
+<meta itemprop="name" content="Rust Note 36">
+<meta itemprop="description" content="最大子序和 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+子数组 是数组中的一个连续部分。
+C 解法1： // 动态规划 class Solution { public: int maxSubArray(vector&lt;int&gt;&amp; nums) { int pre = 0, maxAns = nums[0]; for (const auto &amp;x: nums) { pre = max(pre &#43; x, x); maxAns = max(maxAns, pre); } return maxAns; } }; C解法2:  // 分治法 class Solution { public: struct Status { int lSum, rSum, mSum, iSum; }; Status pushUp(Status l, Status r) { int iSum = l."><meta itemprop="datePublished" content="2023-06-10T19:51:15+08:00" />
+<meta itemprop="dateModified" content="2023-06-10T19:51:15+08:00" />
+<meta itemprop="wordCount" content="190">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 36"/>
+<meta name="twitter:description" content="最大子序和 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+子数组 是数组中的一个连续部分。
+C 解法1： // 动态规划 class Solution { public: int maxSubArray(vector&lt;int&gt;&amp; nums) { int pre = 0, maxAns = nums[0]; for (const auto &amp;x: nums) { pre = max(pre &#43; x, x); maxAns = max(maxAns, pre); } return maxAns; } }; C解法2:  // 分治法 class Solution { public: struct Status { int lSum, rSum, mSum, iSum; }; Status pushUp(Status l, Status r) { int iSum = l."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 36</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-06-10T19:51:15+08:00">June 10, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="最大子序和">最大子序和</h2>
+<p>给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<p>子数组 是数组中的一个连续部分。</p>
+<h3 id="c-解法1">C 解法1：</h3>
+<pre tabindex="0"><code>// 动态规划
+class Solution {
+public:
+    int maxSubArray(vector&lt;int&gt;&amp; nums) {
+        int pre = 0, maxAns = nums[0];
+        for (const auto &amp;x: nums) {
+            pre = max(pre + x, x);
+            maxAns = max(maxAns, pre);
+        }
+        return maxAns;
+    }
+};
+</code></pre><h3 id="c解法2">C解法2:</h3>
+<pre tabindex="0"><code> // 分治法
+class Solution {
+public:
+    struct Status {
+        int lSum, rSum, mSum, iSum;
+    };
+
+    Status pushUp(Status l, Status r) {
+        int iSum = l.iSum + r.iSum;
+        int lSum = max(l.lSum, l.iSum + r.lSum);
+        int rSum = max(r.rSum, r.iSum + l.rSum);
+        int mSum = max(max(l.mSum, r.mSum), l.rSum + r.lSum);
+        return (Status) {lSum, rSum, mSum, iSum};
+    };
+
+    Status get(vector&lt;int&gt; &amp;a, int l, int r) {
+        if (l == r) {
+            return (Status) {a[l], a[l], a[l], a[l]};
+        }
+        int m = (l + r) &gt;&gt; 1;
+        Status lSub = get(a, l, m);
+        Status rSub = get(a, m + 1, r);
+        return pushUp(lSub, rSub);
+    }
+
+    int maxSubArray(vector&lt;int&gt;&amp; nums) {
+        return get(nums, 0, nums.size() - 1).mSum;
+    }
+};
+</code></pre><h3 id="rust-解法">Rust 解法：</h3>
+<pre tabindex="0"><code>impl Solution {
+    pub fn max_sub_array(nums: Vec&lt;i32&gt;) -&gt; i32 {
+        nums
+        .into_iter()
+        .fold(
+          (i32::MIN, 0), 
+          |(ans, pre), n| (ans.max(n.max(n + pre)), n.max(n + pre)))
+        .0
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rust-note-31/">Rust Note 31</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-32/">Rust Note 32</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-33/">Rust Note 33</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-34/">Rust Note 34</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-35/">Rust Note 35</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-37/">Rust Note 37</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-38/">Rust Note 38</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-39/">Rust Note 39</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-40/">Rust Note 40</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-30/">Rust Note 30</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-29/">Rust Note 29</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-28/">Rust Note 28</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-27/">Rust Note 27</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-26/">Rust Note 26</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-25/">Rust Note 25</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

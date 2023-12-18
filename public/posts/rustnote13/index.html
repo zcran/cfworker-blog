@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rust Note 13 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
+假设环境不允许存储 64 位整数（有符号或无符号）。
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() .">
+    <meta name="generator" content="Hugo 0.91.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rust Note 13" />
+<meta property="og:description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
+假设环境不允许存储 64 位整数（有符号或无符号）。
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/rustnote13/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
+<meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
+
+<meta itemprop="name" content="Rust Note 13">
+<meta itemprop="description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
+假设环境不允许存储 64 位整数（有符号或无符号）。
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() ."><meta itemprop="datePublished" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="dateModified" content="2023-05-22T20:28:46+08:00" />
+<meta itemprop="wordCount" content="475">
+<meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Note 13"/>
+<meta name="twitter:description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
+假设环境不允许存储 64 位整数（有符号或无符号）。
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() ."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rust Note 13</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-22T20:28:46+08:00">May 22, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="整数反转">整数反转</h2>
+<p>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。</p>
+<p>如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。</p>
+<p>假设环境不允许存储 64 位整数（有符号或无符号）。</p>
+<h3 id="c-解法">C 解法：</h3>
+<pre tabindex="0"><code>class Solution {
+public:
+    int reverse(int x) {
+        int res=0;
+        while(x){
+            if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0;
+            if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0;
+            res = res*10+x%10;
+            x/=10;
+        }
+        return res;
+    }
+};
+</code></pre><h3 id="rust-解法">Rust 解法：</h3>
+<pre tabindex="0"><code>
+impl Solution {
+    pub fn reverse(x: i32) -&gt; i32 {
+     
+       x.abs()
+        .to_string()
+        .chars().rev()
+        .collect::&lt;String&gt;()
+        .parse::&lt;i32&gt;()
+        .unwrap_or(0) * x.signum()
+    }
+}
+</code></pre><h3 id="rust-abs函数">Rust abs()函数</h3>
+<p>pub const fn abs(self) -&gt; i32
+计算 self 的绝对值。</p>
+<p>溢出行为</p>
+<p>的绝对值 i32::MIN 不能表示为 i32, 并尝试计算它会导致溢出。 这意味着在这种情况下，处于调试模式的代码将触发 panic，并且优化后的代码将返回</p>
+<p>i32::MIN 没有 panic。</p>
+<h3 id="rust-chars结构体">Rust chars结构体</h3>
+<p>pub struct Chars&lt;&lsquo;a&gt; { /* fields omitted */ }
+字符串切片的 char 上的迭代器。</p>
+<p>该结构体是通过 str 上的 chars 方法创建的。</p>
+<p>pub fn as_str(&amp;self) -&gt; &amp;&lsquo;a str
+将底层数据视为原始数据的子切片。</p>
+<p>它具有与原始切片相同的生命周期，因此迭代器可以在存在时继续使用。</p>
+<p>Examples：</p>
+<pre tabindex="0"><code>let mut chars = &quot;abc&quot;.chars();
+
+assert_eq!(chars.as_str(), &quot;abc&quot;);
+chars.next();
+assert_eq!(chars.as_str(), &quot;bc&quot;);
+chars.next();
+chars.next();
+assert_eq!(chars.as_str(), &quot;&quot;);
+</code></pre><h4 id="迭代器trait-rev">迭代器trait rev()</h4>
+<p>fn rev(self) -&gt; Rev<!-- raw HTML omitted -->ⓘ
+where
+Self: DoubleEndedIterator,
+反转迭代器的方向。</p>
+<p>通常，迭代器从左到右进行迭代。 使用 rev() 之后，迭代器将改为从右向左进行迭代。</p>
+<p>仅在迭代器具有结束符的情况下才有可能，因此 rev() 仅适用于 DoubleEndedIterator。</p>
+<p>Examples：</p>
+<pre tabindex="0"><code>let a = [1, 2, 3];
+
+let mut iter = a.iter().rev();
+
+assert_eq!(iter.next(), Some(&amp;3));
+assert_eq!(iter.next(), Some(&amp;2));
+assert_eq!(iter.next(), Some(&amp;1));
+
+assert_eq!(iter.next(), None);
+</code></pre><p>source:</p>
+<pre tabindex="0"><code>#[inline]
+    #[doc(alias = &quot;reverse&quot;)]
+    #[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
+    fn rev(self) -&gt; Rev&lt;Self&gt;
+    where
+        Self: Sized + DoubleEndedIterator,
+    {
+        Rev::new(self)
+    }
+</code></pre><h4 id="迭代器trait-collect">迭代器trait collect()</h4>
+<p>fn collect<!-- raw HTML omitted -->(self) -&gt; B
+where
+B: FromIterator<a href="Self::Item">Self::Item</a>,
+将迭代器转换为集合。</p>
+<p>collect() 可以将任何可迭代的东西变成一个相关的集合。 这是在各种上下文中使用的标准库中功能更强大的方法之一。</p>
+<p>使用 collect() 的最基本模式是将一个集合转换为另一个集合。 您进行了一个收集，在其上调用 iter，进行了一堆转换，最后添加 collect()。</p>
+<p>collect() 还可以创建非典型集合类型的实例。 例如，可以从 char 构建一个 String，并且可以将 Result&lt;T, E&gt; 项的迭代器收集到 Result&lt;Collection<!-- raw HTML omitted -->, E&gt; 中。</p>
+<p>由于 collect() 非常通用，因此可能导致类型推断问题。 因此，collect() 是少数几次您会看到被亲切地称为 ‘turbofish’: ::&lt;&gt; 的语法之一。 这有助于推理算法特别了解您要收集到的集合。</p>
+<p>Examples：
+基本用法：</p>
+<pre tabindex="0"><code>let a = [1, 2, 3];
+
+let doubled: Vec&lt;i32&gt; = a.iter()
+                         .map(|&amp;x| x * 2)
+                         .collect();
+
+assert_eq!(vec![2, 4, 6], doubled);
+</code></pre><p>请注意，我们需要在左侧使用 : Vec<!-- raw HTML omitted -->。这是因为我们可以代替收集到例如 VecDeque<!-- raw HTML omitted --> 中：</p>
+<pre tabindex="0"><code>use std::collections::VecDeque;
+
+let a = [1, 2, 3];
+
+let doubled: VecDeque&lt;i32&gt; = a.iter().map(|&amp;x| x * 2).collect();
+
+assert_eq!(2, doubled[0]);
+assert_eq!(4, doubled[1]);
+assert_eq!(6, doubled[2]);
+</code></pre><p>使用 ‘turbofish’ 而不是注解 doubled：</p>
+<pre tabindex="0"><code>let a = [1, 2, 3];
+
+let doubled = a.iter().map(|x| x * 2).collect::&lt;Vec&lt;i32&gt;&gt;();
+
+assert_eq!(vec![2, 4, 6], doubled);
+</code></pre><p>因为 collect() 只关心您要收集的内容，所以您仍然可以将局部类型提示 _ 与 turbfish 一起使用：</p>
+<pre tabindex="0"><code>let a = [1, 2, 3];
+
+let doubled = a.iter().map(|x| x * 2).collect::&lt;Vec&lt;_&gt;&gt;();
+
+assert_eq!(vec![2, 4, 6], doubled);
+</code></pre><p>使用 collect() 生成 String：</p>
+<pre tabindex="0"><code>let chars = ['g', 'd', 'k', 'k', 'n'];
+
+let hello: String = chars.iter()
+    .map(|&amp;x| x as u8)
+    .map(|x| (x + 1) as char)
+    .collect();
+
+assert_eq!(&quot;hello&quot;, hello);
+</code></pre><p>如果您有 Result&lt;T, E&gt;，您可以使用 collect() 来查看它们是否失败：</p>
+<pre tabindex="0"><code>let results = [Ok(1), Err(&quot;nope&quot;), Ok(3), Err(&quot;bad&quot;)];
+
+let result: Result&lt;Vec&lt;_&gt;, &amp;str&gt; = results.iter().cloned().collect();
+
+// 给我们第一个错误
+assert_eq!(Err(&quot;nope&quot;), result);
+
+let results = [Ok(1), Ok(3)];
+
+let result: Result&lt;Vec&lt;_&gt;, &amp;str&gt; = results.iter().cloned().collect();
+
+// 给我们答案列表
+assert_eq!(Ok(vec![1, 3]), result);
+</code></pre><h3 id="rust-parse函数">Rust parse函数</h3>
+<p>pub fn parse<!-- raw HTML omitted -->(&amp;self) -&gt; Result&lt;F, <!-- raw HTML omitted -->::Err&gt;
+where
+F: FromStr,
+将此字符串切片解析为另一种类型。</p>
+<p>由于 parse 非常通用，因此可能导致类型推断问题。 因此，parse 是少数几次您会看到被亲切地称为 ‘turbofish’: ::&lt;&gt; 的语法之一。</p>
+<p>这可以帮助推理算法特别了解您要解析为哪种类型。</p>
+<p>parse 可以解析为任何实现 FromStr trait 的类型。</p>
+<p>Examples：
+基本用法</p>
+<pre tabindex="0"><code>let four: u32 = &quot;4&quot;.parse().unwrap();
+assert_eq!(4, four);
+</code></pre><p>使用 ‘turbofish’ 而不是注解 four：</p>
+<pre tabindex="0"><code>let four = &quot;4&quot;.parse::&lt;u32&gt;();
+assert_eq!(Ok(4), four);
+</code></pre><p>无法解析：</p>
+<pre tabindex="0"><code>let nope = &quot;j&quot;.parse::&lt;u32&gt;();
+assert!(nope.is_err());
+</code></pre><h3 id="rust-signum函数">Rust signum函数</h3>
+<p>pub const fn signum(self) -&gt; i32
+返回一个表示 self 的符号的数字。</p>
+<p>0 如果数字为零
+1 如果数字是正数
+-1 如果数字是负数</p>
+<p>Examples:</p>
+<pre tabindex="0"><code>assert_eq!(10i32.signum(), 1);
+assert_eq!(0i32.signum(), 0);
+assert_eq!((-10i32).signum(), -1);
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/rust/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95%E7%AF%87/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">初级算法篇</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/rustnote11/">Rust Note 11</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote12/">Rust Note 12</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote14/">Rust Note 14</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote15/">Rust Note 15</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote16/">Rust Note 16</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote17/">Rust Note 17</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote18/">Rust Note 18</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote19/">Rust Note 19</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote20/">Rust Note 20</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote10/">Rust Note 10</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote09/">Rust Note 09</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote08/">Rust Note 08</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote07/">Rust Note 07</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote06/">Rust Note 06</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rustnote05/">Rust Note 05</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
