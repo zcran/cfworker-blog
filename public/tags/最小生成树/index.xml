@@ -19,5 +19,15 @@
 impl Solution { pub fn min_cost_connect_points(points: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; i32 { let n = points.len(); let mut dist = vec![i32::MAX; n]; let mut edges = vec![]; Self::build_edges(&amp;amp;mut edges, points.iter().map(|x| (x[0], x[1])).collect()); Self::build_edges(&amp;amp;mut edges, points.iter().map(|x| (x[1], x[0])).collect()); Self::build_edges(&amp;amp;mut edges, points.</description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

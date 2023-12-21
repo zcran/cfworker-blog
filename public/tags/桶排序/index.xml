@@ -51,5 +51,15 @@ use std::collections::{HashMap, BTreeSet}; impl Solution { pub fn top_k_frequent
 class Solution { public: vector&amp;lt;int&amp;gt; topKFrequent(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) { unordered_map&amp;lt;int,int&amp;gt; mp; vector&amp;lt;int&amp;gt; res; //统计最大的频次，决定开多大的空间 int max_cnt=0; for(auto num:nums) { mp[num]++; max_cnt=max(max_cnt,mp[num]); } vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; bucket(max_cnt+1); //计数，桶号为频次，元素为数字 for(auto iter:mp){ bucket[iter.second].push_back(iter.first); } for(int i=bucket.size()-1;i&amp;gt;=0 &amp;amp;&amp;amp; k;i--){ for(auto num:bucket[i]){ if(k--) res.push_back(num); else break; } } return res; } }; use std::{ cmp::Reverse, collections::{BinaryHeap, HashMap}, }; impl Solution { pub fn top_k_frequent(nums: Vec&amp;lt;i32&amp;gt;, k: i32) -&amp;gt; Vec&amp;lt;i32&amp;gt; { let mut map = HashMap::new(); nums.</description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

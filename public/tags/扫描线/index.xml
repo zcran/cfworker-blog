@@ -56,5 +56,15 @@ impl Solution { pub fn get_skyline(buildings: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&
 // 格林公式 use std::collections::HashSet; impl Solution { pub fn is_rectangle_cover(rectangles: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; bool { let (x1, y1, x2, y2, a, s) = rectangles .iter() .fold((i32::MAX, i32::MAX, i32::MIN, i32::MIN, 0, HashSet::new()), |(x1, y1, x2, y2, a, mut s), rect| { for p in [(rect[0], rect[1]), (rect[2], rect[1]), (rect[0], rect[3]), (rect[2], rect[3])] { if !</description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

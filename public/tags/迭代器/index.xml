@@ -55,5 +55,15 @@ CombinationIterator(string characters, int combinationLength) 一个构造函数
 struct CombinationIterator { s: Vec&amp;lt;u8&amp;gt;, pos: Vec&amp;lt;usize&amp;gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&amp;gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;amp;mut self) -&amp;gt; String { fn dfs(pos: &amp;amp;mut Vec&amp;lt;usize&amp;gt;, cur: usize, len: usize, has_next: &amp;amp;mut bool) -&amp;gt; usize { let i = pos.</description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

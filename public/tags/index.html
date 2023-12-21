@@ -1877,7 +1877,7 @@ C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       博文总述
-标签： - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划 
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -1998,6 +1998,22 @@ impl Solution { pub fn get_least_numbers(arr: Vec&lt;i32&gt;, k: i32) -&gt; Vec&
 </div>
 
         
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="link blue hover-black">
@@ -2072,6 +2088,22 @@ struct RLEIterator { iterator: std::vec::IntoIter&lt;i32&gt;, remain: (i32, i32)
       字母组合迭代器 请你设计一个迭代器类 CombinationIterator ，包括以下内容：
 CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。 函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。 函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true
 struct CombinationIterator { s: Vec&lt;u8&gt;, pos: Vec&lt;usize&gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;mut self) -&gt; String { fn dfs(pos: &amp;mut Vec&lt;usize&gt;, cur: usize, len: usize, has_next: &amp;mut bool) -&gt; usize { let i = pos.
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -2180,6 +2212,22 @@ impl Solution { pub fn expect_number(scores: Vec&lt;i32&gt;) -&gt; i32 { scores.
 </div>
 
         
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" class="link blue hover-black">
@@ -2258,6 +2306,22 @@ impl Solution { // tp已经排好，开始排序第一关键字 fn sort(sa: &amp
 </div>
 
         
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="/tags/%E6%A1%B6%E6%8E%92%E5%BA%8F/" class="link blue hover-black">
@@ -2328,6 +2392,22 @@ use std::collections::{HashMap, BTreeSet}; impl Solution { pub fn top_k_frequent
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       前 K 个高频元素 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
 class Solution { public: vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) { unordered_map&lt;int,int&gt; mp; vector&lt;int&gt; res; //统计最大的频次，决定开多大的空间 int max_cnt=0; for(auto num:nums) { mp[num]++; max_cnt=max(max_cnt,mp[num]); } vector&lt;vector&lt;int&gt;&gt; bucket(max_cnt+1); //计数，桶号为频次，元素为数字 for(auto iter:mp){ bucket[iter.second].push_back(iter.first); } for(int i=bucket.size()-1;i&gt;=0 &amp;&amp; k;i--){ for(auto num:bucket[i]){ if(k--) res.push_back(num); else break; } } return res; } }; use std::{ cmp::Reverse, collections::{BinaryHeap, HashMap}, }; impl Solution { pub fn top_k_frequent(nums: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); nums.
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -2410,6 +2490,22 @@ impl Solution { pub fn h_index(citations: Vec&lt;i32&gt;) -&gt; i32 { let mut le
 </div>
 
         
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="link blue hover-black">
@@ -2430,6 +2526,22 @@ impl Solution { pub fn h_index(citations: Vec&lt;i32&gt;) -&gt; i32 { let mut le
 连接点 [x⌄i, y⌄i] 和点 [x⌄j, y⌄j] 的费用为它们之间的 曼哈顿距离 ：|x⌄i - x⌄j| + |y⌄i - y⌄j| ，其中 |val| 表示 val 的绝对值。
 请你返回将所有点连接的最小总费用。只有任意两点之间 有且仅有 一条简单路径时，才认为所有点都已连接。
 impl Solution { pub fn min_cost_connect_points(points: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let n = points.len(); let mut dist = vec![i32::MAX; n]; let mut edges = vec![]; Self::build_edges(&amp;mut edges, points.iter().map(|x| (x[0], x[1])).collect()); Self::build_edges(&amp;mut edges, points.iter().map(|x| (x[1], x[0])).collect()); Self::build_edges(&amp;mut edges, points.
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -2515,6 +2627,22 @@ impl Solution { pub fn get_skyline(buildings: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; V
 </div>
 
         
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="/tags/shell/" class="link blue hover-black">
@@ -2590,6 +2718,22 @@ cat words.txt | tr -s &#39; &#39; &#39;\n&#39;|sort|uniq -c |sort -r|awk &#39;{p
       转置文件 给定一个文件 file.txt，转置它的内容。
 你可以假设每行列数相同，并且每个字段由 &rsquo; &rsquo; 分隔。
 # Read from the file file.txt and print its transposed content to stdout. awk &#39;{ #这个大括号里的代码是 对正文的处理 # NF表示列数，NR表示已读的行数 # 注意for中的i从1开始，i前没有类型 for (i=1; i&lt;=NF; i++){#对每一列 if(NR==1){ #如果是第一行 #将第i列的值存入res[i],$i表示第i列的值，i为数组的下标，以列序号为下标， #数组不用定义可以直接使用 res[i]=$i; } else{ #不是第一行时，将该行对应i列的值拼接到res[i] res[i]=res[i] &#34; &#34; $i } } } # BEGIN{} 文件进行扫描前要执行的操作；END{} 文件扫描结束后要执行的操作。 END{ #输出数组 for (i=1; i&lt;=NF; i++){ print res[i] } }&#39; file.txt 
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -2677,6 +2821,22 @@ use rand::{rngs::ThreadRng, Rng}; use std::collections::HashMap; struct Solution
 </div>
 
         
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" class="link blue hover-black">
@@ -2718,6 +2878,22 @@ impl Solution { pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let
 请你找到给定图中最小生成树的所有关键边和伪关键边。如果从图中删去某条边，会导致最小生成树的权值和增加，那么我们就说它是一条关键边。伪关键边则是可能会出现在某些最小生成树中但不会出现在所有最小生成树中的边。
 请注意，你可以分别以任意顺序返回关键边的下标和伪关键边的下标。
 impl Solution { pub fn find_critical_and_pseudo_critical_edges(n: i32, edges: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut edges: Vec&lt;Vec&lt;_&gt;&gt; = edges .into_iter() .enumerate() .map(|(i, mut x)| { x.push(i as i32); x.into_iter().map(|e| e as usize).collect() }) .collect(); edges.sort_by_key(|x| x[2]); let n = n as usize; let m = edges.len(); let mut label = vec!
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -2785,6 +2961,22 @@ class Solution { public: vector&lt;vector&lt;int&gt;&gt; validArrangement(vector
 </div>
 
         
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
       
         <h2 class="f1">
           <a href="/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/" class="link blue hover-black">
@@ -2824,6 +3016,22 @@ impl Solution { pub fn smallest_trimmed_numbers(nums: Vec&lt;String&gt;, queries
       最大间距 给定一个无序的数组 nums，返回 数组在排序之后，相邻元素之间最大的差值 。如果数组元素个数小于 2，则返回 0 。
 您必须编写一个在「线性时间」内运行并使用「线性额外空间」的算法。
 impl Solution { pub fn maximum_gap(mut nums: Vec&lt;i32&gt;) -&gt; i32 { let mut buckets = vec![vec![];10]; for i in 0..10 { nums.iter().for_each(|&amp;num| buckets[((num / 10_i32.pow(i)) % 10) as usize].push(num)); buckets.iter().flat_map(|bucket| bucket.iter()).zip(nums.iter_mut()).for_each(|(&amp;a, b)| *b = a); buckets.iter_mut().for_each(|bucket| bucket.clear()); } nums.windows(2).map(|w| w[1] - w[0]).max().unwrap_or(0) } } 
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -2876,6 +3084,22 @@ use std::iter::repeat; static mut DFN: [i32; 100010] = [0; 100010]; static mut L
 输出：6
 解释： 勇者消耗资源 6 夺回据点 0 和 4，魔物据点 1、2、3、5 相连通； 第一次夺回据点 1，魔物据点 2、3、5 相连通； 第二次夺回据点 3，魔物据点 2、5 相连通； 第三次夺回据点 2，剩余魔物据点 5； 第四次夺回据点 5，无剩余魔物据点； 因此最少需要消耗资源为 6，可占领所有据点。
 // Trajan算法 class Solution { const int S = 0; int n; vector&lt;vector&lt;int&gt;&gt; e; vector&lt;bool&gt; isCut; vector&lt;int&gt; dfn, low; int clk = 0; stack&lt;int&gt; stk; // 所有点双连通分量 vector&lt;vector&lt;int&gt;&gt; dcc; void tarjan(int sn) { dfn[sn] = low[sn] = ++clk; stk.
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -2934,7 +3158,7 @@ impl Solution { pub fn rand10() -&gt; i32 { let mut x = std::i32::MAX; while x &
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       博文总述
-标签： - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划 
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -3807,7 +4031,7 @@ C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       博文总述
-标签： - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划 
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>
@@ -4662,7 +4886,53 @@ C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       博文总述
-标签： - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划 
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="link blue hover-black">
+            Tag: “多线程”
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
+    </div>
+  </div>
+</div>
+
+        
+      
+        <h2 class="f1">
+          <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="link blue hover-black">
+            Tag: 归并排序
+          </a>
+        </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/my-first-post/" class="link black dim">
+        博文总述
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 
     </div>
   </div>
 </div>

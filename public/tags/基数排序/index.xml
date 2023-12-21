@@ -32,5 +32,15 @@ impl Solution { pub fn smallest_trimmed_numbers(nums: Vec&amp;lt;String&amp;gt;,
 impl Solution { pub fn maximum_gap(mut nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { let mut buckets = vec![vec![];10]; for i in 0..10 { nums.iter().for_each(|&amp;amp;num| buckets[((num / 10_i32.pow(i)) % 10) as usize].push(num)); buckets.iter().flat_map(|bucket| bucket.iter()).zip(nums.iter_mut()).for_each(|(&amp;amp;a, b)| *b = a); buckets.iter_mut().for_each(|bucket| bucket.clear()); } nums.windows(2).map(|w| w[1] - w[0]).max().unwrap_or(0) } } </description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

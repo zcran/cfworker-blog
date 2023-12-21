@@ -44,5 +44,15 @@ class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; validAr
 // Hierholzer算法 impl Solution { pub fn find_itinerary(tickets: Vec&amp;lt;Vec&amp;lt;String&amp;gt;&amp;gt;) -&amp;gt; Vec&amp;lt;String&amp;gt; { let mut hash_table = std::collections::HashMap::new(); for ticket in tickets { hash_table.entry(ticket[0].to_string()) .or_insert(Vec::new()) .push(ticket[1].to_string()); } for destination in hash_table.values_mut() { destination.sort_by(|a, b| a.</description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

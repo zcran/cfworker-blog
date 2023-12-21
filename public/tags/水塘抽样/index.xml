@@ -58,5 +58,15 @@ Solution(int[] nums) 用数组 nums 初始化对象。 int pick(int target) 从 
 use rand::{rngs::ThreadRng, Rng}; use std::collections::HashMap; struct Solution { map: HashMap&amp;lt;i32, Vec&amp;lt;usize&amp;gt;&amp;gt;, rand: ThreadRng, } impl Solution { fn new(nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; Self { Solution { map: nums .iter() .enumerate() .fold(HashMap::new(), |mut m, (i, &amp;amp;n)| { m.entry(n).and_modify(|v| v.push(i)).or_insert(vec![i]); m }), rand: rand::thread_rng(), } } fn pick(&amp;amp;mut self, target: i32) -&amp;gt; i32 { let v = self.</description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

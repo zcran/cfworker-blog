@@ -54,5 +54,15 @@ fn sa_is(s: &amp;amp;[usize], upper: usize) -&amp;gt; Vec&amp;lt;usize&amp;gt; {
 impl Solution { // tp已经排好，开始排序第一关键字 fn sort(sa: &amp;amp;mut Vec&amp;lt;usize&amp;gt;, rank: &amp;amp;mut Vec&amp;lt;usize&amp;gt;, tp: &amp;amp;Vec&amp;lt;usize&amp;gt;, n: usize, m: usize) { let mut tax = vec![0; m+1]; // 第一关键字基数排序 rank[1..].iter().for_each(|x| tax[*x] += 1); // 前缀和，为了后面方便计算第几名 for i in 1..=m { tax[i] += tax[i-1]; } tp[1..].iter().rev().for_each(|&amp;amp;key| { // 拿最小的第二关键字对应的后缀key_2，然后通过rank找到他对应的第一关键字所处的level(第一关键字排名) let level = rank[key]; // tax[level]就表示在这里level之下一共有j个数，则后缀(tp[i])排名第j // 此时放的是第一关键字相同，第二关键字最大 // rank其实也是排好的，拿的是前w/2的rank let j = tax[level]; sa[j] = key; tax[level] -= 1; }); } fn init(s: &amp;amp;str, n: usize, m: usize) -&amp;gt; (Vec&amp;lt;usize&amp;gt;, Vec&amp;lt;usize&amp;gt;, Vec&amp;lt;usize&amp;gt;) { // 只有第一关键字直接映射就好 let mut rank = vec!</description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

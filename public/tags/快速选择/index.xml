@@ -79,5 +79,15 @@ impl Solution { pub fn k_closest(points: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;g
 impl Solution { pub fn get_least_numbers(arr: Vec&amp;lt;i32&amp;gt;, k: i32) -&amp;gt; Vec&amp;lt;i32&amp;gt; { let mut arr = arr; arr.sort(); arr[..k as usize].iter().cloned().collect() } } </description>
     </item>
     
+    <item>
+      <title>博文总述</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Thu, 18 May 2023 17:06:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>博文总述
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
+    </item>
+    
   </channel>
 </rss>

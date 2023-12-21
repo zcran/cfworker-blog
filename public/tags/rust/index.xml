@@ -570,7 +570,7 @@ C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条
       
       <guid>http://example.org/posts/my-first-post/</guid>
       <description>博文总述
-标签： - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划 </description>
+标签： - rust - leetcode初级算法篇 leetcode算法类型： 见下方超链接类别 </description>
     </item>
     
   </channel>
