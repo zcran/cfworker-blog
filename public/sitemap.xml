@@ -365,10 +365,10 @@
     <loc>http://example.org/posts/rustnote01/</loc>
     <lastmod>2023-05-18T19:58:49+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>http://example.org/posts/my-first-post/</loc>
     <lastmod>2023-05-18T17:06:05+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/my-first-post/</loc>
+    <loc>http://example.org/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2023-05-18T17:06:05+08:00</lastmod>
   </url><url>
     <loc>http://example.org/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
