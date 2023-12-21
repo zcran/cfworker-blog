@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 概率与统计2 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="分汤 有 A 和 B 两种类型 的汤。一开始每种类型的汤有 n 毫升。有四种分配操作：
+提供 100ml 的 汤A 和 0ml 的 汤B 。 提供 75ml 的 汤A 和 25ml 的 汤B 。 提供 50ml 的 汤A 和 50ml 的 汤B 。 提供 25ml 的 汤A 和 75ml 的 汤B 。 当我们把汤分配给某人之后，汤就没有了。每个回合，我们将从四种概率同为 0.25 的操作中进行分配选择。如果汤的剩余量不足以完成某次操作，我们将尽可能分配。当两种类型的汤都分配完时，停止操作。
+注意 不存在先分配 100 ml 汤B 的操作。
+需要返回的值： 汤A 先分配完的概率 &#43; 汤A和汤B 同时分配完的概率 / 2。返回值在正确答案 10-5 的范围内将被认为是正确的。
+impl Solution { pub fn soup_servings(n: i32) -&gt; f64 { fn recursive(dp: &amp;mut Vec&lt;Vec&lt;f64&gt;&gt;, a: i32, b: i32) -&gt; f64 { if a &lt;= 0 &amp;&amp; b &lt;= 0 { return 0.">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 概率与统计2" />
+<meta property="og:description" content="分汤 有 A 和 B 两种类型 的汤。一开始每种类型的汤有 n 毫升。有四种分配操作：
+提供 100ml 的 汤A 和 0ml 的 汤B 。 提供 75ml 的 汤A 和 25ml 的 汤B 。 提供 50ml 的 汤A 和 50ml 的 汤B 。 提供 25ml 的 汤A 和 75ml 的 汤B 。 当我们把汤分配给某人之后，汤就没有了。每个回合，我们将从四种概率同为 0.25 的操作中进行分配选择。如果汤的剩余量不足以完成某次操作，我们将尽可能分配。当两种类型的汤都分配完时，停止操作。
+注意 不存在先分配 100 ml 汤B 的操作。
+需要返回的值： 汤A 先分配完的概率 &#43; 汤A和汤B 同时分配完的概率 / 2。返回值在正确答案 10-5 的范围内将被认为是正确的。
+impl Solution { pub fn soup_servings(n: i32) -&gt; f64 { fn recursive(dp: &amp;mut Vec&lt;Vec&lt;f64&gt;&gt;, a: i32, b: i32) -&gt; f64 { if a &lt;= 0 &amp;&amp; b &lt;= 0 { return 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A12/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:47:54+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:47:54+08:00" />
+<meta itemprop="name" content="Leetcode 概率与统计2">
+<meta itemprop="description" content="分汤 有 A 和 B 两种类型 的汤。一开始每种类型的汤有 n 毫升。有四种分配操作：
+提供 100ml 的 汤A 和 0ml 的 汤B 。 提供 75ml 的 汤A 和 25ml 的 汤B 。 提供 50ml 的 汤A 和 50ml 的 汤B 。 提供 25ml 的 汤A 和 75ml 的 汤B 。 当我们把汤分配给某人之后，汤就没有了。每个回合，我们将从四种概率同为 0.25 的操作中进行分配选择。如果汤的剩余量不足以完成某次操作，我们将尽可能分配。当两种类型的汤都分配完时，停止操作。
+注意 不存在先分配 100 ml 汤B 的操作。
+需要返回的值： 汤A 先分配完的概率 &#43; 汤A和汤B 同时分配完的概率 / 2。返回值在正确答案 10-5 的范围内将被认为是正确的。
+impl Solution { pub fn soup_servings(n: i32) -&gt; f64 { fn recursive(dp: &amp;mut Vec&lt;Vec&lt;f64&gt;&gt;, a: i32, b: i32) -&gt; f64 { if a &lt;= 0 &amp;&amp; b &lt;= 0 { return 0."><meta itemprop="datePublished" content="2023-12-19T15:47:54+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:47:54+08:00" />
+<meta itemprop="wordCount" content="203">
+<meta itemprop="keywords" content="leetcode,概率与统计," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 概率与统计2"/>
+<meta name="twitter:description" content="分汤 有 A 和 B 两种类型 的汤。一开始每种类型的汤有 n 毫升。有四种分配操作：
+提供 100ml 的 汤A 和 0ml 的 汤B 。 提供 75ml 的 汤A 和 25ml 的 汤B 。 提供 50ml 的 汤A 和 50ml 的 汤B 。 提供 25ml 的 汤A 和 75ml 的 汤B 。 当我们把汤分配给某人之后，汤就没有了。每个回合，我们将从四种概率同为 0.25 的操作中进行分配选择。如果汤的剩余量不足以完成某次操作，我们将尽可能分配。当两种类型的汤都分配完时，停止操作。
+注意 不存在先分配 100 ml 汤B 的操作。
+需要返回的值： 汤A 先分配完的概率 &#43; 汤A和汤B 同时分配完的概率 / 2。返回值在正确答案 10-5 的范围内将被认为是正确的。
+impl Solution { pub fn soup_servings(n: i32) -&gt; f64 { fn recursive(dp: &amp;mut Vec&lt;Vec&lt;f64&gt;&gt;, a: i32, b: i32) -&gt; f64 { if a &lt;= 0 &amp;&amp; b &lt;= 0 { return 0."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 概率与统计2</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:47:54+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="分汤">分汤</h2>
+<p>有 A 和 B 两种类型 的汤。一开始每种类型的汤有 n 毫升。有四种分配操作：</p>
+<p>提供 100ml 的 汤A 和 0ml 的 汤B 。
+提供 75ml 的 汤A 和 25ml 的 汤B 。
+提供 50ml 的 汤A 和 50ml 的 汤B 。
+提供 25ml 的 汤A 和 75ml 的 汤B 。
+当我们把汤分配给某人之后，汤就没有了。每个回合，我们将从四种概率同为 0.25 的操作中进行分配选择。如果汤的剩余量不足以完成某次操作，我们将尽可能分配。当两种类型的汤都分配完时，停止操作。</p>
+<p>注意 不存在先分配 100 ml 汤B 的操作。</p>
+<p>需要返回的值： 汤A 先分配完的概率 +  汤A和汤B 同时分配完的概率 / 2。返回值在正确答案 10-5 的范围内将被认为是正确的。</p>
+<pre tabindex="0"><code>impl Solution {
+    pub fn soup_servings(n: i32) -&gt; f64 {
+        fn recursive(dp: &amp;mut Vec&lt;Vec&lt;f64&gt;&gt;, a: i32, b: i32) -&gt; f64 {
+            if a &lt;= 0 &amp;&amp; b &lt;= 0 { return 0.5; }
+            if a &lt;= 0 { return 1.0; }
+            if b &lt;= 0 { return 0.0; }
+            if dp[a as usize][b as usize] &gt; 0.0 { return dp[a as usize][b as usize]; }
+            dp[a as usize][b as usize] = 0.25 * (recursive(dp, a - 4, b) + recursive(dp, a - 3, b - 1) + recursive(dp, a - 2, b - 2) + recursive(dp, a - 1, b - 3));
+            dp[a as usize][b as usize]
+        }
+        let mut dp = vec![vec![0.0; 200]; 200];
+        if n &gt; 4800 { 1.0 } else { recursive(&amp;mut dp, (n + 24) / 25, (n + 24) / 25) }
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">概率与统计</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A11/">Leetcode 概率与统计1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A13/">Leetcode 概率与统计3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%841/">Leetcode 后缀数组1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%842/">Leetcode 后缀数组2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%843/">Leetcode 后缀数组3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%844/">Leetcode 后缀数组4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F1/">Leetcode 桶排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F2/">Leetcode 桶排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F3/">Leetcode 桶排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F4/">Leetcode 桶排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 计数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 计数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F3/">Leetcode 计数排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F4/">Leetcode 计数排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%911/">Leetcode 最小生成树1</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

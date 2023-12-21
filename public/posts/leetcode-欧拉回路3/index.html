@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 欧拉回路3 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="重新安排行程 给你一份航线列表 tickets ，其中 tickets[i] = [from⌄i, to⌄i] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+例如，行程 [&ldquo;JFK&rdquo;, &ldquo;LGA&rdquo;] 与 [&ldquo;JFK&rdquo;, &ldquo;LGB&rdquo;] 相比就更小，排序更靠前。 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+示例1: 输入：tickets = [[&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;],[&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;]
+示例2: 输入：tickets = [[&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] 解释：另一种有效的行程是 [&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] ，但是它字典排序更大更靠后。
+// Hierholzer算法 impl Solution { pub fn find_itinerary(tickets: Vec&lt;Vec&lt;String&gt;&gt;) -&gt; Vec&lt;String&gt; { let mut hash_table = std::collections::HashMap::new(); for ticket in tickets { hash_table.entry(ticket[0].to_string()) .or_insert(Vec::new()) .push(ticket[1].to_string()); } for destination in hash_table.values_mut() { destination.sort_by(|a, b| a.">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 欧拉回路3" />
+<meta property="og:description" content="重新安排行程 给你一份航线列表 tickets ，其中 tickets[i] = [from⌄i, to⌄i] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+例如，行程 [&ldquo;JFK&rdquo;, &ldquo;LGA&rdquo;] 与 [&ldquo;JFK&rdquo;, &ldquo;LGB&rdquo;] 相比就更小，排序更靠前。 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+示例1: 输入：tickets = [[&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;],[&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;]
+示例2: 输入：tickets = [[&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] 解释：另一种有效的行程是 [&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] ，但是它字典排序更大更靠后。
+// Hierholzer算法 impl Solution { pub fn find_itinerary(tickets: Vec&lt;Vec&lt;String&gt;&gt;) -&gt; Vec&lt;String&gt; { let mut hash_table = std::collections::HashMap::new(); for ticket in tickets { hash_table.entry(ticket[0].to_string()) .or_insert(Vec::new()) .push(ticket[1].to_string()); } for destination in hash_table.values_mut() { destination.sort_by(|a, b| a." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:20:02+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:20:02+08:00" />
+<meta itemprop="name" content="Leetcode 欧拉回路3">
+<meta itemprop="description" content="重新安排行程 给你一份航线列表 tickets ，其中 tickets[i] = [from⌄i, to⌄i] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+例如，行程 [&ldquo;JFK&rdquo;, &ldquo;LGA&rdquo;] 与 [&ldquo;JFK&rdquo;, &ldquo;LGB&rdquo;] 相比就更小，排序更靠前。 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+示例1: 输入：tickets = [[&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;],[&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;]
+示例2: 输入：tickets = [[&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] 解释：另一种有效的行程是 [&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] ，但是它字典排序更大更靠后。
+// Hierholzer算法 impl Solution { pub fn find_itinerary(tickets: Vec&lt;Vec&lt;String&gt;&gt;) -&gt; Vec&lt;String&gt; { let mut hash_table = std::collections::HashMap::new(); for ticket in tickets { hash_table.entry(ticket[0].to_string()) .or_insert(Vec::new()) .push(ticket[1].to_string()); } for destination in hash_table.values_mut() { destination.sort_by(|a, b| a."><meta itemprop="datePublished" content="2023-12-19T15:20:02+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:20:02+08:00" />
+<meta itemprop="wordCount" content="116">
+<meta itemprop="keywords" content="leetcode,欧拉回路," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 欧拉回路3"/>
+<meta name="twitter:description" content="重新安排行程 给你一份航线列表 tickets ，其中 tickets[i] = [from⌄i, to⌄i] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+例如，行程 [&ldquo;JFK&rdquo;, &ldquo;LGA&rdquo;] 与 [&ldquo;JFK&rdquo;, &ldquo;LGB&rdquo;] 相比就更小，排序更靠前。 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+示例1: 输入：tickets = [[&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;],[&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;]
+示例2: 输入：tickets = [[&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] 解释：另一种有效的行程是 [&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] ，但是它字典排序更大更靠后。
+// Hierholzer算法 impl Solution { pub fn find_itinerary(tickets: Vec&lt;Vec&lt;String&gt;&gt;) -&gt; Vec&lt;String&gt; { let mut hash_table = std::collections::HashMap::new(); for ticket in tickets { hash_table.entry(ticket[0].to_string()) .or_insert(Vec::new()) .push(ticket[1].to_string()); } for destination in hash_table.values_mut() { destination.sort_by(|a, b| a."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 欧拉回路3</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:20:02+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="重新安排行程">重新安排行程</h2>
+<p>给你一份航线列表 tickets ，其中 tickets[i] = [from⌄i, to⌄i] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。</p>
+<p>所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。</p>
+<p>例如，行程 [&ldquo;JFK&rdquo;, &ldquo;LGA&rdquo;] 与 [&ldquo;JFK&rdquo;, &ldquo;LGB&rdquo;] 相比就更小，排序更靠前。
+假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。</p>
+<p>示例1:
+输入：tickets = [[&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;],[&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;]]
+输出：[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;]</p>
+<p>示例2:
+输入：tickets = [[&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;]]
+输出：[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;]
+解释：另一种有效的行程是 [&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] ，但是它字典排序更大更靠后。</p>
+<pre tabindex="0"><code>  // Hierholzer算法
+impl Solution {
+    pub fn find_itinerary(tickets: Vec&lt;Vec&lt;String&gt;&gt;) -&gt; Vec&lt;String&gt; {
+        let mut hash_table = std::collections::HashMap::new();
+        for ticket in tickets {
+            hash_table.entry(ticket[0].to_string())
+                .or_insert(Vec::new())
+                .push(ticket[1].to_string());
+        }
+        for destination in hash_table.values_mut() {
+            destination.sort_by(|a, b| a.cmp(&amp;b));
+        }
+
+        let mut ans = Vec::new();
+        let mut stack = Vec::new();
+        stack.push(String::from(&#34;JFK&#34;));
+
+        while !stack.is_empty() {
+            let top = stack[stack.len() - 1].to_string();
+            if !hash_table.contains_key(&amp;top) {
+                stack.pop();
+                ans.push(top.to_string());
+            } else {
+                let des = hash_table.get_mut(&amp;top).unwrap();
+                stack.push(des[0].to_string());
+                des.remove(0);
+                if des.is_empty() {
+                    hash_table.remove_entry(&amp;top);
+                }
+            }
+        }
+        ans.into_iter().rev().collect()
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">欧拉回路</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF1/">Leetcode 欧拉回路1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF2/">Leetcode 欧拉回路2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 基数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 基数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/">Leetcode 双连通分量1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/">Leetcode 双连通分量2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/">Leetcode 拒绝采样2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/">Leetcode 拒绝采样1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-45/">Rust Note 45</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-46/">Rust Note 46</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-47/">Rust Note 47</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-48/">Rust Note 48</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-49/">Rust Note 49</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-41/">Rust Note 41</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-42/">Rust Note 42</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

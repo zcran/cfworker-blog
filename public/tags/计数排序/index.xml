@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计数排序 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</link>
+    <description>Recent content in 计数排序 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:45:23 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 计数排序1</title>
+      <link>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F1/</link>
+      <pubDate>Tue, 19 Dec 2023 15:45:23 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F1/</guid>
+      <description>高度检查器 学校打算为全体学生拍一张年度纪念照。根据要求，学生需要按照 非递减 的高度顺序排成一行。
+排序后的高度情况用整数数组 expected 表示，其中 expected[i] 是预计排在这一行中第 i 位的学生的高度（下标从 0 开始）。
+给你一个整数数组 heights ，表示 当前学生站位 的高度情况。heights[i] 是这一行中第 i 位学生的高度（下标从 0 开始）。
+返回满足 heights[i] != expected[i] 的 下标数量 。
+impl Solution { pub fn height_checker(heights: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { let mut cnt = vec![0; 101]; heights.iter().for_each(|i| cnt[*i as usize] += 1); for i in 1..101 { cnt[i] += cnt[i - 1]; } let mut ret = 0; for i in 0.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 计数排序2</title>
+      <link>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F2/</link>
+      <pubDate>Tue, 19 Dec 2023 15:45:23 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F2/</guid>
+      <description>数组拆分 给定长度为 2n 的整数数组 nums ，你的任务是将这些数分成 n 对, 例如 (a^1, b^1), (a^2, b^2), &amp;hellip;, (a^n, b^n) ，使得从 1 到 n 的 min(a^i, b^i) 总和最大。
+返回该 最大总和 。
+impl Solution { pub fn array_pair_sum(nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { let mut nums = nums; nums.sort_unstable(); nums.iter().step_by(2).sum() } } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 计数排序3</title>
+      <link>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F3/</link>
+      <pubDate>Tue, 19 Dec 2023 15:45:23 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F3/</guid>
+      <description>数组的相对排序 给你两个数组，arr1 和 arr2，arr2 中的元素各不相同，arr2 中的每个元素都出现在 arr1 中。
+对 arr1 中的元素进行排序，使 arr1 中项的相对顺序和 arr2 中的相对顺序相同。未在 arr2 中出现过的元素需要按照升序放在 arr1 的末尾。
+use std::collections::HashMap; use std::collections::HashSet; impl Solution { pub fn relative_sort_array(arr1: Vec&amp;lt;i32&amp;gt;, arr2: Vec&amp;lt;i32&amp;gt;) -&amp;gt; Vec&amp;lt;i32&amp;gt; { let mut map = HashMap::new(); let mut set = HashSet::new(); let mut rv = Vec::new(); let mut post = Vec::new(); for a in &amp;amp;arr2 { set.insert(a); } for a in arr1 { if let Some(x) = map.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 计数排序4</title>
+      <link>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F4/</link>
+      <pubDate>Tue, 19 Dec 2023 15:45:23 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F4/</guid>
+      <description>H 指数 给你一个整数数组 citations ，其中 citations[i] 表示研究者的第 i 篇论文被引用的次数。计算并返回该研究者的 h 指数。
+根据维基百科上 h 指数的定义：h 代表“高引用次数” ，一名科研人员的 h 指数 是指他（她）至少发表了 h 篇论文，并且 至少 有 h 篇论文被引用次数大于等于 h 。如果 h 有多种可能的值，h 指数 是其中最大的那个。
+impl Solution { pub fn h_index(citations: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { let mut left_index = 0; let mut right_index = citations.len(); let mut ans = 0; while left_index &amp;lt;= right_index { let mid = left_index + (right_index - left_index) / 2; let mut tmp_count = 0; for &amp;amp;item in citations.</description>
+    </item>
+    
+  </channel>
+</rss>

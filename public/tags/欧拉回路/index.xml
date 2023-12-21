@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>欧拉回路 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/</link>
+    <description>Recent content in 欧拉回路 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:20:02 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 欧拉回路1</title>
+      <link>http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF1/</link>
+      <pubDate>Tue, 19 Dec 2023 15:20:02 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF1/</guid>
+      <description>合法重新排列数对 给你一个下标从 0 开始的二维整数数组 pairs ，其中 pairs[i] = [start⌄i, end⌄i] 。如果 pairs 的一个重新排列，满足对每一个下标 i （ 1 &amp;lt;= i &amp;lt; pairs.length ）都有 end⌄i-1 == start⌄i ，那么我们就认为这个重新排列是 pairs 的一个 合法重新排列 。
+请你返回 任意一个 pairs 的合法重新排列。
+注意：数据保证至少存在一个 pairs 的合法重新排列。
+class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; validArrangement(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; pairs) { // 存储图 unordered_map&amp;lt;int, vector&amp;lt;int&amp;gt;&amp;gt; edges; // 存储入度和出度 unordered_map&amp;lt;int, int&amp;gt; indeg, outdeg; for (const auto&amp;amp; p: pairs) { int x = p[0], y = p[1]; edges[x].push_back(y); ++indeg[y]; ++outdeg[x]; } // 寻找起始节点 int start = pairs[0][0]; for (const auto&amp;amp; [x, occ]: outdeg) { // 如果有节点出度比入度恰好多 1，那么只有它才能是起始节点 if (occ == indeg[x] + 1) { start = x; break; } } vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; ans; // 深度优先搜索（Hierholzer 算法）求解欧拉通路 function&amp;lt;void(int)&amp;gt; dfs = [&amp;amp;](int u) { while (!</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 欧拉回路2</title>
+      <link>http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF2/</link>
+      <pubDate>Tue, 19 Dec 2023 15:20:02 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF2/</guid>
+      <description>破解保险箱 有一个需要密码才能打开的保险箱。密码是 n 位数, 密码的每一位都是范围 [0, k - 1] 中的一个数字。
+保险箱有一种特殊的密码校验方法，你可以随意输入密码序列，保险箱会自动记住 最后 n 位输入 ，如果匹配，则能够打开保险箱。
+例如，正确的密码是 &amp;ldquo;345&amp;rdquo; ，并且你输入的是 &amp;ldquo;012345&amp;rdquo; ： 输入 0 之后，最后 3 位输入是 &amp;ldquo;0&amp;rdquo; ，不正确。 输入 1 之后，最后 3 位输入是 &amp;ldquo;01&amp;rdquo; ，不正确。 输入 2 之后，最后 3 位输入是 &amp;ldquo;012&amp;rdquo; ，不正确。 输入 3 之后，最后 3 位输入是 &amp;ldquo;123&amp;rdquo; ，不正确。 输入 4 之后，最后 3 位输入是 &amp;ldquo;234&amp;rdquo; ，不正确。 输入 5 之后，最后 3 位输入是 &amp;ldquo;345&amp;rdquo; ，正确，打开保险箱。 在只知道密码位数 n 和范围边界 k 的前提下，请你找出并返回确保在输入的 某个时刻 能够打开保险箱的任一 最短 密码序列 。</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 欧拉回路3</title>
+      <link>http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF3/</link>
+      <pubDate>Tue, 19 Dec 2023 15:20:02 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF3/</guid>
+      <description>重新安排行程 给你一份航线列表 tickets ，其中 tickets[i] = [from⌄i, to⌄i] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+例如，行程 [&amp;ldquo;JFK&amp;rdquo;, &amp;ldquo;LGA&amp;rdquo;] 与 [&amp;ldquo;JFK&amp;rdquo;, &amp;ldquo;LGB&amp;rdquo;] 相比就更小，排序更靠前。 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+示例1: 输入：tickets = [[&amp;ldquo;MUC&amp;rdquo;,&amp;ldquo;LHR&amp;rdquo;],[&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;MUC&amp;rdquo;],[&amp;ldquo;SFO&amp;rdquo;,&amp;ldquo;SJC&amp;rdquo;],[&amp;ldquo;LHR&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;]] 输出：[&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;MUC&amp;rdquo;,&amp;ldquo;LHR&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;,&amp;ldquo;SJC&amp;rdquo;]
+示例2: 输入：tickets = [[&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;],[&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;ATL&amp;rdquo;],[&amp;ldquo;SFO&amp;rdquo;,&amp;ldquo;ATL&amp;rdquo;],[&amp;ldquo;ATL&amp;rdquo;,&amp;ldquo;JFK&amp;rdquo;],[&amp;ldquo;ATL&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;]] 输出：[&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;ATL&amp;rdquo;,&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;,&amp;ldquo;ATL&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;] 解释：另一种有效的行程是 [&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;,&amp;ldquo;ATL&amp;rdquo;,&amp;ldquo;JFK&amp;rdquo;,&amp;ldquo;ATL&amp;rdquo;,&amp;ldquo;SFO&amp;rdquo;] ，但是它字典排序更大更靠后。
+// Hierholzer算法 impl Solution { pub fn find_itinerary(tickets: Vec&amp;lt;Vec&amp;lt;String&amp;gt;&amp;gt;) -&amp;gt; Vec&amp;lt;String&amp;gt; { let mut hash_table = std::collections::HashMap::new(); for ticket in tickets { hash_table.entry(ticket[0].to_string()) .or_insert(Vec::new()) .push(ticket[1].to_string()); } for destination in hash_table.values_mut() { destination.sort_by(|a, b| a.</description>
+    </item>
+    
+  </channel>
+</rss>

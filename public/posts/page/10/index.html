@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/posts/" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote10/" class="link black dim">
+        Rust Note 10
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      有效的数独 请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
+数字 1-9 在每一行只能出现一次。 数字 1-9 在每一列只能出现一次。 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。 注意：
+一个有效的数独（部分已被填充）不一定是可解的。 只需要根据以上规则，验证已经填入的数字是否有效即可。 空白格用 &lsquo;.&rsquo; 表示。
+C 解法： class Solution { public: bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) { int row[9][9] = {0}; int col[9][9] = {0}; int box[3][3][9] = {0}; for (int i = 0; i &lt; 9; i++) { for (int j = 0; j &lt; 9; j++) { char c = board[i][j]; if (c == &#39;.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote09/" class="link black dim">
+        Rust Note 09
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+C 解法： int* twoSum(int* nums, int numsSize, int target, int* returnSize) { for (int i = 0; i &lt; numsSize; ++i) { for (int j = i + 1; j &lt; numsSize; ++j) { if (nums[i] + nums[j] == target) { int* ret = malloc(sizeof(int) * 2); ret[0] = i, ret[1] = j; *returnSize = 2; return ret; } } } *returnSize = 0; return NULL; } Rust 解法： use std::collections::HashMap; impl Solution { pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); for (i,val) in nums.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote08/" class="link black dim">
+        Rust Note 08
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      移动零 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+请注意 ，必须在不复制数组的情况下原地对数组进行操作。
+C 解法： class Solution { public void moveZeroes(int[] nums) { int indexNow = 0; int indexNum = 0; int m = nums.length; while(indexNum&lt;m){ if(nums[indexNum] != 0) { nums[indexNow++] = nums[indexNum]; } ++indexNum; } for(int i = indexNow; i &lt; m; i++){ nums[i] = 0; } } } Rust 解法： impl Solution { pub fn move_zeroes(nums: &amp;mut Vec&lt;i32&gt;) { let len = nums.len(); nums.retain(|x| *x !
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote07/" class="link black dim">
+        Rust Note 07
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      加一 给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。
+最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
+你可以假设除了整数 0 之外，这个整数不会以零开头。
+C 解法： int* plusOne(int* digits, int digitsSize, int* returnSize){ for(int i = digitsSize - 1; i &gt;= 0; --i){ digits[i] = digits[i] + 1;//最后元素+1判断是不是10 //如果当前元素不为10，直接返回数组 if(digits[i] != 10){ *returnSize = digitsSize; return digits; } //第一个元素不为10，后面元素均为10的情况 if(digits[i] == 10) digits[i] = 0; } //元素全为9开辟新数组 int* ans = malloc(sizeof(int) * (digitsSize + 1)); memset(ans, 0, sizeof(int) * (digitsSize + 1));//全部置0 ans[0] = 1; *returnSize = digitsSize + 1; return ans; } Rust 解法： impl Solution { pub fn plus_one(digits: Vec&lt;i32&gt;) -&gt; Vec&lt;i32&gt; { match digits.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote06/" class="link black dim">
+        Rust Note 06
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      两个数组的交集 给你两个整数数组 nums1 和 nums2 ，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。
+C解法 ： int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) { int* rearr = (int*)malloc(sizeof(int)*(nums1Size&gt;nums2Size?nums2Size:nums1Size)); int a[1001] = {0}; int b[1001] = {0}; for(int i = 0; i&lt;nums1Size; i++) { a[nums1[i]]++; } for(int i = 0; i&lt;nums2Size; i++) { b[nums2[i]]++; } *returnSize = 0; for(int i = 0; i&lt;1001; i++) { if(a[i]&gt;0&amp;&amp;b[i]&gt;0) { int n = (a[i]&gt;b[i])?b[i]:a[i]; for(int j = 0; j&lt;n ;j++) { rearr[*returnSize] = i; (*returnSize)++; } } } return rearr; } Rust 解法 ： use std::collections::HashMap; impl Solution { pub fn intersect(nums1: Vec&lt;i32&gt;, nums2: Vec&lt;i32&gt;) -&gt; Vec&lt;i32&gt; { let mut ans = vec!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote05/" class="link black dim">
+        Rust Note 05
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      只出现一次的数字 给你一个 非空 整数数组 nums ，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+你必须设计并实现线性时间复杂度的算法来解决此问题，且该算法只使用常量额外空间。
+C解法 ： int singleNumber(int* nums, int numsSize){ int a = 0; for (int i = 0; i &lt; numsSize; i++) { a = a ^ nums[i]; } return a; } Rust 解法 ： impl Solution { pub fn single_number(nums: Vec&lt;i32&gt;) -&gt; i32 { nums.iter().fold(0,|acc,x| acc^x) } } Rust fold() 函数 ： fn fold&lt;B, F&gt;(self, init: B, f: F) -&gt; B where
+F: FnMut(B, Self::Item) -&gt; B, 通过应用操作将每个元素 fold 到一个累加器中，返回最终结果。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote04/" class="link black dim">
+        Rust Note 04
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      存在重复元素 给你一个整数数组 nums 。如果任一值在数组中出现 至少两次 ，返回 true ；如果数组中每个元素互不相同，返回 false 。
+C 解法 ： public boolean containsDuplicate(int[] nums) { Arrays.sort(nums); for (int ind = 1; ind &lt; nums.length; ind++) { if (nums[ind] == nums[ind - 1]) { return true; } } return false; } Rust 解法 1 : impl Solution { pub fn contains_duplicate(mut nums: Vec&lt;i32&gt;) -&gt; bool { nums.sort(); (&amp;nums).windows(2).fold(false, |mut res,y|{ (y[0] == y[1]) | res }) } } Rust 解法 2 ： impl Solution { pub fn contains_duplicate(nums: Vec&lt;i32&gt;) -&gt; bool { let mut vec = nums.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote03/" class="link black dim">
+        Rust Note 03
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      买卖股票的最佳时机2 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+C 解法 ： public int maxProfit(int[] prices) { if (prices == null || prices.length &lt; 2) return 0; int total = 0, index = 0, length = prices.length; while (index &lt; length) { //如果股票下跌就一直找，直到找到股票开始上涨为止 while (index &lt; length - 1 &amp;&amp; prices[index] &gt;= prices[index + 1]) index++; //股票上涨开始的值，也就是这段时间上涨的最小值 int min = prices[index]; //一直找到股票上涨的最大值为止 while (index &lt; length - 1 &amp;&amp; prices[index] &lt;= prices[index + 1]) index++; //计算这段上涨时间的差值，然后累加 total += prices[index++] - min; } return total; } Rust 解法1 ： impl Solution { pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 { let mut profit = 0; for i in 1.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote02/" class="link black dim">
+        Rust Note 02
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Rust官方迭代器介绍 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; Advances the iterator and returns the next value.
+Returns None when iteration is finished. Individual iterator implementations may choose to resume iteration, and so calling next() again may or may not eventually start returning Some(Item) again at some point.
+Examples Basic usage:
+let a = [1, 2, 3]; let mut iter = a.iter(); // A call to next() returns the next value... assert_eq!(Some(&amp;1), iter.next()); assert_eq!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote01/" class="link black dim">
+        Rust Note 01
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。
+考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：
+更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。 返回 k 。
+C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条件判断 if (A == null || A.length == 0) return 0; int left = 0; for (int right = 1; right &lt; A.length; right++) //如果左指针和右指针指向的值一样，说明有重复的， //这个时候，左指针不动，右指针继续往右移。如果他俩 //指向的值不一样就把右指针指向的值往前挪 if (A[left] !
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/9/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/9/" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

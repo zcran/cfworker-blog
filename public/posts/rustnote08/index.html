@@ -9,7 +9,7 @@
     <meta name="description" content="移动零 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
 请注意 ，必须在不复制数组的情况下原地对数组进行操作。
 C 解法： class Solution { public void moveZeroes(int[] nums) { int indexNow = 0; int indexNum = 0; int m = nums.length; while(indexNum&lt;m){ if(nums[indexNum] != 0) { nums[indexNow&#43;&#43;] = nums[indexNum]; } &#43;&#43;indexNum; } for(int i = indexNow; i &lt; m; i&#43;&#43;){ nums[i] = 0; } } } Rust 解法： impl Solution { pub fn move_zeroes(nums: &amp;mut Vec&lt;i32&gt;) { let len = nums.len(); nums.retain(|x| *x !">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -39,7 +39,6 @@ C 解法： class Solution { public void moveZeroes(int[] nums) { int indexNow =
 <meta property="og:url" content="http://example.org/posts/rustnote08/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-19T21:35:46+08:00" />
 <meta property="article:modified_time" content="2023-05-19T21:35:46+08:00" />
-
 <meta itemprop="name" content="Rust Note 08">
 <meta itemprop="description" content="移动零 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
 请注意 ，必须在不复制数组的情况下原地对数组进行操作。

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>水塘抽样 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B7/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/tags/%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B7/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="水塘抽样" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/tags/%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B7/" />
+<meta itemprop="name" content="水塘抽样">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="水塘抽样"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          水塘抽样
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “水塘抽样”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B71/" class="link black dim">
+        Leetcode 水塘抽样1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      非重叠矩形中的随机点 给定一个由非重叠的轴对齐矩形的数组 rects ，其中 rects[i] = [ai, bi, xi, yi] 表示 (ai, bi) 是第 i 个矩形的左下角点，(xi, yi) 是第 i 个矩形的右上角点。设计一个算法来随机挑选一个被某一矩形覆盖的整数点。矩形周长上的点也算做是被矩形覆盖。所有满足要求的点必须等概率被返回。
+在给定的矩形覆盖的空间内的任何整数点都有可能被返回。
+请注意 ，整数点是具有整数坐标的点。
+实现 Solution 类:
+Solution(int[][] rects) 用给定的矩形数组 rects 初始化对象。 int[] pick() 返回一个随机的整数点 [u, v] 在给定的矩形所覆盖的空间内。
+use rand::{thread_rng, Rng}; struct Solution { rects: Vec&lt;Vec&lt;i32&gt;&gt;, arr: Vec&lt;i32&gt;, } impl Solution { fn new(rects: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Self { let arr = rects .iter() .scan(0, |v, rect| { *v += (rect[2] - rect[0] + 1) * (rect[3] - rect[1] + 1); Some(*v) }) .
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B72/" class="link black dim">
+        Leetcode 水塘抽样2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      链表随机节点 给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点 被选中的概率一样 。
+实现 Solution 类：
+Solution(ListNode head) 使用整数数组初始化对象。 int getRandom() 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。
+struct Solution { list: Vec&lt;i32&gt;, } impl Solution { fn new(mut head: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; Self { let mut list = Vec::new(); while let Some(mut node) = head { list.push(node.val); head = node.next.take(); } Self { list } } fn get_random(&amp;self) -&gt; i32 { use rand::{Rng, thread_rng}; self.list[thread_rng().gen_range(0, self.list.len())] } } 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B73/" class="link black dim">
+        Leetcode 水塘抽样3
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      随机翻转矩阵 给你一个 m x n 的二元矩阵 matrix ，且所有值被初始化为 0 。请你设计一个算法，随机选取一个满足 matrix[i][j] == 0 的下标 (i, j) ，并将它的值变为 1 。所有满足 matrix[i][j] == 0 的下标 (i, j) 被选取的概率应当均等。
+尽量最少调用内置的随机函数，并且优化时间和空间复杂度。
+实现 Solution 类：
+Solution(int m, int n) 使用二元矩阵的大小 m 和 n 初始化该对象 int[] flip() 返回一个满足 matrix[i][j] == 0 的随机下标 [i, j] ，并将其对应格子中的值变为 1 void reset() 将矩阵中所有的值重置为 0
+use rand::prelude::*; use std::collections::HashMap; struct Solution { n: usize, idx: HashMap&lt;usize, usize&gt;, rng: ThreadRng, r: usize, c: usize, } impl Solution { fn new(m: i32, n: i32) -&gt; Self { Solution { n: m as usize * n as usize, idx: HashMap::new(), rng: thread_rng(), r: m as usize, c: n as usize, } } fn flip(&amp;mut self) -&gt; Vec&lt;i32&gt; { let v = self.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B74/" class="link black dim">
+        Leetcode 水塘抽样4
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      随机数索引 给你一个可能含有 重复元素 的整数数组 nums ，请你随机输出给定的目标数字 target 的索引。你可以假设给定的数字一定存在于数组中。
+实现 Solution 类：
+Solution(int[] nums) 用数组 nums 初始化对象。 int pick(int target) 从 nums 中选出一个满足 nums[i] == target 的随机索引 i 。如果存在多个有效的索引，则每个索引的返回概率应当相等。
+use rand::{rngs::ThreadRng, Rng}; use std::collections::HashMap; struct Solution { map: HashMap&lt;i32, Vec&lt;usize&gt;&gt;, rand: ThreadRng, } impl Solution { fn new(nums: Vec&lt;i32&gt;) -&gt; Self { Solution { map: nums .iter() .enumerate() .fold(HashMap::new(), |mut m, (i, &amp;n)| { m.entry(n).and_modify(|v| v.push(i)).or_insert(vec![i]); m }), rand: rand::thread_rng(), } } fn pick(&amp;mut self, target: i32) -&gt; i32 { let v = self.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

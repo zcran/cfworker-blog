@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/posts/" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote11/" class="link black dim">
+        Rust Note 11
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
+你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
+C 解法： void swap(int* a, int* b) { int t = *a; *a = *b, *b = t; } void rotate(int** matrix, int matrixSize, int* matrixColSize) { // 水平翻转 for (int i = 0; i &lt; matrixSize / 2; ++i) { for (int j = 0; j &lt; matrixSize; ++j) { swap(&amp;matrix[i][j], &amp;matrix[matrixSize - i - 1][j]); } } // 主对角线翻转 for (int i = 0; i &lt; matrixSize; ++i) { for (int j = 0; j &lt; i; ++j) { swap(&amp;matrix[i][j], &amp;matrix[j][i]); } } } Rust 解法： impl Solution { pub fn rotate(matrix: &amp;mut Vec&lt;Vec&lt;i32&gt;&gt;) { let m = matrix.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote12/" class="link black dim">
+        Rust Note 12
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      反转字符串 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。
+不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
+C 解法： void swap(char *a, char *b) { char t = *a; *a = *b, *b = t; } void reverseString(char *s, int sSize) { for (int left = 0, right = sSize - 1; left &lt; right; ++left, --right) { swap(s + left, s + right); } } Rust 解法： impl Solution { pub fn reverse_string(s: &amp;mut Vec&lt;char&gt;) { //let sl = s.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote13/" class="link black dim">
+        Rust Note 13
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
+如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
+假设环境不允许存储 64 位整数（有符号或无符号）。
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10+x%10; x/=10; } return res; } }; Rust 解法： impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() .unwrap_or(0) * x.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote14/" class="link black dim">
+        Rust Note 14
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      字符串中的第一个唯一字符 给定一个字符串 s ，找到 它的第一个不重复的字符，并返回它的索引 。如果不存在，则返回 -1 。
+C 解法： class Solution { public: int firstUniqChar(string s) { unordered_map&lt;int, int&gt; frequency; for (char ch: s) { ++frequency[ch]; } for (int i = 0; i &lt; s.size(); ++i) { if (frequency[s[i]] == 1) { return i; } } return -1; } }; Rust 解法1： use std::collections::HashMap; impl Solution { pub fn first_uniq_char(s: String) -&gt; i32 { let mut map = HashMap::new(); s.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote15/" class="link black dim">
+        Rust Note 15
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      有效的字母异位词 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
+C 解法： class Solution { public boolean isAnagram(String s, String t) { if(s.length() != t.length()) return false; int[] alpha = new int[26]; for(int i = 0; i&lt; s.length(); i++) { alpha[s.charAt(i) - &#39;a&#39;] ++; alpha[t.charAt(i) - &#39;a&#39;] --; } for(int i=0;i&lt;26;i++) if(alpha[i] != 0) return false; return true; } } Rust 解法： impl Solution { pub fn is_anagram(s: String, t: String) -&gt; bool { if s.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote16/" class="link black dim">
+        Rust Note 16
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      验证回文串 如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。
+字母和数字都属于字母数字字符。
+给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
+C 解法： class Solution { public: bool isPalindrome(string s) { int n = s.size(); int left = 0, right = n - 1; while (left &lt; right) { while (left &lt; right &amp;&amp; !isalnum(s[left])) { ++left; } while (left &lt; right &amp;&amp; !isalnum(s[right])) { --right; } if (left &lt; right) { if (tolower(s[left]) != tolower(s[right])) { return false; } ++left; --right; } } return true; } }; Rust 解法： impl Solution { pub fn is_palindrome(s: String) -&gt; bool { let s = s .
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote17/" class="link black dim">
+        Rust Note 17
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      字符串转换整数 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
+函数 myAtoi(string s) 的算法如下：
+读入字符串并丢弃无用的前导空格 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。 读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。 将前面步骤读入的这些数字转换为整数（即，&ldquo;123&rdquo; -&gt; 123， &ldquo;0032&rdquo; -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。 如果整数数超过 32 位有符号整数范围 [−231, 231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。 返回整数作为最终结果。 注意：
+本题中的空白字符只包括空格字符 &rsquo; &rsquo; 。 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+C 解法： // 自动机 class Automaton { string state = &#34;start&#34;; unordered_map&lt;string, vector&lt;string&gt;&gt; table = { {&#34;start&#34;, {&#34;start&#34;, &#34;signed&#34;, &#34;in_number&#34;, &#34;end&#34;}}, {&#34;signed&#34;, {&#34;end&#34;, &#34;end&#34;, &#34;in_number&#34;, &#34;end&#34;}}, {&#34;in_number&#34;, {&#34;end&#34;, &#34;end&#34;, &#34;in_number&#34;, &#34;end&#34;}}, {&#34;end&#34;, {&#34;end&#34;, &#34;end&#34;, &#34;end&#34;, &#34;end&#34;}} }; int get_col(char c) { if (isspace(c)) return 0; if (c == &#39;+&#39; or c == &#39;-&#39;) return 1; if (isdigit(c)) return 2; return 3; } public: int sign = 1; long long ans = 0; void get(char c) { state = table[state][get_col(c)]; if (state == &#34;in_number&#34;) { ans = ans * 10 + c - &#39;0&#39;; ans = sign == 1 ?
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote18/" class="link black dim">
+        Rust Note 18
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      实现strStr() 给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串的第一个匹配项的下标（下标从 0 开始）。如果 needle 不是 haystack 的一部分，则返回 -1 。
+C 解法： // 暴力匹配 class Solution { public: int strStr(string haystack, string needle) { int n = haystack.size(), m = needle.size(); for (int i = 0; i + m &lt;= n; i++) { bool flag = true; for (int j = 0; j &lt; m; j++) { if (haystack[i + j] != needle[j]) { flag = false; break; } } if (flag) { return i; } } return -1; } }; Rust 解法1： // KMP算法 impl Solution { pub fn str_str(haystack: String, needle: String) -&gt; i32 { let haystack = haystack.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote19/" class="link black dim">
+        Rust Note 19
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      外观数列 给定一个正整数 n ，输出外观数列的第 n 项。
+「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。
+你可以将其视作是由递归公式定义的数字字符串序列：
+countAndSay(1) = &ldquo;1&rdquo; countAndSay(n) 是对 countAndSay(n-1) 的描述，然后转换成另一个数字字符串。 前五项如下：
+1 11 21 1211 111221 第一项是数字 1 描述前一项，这个数是 1 即 “ 一 个 1 ”，记作 &ldquo;11&rdquo; 描述前一项，这个数是 11 即 “ 二 个 1 ” ，记作 &ldquo;21&rdquo; 描述前一项，这个数是 21 即 “ 一 个 2 + 一 个 1 ” ，记作 &ldquo;1211&rdquo; 描述前一项，这个数是 1211 即 “ 一 个 1 + 一 个 2 + 二 个 1 ” ，记作 &ldquo;111221&rdquo; 要 描述 一个数字字符串，首先要将字符串分割为 最小 数量的组，每个组都由连续的最多 相同字符 组成。然后对于每个组，先描述字符的数量，然后描述字符，形成一个描述组。要将描述转换为数字字符串，先将每组中的字符数量用数字替换，再将所有描述组连接起来。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rustnote20/" class="link black dim">
+        Rust Note 20
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 &ldquo;&quot;。
+C 解法： // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &lt; num &amp;&amp; st[i] == en[i]; i ++); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String { let mut x:Vec&lt;_&gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0].
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/8/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/10/" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/10/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

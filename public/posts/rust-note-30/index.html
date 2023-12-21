@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="二叉树的层序遍历 给你二叉树的根节点 root ，返回其节点值的 层序遍历 。 （即逐层地，从左到右访问所有节点）。
 C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) { vector &lt;vector &lt;int&gt;&gt; ret; if (!root) { return ret; } queue &lt;TreeNode*&gt; q; q.push(root); while (!q.empty()) { int currentLevelSize = q.size(); ret.push_back(vector &lt;int&gt; ()); for (int i = 1; i &lt;= currentLevelSize; &#43;&#43;i) { auto node = q.front(); q.pop(); ret.back().push_back(node-&gt;val); if (node-&gt;left) q.push(node-&gt;left); if (node-&gt;right) q.push(node-&gt;right); } } return ret; } }; Rust 解法： use std::rc::Rc; use std::cell::RefCell; impl Solution { pub fn level_order(root: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut q = vec!">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -37,7 +37,6 @@ C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; levelOrder(
 <meta property="og:url" content="http://example.org/posts/rust-note-30/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-04T22:12:33+08:00" />
 <meta property="article:modified_time" content="2023-06-04T22:12:33+08:00" />
-
 <meta itemprop="name" content="Rust Note 30">
 <meta itemprop="description" content="二叉树的层序遍历 给你二叉树的根节点 root ，返回其节点值的 层序遍历 。 （即逐层地，从左到右访问所有节点）。
 C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) { vector &lt;vector &lt;int&gt;&gt; ret; if (!root) { return ret; } queue &lt;TreeNode*&gt; q; q.push(root); while (!q.empty()) { int currentLevelSize = q.size(); ret.push_back(vector &lt;int&gt; ()); for (int i = 1; i &lt;= currentLevelSize; &#43;&#43;i) { auto node = q.front(); q.pop(); ret.back().push_back(node-&gt;val); if (node-&gt;left) q.push(node-&gt;left); if (node-&gt;right) q.push(node-&gt;right); } } return ret; } }; Rust 解法： use std::rc::Rc; use std::cell::RefCell; impl Solution { pub fn level_order(root: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut q = vec!"><meta itemprop="datePublished" content="2023-06-04T22:12:33+08:00" />

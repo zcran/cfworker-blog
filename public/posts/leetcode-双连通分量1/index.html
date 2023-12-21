@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 双连通分量1 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="查找集群内的关键连接 数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以 服务器到服务器 的形式相互连接组成了一个内部集群，连接是无向的。用 connections 表示集群网络，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。
+关键连接 是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。
+请你以任意顺序返回该集群内的所有 关键连接 。
+use std::iter::repeat; static mut DFN: [i32; 100010] = [0; 100010]; static mut LOW: [i32; 100010] = [0; 100010]; static mut DFN_CNT: i32 = 0; impl Solution { pub fn critical_connections(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { return unsafe{Solution::critical_connections2(n,connections)}; } pub unsafe fn critical_connections2(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut graph: Vec&lt;Vec&lt;i32&gt;&gt; = repeat(vec!">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 双连通分量1" />
+<meta property="og:description" content="查找集群内的关键连接 数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以 服务器到服务器 的形式相互连接组成了一个内部集群，连接是无向的。用 connections 表示集群网络，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。
+关键连接 是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。
+请你以任意顺序返回该集群内的所有 关键连接 。
+use std::iter::repeat; static mut DFN: [i32; 100010] = [0; 100010]; static mut LOW: [i32; 100010] = [0; 100010]; static mut DFN_CNT: i32 = 0; impl Solution { pub fn critical_connections(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { return unsafe{Solution::critical_connections2(n,connections)}; } pub unsafe fn critical_connections2(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut graph: Vec&lt;Vec&lt;i32&gt;&gt; = repeat(vec!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:12:57+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:12:57+08:00" />
+<meta itemprop="name" content="Leetcode 双连通分量1">
+<meta itemprop="description" content="查找集群内的关键连接 数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以 服务器到服务器 的形式相互连接组成了一个内部集群，连接是无向的。用 connections 表示集群网络，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。
+关键连接 是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。
+请你以任意顺序返回该集群内的所有 关键连接 。
+use std::iter::repeat; static mut DFN: [i32; 100010] = [0; 100010]; static mut LOW: [i32; 100010] = [0; 100010]; static mut DFN_CNT: i32 = 0; impl Solution { pub fn critical_connections(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { return unsafe{Solution::critical_connections2(n,connections)}; } pub unsafe fn critical_connections2(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut graph: Vec&lt;Vec&lt;i32&gt;&gt; = repeat(vec!"><meta itemprop="datePublished" content="2023-12-19T15:12:57+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:12:57+08:00" />
+<meta itemprop="wordCount" content="278">
+<meta itemprop="keywords" content="leetcode,双连通分量," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 双连通分量1"/>
+<meta name="twitter:description" content="查找集群内的关键连接 数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以 服务器到服务器 的形式相互连接组成了一个内部集群，连接是无向的。用 connections 表示集群网络，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。
+关键连接 是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。
+请你以任意顺序返回该集群内的所有 关键连接 。
+use std::iter::repeat; static mut DFN: [i32; 100010] = [0; 100010]; static mut LOW: [i32; 100010] = [0; 100010]; static mut DFN_CNT: i32 = 0; impl Solution { pub fn critical_connections(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { return unsafe{Solution::critical_connections2(n,connections)}; } pub unsafe fn critical_connections2(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut graph: Vec&lt;Vec&lt;i32&gt;&gt; = repeat(vec!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 双连通分量1</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:12:57+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="查找集群内的关键连接">查找集群内的关键连接</h2>
+<p>数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以 服务器到服务器 的形式相互连接组成了一个内部集群，连接是无向的。用  connections 表示集群网络，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。</p>
+<p>关键连接 是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。</p>
+<p>请你以任意顺序返回该集群内的所有 关键连接 。</p>
+<pre tabindex="0"><code>use std::iter::repeat;
+static mut DFN: [i32; 100010] = [0; 100010];
+static mut LOW: [i32; 100010] = [0; 100010];
+static mut DFN_CNT: i32 = 0;
+impl Solution {
+    pub fn critical_connections(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; {
+        return unsafe{Solution::critical_connections2(n,connections)};
+    }
+    pub unsafe fn critical_connections2(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; {
+        let mut graph: Vec&lt;Vec&lt;i32&gt;&gt; = repeat(vec![]).take(n as usize).collect();
+        for edge in connections.iter() {
+            graph[edge[0] as usize].push(edge[1]);
+            graph[edge[1] as usize].push(edge[0]);
+        }
+        for i in 0..n {
+            DFN[i as usize] = 0;
+            LOW[i as usize] = 0;
+        }
+
+        DFN_CNT = 0;
+        let mut ans: Vec&lt;Vec&lt;i32&gt;&gt; = vec![];
+        Solution::tarjan(0, -1, &amp;mut graph, &amp;mut ans);
+        return ans;
+    }
+
+    // tarjan  dfs过程
+    // 点的编号是cur，dfn X low X
+    unsafe fn tarjan(cur: i32, father: i32, graph: &amp;mut Vec&lt;Vec&lt;i32&gt;&gt;, ans: &amp;mut Vec&lt;Vec&lt;i32&gt;&gt;) {
+        // 第一次来到cur
+        // 分配dfn、low序号
+        DFN_CNT += 1;
+        LOW[cur as usize] = DFN_CNT;
+        DFN[cur as usize] = LOW[cur as usize];
+        let n = graph[cur as usize].len() as i32;
+        for j in 0..n {
+            let next = graph[cur as usize][j as usize];
+            if next != father {
+                if DFN[next as usize] == 0 {
+                    // 下级的节点没跑过，就去跑
+                    Solution::tarjan(next, cur, graph, ans);
+                    LOW[cur as usize] = get_min(LOW[cur as usize], LOW[next as usize]);
+                } else {
+                    // 下级的节点跑过了，直接更新low
+                    LOW[cur as usize] = get_min(LOW[cur as usize], DFN[next as usize]);
+                }
+            }
+        }
+        if LOW[cur as usize] == DFN[cur as usize] &amp;&amp; cur != 0 {
+            ans.push(vec![father, cur]);
+        }
+    }
+}
+
+fn get_min&lt;T: Clone + Copy + std::cmp::PartialOrd&gt;(a: T, b: T) -&gt; T {
+    if a &lt; b {
+        a
+    } else {
+        b
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">双连通分量</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/">Leetcode 双连通分量2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/">Leetcode 拒绝采样2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/">Leetcode 拒绝采样1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-45/">Rust Note 45</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-46/">Rust Note 46</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-47/">Rust Note 47</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-48/">Rust Note 48</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-49/">Rust Note 49</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-41/">Rust Note 41</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-42/">Rust Note 42</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-43/">Rust Note 43</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-44/">Rust Note 44</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-31/">Rust Note 31</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-32/">Rust Note 32</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-33/">Rust Note 33</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

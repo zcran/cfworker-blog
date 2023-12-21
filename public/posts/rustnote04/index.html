@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="存在重复元素 给你一个整数数组 nums 。如果任一值在数组中出现 至少两次 ，返回 true ；如果数组中每个元素互不相同，返回 false 。
 C 解法 ： public boolean containsDuplicate(int[] nums) { Arrays.sort(nums); for (int ind = 1; ind &lt; nums.length; ind&#43;&#43;) { if (nums[ind] == nums[ind - 1]) { return true; } } return false; } Rust 解法 1 : impl Solution { pub fn contains_duplicate(mut nums: Vec&lt;i32&gt;) -&gt; bool { nums.sort(); (&amp;nums).windows(2).fold(false, |mut res,y|{ (y[0] == y[1]) | res }) } } Rust 解法 2 ： impl Solution { pub fn contains_duplicate(nums: Vec&lt;i32&gt;) -&gt; bool { let mut vec = nums.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -37,7 +37,6 @@ C 解法 ： public boolean containsDuplicate(int[] nums) { Arrays.sort(nums); f
 <meta property="og:url" content="http://example.org/posts/rustnote04/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-19T21:35:29+08:00" />
 <meta property="article:modified_time" content="2023-05-19T21:35:29+08:00" />
-
 <meta itemprop="name" content="Rust Note 04">
 <meta itemprop="description" content="存在重复元素 给你一个整数数组 nums 。如果任一值在数组中出现 至少两次 ，返回 true ；如果数组中每个元素互不相同，返回 false 。
 C 解法 ： public boolean containsDuplicate(int[] nums) { Arrays.sort(nums); for (int ind = 1; ind &lt; nums.length; ind&#43;&#43;) { if (nums[ind] == nums[ind - 1]) { return true; } } return false; } Rust 解法 1 : impl Solution { pub fn contains_duplicate(mut nums: Vec&lt;i32&gt;) -&gt; bool { nums.sort(); (&amp;nums).windows(2).fold(false, |mut res,y|{ (y[0] == y[1]) | res }) } } Rust 解法 2 ： impl Solution { pub fn contains_duplicate(nums: Vec&lt;i32&gt;) -&gt; bool { let mut vec = nums."><meta itemprop="datePublished" content="2023-05-19T21:35:29+08:00" />
@@ -158,50 +157,50 @@ impl Solution {
     }
 }
 </code></pre><h2 id="rust-windows-函数-">Rust windows() 函数 ：</h2>
-<p>pub fn windows(&amp;self, size: usize) -&gt; Windows&lt;'_, T&gt;ⓘ</p>
+<p>pub fn windows(&amp;self, size: usize) -&gt; Windows&lt;&rsquo;_, T&gt;ⓘ</p>
 <p>返回长度为 <code>size</code> 的所有连续 windows 上的迭代器。 windows 重叠。 如果切片短于 <code>size</code>，则迭代器不返回任何值。</p>
 <h5 id="panics-">Panics ：</h5>
 <p>如果 <code>size</code> 为 0，就会出现 panics。</p>
 <h5 id="examples-">Examples ：</h5>
-<pre tabindex="0"><code>let slice = ['r', 'u', 's', 't'];
+<pre tabindex="0"><code>let slice = [&#39;r&#39;, &#39;u&#39;, &#39;s&#39;, &#39;t&#39;];
 let mut iter = slice.windows(2);
-assert_eq!(iter.next().unwrap(), &amp;['r', 'u']);
-assert_eq!(iter.next().unwrap(), &amp;['u', 's']);
-assert_eq!(iter.next().unwrap(), &amp;['s', 't']);
+assert_eq!(iter.next().unwrap(), &amp;[&#39;r&#39;, &#39;u&#39;]);
+assert_eq!(iter.next().unwrap(), &amp;[&#39;u&#39;, &#39;s&#39;]);
+assert_eq!(iter.next().unwrap(), &amp;[&#39;s&#39;, &#39;t&#39;]);
 assert!(iter.next().is_none());
 </code></pre><p>如果切片短于 <code>size</code>：</p>
-<pre tabindex="0"><code>let slice = ['f', 'o', 'o'];
+<pre tabindex="0"><code>let slice = [&#39;f&#39;, &#39;o&#39;, &#39;o&#39;];
 let mut iter = slice.windows(4);
 assert!(iter.next().is_none());
 </code></pre><h5 id="source-">source ：</h5>
 <pre tabindex="0"><code>#[derive(Debug)]
-#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
-pub struct Windows&lt;'a, T: 'a&gt; {
-    v: &amp;'a [T],
+#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
+pub struct Windows&lt;&#39;a, T: &#39;a&gt; {
+    v: &amp;&#39;a [T],
     size: NonZeroUsize,
 }
 
-impl&lt;'a, T: 'a&gt; Windows&lt;'a, T&gt; {
+impl&lt;&#39;a, T: &#39;a&gt; Windows&lt;&#39;a, T&gt; {
     #[inline]
-    pub(super) fn new(slice: &amp;'a [T], size: NonZeroUsize) -&gt; Self {
+    pub(super) fn new(slice: &amp;&#39;a [T], size: NonZeroUsize) -&gt; Self {
         Self { v: slice, size }
     }
 }
 
 // FIXME(#26925) 删除以支持 `#[derive(Clone)]`
-#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
-impl&lt;T&gt; Clone for Windows&lt;'_, T&gt; {
+#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
+impl&lt;T&gt; Clone for Windows&lt;&#39;_, T&gt; {
     fn clone(&amp;self) -&gt; Self {
         Windows { v: self.v, size: self.size }
     }
 }
 
-#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
-impl&lt;'a, T&gt; Iterator for Windows&lt;'a, T&gt; {
-    type Item = &amp;'a [T];
+#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
+impl&lt;&#39;a, T&gt; Iterator for Windows&lt;&#39;a, T&gt; {
+    type Item = &amp;&#39;a [T];
 
     #[inline]
-    fn next(&amp;mut self) -&gt; Option&lt;&amp;'a [T]&gt; {
+    fn next(&amp;mut self) -&gt; Option&lt;&amp;&#39;a [T]&gt; {
         if self.size.get() &gt; self.v.len() {
             None
         } else {
@@ -251,7 +250,7 @@ impl&lt;'a, T&gt; Iterator for Windows&lt;'a, T&gt; {
 
     #[doc(hidden)]
     unsafe fn __iterator_get_unchecked(&amp;mut self, idx: usize) -&gt; Self::Item {
-        // SAFETY: 因为调用者保证 `i` 在范围之内，这意味着 `i` 不会溢出 `isize`，并且 `from_raw_parts` 创建的切片是 `self.v` 的子切片，因此可以保证对于 `self.v` 的生命周期 `'a` 有效。
+        // SAFETY: 因为调用者保证 `i` 在范围之内，这意味着 `i` 不会溢出 `isize`，并且 `from_raw_parts` 创建的切片是 `self.v` 的子切片，因此可以保证对于 `self.v` 的生命周期 `&#39;a` 有效。
         //
         //
         //
@@ -259,10 +258,10 @@ impl&lt;'a, T&gt; Iterator for Windows&lt;'a, T&gt; {
     }
 }
 
-#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
-impl&lt;'a, T&gt; DoubleEndedIterator for Windows&lt;'a, T&gt; {
+#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
+impl&lt;&#39;a, T&gt; DoubleEndedIterator for Windows&lt;&#39;a, T&gt; {
     #[inline]
-    fn next_back(&amp;mut self) -&gt; Option&lt;&amp;'a [T]&gt; {
+    fn next_back(&amp;mut self) -&gt; Option&lt;&amp;&#39;a [T]&gt; {
         if self.size.get() &gt; self.v.len() {
             None
         } else {
@@ -286,22 +285,22 @@ impl&lt;'a, T&gt; DoubleEndedIterator for Windows&lt;'a, T&gt; {
     }
 }
 
-#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
-impl&lt;T&gt; ExactSizeIterator for Windows&lt;'_, T&gt; {}
+#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
+impl&lt;T&gt; ExactSizeIterator for Windows&lt;&#39;_, T&gt; {}
 
-#[unstable(feature = &quot;trusted_len&quot;, issue = &quot;37572&quot;)]
-unsafe impl&lt;T&gt; TrustedLen for Windows&lt;'_, T&gt; {}
+#[unstable(feature = &#34;trusted_len&#34;, issue = &#34;37572&#34;)]
+unsafe impl&lt;T&gt; TrustedLen for Windows&lt;&#39;_, T&gt; {}
 
-#[stable(feature = &quot;fused&quot;, since = &quot;1.26.0&quot;)]
-impl&lt;T&gt; FusedIterator for Windows&lt;'_, T&gt; {}
-
-#[doc(hidden)]
-#[unstable(feature = &quot;trusted_random_access&quot;, issue = &quot;none&quot;)]
-unsafe impl&lt;'a, T&gt; TrustedRandomAccess for Windows&lt;'a, T&gt; {}
+#[stable(feature = &#34;fused&#34;, since = &#34;1.26.0&#34;)]
+impl&lt;T&gt; FusedIterator for Windows&lt;&#39;_, T&gt; {}
 
 #[doc(hidden)]
-#[unstable(feature = &quot;trusted_random_access&quot;, issue = &quot;none&quot;)]
-unsafe impl&lt;'a, T&gt; TrustedRandomAccessNoCoerce for Windows&lt;'a, T&gt; {
+#[unstable(feature = &#34;trusted_random_access&#34;, issue = &#34;none&#34;)]
+unsafe impl&lt;&#39;a, T&gt; TrustedRandomAccess for Windows&lt;&#39;a, T&gt; {}
+
+#[doc(hidden)]
+#[unstable(feature = &#34;trusted_random_access&#34;, issue = &#34;none&#34;)]
+unsafe impl&lt;&#39;a, T&gt; TrustedRandomAccessNoCoerce for Windows&lt;&#39;a, T&gt; {
     const MAY_HAVE_SIDE_EFFECT: bool = false;
 }
 </code></pre><ul class="pa0">

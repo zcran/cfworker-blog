@@ -7,7 +7,7 @@
     <title>Paperubit的博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -38,7 +38,6 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
-
 <meta itemprop="name" content="Paperubit的博客">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Paperubit的博客"/>
@@ -119,17 +118,16 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/" class="color-inherit dim link">
-            Leetcode 拒绝采样2
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A91/" class="color-inherit dim link">
+            Leetcode 快速选择1
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          在圆内随机生成点 给定圆的半径和圆心的位置，实现函数 randPoint ，在圆中产生均匀随机点。
-实现 Solution 类:
-Solution(double radius, double x_center, double y_center) 用圆的半径 radius 和圆心的位置 (x_center, y_center) 初始化对象 randPoint() 返回圆内的一个随机点。圆周上的一点被认为在圆内。答案作为数组返回 [x, y] 。
-struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;mut self` instead. */ impl Solution { fn new(radius: f64, x_center: f64, y_center: f64) -&gt; Self { Solution { radius, x_center, y_center } } fn rand_point(&amp;self) -&gt; Vec&lt;f64&gt; { use rand::{Rng, thread_rng}; use std::f64::consts::PI; let mut rng = thread_rng(); let (len, deg) = (rng.
+          摆动排序 II 给你一个整数数组 nums，将它重新排列成 nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]&hellip; 的顺序。
+你可以假设所有输入数组都可以得到满足题目要求的结果。
+impl Solution { pub fn wiggle_sort(nums: &amp;mut Vec&lt;i32&gt;) { let mut nums_copy = nums.clone(); nums_copy.sort(); let n = nums.len(); let (mut p, mut q) = ((n - 1) / 2, n - 1); for i in 0..n { if (i &amp; 1) == 1 { nums[i] = nums_copy[q]; q -= 1; } else { nums[i] = nums_copy[p]; p -= 1; }; } } } 
         </div>
-          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A91/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -146,17 +144,17 @@ struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;self`
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/" class="color-inherit dim link">
-            Leetcode 拒绝采样1
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A92/" class="color-inherit dim link">
+            Leetcode 快速选择2
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          用rand7()实现rand10() 给定方法 rand7 可生成 [1,7] 范围内的均匀随机整数，试写一个方法 rand10 生成 [1,10] 范围内的均匀随机整数。
-你只能调用 rand7() 且不能调用其他方法。请不要使用系统的 Math.random() 方法。
-每个测试用例将有一个内部参数 n，即你实现的函数 rand10() 在测试时将被调用的次数。请注意，这不是传递给 rand10() 的参数。
-impl Solution { pub fn rand10() -&gt; i32 { let mut x = std::i32::MAX; while x &gt; 40 { x = 7 * (rand7() -1) + rand7(); } return x%10+1; } } 
+          数组中的第K个最大元素 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+你必须设计并实现时间复杂度为 O(n) 的算法解决此问题。
+use std::collections::BinaryHeap; impl Solution { pub fn find_kth_largest(nums: Vec&lt;i32&gt;, k: i32) -&gt; i32 { let mut h = BinaryHeap::from(nums.iter().map(|&amp;i| -i).take(k as usize).collect::&lt;Vec&lt;_&gt;&gt;()); for i in k as usize..nums.len() { h.push(-nums[i]); h.pop(); } -h.peek().unwrap() } } 
         </div>
-          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A92/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -173,16 +171,17 @@ impl Solution { pub fn rand10() -&gt; i32 { let mut x = std::i32::MAX; while x &
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/rust-note-45/" class="color-inherit dim link">
-            Rust Note 45
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A93/" class="color-inherit dim link">
+            Leetcode 快速选择3
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
-给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
-C 解法1： class Solution { public: int hammingDistance(int x, int y) { return __builtin_popcount(x ^ y); } }; C解法2: // Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数 class Solution { public: int hammingDistance(int x, int y) { int s = x ^ y, ret = 0; while (s) { s &amp;= s - 1; ret++; } return ret; } }; Rust 解法： impl Solution { pub fn hamming_distance(x: i32, y: i32) -&gt; i32 { (x ^ y).
+          找出第 K 大的异或坐标值 给你一个二维矩阵 matrix 和一个整数 k ，矩阵大小为 m x n 由非负整数组成。
+矩阵中坐标 (a, b) 的 值 可由对所有满足 0 &lt;= i &lt;= a &lt; m 且 0 &lt;= j &lt;= b &lt; n 的元素 matrix[i][j]（下标从 0 开始计数）执行异或运算得到。
+请你找出 matrix 的所有坐标中第 k 大的值（k 的值从 1 开始计数）。
+impl Solution { pub fn kth_largest_value(mut matrix: Vec&lt;Vec&lt;i32&gt;&gt;, k: i32) -&gt; i32 { for row in 0..matrix.len() { let mut sum = 0; for col in 0.
         </div>
-          <a href="/posts/rust-note-45/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A93/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -199,26 +198,26 @@ C 解法1： class Solution { public: int hammingDistance(int x, int y) { return
         
         
           <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/rust-note-46/" class="link black dim">
-              Rust Note 46
+            <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A94/" class="link black dim">
+              Leetcode 快速选择4
             </a>
           </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/rust-note-47/" class="link black dim">
-              Rust Note 47
+            <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A95/" class="link black dim">
+              Leetcode 快速选择5
             </a>
           </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/rust-note-48/" class="link black dim">
-              Rust Note 48
+            <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A96/" class="link black dim">
+              Leetcode 快速选择6
             </a>
           </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/rust-note-49/" class="link black dim">
-              Rust Note 49
+            <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A81/" class="link black dim">
+              Leetcode 迭代器1
             </a>
           </h2>
         

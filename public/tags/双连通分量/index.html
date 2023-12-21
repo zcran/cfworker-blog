@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>双连通分量 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/tags/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="双连通分量" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/tags/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" />
+<meta itemprop="name" content="双连通分量">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="双连通分量"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          双连通分量
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “双连通分量”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/" class="link black dim">
+        Leetcode 双连通分量1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      查找集群内的关键连接 数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以 服务器到服务器 的形式相互连接组成了一个内部集群，连接是无向的。用 connections 表示集群网络，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。
+关键连接 是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。
+请你以任意顺序返回该集群内的所有 关键连接 。
+use std::iter::repeat; static mut DFN: [i32; 100010] = [0; 100010]; static mut LOW: [i32; 100010] = [0; 100010]; static mut DFN_CNT: i32 = 0; impl Solution { pub fn critical_connections(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { return unsafe{Solution::critical_connections2(n,connections)}; } pub unsafe fn critical_connections2(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut graph: Vec&lt;Vec&lt;i32&gt;&gt; = repeat(vec!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/" class="link black dim">
+        Leetcode 双连通分量2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      夺回据点 欢迎各位勇者来到力扣城，本次试炼主题为「夺回据点」。
+魔物了占领若干据点，这些据点被若干条道路相连接，roads[i] = [x, y] 表示编号 x、y 的两个据点通过一条道路连接。
+现在勇者要将按照以下原则将这些据点逐一夺回：
+在开始的时候，勇者可以花费资源先夺回一些据点，初始夺回第 j 个据点所需消耗的资源数量为 cost[j]
+接下来，勇者在不消耗资源情况下，每次可以夺回一个和「已夺回据点」相连接的魔物据点，并对其进行夺回
+注：为了防止魔物暴动，勇者在每一次夺回据点后（包括花费资源夺回据点后），需要保证剩余的所有魔物据点之间是相连通的（不经过「已夺回据点」）。
+请返回勇者夺回所有据点需要消耗的最少资源数量。
+注意：
+输入保证初始所有据点都是连通的，且不存在重边和自环 示例 1：
+输入： cost = [1,2,3,4,5,6] roads = [[0,1],[0,2],[1,3],[2,3],[1,2],[2,4],[2,5]]
+输出：6
+解释： 勇者消耗资源 6 夺回据点 0 和 4，魔物据点 1、2、3、5 相连通； 第一次夺回据点 1，魔物据点 2、3、5 相连通； 第二次夺回据点 3，魔物据点 2、5 相连通； 第三次夺回据点 2，剩余魔物据点 5； 第四次夺回据点 5，无剩余魔物据点； 因此最少需要消耗资源为 6，可占领所有据点。
+// Trajan算法 class Solution { const int S = 0; int n; vector&lt;vector&lt;int&gt;&gt; e; vector&lt;bool&gt; isCut; vector&lt;int&gt; dfn, low; int clk = 0; stack&lt;int&gt; stk; // 所有点双连通分量 vector&lt;vector&lt;int&gt;&gt; dcc; void tarjan(int sn) { dfn[sn] = low[sn] = ++clk; stk.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

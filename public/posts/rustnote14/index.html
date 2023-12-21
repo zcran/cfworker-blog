@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="字符串中的第一个唯一字符 给定一个字符串 s ，找到 它的第一个不重复的字符，并返回它的索引 。如果不存在，则返回 -1 。
 C 解法： class Solution { public: int firstUniqChar(string s) { unordered_map&lt;int, int&gt; frequency; for (char ch: s) { &#43;&#43;frequency[ch]; } for (int i = 0; i &lt; s.size(); &#43;&#43;i) { if (frequency[s[i]] == 1) { return i; } } return -1; } }; Rust 解法1： use std::collections::HashMap; impl Solution { pub fn first_uniq_char(s: String) -&gt; i32 { let mut map = HashMap::new(); s.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -37,7 +37,6 @@ C 解法： class Solution { public: int firstUniqChar(string s) { unordered_map
 <meta property="og:url" content="http://example.org/posts/rustnote14/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
 <meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
-
 <meta itemprop="name" content="Rust Note 14">
 <meta itemprop="description" content="字符串中的第一个唯一字符 给定一个字符串 s ，找到 它的第一个不重复的字符，并返回它的索引 。如果不存在，则返回 -1 。
 C 解法： class Solution { public: int firstUniqChar(string s) { unordered_map&lt;int, int&gt; frequency; for (char ch: s) { &#43;&#43;frequency[ch]; } for (int i = 0; i &lt; s.size(); &#43;&#43;i) { if (frequency[s[i]] == 1) { return i; } } return -1; } }; Rust 解法1： use std::collections::HashMap; impl Solution { pub fn first_uniq_char(s: String) -&gt; i32 { let mut map = HashMap::new(); s."><meta itemprop="datePublished" content="2023-05-22T20:28:46+08:00" />
@@ -155,7 +154,7 @@ impl Solution {
 <pre tabindex="0"><code>impl Solution {
     pub fn first_uniq_char(s: String) -&gt; i32 {
         let mut counts = [0; 26];
-        let idx = |b: u8| (b - b'a') as usize;
+        let idx = |b: u8| (b - b&#39;a&#39;) as usize;
 
         for b in s.bytes() {
             counts[idx(b)] += 1;

@@ -10,7 +10,7 @@
 数字 1-9 在每一行只能出现一次。 数字 1-9 在每一列只能出现一次。 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。 注意：
 一个有效的数独（部分已被填充）不一定是可解的。 只需要根据以上规则，验证已经填入的数字是否有效即可。 空白格用 &lsquo;.&rsquo; 表示。
 C 解法： class Solution { public: bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) { int row[9][9] = {0}; int col[9][9] = {0}; int box[3][3][9] = {0}; for (int i = 0; i &lt; 9; i&#43;&#43;) { for (int j = 0; j &lt; 9; j&#43;&#43;) { char c = board[i][j]; if (c == &#39;.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -41,7 +41,6 @@ C 解法： class Solution { public: bool isValidSudoku(vector&lt;vector&lt;char
 <meta property="og:url" content="http://example.org/posts/rustnote10/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-19T21:35:55+08:00" />
 <meta property="article:modified_time" content="2023-05-19T21:35:55+08:00" />
-
 <meta itemprop="name" content="Rust Note 10">
 <meta itemprop="description" content="有效的数独 请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
 数字 1-9 在每一行只能出现一次。 数字 1-9 在每一列只能出现一次。 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。 注意：
@@ -148,8 +147,8 @@ public:
         for (int i = 0; i &lt; 9; i++) {
             for (int j = 0; j &lt; 9; j++) {
                 char c = board[i][j];
-                if (c == '.') continue;
-                int n = c - '1';
+                if (c == &#39;.&#39;) continue;
+                int n = c - &#39;1&#39;;
                 row[i][n]++;
                 col[j][n]++;
                 box[i / 3][j / 3][n]++;
@@ -174,7 +173,7 @@ public:
             for j in 0..length {
                 let z = temp[j];
                 
-                if z != '.' {
+                if z != &#39;.&#39; {
                     let num = z.to_string().parse::&lt;usize&gt;().unwrap()-1;
                     if row[i][num] &gt;= 1 {
                         return false;
@@ -206,20 +205,20 @@ impl Solution {
         (0..9).all(|i| {
             let mut nine = HashSet::new();
             (0..9).all(|j| {
-                nine.insert(board[i][j]) || board[i][j] == '.'
+                nine.insert(board[i][j]) || board[i][j] == &#39;.&#39;
             })
         })
             &amp;&amp; (0..9).all(|i| {
                 let mut nine = HashSet::new();
                 (0..9).all(|j| {
-                    nine.insert(board[j][i]) || board[j][i] == '.'
+                    nine.insert(board[j][i]) || board[j][i] == &#39;.&#39;
                 })
             })
             &amp;&amp; (0..9).all(| i| {
                 let mut nine = HashSet::new();
                 (0..9).all(|j| {
                     nine.insert(board[(i*3) % 9 + j/3][((i*3) / 9)*3+j%3])
-                        || board[(i*3) % 9 + j/3][((i*3) / 9)*3+j%3] == '.'
+                        || board[(i*3) % 9 + j/3][((i*3) / 9)*3+j%3] == &#39;.&#39;
                 })
             })
     }

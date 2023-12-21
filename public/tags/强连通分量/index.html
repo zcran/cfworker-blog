@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>强连通分量 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="强连通分量" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" />
+<meta itemprop="name" content="强连通分量">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="强连通分量"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          强连通分量
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “强连通分量”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/" class="link black dim">
+        Leetcode 强连通分量1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      使陆地分离的最少天数 给你一个大小为 m x n ，由若干 0 和 1 组成的二维网格 grid ，其中 1 表示陆地， 0 表示水。岛屿 由水平方向或竖直方向上相邻的 1 （陆地）连接形成。
+如果 恰好只有一座岛屿 ，则认为陆地是 连通的 ；否则，陆地就是 分离的 。
+一天内，可以将 任何单个 陆地单元（1）更改为水单元（0）。
+返回使陆地分离的最少天数。
+示例1: 输入：grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]] 输出：2 解释：至少需要 2 天才能得到分离的陆地。 将陆地 grid[1][1] 和 grid[0][2] 更改为水，得到两个分离的岛屿。
+示例2: 输入：grid = [[1,1]] 输出：2 解释：如果网格中都是水，也认为是分离的 ([[1,1]] -&gt; [[0,0]])，0 岛屿。
+impl Solution { pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let (m, n) = (grid.len(), grid[0].len()); let mut relabel = vec!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/" class="link black dim">
+        Leetcode 强连通分量2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      找到最小生成树里的关键边和伪关键边 给你一个 n 个点的带权无向连通图，节点编号为 0 到 n-1 ，同时还有一个数组 edges ，其中 edges[i] = [from⌄i, to⌄i, weight⌄i] 表示在 from⌄i 和 to⌄i 节点之间有一条带权无向边。最小生成树 (MST) 是给定图中边的一个子集，它连接了所有节点且没有环，而且这些边的权值和最小。
+请你找到给定图中最小生成树的所有关键边和伪关键边。如果从图中删去某条边，会导致最小生成树的权值和增加，那么我们就说它是一条关键边。伪关键边则是可能会出现在某些最小生成树中但不会出现在所有最小生成树中的边。
+请注意，你可以分别以任意顺序返回关键边的下标和伪关键边的下标。
+impl Solution { pub fn find_critical_and_pseudo_critical_edges(n: i32, edges: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut edges: Vec&lt;Vec&lt;_&gt;&gt; = edges .into_iter() .enumerate() .map(|(i, mut x)| { x.push(i as i32); x.into_iter().map(|e| e as usize).collect() }) .collect(); edges.sort_by_key(|x| x[2]); let n = n as usize; let m = edges.len(); let mut label = vec!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

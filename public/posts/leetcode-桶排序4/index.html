@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 桶排序4 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="前 K 个高频元素 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+class Solution { public: vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) { unordered_map&lt;int,int&gt; mp; vector&lt;int&gt; res; //统计最大的频次，决定开多大的空间 int max_cnt=0; for(auto num:nums) { mp[num]&#43;&#43;; max_cnt=max(max_cnt,mp[num]); } vector&lt;vector&lt;int&gt;&gt; bucket(max_cnt&#43;1); //计数，桶号为频次，元素为数字 for(auto iter:mp){ bucket[iter.second].push_back(iter.first); } for(int i=bucket.size()-1;i&gt;=0 &amp;&amp; k;i--){ for(auto num:bucket[i]){ if(k--) res.push_back(num); else break; } } return res; } }; use std::{ cmp::Reverse, collections::{BinaryHeap, HashMap}, }; impl Solution { pub fn top_k_frequent(nums: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); nums.">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 桶排序4" />
+<meta property="og:description" content="前 K 个高频元素 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+class Solution { public: vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) { unordered_map&lt;int,int&gt; mp; vector&lt;int&gt; res; //统计最大的频次，决定开多大的空间 int max_cnt=0; for(auto num:nums) { mp[num]&#43;&#43;; max_cnt=max(max_cnt,mp[num]); } vector&lt;vector&lt;int&gt;&gt; bucket(max_cnt&#43;1); //计数，桶号为频次，元素为数字 for(auto iter:mp){ bucket[iter.second].push_back(iter.first); } for(int i=bucket.size()-1;i&gt;=0 &amp;&amp; k;i--){ for(auto num:bucket[i]){ if(k--) res.push_back(num); else break; } } return res; } }; use std::{ cmp::Reverse, collections::{BinaryHeap, HashMap}, }; impl Solution { pub fn top_k_frequent(nums: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); nums." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:46:22+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:46:22+08:00" />
+<meta itemprop="name" content="Leetcode 桶排序4">
+<meta itemprop="description" content="前 K 个高频元素 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+class Solution { public: vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) { unordered_map&lt;int,int&gt; mp; vector&lt;int&gt; res; //统计最大的频次，决定开多大的空间 int max_cnt=0; for(auto num:nums) { mp[num]&#43;&#43;; max_cnt=max(max_cnt,mp[num]); } vector&lt;vector&lt;int&gt;&gt; bucket(max_cnt&#43;1); //计数，桶号为频次，元素为数字 for(auto iter:mp){ bucket[iter.second].push_back(iter.first); } for(int i=bucket.size()-1;i&gt;=0 &amp;&amp; k;i--){ for(auto num:bucket[i]){ if(k--) res.push_back(num); else break; } } return res; } }; use std::{ cmp::Reverse, collections::{BinaryHeap, HashMap}, }; impl Solution { pub fn top_k_frequent(nums: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); nums."><meta itemprop="datePublished" content="2023-12-19T15:46:22+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:46:22+08:00" />
+<meta itemprop="wordCount" content="116">
+<meta itemprop="keywords" content="leetcode,桶排序," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 桶排序4"/>
+<meta name="twitter:description" content="前 K 个高频元素 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+class Solution { public: vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) { unordered_map&lt;int,int&gt; mp; vector&lt;int&gt; res; //统计最大的频次，决定开多大的空间 int max_cnt=0; for(auto num:nums) { mp[num]&#43;&#43;; max_cnt=max(max_cnt,mp[num]); } vector&lt;vector&lt;int&gt;&gt; bucket(max_cnt&#43;1); //计数，桶号为频次，元素为数字 for(auto iter:mp){ bucket[iter.second].push_back(iter.first); } for(int i=bucket.size()-1;i&gt;=0 &amp;&amp; k;i--){ for(auto num:bucket[i]){ if(k--) res.push_back(num); else break; } } return res; } }; use std::{ cmp::Reverse, collections::{BinaryHeap, HashMap}, }; impl Solution { pub fn top_k_frequent(nums: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); nums."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 桶排序4</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:46:22+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="前-k-个高频元素">前 K 个高频元素</h2>
+<p>给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。</p>
+<pre tabindex="0"><code>class Solution {
+public:
+    vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) {
+    unordered_map&lt;int,int&gt; mp;
+    vector&lt;int&gt; res;
+    //统计最大的频次，决定开多大的空间
+    int max_cnt=0;
+    for(auto num:nums) {
+        mp[num]++;
+        max_cnt=max(max_cnt,mp[num]);
+    }
+    vector&lt;vector&lt;int&gt;&gt; bucket(max_cnt+1);
+    //计数，桶号为频次，元素为数字
+    for(auto iter:mp){
+        bucket[iter.second].push_back(iter.first);
+    }
+    for(int i=bucket.size()-1;i&gt;=0 &amp;&amp; k;i--){
+        for(auto num:bucket[i]){
+            if(k--) res.push_back(num);
+        else break;
+        }
+    }
+    return res;
+    }
+};
+</code></pre><pre tabindex="0"><code>use std::{
+    cmp::Reverse,
+    collections::{BinaryHeap, HashMap},
+};
+
+impl Solution {
+    pub fn top_k_frequent(nums: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; {
+        let mut map = HashMap::new();
+        nums.into_iter().for_each(|x| {
+            map.entry(x).and_modify(|x| *x += 1).or_insert(1);
+        });
+        let mut heap = BinaryHeap::with_capacity(k as usize + 1);
+        map.iter().take(k as usize).for_each(|x| {
+            heap.push((Reverse(x.1), x.0));
+        });
+        map.iter().skip(k as usize).for_each(|x| {
+            heap.push((Reverse(x.1), x.0));
+            heap.pop();
+        });
+        heap.into_sorted_vec().into_iter().map(|x| *x.1).collect()
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E6%A1%B6%E6%8E%92%E5%BA%8F/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">桶排序</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F1/">Leetcode 桶排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F2/">Leetcode 桶排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F3/">Leetcode 桶排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 计数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 计数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F3/">Leetcode 计数排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F4/">Leetcode 计数排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%911/">Leetcode 最小生成树1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF1/">Leetcode 扫描线1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF2/">Leetcode 扫描线2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF3/">Leetcode 扫描线3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF4/">Leetcode 扫描线4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-shell1/">Leetcode Shell1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-shell2/">Leetcode Shell2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-shell3/">Leetcode Shell3</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

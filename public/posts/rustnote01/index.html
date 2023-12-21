@@ -10,7 +10,7 @@
 考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：
 更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。 返回 k 。
 C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条件判断 if (A == null || A.length == 0) return 0; int left = 0; for (int right = 1; right &lt; A.length; right&#43;&#43;) //如果左指针和右指针指向的值一样，说明有重复的， //这个时候，左指针不动，右指针继续往右移。如果他俩 //指向的值不一样就把右指针指向的值往前挪 if (A[left] !">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -41,7 +41,6 @@ C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条
 <meta property="og:url" content="http://example.org/posts/rustnote01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-18T19:58:49+08:00" />
 <meta property="article:modified_time" content="2023-05-18T19:58:49+08:00" />
-
 <meta itemprop="name" content="Rust Note 01">
 <meta itemprop="description" content="删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。
 考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：
@@ -179,7 +178,7 @@ public int removeDuplicates(int[] A) {
 vec.dedup();
 assert_eq!(vec, [1, 2, 3, 2]);
 </code></pre><p>source：</p>
-<pre tabindex="0"><code>#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
+<pre tabindex="0"><code>#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
 #[inline]
 pub fn dedup(&amp;mut self) {
     self.dedup_by(|a, b| a == b)
@@ -192,13 +191,13 @@ where<br>
 <p>“same_bucket”函数传递对向量中两个元素的引用，并且必须确定这些元素是否相等。元素的传递顺序与它们在切片中的顺序相反，因此如果<code>same_bucket（a，b）</code>返回<code>true</code>，<code>a</code>将被删除。</p>
 <p>如果对向量进行排序，则会删除所有重复项。</p>
 <h5 id="examples">Examples:</h5>
-<pre tabindex="0"><code>let mut vec = vec![&quot;foo&quot;, &quot;bar&quot;, &quot;Bar&quot;, &quot;baz&quot;, &quot;bar&quot;];
+<pre tabindex="0"><code>let mut vec = vec![&#34;foo&#34;, &#34;bar&#34;, &#34;Bar&#34;, &#34;baz&#34;, &#34;bar&#34;];
 
 vec.dedup_by(|a, b| a.eq_ignore_ascii_case(b));
 
-assert_eq!(vec, [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;, &quot;bar&quot;]);
+assert_eq!(vec, [&#34;foo&#34;, &#34;bar&#34;, &#34;baz&#34;, &#34;bar&#34;]);
 </code></pre><p>source :</p>
-<pre tabindex="0"><code>#[stable(feature = &quot;dedup_by&quot;, since = &quot;1.16.0&quot;)]
+<pre tabindex="0"><code>#[stable(feature = &#34;dedup_by&#34;, since = &#34;1.16.0&#34;)]
 pub fn dedup_by&lt;F&gt;(&amp;mut self, mut same_bucket: F)
 where
     F: FnMut(&amp;mut T, &amp;mut T) -&gt; bool,
@@ -209,7 +208,7 @@ where
     }
 
     /* 不变量INVARIANT: vec.len() &gt; read &gt;= write &gt; write-1 &gt;= 0 */
-    struct FillGapOnDrop&lt;'a, T, A: core::alloc::Allocator&gt; {
+    struct FillGapOnDrop&lt;&#39;a, T, A: core::alloc::Allocator&gt; {
         /* 要检查的元素的偏移量是否重复*/
         read: usize,
 
@@ -217,10 +216,10 @@ where
         write: usize,
 
         /* 如果“same_bucket”惊慌失措，需要纠正的兽医，哈哈哈 */
-        vec: &amp;'a mut Vec&lt;T, A&gt;,
+        vec: &amp;&#39;a mut Vec&lt;T, A&gt;,
     }
 
-    impl&lt;'a, T, A: core::alloc::Allocator&gt; Drop for FillGapOnDrop&lt;'a, T, A&gt; {
+    impl&lt;&#39;a, T, A: core::alloc::Allocator&gt; Drop for FillGapOnDrop&lt;&#39;a, T, A&gt; {
         fn drop(&amp;mut self) {
             /* 此代码在`same_bucket`恐慌时执行 */
 
@@ -338,21 +337,21 @@ fn append&lt;T&gt;(dst: &amp;mut Vec&lt;T&gt;, src: &amp;mut Vec&lt;T&gt;) {
     }
 }
 
-let mut a = vec!['r'];
-let mut b = vec!['u', 's', 't'];
+let mut a = vec![&#39;r&#39;];
+let mut b = vec![&#39;u&#39;, &#39;s&#39;, &#39;t&#39;];
 
 append(&amp;mut a, &amp;mut b);
 
-assert_eq!(a, &amp;['r', 'u', 's', 't']);
+assert_eq!(a, &amp;[&#39;r&#39;, &#39;u&#39;, &#39;s&#39;, &#39;t&#39;]);
 assert!(b.is_empty());
 </code></pre><h2 id="source">source：</h2>
-<pre tabindex="0"><code>#[doc(alias = &quot;memcpy&quot;)]
-#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
-#[rustc_const_unstable(feature = &quot;const_intrinsic_copy&quot;, issue = &quot;80697&quot;)]
+<pre tabindex="0"><code>#[doc(alias = &#34;memcpy&#34;)]
+#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
+#[rustc_const_unstable(feature = &#34;const_intrinsic_copy&#34;, issue = &#34;80697&#34;)]
 #[inline]
 pub const unsafe fn copy_nonoverlapping&lt;T&gt;(src: *const T, dst: *mut T, count: usize) {
-    extern &quot;rust-intrinsic&quot; {
-        #[rustc_const_unstable(feature = &quot;const_intrinsic_copy&quot;, issue = &quot;80697&quot;)]
+    extern &#34;rust-intrinsic&#34; {
+        #[rustc_const_unstable(feature = &#34;const_intrinsic_copy&#34;, issue = &#34;80697&#34;)]
         pub fn copy_nonoverlapping&lt;T&gt;(src: *const T, dst: *mut T, count: usize);
     }
 

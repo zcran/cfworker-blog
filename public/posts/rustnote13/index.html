@@ -9,8 +9,8 @@
     <meta name="description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
 如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
 假设环境不允许存储 64 位整数（有符号或无符号）。
-C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() .">
-    <meta name="generator" content="Hugo 0.91.2" />
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法： impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() .unwrap_or(0) * x.">
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -36,25 +36,24 @@ C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ i
 <meta property="og:description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
 如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
 假设环境不允许存储 64 位整数（有符号或无符号）。
-C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() ." />
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法： impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() .unwrap_or(0) * x." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/rustnote13/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
 <meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
-
 <meta itemprop="name" content="Rust Note 13">
 <meta itemprop="description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
 如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
 假设环境不允许存储 64 位整数（有符号或无符号）。
-C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() ."><meta itemprop="datePublished" content="2023-05-22T20:28:46+08:00" />
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法： impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() .unwrap_or(0) * x."><meta itemprop="datePublished" content="2023-05-22T20:28:46+08:00" />
 <meta itemprop="dateModified" content="2023-05-22T20:28:46+08:00" />
-<meta itemprop="wordCount" content="475">
+<meta itemprop="wordCount" content="476">
 <meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rust Note 13"/>
 <meta name="twitter:description" content="整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
 如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
 假设环境不允许存储 64 位整数（有符号或无符号）。
-C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() ."/>
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&gt;0 &amp;&amp; res&gt;(INT_MAX-x%10)/10) return 0; if(x&lt;0 &amp;&amp; res&lt;(INT_MIN-x%10)/10) return 0; res = res*10&#43;x%10; x/=10; } return res; } }; Rust 解法： impl Solution { pub fn reverse(x: i32) -&gt; i32 { x.abs() .to_string() .chars().rev() .collect::&lt;String&gt;() .parse::&lt;i32&gt;() .unwrap_or(0) * x."/>
 
 	
   </head>
@@ -172,14 +171,14 @@ impl Solution {
 将底层数据视为原始数据的子切片。</p>
 <p>它具有与原始切片相同的生命周期，因此迭代器可以在存在时继续使用。</p>
 <p>Examples：</p>
-<pre tabindex="0"><code>let mut chars = &quot;abc&quot;.chars();
+<pre tabindex="0"><code>let mut chars = &#34;abc&#34;.chars();
 
-assert_eq!(chars.as_str(), &quot;abc&quot;);
+assert_eq!(chars.as_str(), &#34;abc&#34;);
 chars.next();
-assert_eq!(chars.as_str(), &quot;bc&quot;);
+assert_eq!(chars.as_str(), &#34;bc&#34;);
 chars.next();
 chars.next();
-assert_eq!(chars.as_str(), &quot;&quot;);
+assert_eq!(chars.as_str(), &#34;&#34;);
 </code></pre><h4 id="迭代器trait-rev">迭代器trait rev()</h4>
 <p>fn rev(self) -&gt; Rev<!-- raw HTML omitted -->ⓘ
 where
@@ -199,8 +198,8 @@ assert_eq!(iter.next(), Some(&amp;1));
 assert_eq!(iter.next(), None);
 </code></pre><p>source:</p>
 <pre tabindex="0"><code>#[inline]
-    #[doc(alias = &quot;reverse&quot;)]
-    #[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
+    #[doc(alias = &#34;reverse&#34;)]
+    #[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
     fn rev(self) -&gt; Rev&lt;Self&gt;
     where
         Self: Sized + DoubleEndedIterator,
@@ -248,21 +247,21 @@ let doubled = a.iter().map(|x| x * 2).collect::&lt;Vec&lt;_&gt;&gt;();
 
 assert_eq!(vec![2, 4, 6], doubled);
 </code></pre><p>使用 collect() 生成 String：</p>
-<pre tabindex="0"><code>let chars = ['g', 'd', 'k', 'k', 'n'];
+<pre tabindex="0"><code>let chars = [&#39;g&#39;, &#39;d&#39;, &#39;k&#39;, &#39;k&#39;, &#39;n&#39;];
 
 let hello: String = chars.iter()
     .map(|&amp;x| x as u8)
     .map(|x| (x + 1) as char)
     .collect();
 
-assert_eq!(&quot;hello&quot;, hello);
+assert_eq!(&#34;hello&#34;, hello);
 </code></pre><p>如果您有 Result&lt;T, E&gt;，您可以使用 collect() 来查看它们是否失败：</p>
-<pre tabindex="0"><code>let results = [Ok(1), Err(&quot;nope&quot;), Ok(3), Err(&quot;bad&quot;)];
+<pre tabindex="0"><code>let results = [Ok(1), Err(&#34;nope&#34;), Ok(3), Err(&#34;bad&#34;)];
 
 let result: Result&lt;Vec&lt;_&gt;, &amp;str&gt; = results.iter().cloned().collect();
 
 // 给我们第一个错误
-assert_eq!(Err(&quot;nope&quot;), result);
+assert_eq!(Err(&#34;nope&#34;), result);
 
 let results = [Ok(1), Ok(3)];
 
@@ -280,13 +279,13 @@ F: FromStr,
 <p>parse 可以解析为任何实现 FromStr trait 的类型。</p>
 <p>Examples：
 基本用法</p>
-<pre tabindex="0"><code>let four: u32 = &quot;4&quot;.parse().unwrap();
+<pre tabindex="0"><code>let four: u32 = &#34;4&#34;.parse().unwrap();
 assert_eq!(4, four);
 </code></pre><p>使用 ‘turbofish’ 而不是注解 four：</p>
-<pre tabindex="0"><code>let four = &quot;4&quot;.parse::&lt;u32&gt;();
+<pre tabindex="0"><code>let four = &#34;4&#34;.parse::&lt;u32&gt;();
 assert_eq!(Ok(4), four);
 </code></pre><p>无法解析：</p>
-<pre tabindex="0"><code>let nope = &quot;j&quot;.parse::&lt;u32&gt;();
+<pre tabindex="0"><code>let nope = &#34;j&#34;.parse::&lt;u32&gt;();
 assert!(nope.is_err());
 </code></pre><h3 id="rust-signum函数">Rust signum函数</h3>
 <p>pub const fn signum(self) -&gt; i32

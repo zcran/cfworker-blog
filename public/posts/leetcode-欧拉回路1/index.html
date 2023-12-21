@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 欧拉回路1 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="合法重新排列数对 给你一个下标从 0 开始的二维整数数组 pairs ，其中 pairs[i] = [start⌄i, end⌄i] 。如果 pairs 的一个重新排列，满足对每一个下标 i （ 1 &lt;= i &lt; pairs.length ）都有 end⌄i-1 == start⌄i ，那么我们就认为这个重新排列是 pairs 的一个 合法重新排列 。
+请你返回 任意一个 pairs 的合法重新排列。
+注意：数据保证至少存在一个 pairs 的合法重新排列。
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; validArrangement(vector&lt;vector&lt;int&gt;&gt;&amp; pairs) { // 存储图 unordered_map&lt;int, vector&lt;int&gt;&gt; edges; // 存储入度和出度 unordered_map&lt;int, int&gt; indeg, outdeg; for (const auto&amp; p: pairs) { int x = p[0], y = p[1]; edges[x].push_back(y); &#43;&#43;indeg[y]; &#43;&#43;outdeg[x]; } // 寻找起始节点 int start = pairs[0][0]; for (const auto&amp; [x, occ]: outdeg) { // 如果有节点出度比入度恰好多 1，那么只有它才能是起始节点 if (occ == indeg[x] &#43; 1) { start = x; break; } } vector&lt;vector&lt;int&gt;&gt; ans; // 深度优先搜索（Hierholzer 算法）求解欧拉通路 function&lt;void(int)&gt; dfs = [&amp;](int u) { while (!">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 欧拉回路1" />
+<meta property="og:description" content="合法重新排列数对 给你一个下标从 0 开始的二维整数数组 pairs ，其中 pairs[i] = [start⌄i, end⌄i] 。如果 pairs 的一个重新排列，满足对每一个下标 i （ 1 &lt;= i &lt; pairs.length ）都有 end⌄i-1 == start⌄i ，那么我们就认为这个重新排列是 pairs 的一个 合法重新排列 。
+请你返回 任意一个 pairs 的合法重新排列。
+注意：数据保证至少存在一个 pairs 的合法重新排列。
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; validArrangement(vector&lt;vector&lt;int&gt;&gt;&amp; pairs) { // 存储图 unordered_map&lt;int, vector&lt;int&gt;&gt; edges; // 存储入度和出度 unordered_map&lt;int, int&gt; indeg, outdeg; for (const auto&amp; p: pairs) { int x = p[0], y = p[1]; edges[x].push_back(y); &#43;&#43;indeg[y]; &#43;&#43;outdeg[x]; } // 寻找起始节点 int start = pairs[0][0]; for (const auto&amp; [x, occ]: outdeg) { // 如果有节点出度比入度恰好多 1，那么只有它才能是起始节点 if (occ == indeg[x] &#43; 1) { start = x; break; } } vector&lt;vector&lt;int&gt;&gt; ans; // 深度优先搜索（Hierholzer 算法）求解欧拉通路 function&lt;void(int)&gt; dfs = [&amp;](int u) { while (!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:20:02+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:20:02+08:00" />
+<meta itemprop="name" content="Leetcode 欧拉回路1">
+<meta itemprop="description" content="合法重新排列数对 给你一个下标从 0 开始的二维整数数组 pairs ，其中 pairs[i] = [start⌄i, end⌄i] 。如果 pairs 的一个重新排列，满足对每一个下标 i （ 1 &lt;= i &lt; pairs.length ）都有 end⌄i-1 == start⌄i ，那么我们就认为这个重新排列是 pairs 的一个 合法重新排列 。
+请你返回 任意一个 pairs 的合法重新排列。
+注意：数据保证至少存在一个 pairs 的合法重新排列。
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; validArrangement(vector&lt;vector&lt;int&gt;&gt;&amp; pairs) { // 存储图 unordered_map&lt;int, vector&lt;int&gt;&gt; edges; // 存储入度和出度 unordered_map&lt;int, int&gt; indeg, outdeg; for (const auto&amp; p: pairs) { int x = p[0], y = p[1]; edges[x].push_back(y); &#43;&#43;indeg[y]; &#43;&#43;outdeg[x]; } // 寻找起始节点 int start = pairs[0][0]; for (const auto&amp; [x, occ]: outdeg) { // 如果有节点出度比入度恰好多 1，那么只有它才能是起始节点 if (occ == indeg[x] &#43; 1) { start = x; break; } } vector&lt;vector&lt;int&gt;&gt; ans; // 深度优先搜索（Hierholzer 算法）求解欧拉通路 function&lt;void(int)&gt; dfs = [&amp;](int u) { while (!"><meta itemprop="datePublished" content="2023-12-19T15:20:02+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:20:02+08:00" />
+<meta itemprop="wordCount" content="132">
+<meta itemprop="keywords" content="leetcode,欧拉回路," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 欧拉回路1"/>
+<meta name="twitter:description" content="合法重新排列数对 给你一个下标从 0 开始的二维整数数组 pairs ，其中 pairs[i] = [start⌄i, end⌄i] 。如果 pairs 的一个重新排列，满足对每一个下标 i （ 1 &lt;= i &lt; pairs.length ）都有 end⌄i-1 == start⌄i ，那么我们就认为这个重新排列是 pairs 的一个 合法重新排列 。
+请你返回 任意一个 pairs 的合法重新排列。
+注意：数据保证至少存在一个 pairs 的合法重新排列。
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; validArrangement(vector&lt;vector&lt;int&gt;&gt;&amp; pairs) { // 存储图 unordered_map&lt;int, vector&lt;int&gt;&gt; edges; // 存储入度和出度 unordered_map&lt;int, int&gt; indeg, outdeg; for (const auto&amp; p: pairs) { int x = p[0], y = p[1]; edges[x].push_back(y); &#43;&#43;indeg[y]; &#43;&#43;outdeg[x]; } // 寻找起始节点 int start = pairs[0][0]; for (const auto&amp; [x, occ]: outdeg) { // 如果有节点出度比入度恰好多 1，那么只有它才能是起始节点 if (occ == indeg[x] &#43; 1) { start = x; break; } } vector&lt;vector&lt;int&gt;&gt; ans; // 深度优先搜索（Hierholzer 算法）求解欧拉通路 function&lt;void(int)&gt; dfs = [&amp;](int u) { while (!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 欧拉回路1</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:20:02+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="合法重新排列数对">合法重新排列数对</h2>
+<p>给你一个下标从 0 开始的二维整数数组 pairs ，其中 pairs[i] = [start⌄i, end⌄i] 。如果 pairs 的一个重新排列，满足对每一个下标 i （ 1 &lt;= i &lt; pairs.length ）都有 end⌄i-1 == start⌄i ，那么我们就认为这个重新排列是 pairs 的一个 合法重新排列 。</p>
+<p>请你返回 任意一个 pairs 的合法重新排列。</p>
+<p>注意：数据保证至少存在一个 pairs 的合法重新排列。</p>
+<pre tabindex="0"><code>class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; validArrangement(vector&lt;vector&lt;int&gt;&gt;&amp; pairs) {
+        // 存储图
+        unordered_map&lt;int, vector&lt;int&gt;&gt; edges;
+        // 存储入度和出度
+        unordered_map&lt;int, int&gt; indeg, outdeg;
+        for (const auto&amp; p: pairs) {
+            int x = p[0], y = p[1];
+            edges[x].push_back(y);
+            ++indeg[y];
+            ++outdeg[x];
+        }
+        
+        // 寻找起始节点
+        int start = pairs[0][0];
+        for (const auto&amp; [x, occ]: outdeg) {
+            // 如果有节点出度比入度恰好多 1，那么只有它才能是起始节点
+            if (occ == indeg[x] + 1) {
+                start = x;
+                break;
+            }
+        }
+        
+        vector&lt;vector&lt;int&gt;&gt; ans;
+        
+        // 深度优先搜索（Hierholzer 算法）求解欧拉通路
+        function&lt;void(int)&gt; dfs = [&amp;](int u) {
+            while (!edges[u].empty()) {
+                int v = edges[u].back();
+                edges[u].pop_back();
+                dfs(v);
+                ans.push_back({u, v});
+            }
+        };
+        
+        dfs(start);
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">欧拉回路</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF2/">Leetcode 欧拉回路2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF3/">Leetcode 欧拉回路3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 基数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 基数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/">Leetcode 双连通分量1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/">Leetcode 双连通分量2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/">Leetcode 拒绝采样2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/">Leetcode 拒绝采样1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-45/">Rust Note 45</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-46/">Rust Note 46</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-47/">Rust Note 47</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-48/">Rust Note 48</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-49/">Rust Note 49</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-41/">Rust Note 41</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-42/">Rust Note 42</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

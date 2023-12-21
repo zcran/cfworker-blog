@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-tags: ["leetcode", "拒绝采样"]
+tags: ["leetcode", "快速选择"]
 draft: false
 ---
 

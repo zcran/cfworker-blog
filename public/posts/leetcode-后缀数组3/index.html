@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 后缀数组3 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="最长公共子路径 一个国家由 n 个编号为 0 到 n - 1 的城市组成。在这个国家里，每两个 城市之间都有一条道路连接。
+总共有 m 个编号为 0 到 m - 1 的朋友想在这个国家旅游。他们每一个人的路径都会包含一些城市。每条路径都由一个整数数组表示，每个整数数组表示一个朋友按顺序访问过的城市序列。同一个城市在一条路径中可能 重复 出现，但同一个城市在一条路径中不会连续出现。
+给你一个整数 n 和二维数组 paths ，其中 paths[i] 是一个整数数组，表示第 i 个朋友走过的路径，请你返回 每一个 朋友都走过的 最长公共子路径 的长度，如果不存在公共子路径，请你返回 0 。
+一个 子路径 指的是一条路径中连续的城市序列。
+fn sa_is(s: &amp;[usize], upper: usize) -&gt; Vec&lt;usize&gt; { let n = s.len(); match n { 0 =&gt; return vec![], 1 =&gt; return vec![0], 2 =&gt; return if s[0] &lt; s[1] { vec!">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 后缀数组3" />
+<meta property="og:description" content="最长公共子路径 一个国家由 n 个编号为 0 到 n - 1 的城市组成。在这个国家里，每两个 城市之间都有一条道路连接。
+总共有 m 个编号为 0 到 m - 1 的朋友想在这个国家旅游。他们每一个人的路径都会包含一些城市。每条路径都由一个整数数组表示，每个整数数组表示一个朋友按顺序访问过的城市序列。同一个城市在一条路径中可能 重复 出现，但同一个城市在一条路径中不会连续出现。
+给你一个整数 n 和二维数组 paths ，其中 paths[i] 是一个整数数组，表示第 i 个朋友走过的路径，请你返回 每一个 朋友都走过的 最长公共子路径 的长度，如果不存在公共子路径，请你返回 0 。
+一个 子路径 指的是一条路径中连续的城市序列。
+fn sa_is(s: &amp;[usize], upper: usize) -&gt; Vec&lt;usize&gt; { let n = s.len(); match n { 0 =&gt; return vec![], 1 =&gt; return vec![0], 2 =&gt; return if s[0] &lt; s[1] { vec!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%843/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:46:47+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:46:47+08:00" />
+<meta itemprop="name" content="Leetcode 后缀数组3">
+<meta itemprop="description" content="最长公共子路径 一个国家由 n 个编号为 0 到 n - 1 的城市组成。在这个国家里，每两个 城市之间都有一条道路连接。
+总共有 m 个编号为 0 到 m - 1 的朋友想在这个国家旅游。他们每一个人的路径都会包含一些城市。每条路径都由一个整数数组表示，每个整数数组表示一个朋友按顺序访问过的城市序列。同一个城市在一条路径中可能 重复 出现，但同一个城市在一条路径中不会连续出现。
+给你一个整数 n 和二维数组 paths ，其中 paths[i] 是一个整数数组，表示第 i 个朋友走过的路径，请你返回 每一个 朋友都走过的 最长公共子路径 的长度，如果不存在公共子路径，请你返回 0 。
+一个 子路径 指的是一条路径中连续的城市序列。
+fn sa_is(s: &amp;[usize], upper: usize) -&gt; Vec&lt;usize&gt; { let n = s.len(); match n { 0 =&gt; return vec![], 1 =&gt; return vec![0], 2 =&gt; return if s[0] &lt; s[1] { vec!"><meta itemprop="datePublished" content="2023-12-19T15:46:47+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:46:47+08:00" />
+<meta itemprop="wordCount" content="968">
+<meta itemprop="keywords" content="leetcode,后缀数组," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 后缀数组3"/>
+<meta name="twitter:description" content="最长公共子路径 一个国家由 n 个编号为 0 到 n - 1 的城市组成。在这个国家里，每两个 城市之间都有一条道路连接。
+总共有 m 个编号为 0 到 m - 1 的朋友想在这个国家旅游。他们每一个人的路径都会包含一些城市。每条路径都由一个整数数组表示，每个整数数组表示一个朋友按顺序访问过的城市序列。同一个城市在一条路径中可能 重复 出现，但同一个城市在一条路径中不会连续出现。
+给你一个整数 n 和二维数组 paths ，其中 paths[i] 是一个整数数组，表示第 i 个朋友走过的路径，请你返回 每一个 朋友都走过的 最长公共子路径 的长度，如果不存在公共子路径，请你返回 0 。
+一个 子路径 指的是一条路径中连续的城市序列。
+fn sa_is(s: &amp;[usize], upper: usize) -&gt; Vec&lt;usize&gt; { let n = s.len(); match n { 0 =&gt; return vec![], 1 =&gt; return vec![0], 2 =&gt; return if s[0] &lt; s[1] { vec!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 后缀数组3</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:46:47+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="最长公共子路径">最长公共子路径</h2>
+<p>一个国家由 n 个编号为 0 到 n - 1 的城市组成。在这个国家里，每两个 城市之间都有一条道路连接。</p>
+<p>总共有 m 个编号为 0 到 m - 1 的朋友想在这个国家旅游。他们每一个人的路径都会包含一些城市。每条路径都由一个整数数组表示，每个整数数组表示一个朋友按顺序访问过的城市序列。同一个城市在一条路径中可能 重复 出现，但同一个城市在一条路径中不会连续出现。</p>
+<p>给你一个整数 n 和二维数组 paths ，其中 paths[i] 是一个整数数组，表示第 i 个朋友走过的路径，请你返回 每一个 朋友都走过的 最长公共子路径 的长度，如果不存在公共子路径，请你返回 0 。</p>
+<p>一个 子路径 指的是一条路径中连续的城市序列。</p>
+<pre tabindex="0"><code>fn sa_is(s: &amp;[usize], upper: usize) -&gt; Vec&lt;usize&gt; {
+    let n = s.len();
+    match n {
+        0 =&gt; return vec![],
+        1 =&gt; return vec![0],
+        2 =&gt; return if s[0] &lt; s[1] { vec![0, 1] } else { vec![1, 0] },
+        _ =&gt; (),
+    }
+    let mut sa = vec![0; n];
+    let mut ls = vec![false; n];
+    for i in (0..n - 1).rev() {
+        ls[i] = if s[i] == s[i + 1] {
+            ls[i + 1]
+        } else {
+            s[i] &lt; s[i + 1]
+        };
+    }
+    let mut sum_l = vec![0; upper + 1];
+    let mut sum_s = vec![0; upper + 1];
+    for i in 0..n {
+        if !ls[i] {
+            sum_s[s[i]] += 1;
+        } else {
+            sum_l[s[i] + 1] += 1;
+        }
+    }
+    for i in 0..=upper {
+        sum_s[i] += sum_l[i];
+        if i &lt; upper {
+            sum_l[i + 1] += sum_s[i];
+        }
+    }
+
+    // sa&#39;s origin is 1.
+    let induce = |sa: &amp;mut [usize], lms: &amp;[usize]| {
+        for elem in sa.iter_mut() {
+            *elem = 0;
+        }
+        let mut buf = sum_s.clone();
+        for &amp;d in lms {
+            if d == n {
+                continue;
+            }
+            let old = buf[s[d]];
+            buf[s[d]] += 1;
+            sa[old] = d + 1;
+        }
+        buf.copy_from_slice(&amp;sum_l);
+        let old = buf[s[n - 1]];
+        buf[s[n - 1]] += 1;
+        sa[old] = n;
+        for i in 0..n {
+            let v = sa[i];
+            if v &gt;= 2 &amp;&amp; !ls[v - 2] {
+                let old = buf[s[v - 2]];
+                buf[s[v - 2]] += 1;
+                sa[old] = v - 1;
+            }
+        }
+        buf.copy_from_slice(&amp;sum_l);
+        for i in (0..n).rev() {
+            let v = sa[i];
+            if v &gt;= 2 &amp;&amp; ls[v - 2] {
+                buf[s[v - 2] + 1] -= 1;
+                sa[buf[s[v - 2] + 1]] = v - 1;
+            }
+        }
+    };
+    // origin: 1
+    let mut lms_map = vec![0; n + 1];
+    let mut m = 0;
+    for i in 1..n {
+        if !ls[i - 1] &amp;&amp; ls[i] {
+            lms_map[i] = m + 1;
+            m += 1;
+        }
+    }
+    let mut lms = Vec::with_capacity(m);
+    for i in 1..n {
+        if !ls[i - 1] &amp;&amp; ls[i] {
+            lms.push(i);
+        }
+    }
+    assert_eq!(lms.len(), m);
+    induce(&amp;mut sa, &amp;lms);
+
+    if m &gt; 0 {
+        let mut sorted_lms = Vec::with_capacity(m);
+        for &amp;v in &amp;sa {
+            if lms_map[v - 1] != 0 {
+                sorted_lms.push(v - 1);
+            }
+        }
+        let mut rec_s = vec![0; m];
+        let mut rec_upper = 0;
+        rec_s[lms_map[sorted_lms[0]] - 1] = 0;
+        for i in 1..m {
+            let mut l = sorted_lms[i - 1];
+            let mut r = sorted_lms[i];
+            let end_l = if lms_map[l] &lt; m { lms[lms_map[l]] } else { n };
+            let end_r = if lms_map[r] &lt; m { lms[lms_map[r]] } else { n };
+            let same = if end_l - l != end_r - r {
+                false
+            } else {
+                while l &lt; end_l {
+                    if s[l] != s[r] {
+                        break;
+                    }
+                    l += 1;
+                    r += 1;
+                }
+                l != n &amp;&amp; s[l] == s[r]
+            };
+            if !same {
+                rec_upper += 1;
+            }
+            rec_s[lms_map[sorted_lms[i]] - 1] = rec_upper;
+        }
+
+        let rec_sa = sa_is(&amp;rec_s, rec_upper);
+        for i in 0..m {
+            sorted_lms[i] = lms[rec_sa[i]];
+        }
+        induce(&amp;mut sa, &amp;mut sorted_lms);
+    }
+    for elem in sa.iter_mut() {
+        *elem -= 1;
+    }
+    sa
+}
+
+fn sa_is_i32(s: &amp;[i32], upper: i32) -&gt; Vec&lt;usize&gt; {
+    let s: Vec&lt;usize&gt; = s.iter().map(|&amp;x| x as usize).collect();
+    sa_is(&amp;s, upper as usize)
+}
+
+fn suffix_array(s: &amp;[i32], upper: i32) -&gt; Vec&lt;usize&gt; {
+    assert!(upper &gt;= 0);
+    for &amp;elem in s {
+        assert!(0 &lt;= elem &amp;&amp; elem &lt;= upper);
+    }
+    sa_is_i32(s, upper)
+}
+
+fn lcp_array&lt;T: Ord&gt;(s: &amp;[T], sa: &amp;[usize]) -&gt; Vec&lt;usize&gt; {
+    let n = s.len();
+    assert!(n &gt;= 1);
+    let mut rnk = vec![0; n];
+    for i in 0..n {
+        rnk[sa[i]] = i;
+    }
+    let mut lcp = vec![0; n - 1];
+    let mut h = 0;
+    for i in 0..n - 1 {
+        if h &gt; 0 {
+            h -= 1;
+        }
+        if rnk[i] == 0 {
+            continue;
+        }
+        let j = sa[rnk[i] - 1];
+        while j + h &lt; n &amp;&amp; i + h &lt; n {
+            if s[j + h] != s[i + h] {
+                break;
+            }
+            h += 1;
+        }
+        lcp[rnk[i] - 1] = h;
+    }
+    lcp
+}
+
+// 以上模板代码修改自[ac-library-rs](https://github.com/rust-lang-ja/ac-library-rs/blob/master/src/string.rs)
+
+impl Solution {
+    pub fn longest_common_subpath(n: i32, paths: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 {
+        let m = paths.len();
+        let mut hi = paths.iter().map(|x| x.len()).min().unwrap();
+        let mut lo = 1;
+
+        let mut global_path = vec![];
+        let mut belong = vec![];
+        let mut sep = n;
+        
+        // 将 m 条路径连成一条总路径，并用分隔符分隔
+        for path in paths.iter() {
+            for &amp;city in path.iter() {
+                global_path.push(city);
+                belong.push(sep - n);
+            }
+            global_path.push(sep);
+            belong.push(sep - n);
+            
+            // 使用的分隔符是 m 个不属于 [0,n) 且各不相同的数字，这样可以避免两个后缀的最长公共前缀跨越不同的路径
+            sep += 1;
+        }
+
+        // sa[i] 表示排名为 i 的是哪一个后缀
+        let sa = suffix_array(&amp;global_path, sep - 1);
+
+        // lcp[i] 表示排第 i 名和第 i+1 名的后缀的最长公共前缀的长度
+        let lcp = lcp_array(&amp;global_path, &amp;sa);
+
+        // 二分答案
+        while lo &lt;= hi {
+            let mid = (lo + hi) &gt;&gt; 1;
+            let mut i = 0;
+            let mut found = false;
+
+            while i &lt; lcp.len() {
+                if lcp[i] &gt;= mid {
+                    let mut vis = vec![false; m];
+                    let mut vis_count = 0;
+                    let mut j = i;
+                    
+                    // 找出不小于 mid 的最长的一段 lcp[i..j]，统计这些元素的归属，判断是否覆盖了所有路径。
+                    while j &lt; lcp.len() &amp;&amp; lcp[j] &gt;= mid {
+                        if !vis[belong[sa[j]] as usize] {
+                            vis[belong[sa[j]] as usize] = true;
+                            vis_count += 1;
+                        }
+                        j += 1;
+                    }
+                    
+                    // 因为 lcp[i] 表示 sa[i] 和 sa[i+1] 的最长公共前缀，所以还需要计入最后的一个位置。
+                    if !vis[belong[sa[j]] as usize] {
+                        vis_count += 1;
+                    }
+
+                    // 当前范围包含了 m 条路径，说明找到了长度为 mid 的公共子路径。
+                    if vis_count == m {
+                        found = true;
+                        break;
+                    }
+
+                    i = j;
+                } else {
+                    i += 1;
+                }
+            }
+
+            if found {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        }
+
+        hi as i32
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">后缀数组</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%841/">Leetcode 后缀数组1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%842/">Leetcode 后缀数组2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%844/">Leetcode 后缀数组4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F1/">Leetcode 桶排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F2/">Leetcode 桶排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F3/">Leetcode 桶排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F4/">Leetcode 桶排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 计数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 计数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F3/">Leetcode 计数排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F4/">Leetcode 计数排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%911/">Leetcode 最小生成树1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF1/">Leetcode 扫描线1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF2/">Leetcode 扫描线2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF3/">Leetcode 扫描线3</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

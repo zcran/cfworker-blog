@@ -10,7 +10,7 @@
 Returns None when iteration is finished. Individual iterator implementations may choose to resume iteration, and so calling next() again may or may not eventually start returning Some(Item) again at some point.
 Examples Basic usage:
 let a = [1, 2, 3]; let mut iter = a.iter(); // A call to next() returns the next value... assert_eq!(Some(&amp;1), iter.next()); assert_eq!">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -41,14 +41,13 @@ let a = [1, 2, 3]; let mut iter = a.iter(); // A call to next() returns the next
 <meta property="og:url" content="http://example.org/posts/rustnote02/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-19T20:31:48+08:00" />
 <meta property="article:modified_time" content="2023-05-19T20:31:48+08:00" />
-
 <meta itemprop="name" content="Rust Note 02">
 <meta itemprop="description" content="Rust官方迭代器介绍 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; Advances the iterator and returns the next value.
 Returns None when iteration is finished. Individual iterator implementations may choose to resume iteration, and so calling next() again may or may not eventually start returning Some(Item) again at some point.
 Examples Basic usage:
 let a = [1, 2, 3]; let mut iter = a.iter(); // A call to next() returns the next value... assert_eq!(Some(&amp;1), iter.next()); assert_eq!"><meta itemprop="datePublished" content="2023-05-19T20:31:48+08:00" />
 <meta itemprop="dateModified" content="2023-05-19T20:31:48+08:00" />
-<meta itemprop="wordCount" content="10733">
+<meta itemprop="wordCount" content="10734">
 <meta itemprop="keywords" content="rust," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rust Note 02"/>
 <meta name="twitter:description" content="Rust官方迭代器介绍 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; Advances the iterator and returns the next value.
@@ -142,7 +141,7 @@ assert_eq!(Some(&amp;1), iter.next());
 assert_eq!(Some(&amp;2), iter.next());
 assert_eq!(Some(&amp;3), iter.next());
 
-// ... and then None once it's over.
+// ... and then None once it&#39;s over.
 assert_eq!(None, iter.next());
 
 // More calls may or may not return `None`. Here, they always will.
@@ -161,20 +160,20 @@ assert_eq!(None, iter.next());
 <p>Basic usage:</p>
 <pre tabindex="0"><code>#![feature(iter_next_chunk)]
 
-let mut iter = &quot;lorem&quot;.chars();
+let mut iter = &#34;lorem&#34;.chars();
 
-assert_eq!(iter.next_chunk().unwrap(), ['l', 'o']);              // N is inferred as 2
-assert_eq!(iter.next_chunk().unwrap(), ['r', 'e', 'm']);         // N is inferred as 3
+assert_eq!(iter.next_chunk().unwrap(), [&#39;l&#39;, &#39;o&#39;]);              // N is inferred as 2
+assert_eq!(iter.next_chunk().unwrap(), [&#39;r&#39;, &#39;e&#39;, &#39;m&#39;]);         // N is inferred as 3
 assert_eq!(iter.next_chunk::&lt;4&gt;().unwrap_err().as_slice(), &amp;[]); // N is explicitly 4
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iter_next_chunk)%5D%0A%0Afn%20main()%20%7B%0Alet%20mut%20iter%20%3D%20%22lorem%22.chars()%3B%0A%0Aassert_eq!(iter.next_chunk().unwrap()%2C%20%5B%27l%27%2C%20%27o%27%5D)%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20N%20is%20inferred%20as%202%0Aassert_eq!(iter.next_chunk().unwrap()%2C%20%5B%27r%27%2C%20%27e%27%2C%20%27m%27%5D)%3B%20%20%20%20%20%20%20%20%20%2F%2F%20N%20is%20inferred%20as%203%0Aassert_eq!(iter.next_chunk%3A%3A%3C4%3E().unwrap_err().as_slice()%2C%20%26%5B%5D)%3B%20%2F%2F%20N%20is%20explicitly%204%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p>Split a string and get the first three items.</p>
 <pre tabindex="0"><code>#![feature(iter_next_chunk)]
 
-let quote = &quot;not all those who wander are lost&quot;;
+let quote = &#34;not all those who wander are lost&#34;;
 let [first, second, third] = quote.split_whitespace().next_chunk().unwrap();
-assert_eq!(first, &quot;not&quot;);
-assert_eq!(second, &quot;all&quot;);
-assert_eq!(third, &quot;those&quot;);
+assert_eq!(first, &#34;not&#34;);
+assert_eq!(second, &#34;all&#34;);
+assert_eq!(third, &#34;those&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iter_next_chunk)%5D%0A%0Afn%20main()%20%7B%0Alet%20quote%20%3D%20%22not%20all%20those%20who%20wander%20are%20lost%22%3B%0Alet%20%5Bfirst%2C%20second%2C%20third%5D%20%3D%20quote.split_whitespace().next_chunk().unwrap()%3B%0Aassert_eq!(first%2C%20%22not%22)%3B%0Aassert_eq!(second%2C%20%22all%22)%3B%0Aassert_eq!(third%2C%20%22those%22)%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#215">source</a></p>
 <h4 id="fnsize_hinthttpsdocrust-langorgstditertraititeratorhtmlmethodsize_hintself---usizehttpsdocrust-langorgstdprimitiveusizehtmloptionhttpsdocrust-langorgstdoptionenumoptionhtml-enum-stdoptionoptionusizehttpsdocrust-langorgstdprimitiveusizehtml">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.size_hint">size_hint</a>(&amp;self) -&gt; (<a href="https://doc.rust-lang.org/std/primitive.usize.html">usize</a>, <a href="https://doc.rust-lang.org/std/option/enum.Option.html" title="enum std::option::Option">Option</a>&lt;<a href="https://doc.rust-lang.org/std/primitive.usize.html">usize</a>&gt;)</h4>
@@ -199,11 +198,11 @@ assert_eq!((2, Some(2)), iter.size_hint());
 <pre tabindex="0"><code>// The even numbers in the range of zero to nine.
 let iter = (0..10).filter(|x| x % 2 == 0);
 
-// We might iterate from zero to ten times. Knowing that it's five
-// exactly wouldn't be possible without executing filter().
+// We might iterate from zero to ten times. Knowing that it&#39;s five
+// exactly wouldn&#39;t be possible without executing filter().
 assert_eq!((0, Some(10)), iter.size_hint());
 
-// Let's add five more numbers with chain()
+// Let&#39;s add five more numbers with chain()
 let iter = (0..10).filter(|x| x % 2 == 0).chain(15..20);
 
 // now both bounds are increased by five
@@ -390,18 +389,18 @@ assert_eq!(iter.next(), Some((&amp;3, &amp;6)));
 assert_eq!(iter.next(), None);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20s1%20%3D%20%26%5B1%2C%202%2C%203%5D%3B%0Alet%20s2%20%3D%20%26%5B4%2C%205%2C%206%5D%3B%0A%0Alet%20mut%20iter%20%3D%20s1.iter().zip(s2)%3B%0A%0Aassert_eq!(iter.next()%2C%20Some((%261%2C%20%264)))%3B%0Aassert_eq!(iter.next()%2C%20Some((%262%2C%20%265)))%3B%0Aassert_eq!(iter.next()%2C%20Some((%263%2C%20%266)))%3B%0Aassert_eq!(iter.next()%2C%20None)%3B%0A%7D&amp;edition=2021"></a></p>
 <p><code>zip()</code> is often used to zip an infinite iterator to a finite one. This works because the finite iterator will eventually return <a href="https://doc.rust-lang.org/std/option/enum.Option.html#variant.None" title="None"><code>None</code></a>, ending the zipper. Zipping with <code>(0..)</code> can look a lot like <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.enumerate"><code>enumerate</code></a>:</p>
-<pre tabindex="0"><code>let enumerate: Vec&lt;_&gt; = &quot;foo&quot;.chars().enumerate().collect();
+<pre tabindex="0"><code>let enumerate: Vec&lt;_&gt; = &#34;foo&#34;.chars().enumerate().collect();
 
-let zipper: Vec&lt;_&gt; = (0..).zip(&quot;foo&quot;.chars()).collect();
+let zipper: Vec&lt;_&gt; = (0..).zip(&#34;foo&#34;.chars()).collect();
 
-assert_eq!((0, 'f'), enumerate[0]);
-assert_eq!((0, 'f'), zipper[0]);
+assert_eq!((0, &#39;f&#39;), enumerate[0]);
+assert_eq!((0, &#39;f&#39;), zipper[0]);
 
-assert_eq!((1, 'o'), enumerate[1]);
-assert_eq!((1, 'o'), zipper[1]);
+assert_eq!((1, &#39;o&#39;), enumerate[1]);
+assert_eq!((1, &#39;o&#39;), zipper[1]);
 
-assert_eq!((2, 'o'), enumerate[2]);
-assert_eq!((2, 'o'), zipper[2]);
+assert_eq!((2, &#39;o&#39;), enumerate[2]);
+assert_eq!((2, &#39;o&#39;), zipper[2]);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20enumerate%3A%20Vec%3C_%3E%20%3D%20%22foo%22.chars().enumerate().collect()%3B%0A%0Alet%20zipper%3A%20Vec%3C_%3E%20%3D%20(0..).zip(%22foo%22.chars()).collect()%3B%0A%0Aassert_eq!((0%2C%20%27f%27)%2C%20enumerate%5B0%5D)%3B%0Aassert_eq!((0%2C%20%27f%27)%2C%20zipper%5B0%5D)%3B%0A%0Aassert_eq!((1%2C%20%27o%27)%2C%20enumerate%5B1%5D)%3B%0Aassert_eq!((1%2C%20%27o%27)%2C%20zipper%5B1%5D)%3B%0A%0Aassert_eq!((2%2C%20%27o%27)%2C%20enumerate%5B2%5D)%3B%0Aassert_eq!((2%2C%20%27o%27)%2C%20zipper%5B2%5D)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>If both iterators have roughly equivalent syntax, it may be more readable to use <a href="https://doc.rust-lang.org/std/iter/fn.zip.html"><code>zip</code></a>:</p>
 <pre tabindex="0"><code>use std::iter::zip;
@@ -446,8 +445,8 @@ assert_eq!(a.next(), None);       // The iterator is finished.
 <p><code>intersperse</code> can be very useful to join an iterator’s items using a common element:</p>
 <pre tabindex="0"><code>#![feature(iter_intersperse)]
 
-let hello = [&quot;Hello&quot;, &quot;World&quot;, &quot;!&quot;].iter().copied().intersperse(&quot; &quot;).collect::&lt;String&gt;();
-assert_eq!(hello, &quot;Hello World !&quot;);
+let hello = [&#34;Hello&#34;, &#34;World&#34;, &#34;!&#34;].iter().copied().intersperse(&#34; &#34;).collect::&lt;String&gt;();
+assert_eq!(hello, &#34;Hello World !&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iter_intersperse)%5D%0A%0Afn%20main()%20%7B%0Alet%20hello%20%3D%20%5B%22Hello%22%2C%20%22World%22%2C%20%22!%22%5D.iter().copied().intersperse(%22%20%22).collect%3A%3A%3CString%3E()%3B%0Aassert_eq!(hello%2C%20%22Hello%20World%20!%22)%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#717-720">source</a></p>
 <h4 id="fnintersperse_withhttpsdocrust-langorgstditertraititeratorhtmlmethodintersperse_withgself-separator-g--interspersewithhttpsdocrust-langorgstditerstructinterspersewithhtml-struct-stditerinterspersewithself-gwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.intersperse_with">intersperse_with</a><!-- raw HTML omitted -->(self, separator: G) -&gt; <a href="https://doc.rust-lang.org/std/iter/struct.IntersperseWith.html" title="struct std::iter::IntersperseWith">IntersperseWith</a>&lt;Self, G&gt;ⓘwhere</h4>
@@ -476,14 +475,14 @@ assert_eq!(it.next(), None);               // The iterator is finished.
 <p><code>intersperse_with</code> can be used in situations where the separator needs to be computed:</p>
 <pre tabindex="0"><code>#![feature(iter_intersperse)]
 
-let src = [&quot;Hello&quot;, &quot;to&quot;, &quot;all&quot;, &quot;people&quot;, &quot;!!&quot;].iter().copied();
+let src = [&#34;Hello&#34;, &#34;to&#34;, &#34;all&#34;, &#34;people&#34;, &#34;!!&#34;].iter().copied();
 
 // The closure mutably borrows its context to generate an item.
-let mut happy_emojis = [&quot; ❤️ &quot;, &quot; 😀 &quot;].iter().copied();
-let separator = || happy_emojis.next().unwrap_or(&quot; 🦀 &quot;);
+let mut happy_emojis = [&#34; ❤️ &#34;, &#34; 😀 &#34;].iter().copied();
+let separator = || happy_emojis.next().unwrap_or(&#34; 🦀 &#34;);
 
 let result = src.intersperse_with(separator).collect::&lt;String&gt;();
-assert_eq!(result, &quot;Hello ❤️ to 😀 all 🦀 people 🦀 !!&quot;);
+assert_eq!(result, &#34;Hello ❤️ to 😀 all 🦀 people 🦀 !!&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iter_intersperse)%5D%0A%0Afn%20main()%20%7B%0Alet%20src%20%3D%20%5B%22Hello%22%2C%20%22to%22%2C%20%22all%22%2C%20%22people%22%2C%20%22!!%22%5D.iter().copied()%3B%0A%0A%2F%2F%20The%20closure%20mutably%20borrows%20its%20context%20to%20generate%20an%20item.%0Alet%20mut%20happy_emojis%20%3D%20%5B%22%20%E2%9D%A4%EF%B8%8F%20%22%2C%20%22%20%F0%9F%98%80%20%22%5D.iter().copied()%3B%0Alet%20separator%20%3D%20%7C%7C%20happy_emojis.next().unwrap_or(%22%20%F0%9F%A6%80%20%22)%3B%0A%0Alet%20result%20%3D%20src.intersperse_with(separator).collect%3A%3A%3CString%3E()%3B%0Aassert_eq!(result%2C%20%22Hello%20%E2%9D%A4%EF%B8%8F%20to%20%F0%9F%98%80%20all%20%F0%9F%A6%80%20people%20%F0%9F%A6%80%20!!%22)%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#776-779">source</a></p>
 <h4 id="fnmaphttpsdocrust-langorgstditertraititeratorhtmlmethodmapb-fself-f-f--maphttpsdocrust-langorgstditerstructmaphtml-struct-stditermapself-fwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.map">map</a>&lt;B, F&gt;(self, f: F) -&gt; <a href="https://doc.rust-lang.org/std/iter/struct.Map.html" title="struct std::iter::Map">Map</a>&lt;Self, F&gt;ⓘwhere</h4>
@@ -504,14 +503,14 @@ assert_eq!(iter.next(), Some(6));
 assert_eq!(iter.next(), None);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%202%2C%203%5D%3B%0A%0Alet%20mut%20iter%20%3D%20a.iter().map(%7Cx%7C%202%20*%20x)%3B%0A%0Aassert_eq!(iter.next()%2C%20Some(2))%3B%0Aassert_eq!(iter.next()%2C%20Some(4))%3B%0Aassert_eq!(iter.next()%2C%20Some(6))%3B%0Aassert_eq!(iter.next()%2C%20None)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>If you’re doing some sort of side effect, prefer <a href="https://doc.rust-lang.org/book/ch03-05-control-flow.html#looping-through-a-collection-with-for"><code>for</code></a> to <code>map()</code>:</p>
-<pre tabindex="0"><code>// don't do this:
-(0..5).map(|x| println!(&quot;{x}&quot;));
+<pre tabindex="0"><code>// don&#39;t do this:
+(0..5).map(|x| println!(&#34;{x}&#34;));
 
-// it won't even execute, as it is lazy. Rust will warn you about this.
+// it won&#39;t even execute, as it is lazy. Rust will warn you about this.
 
 // Instead, use for:
 for x in 0..5 {
-    println!(&quot;{x}&quot;);
+    println!(&#34;{x}&#34;);
 }
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Ballow(unused_must_use)%5D%0A%2F%2F%20don%27t%20do%20this%3A%0Afn%20main()%20%7B%0A(0..5).map(%7Cx%7C%20println!(%22%7Bx%7D%22))%3B%0A%0A%2F%2F%20it%20won%27t%20even%20execute%2C%20as%20it%20is%20lazy.%20Rust%20will%20warn%20you%20about%20this.%0A%0A%2F%2F%20Instead%2C%20use%20for%3A%0Afor%20x%20in%200..5%20%7B%0A%20%20%20%20println!(%22%7Bx%7D%22)%3B%0A%7D%0A%7D&amp;edition=2021"></a></p>
 <p>1.21.0 · <a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#821-824">source</a></p>
@@ -534,7 +533,7 @@ assert_eq!(v, vec![1, 3, 5, 7, 9]);
 <pre tabindex="0"><code>(0..5).flat_map(|x| x * 100 .. x * 110)
       .enumerate()
       .filter(|&amp;(i, x)| (i + x) % 3 == 0)
-      .for_each(|(i, x)| println!(&quot;{i}:{x}&quot;));
+      .for_each(|(i, x)| println!(&#34;{i}:{x}&#34;));
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0A(0..5).flat_map(%7Cx%7C%20x%20*%20100%20..%20x%20*%20110)%0A%20%20%20%20%20%20.enumerate()%0A%20%20%20%20%20%20.filter(%7C%26(i%2C%20x)%7C%20(i%20%2B%20x)%20%25%203%20%3D%3D%200)%0A%20%20%20%20%20%20.for_each(%7C(i%2C%20x)%7C%20println!(%22%7Bi%7D%3A%7Bx%7D%22))%3B%0A%7D&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#896-899">source</a></p>
 <h4 id="fnfilterhttpsdocrust-langorgstditertraititeratorhtmlmethodfilterpself-predicate-p--filterhttpsdocrust-langorgstditerstructfilterhtml-struct-stditerfilterself-pwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.filter">filter</a><!-- raw HTML omitted -->(self, predicate: P) -&gt; <a href="https://doc.rust-lang.org/std/iter/struct.Filter.html" title="struct std::iter::Filter">Filter</a>&lt;Self, P&gt;ⓘwhere</h4>
@@ -585,7 +584,7 @@ assert_eq!(iter.next(), None);
 <p><code>filter_map</code> can be used to make chains of <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.filter"><code>filter</code></a> and <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.map"><code>map</code></a> more concise. The example below shows how a <code>map().filter().map()</code> can be shortened to a single call to <code>filter_map</code>.</p>
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-15"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-15">Examples</a></h5>
 <p>Basic usage:</p>
-<pre tabindex="0"><code>let a = [&quot;1&quot;, &quot;two&quot;, &quot;NaN&quot;, &quot;four&quot;, &quot;5&quot;];
+<pre tabindex="0"><code>let a = [&#34;1&#34;, &#34;two&#34;, &#34;NaN&#34;, &#34;four&#34;, &#34;5&#34;];
 
 let mut iter = a.iter().filter_map(|s| s.parse().ok());
 
@@ -594,7 +593,7 @@ assert_eq!(iter.next(), Some(5));
 assert_eq!(iter.next(), None);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B%221%22%2C%20%22two%22%2C%20%22NaN%22%2C%20%22four%22%2C%20%225%22%5D%3B%0A%0Alet%20mut%20iter%20%3D%20a.iter().filter_map(%7Cs%7C%20s.parse().ok())%3B%0A%0Aassert_eq!(iter.next()%2C%20Some(1))%3B%0Aassert_eq!(iter.next()%2C%20Some(5))%3B%0Aassert_eq!(iter.next()%2C%20None)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>Here’s the same example, but with <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.filter"><code>filter</code></a> and <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.map"><code>map</code></a>:</p>
-<pre tabindex="0"><code>let a = [&quot;1&quot;, &quot;two&quot;, &quot;NaN&quot;, &quot;four&quot;, &quot;5&quot;];
+<pre tabindex="0"><code>let a = [&#34;1&#34;, &#34;two&#34;, &#34;NaN&#34;, &#34;four&#34;, &#34;5&#34;];
 let mut iter = a.iter().map(|s| s.parse()).filter(|s| s.is_ok()).map(|s| s.unwrap());
 assert_eq!(iter.next(), Some(1));
 assert_eq!(iter.next(), Some(5));
@@ -610,13 +609,13 @@ assert_eq!(iter.next(), None);
 <h5 id="panicshttpsdocrust-langorgstditertraititeratorhtmlpanics-2"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#panics-2">Panics</a></h5>
 <p>The returned iterator might panic if the to-be-returned index would overflow a <a href="https://doc.rust-lang.org/std/primitive.usize.html" title="usize"><code>usize</code></a>.</p>
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-16"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-16">Examples</a></h5>
-<pre tabindex="0"><code>let a = ['a', 'b', 'c'];
+<pre tabindex="0"><code>let a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
 
 let mut iter = a.iter().enumerate();
 
-assert_eq!(iter.next(), Some((0, &amp;'a')));
-assert_eq!(iter.next(), Some((1, &amp;'b')));
-assert_eq!(iter.next(), Some((2, &amp;'c')));
+assert_eq!(iter.next(), Some((0, &amp;&#39;a&#39;)));
+assert_eq!(iter.next(), Some((1, &amp;&#39;b&#39;)));
+assert_eq!(iter.next(), Some((2, &amp;&#39;c&#39;)));
 assert_eq!(iter.next(), None);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B%27a%27%2C%20%27b%27%2C%20%27c%27%5D%3B%0A%0Alet%20mut%20iter%20%3D%20a.iter().enumerate()%3B%0A%0Aassert_eq!(iter.next()%2C%20Some((0%2C%20%26%27a%27)))%3B%0Aassert_eq!(iter.next()%2C%20Some((1%2C%20%26%27b%27)))%3B%0Aassert_eq!(iter.next()%2C%20Some((2%2C%20%26%27c%27)))%3B%0Aassert_eq!(iter.next()%2C%20None)%3B%0A%7D&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#1058-1060">source</a></p>
@@ -635,7 +634,7 @@ assert_eq!(iter.next(), Some(&amp;1));
 
 assert_eq!(iter.next(), Some(&amp;2));
 
-// we can peek() multiple times, the iterator won't advance
+// we can peek() multiple times, the iterator won&#39;t advance
 assert_eq!(iter.peek(), Some(&amp;&amp;3));
 assert_eq!(iter.peek(), Some(&amp;&amp;3));
 
@@ -698,7 +697,7 @@ assert_eq!(iter.next(), Some(&amp;0));
 assert_eq!(iter.next(), Some(&amp;1));
 
 // while this would have been false, since we already got a false,
-// skip_while() isn't used any more
+// skip_while() isn&#39;t used any more
 assert_eq!(iter.next(), Some(&amp;-2));
 
 assert_eq!(iter.next(), None);
@@ -734,7 +733,7 @@ let mut iter = a.iter().take_while(|x| **x &lt; 0);
 assert_eq!(iter.next(), Some(&amp;-1));
 
 // We have more elements that are less than zero, but since we already
-// got a false, take_while() isn't used any more
+// got a false, take_while() isn&#39;t used any more
 assert_eq!(iter.next(), None);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B-1%2C%200%2C%201%2C%20-2%5D%3B%0A%0Alet%20mut%20iter%20%3D%20a.iter().take_while(%7Cx%7C%20**x%20%3C%200)%3B%0A%0Aassert_eq!(iter.next()%2C%20Some(%26-1))%3B%0A%0A%2F%2F%20We%20have%20more%20elements%20that%20are%20less%20than%20zero%2C%20but%20since%20we%20already%0A%2F%2F%20got%20a%20false%2C%20take_while()%20isn%27t%20used%20any%20more%0Aassert_eq!(iter.next()%2C%20None)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>Because <code>take_while()</code> needs to look at the value in order to see if it should be included or not, consuming iterators will see that it is removed:</p>
@@ -860,10 +859,10 @@ assert_eq!(iter.next(), None);
 <pre tabindex="0"><code>let a = [1, 2, 3];
 
 let mut iter = a.iter().scan(1, |state, &amp;x| {
-    // each iteration, we'll multiply the state by the element
+    // each iteration, we&#39;ll multiply the state by the element
     *state = *state * x;
 
-    // then, we'll yield the negation of the state
+    // then, we&#39;ll yield the negation of the state
     Some(-*state)
 });
 
@@ -882,13 +881,13 @@ assert_eq!(iter.next(), None);
 <p>Another way of thinking about <code>flat_map()</code>: <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.map"><code>map</code></a>’s closure returns one item for each element, and <code>flat_map()</code>’s closure returns an iterator for each element.</p>
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-24"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-24">Examples</a></h5>
 <p>Basic usage:</p>
-<pre tabindex="0"><code>let words = [&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;];
+<pre tabindex="0"><code>let words = [&#34;alpha&#34;, &#34;beta&#34;, &#34;gamma&#34;];
 
 // chars() returns an iterator
 let merged: String = words.iter()
                           .flat_map(|s| s.chars())
                           .collect();
-assert_eq!(merged, &quot;alphabetagamma&quot;);
+assert_eq!(merged, &#34;alphabetagamma&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20words%20%3D%20%5B%22alpha%22%2C%20%22beta%22%2C%20%22gamma%22%5D%3B%0A%0A%2F%2F%20chars()%20returns%20an%20iterator%0Alet%20merged%3A%20String%20%3D%20words.iter()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.flat_map(%7Cs%7C%20s.chars())%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.collect()%3B%0Aassert_eq!(merged%2C%20%22alphabetagamma%22)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>1.29.0 · <a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#1532-1535">source</a></p>
 <h4 id="fnflattenhttpsdocrust-langorgstditertraititeratorhtmlmethodflattenself--flattenhttpsdocrust-langorgstditerstructflattenhtml-struct-stditerflattenselfwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.flatten">flatten</a>(self) -&gt; <a href="https://doc.rust-lang.org/std/iter/struct.Flatten.html" title="struct std::iter::Flatten">Flatten</a><!-- raw HTML omitted -->ⓘwhere</h4>
@@ -902,23 +901,23 @@ let flattened = data.into_iter().flatten().collect::&lt;Vec&lt;u8&gt;&gt;();
 assert_eq!(flattened, &amp;[1, 2, 3, 4, 5, 6]);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20data%20%3D%20vec!%5Bvec!%5B1%2C%202%2C%203%2C%204%5D%2C%20vec!%5B5%2C%206%5D%5D%3B%0Alet%20flattened%20%3D%20data.into_iter().flatten().collect%3A%3A%3CVec%3Cu8%3E%3E()%3B%0Aassert_eq!(flattened%2C%20%26%5B1%2C%202%2C%203%2C%204%2C%205%2C%206%5D)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>Mapping and then flattening:</p>
-<pre tabindex="0"><code>let words = [&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;];
+<pre tabindex="0"><code>let words = [&#34;alpha&#34;, &#34;beta&#34;, &#34;gamma&#34;];
 
 // chars() returns an iterator
 let merged: String = words.iter()
                           .map(|s| s.chars())
                           .flatten()
                           .collect();
-assert_eq!(merged, &quot;alphabetagamma&quot;);
+assert_eq!(merged, &#34;alphabetagamma&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20words%20%3D%20%5B%22alpha%22%2C%20%22beta%22%2C%20%22gamma%22%5D%3B%0A%0A%2F%2F%20chars()%20returns%20an%20iterator%0Alet%20merged%3A%20String%20%3D%20words.iter()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.map(%7Cs%7C%20s.chars())%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.flatten()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.collect()%3B%0Aassert_eq!(merged%2C%20%22alphabetagamma%22)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>You can also rewrite this in terms of <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.flat_map"><code>flat_map()</code></a>, which is preferable in this case since it conveys intent more clearly:</p>
-<pre tabindex="0"><code>let words = [&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;];
+<pre tabindex="0"><code>let words = [&#34;alpha&#34;, &#34;beta&#34;, &#34;gamma&#34;];
 
 // chars() returns an iterator
 let merged: String = words.iter()
                           .flat_map(|s| s.chars())
                           .collect();
-assert_eq!(merged, &quot;alphabetagamma&quot;);
+assert_eq!(merged, &#34;alphabetagamma&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20words%20%3D%20%5B%22alpha%22%2C%20%22beta%22%2C%20%22gamma%22%5D%3B%0A%0A%2F%2F%20chars()%20returns%20an%20iterator%0Alet%20merged%3A%20String%20%3D%20words.iter()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.flat_map(%7Cs%7C%20s.chars())%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.collect()%3B%0Aassert_eq!(merged%2C%20%22alphabetagamma%22)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>Flattening only removes one level of nesting at a time:</p>
 <pre tabindex="0"><code>let d3 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
@@ -949,7 +948,7 @@ impl Iterator for Alternate {
         let val = self.state;
         self.state = self.state + 1;
 
-        // if it's even, Some(i32), else None
+        // if it&#39;s even, Some(i32), else None
         if val % 2 == 0 {
             Some(val)
         } else {
@@ -993,17 +992,17 @@ let sum = a.iter()
     .filter(|x| x % 2 == 0)
     .fold(0, |sum, i| sum + i);
 
-println!(&quot;{sum}&quot;);
+println!(&#34;{sum}&#34;);
 
-// let's add some inspect() calls to investigate what's happening
+// let&#39;s add some inspect() calls to investigate what&#39;s happening
 let sum = a.iter()
     .cloned()
-    .inspect(|x| println!(&quot;about to filter: {x}&quot;))
+    .inspect(|x| println!(&#34;about to filter: {x}&#34;))
     .filter(|x| x % 2 == 0)
-    .inspect(|x| println!(&quot;made it through filter: {x}&quot;))
+    .inspect(|x| println!(&#34;made it through filter: {x}&#34;))
     .fold(0, |sum, i| sum + i);
 
-println!(&quot;{sum}&quot;);
+println!(&#34;{sum}&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%204%2C%202%2C%203%5D%3B%0A%0A%2F%2F%20this%20iterator%20sequence%20is%20complex.%0Alet%20sum%20%3D%20a.iter()%0A%20%20%20%20.cloned()%0A%20%20%20%20.filter(%7Cx%7C%20x%20%25%202%20%3D%3D%200)%0A%20%20%20%20.fold(0%2C%20%7Csum%2C%20i%7C%20sum%20%2B%20i)%3B%0A%0Aprintln!(%22%7Bsum%7D%22)%3B%0A%0A%2F%2F%20let%27s%20add%20some%20inspect()%20calls%20to%20investigate%20what%27s%20happening%0Alet%20sum%20%3D%20a.iter()%0A%20%20%20%20.cloned()%0A%20%20%20%20.inspect(%7Cx%7C%20println!(%22about%20to%20filter%3A%20%7Bx%7D%22))%0A%20%20%20%20.filter(%7Cx%7C%20x%20%25%202%20%3D%3D%200)%0A%20%20%20%20.inspect(%7Cx%7C%20println!(%22made%20it%20through%20filter%3A%20%7Bx%7D%22))%0A%20%20%20%20.fold(0%2C%20%7Csum%2C%20i%7C%20sum%20%2B%20i)%3B%0A%0Aprintln!(%22%7Bsum%7D%22)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>This will print:</p>
 <pre tabindex="0"><code>6
@@ -1015,20 +1014,20 @@ made it through filter: 2
 about to filter: 3
 6
 </code></pre><p>Logging errors before discarding them:</p>
-<pre tabindex="0"><code>let lines = [&quot;1&quot;, &quot;2&quot;, &quot;a&quot;];
+<pre tabindex="0"><code>let lines = [&#34;1&#34;, &#34;2&#34;, &#34;a&#34;];
 
 let sum: i32 = lines
     .iter()
     .map(|line| line.parse::&lt;i32&gt;())
     .inspect(|num| {
         if let Err(ref e) = *num {
-            println!(&quot;Parsing error: {e}&quot;);
+            println!(&#34;Parsing error: {e}&#34;);
         }
     })
     .filter_map(Result::ok)
     .sum();
 
-println!(&quot;Sum: {sum}&quot;);
+println!(&#34;Sum: {sum}&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20lines%20%3D%20%5B%221%22%2C%20%222%22%2C%20%22a%22%5D%3B%0A%0Alet%20sum%3A%20i32%20%3D%20lines%0A%20%20%20%20.iter()%0A%20%20%20%20.map(%7Cline%7C%20line.parse%3A%3A%3Ci32%3E())%0A%20%20%20%20.inspect(%7Cnum%7C%20%7B%0A%20%20%20%20%20%20%20%20if%20let%20Err(ref%20e)%20%3D%20*num%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20println!(%22Parsing%20error%3A%20%7Be%7D%22)%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D)%0A%20%20%20%20.filter_map(Result%3A%3Aok)%0A%20%20%20%20.sum()%3B%0A%0Aprintln!(%22Sum%3A%20%7Bsum%7D%22)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>This will print:</p>
 <pre tabindex="0"><code>Parsing error: invalid digit found in string
@@ -1039,16 +1038,16 @@ Sum: 3
 <p>This is useful to allow applying iterator adapters while still retaining ownership of the original iterator.</p>
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-28"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-28">Examples</a></h5>
 <p>Basic usage:</p>
-<pre tabindex="0"><code>let mut words = [&quot;hello&quot;, &quot;world&quot;, &quot;of&quot;, &quot;Rust&quot;].into_iter();
+<pre tabindex="0"><code>let mut words = [&#34;hello&#34;, &#34;world&#34;, &#34;of&#34;, &#34;Rust&#34;].into_iter();
 
 // Take the first two words.
 let hello_world: Vec&lt;_&gt; = words.by_ref().take(2).collect();
-assert_eq!(hello_world, vec![&quot;hello&quot;, &quot;world&quot;]);
+assert_eq!(hello_world, vec![&#34;hello&#34;, &#34;world&#34;]);
 
 // Collect the rest of the words.
 // We can only do this because we used `by_ref` earlier.
 let of_rust: Vec&lt;_&gt; = words.collect();
-assert_eq!(of_rust, vec![&quot;of&quot;, &quot;Rust&quot;]);
+assert_eq!(of_rust, vec![&#34;of&#34;, &#34;Rust&#34;]);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20mut%20words%20%3D%20%5B%22hello%22%2C%20%22world%22%2C%20%22of%22%2C%20%22Rust%22%5D.into_iter()%3B%0A%0A%2F%2F%20Take%20the%20first%20two%20words.%0Alet%20hello_world%3A%20Vec%3C_%3E%20%3D%20words.by_ref().take(2).collect()%3B%0Aassert_eq!(hello_world%2C%20vec!%5B%22hello%22%2C%20%22world%22%5D)%3B%0A%0A%2F%2F%20Collect%20the%20rest%20of%20the%20words.%0A%2F%2F%20We%20can%20only%20do%20this%20because%20we%20used%20%60by_ref%60%20earlier.%0Alet%20of_rust%3A%20Vec%3C_%3E%20%3D%20words.collect()%3B%0Aassert_eq!(of_rust%2C%20vec!%5B%22of%22%2C%20%22Rust%22%5D)%3B%0A%7D&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#1832-1834">source</a></p>
 <h4 id="fncollecthttpsdocrust-langorgstditertraititeratorhtmlmethodcollectbself---bwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect">collect</a><!-- raw HTML omitted -->(self) -&gt; B where</h4>
@@ -1094,22 +1093,22 @@ let doubled = a.iter().map(|x| x * 2).collect::&lt;Vec&lt;_&gt;&gt;();
 assert_eq!(vec![2, 4, 6], doubled);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%202%2C%203%5D%3B%0A%0Alet%20doubled%20%3D%20a.iter().map(%7Cx%7C%20x%20*%202).collect%3A%3A%3CVec%3C_%3E%3E()%3B%0A%0Aassert_eq!(vec!%5B2%2C%204%2C%206%5D%2C%20doubled)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>Using <code>collect()</code> to make a <a href="https://doc.rust-lang.org/std/string/struct.String.html"><code>String</code></a>:</p>
-<pre tabindex="0"><code>let chars = ['g', 'd', 'k', 'k', 'n'];
+<pre tabindex="0"><code>let chars = [&#39;g&#39;, &#39;d&#39;, &#39;k&#39;, &#39;k&#39;, &#39;n&#39;];
 
 let hello: String = chars.iter()
     .map(|&amp;x| x as u8)
     .map(|x| (x + 1) as char)
     .collect();
 
-assert_eq!(&quot;hello&quot;, hello);
+assert_eq!(&#34;hello&#34;, hello);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20chars%20%3D%20%5B%27g%27%2C%20%27d%27%2C%20%27k%27%2C%20%27k%27%2C%20%27n%27%5D%3B%0A%0Alet%20hello%3A%20String%20%3D%20chars.iter()%0A%20%20%20%20.map(%7C%26x%7C%20x%20as%20u8)%0A%20%20%20%20.map(%7Cx%7C%20(x%20%2B%201)%20as%20char)%0A%20%20%20%20.collect()%3B%0A%0Aassert_eq!(%22hello%22%2C%20hello)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>If you have a list of <a href="https://doc.rust-lang.org/std/result/enum.Result.html" title="Result"><code>Result&lt;T, E&gt;</code></a>s, you can use <code>collect()</code> to see if any of them failed:</p>
-<pre tabindex="0"><code>let results = [Ok(1), Err(&quot;nope&quot;), Ok(3), Err(&quot;bad&quot;)];
+<pre tabindex="0"><code>let results = [Ok(1), Err(&#34;nope&#34;), Ok(3), Err(&#34;bad&#34;)];
 
 let result: Result&lt;Vec&lt;_&gt;, &amp;str&gt; = results.iter().cloned().collect();
 
 // gives us the first error
-assert_eq!(Err(&quot;nope&quot;), result);
+assert_eq!(Err(&#34;nope&#34;), result);
 
 let results = [Ok(1), Ok(3)];
 
@@ -1200,7 +1199,7 @@ a.iter().map(|&amp;x| x * 2).collect_into(&amp;mut vec);
 a.iter().map(|&amp;x| x * 10).collect_into(&amp;mut vec);
 
 assert_eq!(6, vec.capacity());
-println!(&quot;{:?}&quot;, vec);
+println!(&#34;{:?}&#34;, vec);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iter_collect_into)%5D%0A%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%202%2C%203%5D%3B%0Alet%20mut%20vec%3A%20Vec%3A%3A%3Ci32%3E%20%3D%20Vec%3A%3Awith_capacity(6)%3B%0A%0Aa.iter().map(%7C%26x%7C%20x%20*%202).collect_into(%26mut%20vec)%3B%0Aa.iter().map(%7C%26x%7C%20x%20*%2010).collect_into(%26mut%20vec)%3B%0A%0Aassert_eq!(6%2C%20vec.capacity())%3B%0Aprintln!(%22%7B%3A%3F%7D%22%2C%20vec)%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p>The returned mutable reference can be used to continue the call chain:</p>
 <pre tabindex="0"><code>#![feature(iter_collect_into)]
@@ -1211,12 +1210,12 @@ let mut vec: Vec::&lt;i32&gt; = Vec::with_capacity(6);
 let count = a.iter().collect_into(&amp;mut vec).iter().count();
 
 assert_eq!(count, vec.len());
-println!(&quot;Vec len is {}&quot;, count);
+println!(&#34;Vec len is {}&#34;, count);
 
 let count = a.iter().collect_into(&amp;mut vec).iter().count();
 
 assert_eq!(count, vec.len());
-println!(&quot;Vec len now is {}&quot;, count);
+println!(&#34;Vec len now is {}&#34;, count);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iter_collect_into)%5D%0A%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%202%2C%203%5D%3B%0Alet%20mut%20vec%3A%20Vec%3A%3A%3Ci32%3E%20%3D%20Vec%3A%3Awith_capacity(6)%3B%0A%0Alet%20count%20%3D%20a.iter().collect_into(%26mut%20vec).iter().count()%3B%0A%0Aassert_eq!(count%2C%20vec.len())%3B%0Aprintln!(%22Vec%20len%20is%20%7B%7D%22%2C%20count)%3B%0A%0Alet%20count%20%3D%20a.iter().collect_into(%26mut%20vec).iter().count()%3B%0A%0Aassert_eq!(count%2C%20vec.len())%3B%0Aprintln!(%22Vec%20len%20now%20is%20%7B%7D%22%2C%20count)%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#2017-2021">source</a></p>
 <h4 id="fnpartitionhttpsdocrust-langorgstditertraititeratorhtmlmethodpartitionb-fself-f-f--b-bhttpsdocrust-langorgstdprimitivetuplehtmlwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.partition">partition</a>&lt;B, F&gt;(self, f: F) -&gt; <a href="https://doc.rust-lang.org/std/primitive.tuple.html">(B, B)</a>where</h4>
@@ -1269,8 +1268,8 @@ assert!(a[i..].iter().all(|&amp;n| n % 2 == 1)); // odds
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-34"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-34">Examples</a></h5>
 <pre tabindex="0"><code>#![feature(iter_is_partitioned)]
 
-assert!(&quot;Iterator&quot;.chars().is_partitioned(char::is_uppercase));
-assert!(!&quot;IntoIterator&quot;.chars().is_partitioned(char::is_uppercase));
+assert!(&#34;Iterator&#34;.chars().is_partitioned(char::is_uppercase));
+assert!(!&#34;IntoIterator&#34;.chars().is_partitioned(char::is_uppercase));
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iter_is_partitioned)%5D%0A%0Afn%20main()%20%7B%0Aassert!(%22Iterator%22.chars().is_partitioned(char%3A%3Ais_uppercase))%3B%0Aassert!(!%22IntoIterator%22.chars().is_partitioned(char%3A%3Ais_uppercase))%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p>1.27.0 · <a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#2230-2234">source</a></p>
 <h4 id="fntry_foldhttpsdocrust-langorgstditertraititeratorhtmlmethodtry_foldb-f-rmut-self-init-b-f-f---rwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.try_fold">try_fold</a>&lt;B, F, R&gt;(&amp;mut self, init: B, f: F) -&gt; R where</h4>
@@ -1337,16 +1336,16 @@ assert_eq!(triangular, ControlFlow::Continue(435));
 use std::io::{stdout, Write};
 use std::path::Path;
 
-let data = [&quot;no_tea.txt&quot;, &quot;stale_bread.json&quot;, &quot;torrential_rain.png&quot;];
+let data = [&#34;no_tea.txt&#34;, &#34;stale_bread.json&#34;, &#34;torrential_rain.png&#34;];
 
-let res = data.iter().try_for_each(|x| writeln!(stdout(), &quot;{x}&quot;));
+let res = data.iter().try_for_each(|x| writeln!(stdout(), &#34;{x}&#34;));
 assert!(res.is_ok());
 
 let mut it = data.iter().cloned();
-let res = it.try_for_each(|x| rename(x, Path::new(x).with_extension(&quot;old&quot;)));
+let res = it.try_for_each(|x| rename(x, Path::new(x).with_extension(&#34;old&#34;)));
 assert!(res.is_err());
 // It short-circuited, so the remaining items are still in the iterator:
-assert_eq!(it.next(), Some(&quot;stale_bread.json&quot;));
+assert_eq!(it.next(), Some(&#34;stale_bread.json&#34;));
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Afs%3A%3Arename%3B%0Ause%20std%3A%3Aio%3A%3A%7Bstdout%2C%20Write%7D%3B%0Ause%20std%3A%3Apath%3A%3APath%3B%0A%0Alet%20data%20%3D%20%5B%22no_tea.txt%22%2C%20%22stale_bread.json%22%2C%20%22torrential_rain.png%22%5D%3B%0A%0Alet%20res%20%3D%20data.iter().try_for_each(%7Cx%7C%20writeln!(stdout()%2C%20%22%7Bx%7D%22))%3B%0Aassert!(res.is_ok())%3B%0A%0Alet%20mut%20it%20%3D%20data.iter().cloned()%3B%0Alet%20res%20%3D%20it.try_for_each(%7Cx%7C%20rename(x%2C%20Path%3A%3Anew(x).with_extension(%22old%22)))%3B%0Aassert!(res.is_err())%3B%0A%2F%2F%20It%20short-circuited%2C%20so%20the%20remaining%20items%20are%20still%20in%20the%20iterator%3A%0Aassert_eq!(it.next()%2C%20Some(%22stale_bread.json%22))%3B%0A%7D&amp;edition=2021"></a></p>
 <p>The <a href="https://doc.rust-lang.org/std/ops/enum.ControlFlow.html" title="ControlFlow"><code>ControlFlow</code></a> type can be used with this method for the situations in which you’d use <code>break</code> and <code>continue</code> in a normal loop:</p>
 <pre tabindex="0"><code>use std::ops::ControlFlow;
@@ -1425,13 +1424,13 @@ assert_eq!(sum, 6);
 <p>This example demonstrates the left-associative nature of <code>fold()</code>: it builds a string, starting with an initial value and continuing with each element from the front until the back:</p>
 <pre tabindex="0"><code>let numbers = [1, 2, 3, 4, 5];
 
-let zero = &quot;0&quot;.to_string();
+let zero = &#34;0&#34;.to_string();
 
 let result = numbers.iter().fold(zero, |acc, &amp;x| {
-    format!(&quot;({acc} + {x})&quot;)
+    format!(&#34;({acc} + {x})&#34;)
 });
 
-assert_eq!(result, &quot;(((((0 + 1) + 2) + 3) + 4) + 5)&quot;);
+assert_eq!(result, &#34;(((((0 + 1) + 2) + 3) + 4) + 5)&#34;);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20numbers%20%3D%20%5B1%2C%202%2C%203%2C%204%2C%205%5D%3B%0A%0Alet%20zero%20%3D%20%220%22.to_string()%3B%0A%0Alet%20result%20%3D%20numbers.iter().fold(zero%2C%20%7Cacc%2C%20%26x%7C%20%7B%0A%20%20%20%20format!(%22(%7Bacc%7D%20%2B%20%7Bx%7D)%22)%0A%7D)%3B%0A%0Aassert_eq!(result%2C%20%22(((((0%20%2B%201)%20%2B%202)%20%2B%203)%20%2B%204)%20%2B%205)%22)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>It’s common for people who haven’t used iterators a lot to use a <code>for</code> loop with a list of things to build up a result. Those can be turned into <code>fold()</code>s:</p>
 <pre tabindex="0"><code>let numbers = [1, 2, 3, 4, 5];
@@ -1446,7 +1445,7 @@ for i in &amp;numbers {
 // fold:
 let result2 = numbers.iter().fold(0, |acc, &amp;x| acc + x);
 
-// they're the same
+// they&#39;re the same
 assert_eq!(result, result2);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20numbers%20%3D%20%5B1%2C%202%2C%203%2C%204%2C%205%5D%3B%0A%0Alet%20mut%20result%20%3D%200%3B%0A%0A%2F%2F%20for%20loop%3A%0Afor%20i%20in%20%26numbers%20%7B%0A%20%20%20%20result%20%3D%20result%20%2B%20i%3B%0A%7D%0A%0A%2F%2F%20fold%3A%0Alet%20result2%20%3D%20numbers.iter().fold(0%2C%20%7Cacc%2C%20%26x%7C%20acc%20%2B%20x)%3B%0A%0A%2F%2F%20they%27re%20the%20same%0Aassert_eq!(result%2C%20result2)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>1.51.0 · <a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#2453-2456">source</a></p>
@@ -1509,12 +1508,12 @@ assert_eq!(sum, Some(None));
 <p>Use a <a href="https://doc.rust-lang.org/std/result/enum.Result.html" title="Result"><code>Result</code></a> instead of an <a href="https://doc.rust-lang.org/std/option/enum.Option.html" title="Option"><code>Option</code></a>:</p>
 <pre tabindex="0"><code>#![feature(iterator_try_reduce)]
 
-let numbers = vec![&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;];
+let numbers = vec![&#34;1&#34;, &#34;2&#34;, &#34;3&#34;, &#34;4&#34;, &#34;5&#34;];
 let max: Result&lt;Option&lt;_&gt;, &lt;usize as std::str::FromStr&gt;::Err&gt; =
     numbers.into_iter().try_reduce(|x, y| {
         if x.parse::&lt;usize&gt;()? &gt; y.parse::&lt;usize&gt;()? { Ok(x) } else { Ok(y) }
     });
-assert_eq!(max, Ok(Some(&quot;5&quot;)));
+assert_eq!(max, Ok(Some(&#34;5&#34;)));
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(iterator_try_reduce)%5D%0A%0Afn%20main()%20%7B%0Alet%20numbers%20%3D%20vec!%5B%221%22%2C%20%222%22%2C%20%223%22%2C%20%224%22%2C%20%225%22%5D%3B%0Alet%20max%3A%20Result%3COption%3C_%3E%2C%20%3Cusize%20as%20std%3A%3Astr%3A%3AFromStr%3E%3A%3AErr%3E%20%3D%0A%20%20%20%20numbers.into_iter().try_reduce(%7Cx%2C%20y%7C%20%7B%0A%20%20%20%20%20%20%20%20if%20x.parse%3A%3A%3Cusize%3E()%3F%20%3E%20y.parse%3A%3A%3Cusize%3E()%3F%20%7B%20Ok(x)%20%7D%20else%20%7B%20Ok(y)%20%7D%0A%20%20%20%20%7D)%3B%0Aassert_eq!(max%2C%20Ok(Some(%225%22)))%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <p><a href="https://doc.rust-lang.org/src/core/iter/traits/iterator.rs.html#2581-2584">source</a></p>
 <h4 id="fnallhttpsdocrust-langorgstditertraititeratorhtmlmethodallfmut-self-f-f--boolhttpsdocrust-langorgstdprimitiveboolhtmlwhere">fn <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.all">all</a><!-- raw HTML omitted -->(&amp;mut self, f: F) -&gt; <a href="https://doc.rust-lang.org/std/primitive.bool.html">bool</a>where</h4>
@@ -1598,7 +1597,7 @@ assert_eq!(iter.next(), Some(&amp;3));
 <p>Applies function to the elements of iterator and returns the first non-none result.</p>
 <p><code>iter.find_map(f)</code> is equivalent to <code>iter.filter_map(f).next()</code>.</p>
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-42"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-42">Examples</a></h5>
-<pre tabindex="0"><code>let a = [&quot;lol&quot;, &quot;NaN&quot;, &quot;2&quot;, &quot;5&quot;];
+<pre tabindex="0"><code>let a = [&#34;lol&#34;, &#34;NaN&#34;, &#34;2&#34;, &#34;5&#34;];
 
 let first_number = a.iter().find_map(|s| s.parse().ok());
 
@@ -1618,14 +1617,14 @@ assert_eq!(first_number, Some(2));
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-43"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-43">Examples</a></h5>
 <pre tabindex="0"><code>#![feature(try_find)]
 
-let a = [&quot;1&quot;, &quot;2&quot;, &quot;lol&quot;, &quot;NaN&quot;, &quot;5&quot;];
+let a = [&#34;1&#34;, &#34;2&#34;, &#34;lol&#34;, &#34;NaN&#34;, &#34;5&#34;];
 
 let is_my_num = |s: &amp;str, search: i32| -&gt; Result&lt;bool, std::num::ParseIntError&gt; {
     Ok(s.parse::&lt;i32&gt;()?  == search)
 };
 
 let result = a.iter().try_find(|&amp;&amp;s| is_my_num(s, 2));
-assert_eq!(result, Ok(Some(&amp;&quot;2&quot;)));
+assert_eq!(result, Ok(Some(&amp;&#34;2&#34;)));
 
 let result = a.iter().try_find(|&amp;&amp;s| is_my_num(s, 5));
 assert!(result.is_err());
@@ -1861,7 +1860,7 @@ assert_eq!(v_map, vec![1, 2, 3]);
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%202%2C%203%5D%3B%0A%0Alet%20v_cloned%3A%20Vec%3C_%3E%20%3D%20a.iter().cloned().collect()%3B%0A%0A%2F%2F%20cloned%20is%20the%20same%20as%20.map(%7C%26x%7C%20x)%2C%20for%20integers%0Alet%20v_map%3A%20Vec%3C_%3E%20%3D%20a.iter().map(%7C%26x%7C%20x).collect()%3B%0A%0Aassert_eq!(v_cloned%2C%20vec!%5B1%2C%202%2C%203%5D)%3B%0Aassert_eq!(v_map%2C%20vec!%5B1%2C%202%2C%203%5D)%3B%0A%7D&amp;edition=2021"></a></p>
 <p>To get the best performance, try to clone late:</p>
 <pre tabindex="0"><code>let a = [vec![0_u8, 1, 2], vec![3, 4], vec![23]];
-// don't do this:
+// don&#39;t do this:
 let slower: Vec&lt;_&gt; = a.iter().cloned().filter(|s| s.len() == 1).collect();
 assert_eq!(&amp;[vec![23]], &amp;slower[..]);
 // instead call `cloned` late
@@ -2108,7 +2107,7 @@ assert!(![0.0, 1.0, f32::NAN].iter().is_sorted_by(|a, b| a.partial_cmp(b)));
 <h5 id="exampleshttpsdocrust-langorgstditertraititeratorhtmlexamples-72"><a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#examples-72">Examples</a></h5>
 <pre tabindex="0"><code>#![feature(is_sorted)]
 
-assert!([&quot;c&quot;, &quot;bb&quot;, &quot;aaa&quot;].iter().is_sorted_by_key(|s| s.len()));
+assert!([&#34;c&#34;, &#34;bb&#34;, &#34;aaa&#34;].iter().is_sorted_by_key(|s| s.len()));
 assert!(![-2i32, -1, 0, 3].iter().is_sorted_by_key(|n| n.abs()));
 </code></pre><p><a href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Bfeature(is_sorted)%5D%0A%0Afn%20main()%20%7B%0Aassert!(%5B%22c%22%2C%20%22bb%22%2C%20%22aaa%22%5D.iter().is_sorted_by_key(%7Cs%7C%20s.len()))%3B%0Aassert!(!%5B-2i32%2C%20-1%2C%200%2C%203%5D.iter().is_sorted_by_key(%7Cn%7C%20n.abs()))%3B%0A%7D&amp;version=nightly&amp;edition=2021"></a></p>
 <ul class="pa0">

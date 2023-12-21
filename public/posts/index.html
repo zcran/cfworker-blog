@@ -7,7 +7,7 @@
     <title>Paperubit的博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -38,7 +38,6 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -94,15 +93,14 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/" class="link black dim">
-        Leetcode 拒绝采样2
+      <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A91/" class="link black dim">
+        Leetcode 快速选择1
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      在圆内随机生成点 给定圆的半径和圆心的位置，实现函数 randPoint ，在圆中产生均匀随机点。
-实现 Solution 类:
-Solution(double radius, double x_center, double y_center) 用圆的半径 radius 和圆心的位置 (x_center, y_center) 初始化对象 randPoint() 返回圆内的一个随机点。圆周上的一点被认为在圆内。答案作为数组返回 [x, y] 。
-struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;mut self` instead. */ impl Solution { fn new(radius: f64, x_center: f64, y_center: f64) -&gt; Self { Solution { radius, x_center, y_center } } fn rand_point(&amp;self) -&gt; Vec&lt;f64&gt; { use rand::{Rng, thread_rng}; use std::f64::consts::PI; let mut rng = thread_rng(); let (len, deg) = (rng.
+      摆动排序 II 给你一个整数数组 nums，将它重新排列成 nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]&hellip; 的顺序。
+你可以假设所有输入数组都可以得到满足题目要求的结果。
+impl Solution { pub fn wiggle_sort(nums: &amp;mut Vec&lt;i32&gt;) { let mut nums_copy = nums.clone(); nums_copy.sort(); let n = nums.len(); let (mut p, mut q) = ((n - 1) / 2, n - 1); for i in 0..n { if (i &amp; 1) == 1 { nums[i] = nums_copy[q]; q -= 1; } else { nums[i] = nums_copy[p]; p -= 1; }; } } } 
     </div>
   </div>
 </div>
@@ -114,15 +112,15 @@ struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;self`
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/" class="link black dim">
-        Leetcode 拒绝采样1
+      <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A92/" class="link black dim">
+        Leetcode 快速选择2
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      用rand7()实现rand10() 给定方法 rand7 可生成 [1,7] 范围内的均匀随机整数，试写一个方法 rand10 生成 [1,10] 范围内的均匀随机整数。
-你只能调用 rand7() 且不能调用其他方法。请不要使用系统的 Math.random() 方法。
-每个测试用例将有一个内部参数 n，即你实现的函数 rand10() 在测试时将被调用的次数。请注意，这不是传递给 rand10() 的参数。
-impl Solution { pub fn rand10() -&gt; i32 { let mut x = std::i32::MAX; while x &gt; 40 { x = 7 * (rand7() -1) + rand7(); } return x%10+1; } } 
+      数组中的第K个最大元素 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+你必须设计并实现时间复杂度为 O(n) 的算法解决此问题。
+use std::collections::BinaryHeap; impl Solution { pub fn find_kth_largest(nums: Vec&lt;i32&gt;, k: i32) -&gt; i32 { let mut h = BinaryHeap::from(nums.iter().map(|&amp;i| -i).take(k as usize).collect::&lt;Vec&lt;_&gt;&gt;()); for i in k as usize..nums.len() { h.push(-nums[i]); h.pop(); } -h.peek().unwrap() } } 
     </div>
   </div>
 </div>
@@ -134,14 +132,15 @@ impl Solution { pub fn rand10() -&gt; i32 { let mut x = std::i32::MAX; while x &
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-45/" class="link black dim">
-        Rust Note 45
+      <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A93/" class="link black dim">
+        Leetcode 快速选择3
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      汉明距离 两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
-给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
-C 解法1： class Solution { public: int hammingDistance(int x, int y) { return __builtin_popcount(x ^ y); } }; C解法2: // Brian Kernighan 算法,跳过两个1之间的0,直接对1进行计数 class Solution { public: int hammingDistance(int x, int y) { int s = x ^ y, ret = 0; while (s) { s &amp;= s - 1; ret++; } return ret; } }; Rust 解法： impl Solution { pub fn hamming_distance(x: i32, y: i32) -&gt; i32 { (x ^ y).
+      找出第 K 大的异或坐标值 给你一个二维矩阵 matrix 和一个整数 k ，矩阵大小为 m x n 由非负整数组成。
+矩阵中坐标 (a, b) 的 值 可由对所有满足 0 &lt;= i &lt;= a &lt; m 且 0 &lt;= j &lt;= b &lt; n 的元素 matrix[i][j]（下标从 0 开始计数）执行异或运算得到。
+请你找出 matrix 的所有坐标中第 k 大的值（k 的值从 1 开始计数）。
+impl Solution { pub fn kth_largest_value(mut matrix: Vec&lt;Vec&lt;i32&gt;&gt;, k: i32) -&gt; i32 { for row in 0..matrix.len() { let mut sum = 0; for col in 0.
     </div>
   </div>
 </div>
@@ -153,15 +152,15 @@ C 解法1： class Solution { public: int hammingDistance(int x, int y) { return
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-46/" class="link black dim">
-        Rust Note 46
+      <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A94/" class="link black dim">
+        Leetcode 快速选择4
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      颠倒二进制位 颠倒给定的 32 位无符号整数的二进制位。
-提示：
-请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。 在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在 示例 2 中，输入表示有符号整数 -3，输出表示有符号整数 -1073741825。
-C 解法1： // 逐位颠倒，n(logn) class Solution { public: uint32_t reverseBits(uint32_t n) { uint32_t rev = 0; for (int i = 0; i &lt; 32 &amp;&amp; n &gt; 0; ++i) { rev |= (n &amp; 1) &lt;&lt; (31 - i); n &gt;&gt;= 1; } return rev; } }; C解法2:  // 分治 class Solution { private: const uint32_t M1 = 0x55555555; // 01010101010101010101010101010101 const uint32_t M2 = 0x33333333; // 00110011001100110011001100110011 const uint32_t M4 = 0x0f0f0f0f; // 00001111000011110000111100001111 const uint32_t M8 = 0x00ff00ff; // 00000000111111110000000011111111 public: uint32_t reverseBits(uint32_t n) { n = n &gt;&gt; 1 &amp; M1 | (n &amp; M1) &lt;&lt; 1; n = n &gt;&gt; 2 &amp; M2 | (n &amp; M2) &lt;&lt; 2; n = n &gt;&gt; 4 &amp; M4 | (n &amp; M4) &lt;&lt; 4; n = n &gt;&gt; 8 &amp; M8 | (n &amp; M8) &lt;&lt; 8; return n &gt;&gt; 16 | n &lt;&lt; 16; } }; Rust 解法： impl Solution { pub fn reverse_bits(mut x: u32) -&gt; u32 { (0.
+      找出数组中的第 K 大整数 给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。
+返回 nums 中表示第 k 大整数的字符串。
+注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 [&ldquo;1&rdquo;,&ldquo;2&rdquo;,&ldquo;2&rdquo;]，那么 &ldquo;2&rdquo; 是最大的整数，&ldquo;2&rdquo; 是第二大的整数，&ldquo;1&rdquo; 是第三大的整数。
+impl Solution { pub fn kth_largest_number(mut nums: Vec&lt;String&gt;, k: i32) -&gt; String { // 自定义比较函数，在 a 对应的整数较大时返回 true，反之返回 false nums.sort_by(|a, b| { // 首先比较字符串长度 if a.len() &gt; b.len() { return std::cmp::Ordering::Greater; } else if a.len() &lt; b.len() { return std::cmp::Ordering::Less; } else { // 长度相等时比较字符串字典序大小 a.cmp(&amp;b) } }); nums[nums.
     </div>
   </div>
 </div>
@@ -173,14 +172,15 @@ C 解法1： // 逐位颠倒，n(logn) class Solution { public: uint32_t reverse
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-47/" class="link black dim">
-        Rust Note 47
+      <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A95/" class="link black dim">
+        Leetcode 快速选择5
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      杨辉三角 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行。
-在「杨辉三角」中，每个数是它左上方和右上方的数的和。
-C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; generate(int numRows) { vector&lt;vector&lt;int&gt;&gt; ret(numRows); for (int i = 0; i &lt; numRows; ++i) { ret[i].resize(i + 1); ret[i][0] = ret[i][i] = 1; for (int j = 1; j &lt; i; ++j) { ret[i][j] = ret[i - 1][j] + ret[i - 1][j - 1]; } } return ret; } }; Rust 解法： impl Solution { pub fn makevec(number: i32) -&gt; Vec&lt;i32&gt; { let mut r = vec!
+      最接近原点的 K 个点 给定一个数组 points ，其中 points[i] = [x⌄i, y⌄i] 表示 X-Y 平面上的一个点，并且是一个整数 k ，返回离原点 (0,0) 最近的 k 个点。
+这里，平面上两点之间的距离是 欧几里德距离（ √(x⌄1 - x⌄2)2 + (y⌄1 - y⌄2)2 ）。
+你可以按 任何顺序 返回答案。除了点坐标的顺序之外，答案 确保 是 唯一 的。
+impl Solution { pub fn k_closest(points: Vec&lt;Vec&lt;i32&gt;&gt;, k: i32) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut ans = points; ans.sort_unstable_by_key(|a| a[0] * a[0] + a[1] * a[1]); ans.truncate(k as usize); // 保留第一个 k 元素，然后丢弃其余的元素 ans } } 
     </div>
   </div>
 </div>
@@ -192,15 +192,16 @@ C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; generate(in
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-48/" class="link black dim">
-        Rust Note 48
+      <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A96/" class="link black dim">
+        Leetcode 快速选择6
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      有效的括号 给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo; 的字符串 s ，判断字符串是否有效。
-有效字符串需满足：
-左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。
-C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&lt;char, char&gt; pairs = { {')', '('}, {']', '['}, {'}', '{'} }; stack&lt;char&gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk.
+      最小K个数 设计一个算法，找出数组中最小的k个数。以任意顺序返回这k个数均可。
+示例：
+输入： arr = [1,3,5,7,2,4,6,8], k = 4 输出： [1,2,3,4] 提示：
+0 &lt;= len(arr) &lt;= 100000 0 &lt;= k &lt;= min(100000, len(arr))
+impl Solution { pub fn get_least_numbers(arr: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; { let mut arr = arr; arr.sort(); arr[..k as usize].iter().cloned().collect() } } 
     </div>
   </div>
 </div>
@@ -212,13 +213,14 @@ C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); 
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-49/" class="link black dim">
-        Rust Note 49
+      <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A81/" class="link black dim">
+        Leetcode 迭代器1
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      缺失数字 给定一个包含 [0, n] 中 n 个数的数组 nums ，找出 [0, n] 这个范围内没有出现在数组中的那个数。
-C 解法：  // 位运算 class Solution { public: int missingNumber(vector&lt;int&gt;&amp; nums) { int res = 0; int n = nums.size(); for (int i = 0; i &lt; n; i++) { res ^= nums[i]; } for (int i = 0; i &lt;= n; i++) { res ^= i; } return res; } }; Rust 解法： impl Solution { pub fn missing_number(nums: Vec&lt;i32&gt;) -&gt; i32 { [nums.
+      二叉搜索树迭代器 实现一个二叉搜索树迭代器类BSTIterator ，表示一个按中序遍历二叉搜索树（BST）的迭代器： BSTIterator(TreeNode root) 初始化 BSTIterator 类的一个对象。BST 的根节点 root 会作为构造函数的一部分给出。指针应初始化为一个不存在于 BST 中的数字，且该数字小于 BST 中的任何元素。 boolean hasNext() 如果向指针右侧遍历存在数字，则返回 true ；否则返回 false 。 int next()将指针向右移动，然后返回指针处的数字。 注意，指针初始化为一个不存在于 BST 中的数字，所以对 next() 的首次调用将返回 BST 中的最小元素。
+你可以假设 next() 调用总是有效的，也就是说，当调用 next() 时，BST 的中序遍历中至少存在一个下一个数字。
+struct BSTIterator { stack: Vec&lt;Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;&gt;, } use std::cell::RefCell; use std::rc::Rc; impl BSTIterator { fn new(root: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;) -&gt; Self { BSTIterator { stack: vec![root] } } fn next(&amp;mut self) -&gt; i32 { let mut node = self.
     </div>
   </div>
 </div>
@@ -230,15 +232,16 @@ C 解法：  // 位运算 class Solution { public: int missingNumber(vector&lt;i
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-41/" class="link black dim">
-        Rust Note 41
+      <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A82/" class="link black dim">
+        Leetcode 迭代器2
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      计数质数 给定整数 n ，返回 所有小于非负整数 n 的质数的数量 。
-C 解法： 解题思路：欧拉筛【时间复杂度O(nlgnlgn)】
-埃氏筛 假定我们要求100以内的质数，我们从2开始遍历。 遍历到2,2是质数，于是我们把2的所有倍数全部删除，比如4、6、8、10&hellip;&hellip; 遍历到3,3是质数，于是我们把3的所有倍数全都删除，比如6、9、12、15&hellip;&hellip; 遍历到4,4是合数已经删除,继续遍历，以此类推即可找到范围内所有的素数 欧拉筛 欧拉筛是埃氏筛的改进版本，由于某些合数会有很多质因数，因此在删除的过程中会重复的删除，比如6，遍历到2时会进行删除，遍历到3时也会进行删除，所以为了避免这样的开销，欧拉筛将筛选出来的质数进行记录，在删除的过程中，只通过数的最小质因数筛数。 0、1既不是质数，也不是合数。 一个数，如果只有1和它本身两个约数，这样的数叫质数或素数。一个数，如果除了1和它本身还有别的约数，这样的数叫合数。而0的约数只有0，所以既不是质数又不是合数。如果1是质数，那就要有两个因数：1=1×1；如果1是合数，那就要有三个及以上的因数：1×1×1×1……化简之后就是1=1，只有一个因数，因此，1既不是质数也不是合数。 
- // 枚举 class Solution { public: bool isPrime(int x) { for (int i = 2; i * i &lt;= x; ++i) { if (x % i == 0) { return false; } } return true; } int countPrimes(int n) { int ans = 0; for (int i = 2; i &lt; n; ++i) { ans += isPrime(i); } return ans; } }; Rust 解法： impl Solution { pub fn count_primes(n: i32) -&gt; i32 { if n &lt;= 2 { return 0; } let n = n as usize; let mut record = vec!
+      扁平化嵌套列表迭代器 给你一个嵌套的整数列表 nestedList 。每个元素要么是一个整数，要么是一个列表；该列表的元素也可能是整数或者是其他列表。请你实现一个迭代器将其扁平化，使之能够遍历这个列表中的所有整数。
+实现扁平迭代器类 NestedIterator ：
+NestedIterator(List nestedList) 用嵌套列表 nestedList 初始化迭代器。 int next() 返回嵌套列表的下一个整数。 boolean hasNext() 如果仍然存在待迭代的整数，返回 true ；否则，返回 false 。 你的代码将会用下述伪代码检测：
+initialize iterator with nestedList res = [] while iterator.hasNext() append iterator.next() to the end of res return res 如果 res 与预期的扁平化列表匹配，那么你的代码将会被判为正确。
+struct NestedIterator(Vec&lt;i32&gt;); impl NestedIterator { fn new(nestedList: Vec&lt;NestedInteger&gt;) -&gt; Self { let mut v=collect(nestedList); v.reverse(); Self(v) } #[inline(always)] fn next(&amp;mut self) -&gt; i32 { self.0.pop().unwrap() } #[inline(always)] fn has_next(&amp;self) -&gt; bool { self.
     </div>
   </div>
 </div>
@@ -250,14 +253,16 @@ C 解法： 解题思路：欧拉筛【时间复杂度O(nlgnlgn)】
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-42/" class="link black dim">
-        Rust Note 42
+      <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A83/" class="link black dim">
+        Leetcode 迭代器3
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      3的幂 给定一个整数，写一个函数来判断它是否是 3 的幂次方。如果是，返回 true ；否则，返回 false 。
-整数 n 是 3 的幂次方需满足：存在整数 x 使得 n == 3^x
-C 解法：  // 在题目给定的32位有符号整数的范围内，最大的3的幂为 3^19 =1162261467。我们只需要判断n是否是3的约数即可。 class Solution { public: bool isPowerOfThree(int n) { return n &gt; 0 &amp;&amp; 1162261467 % n == 0; } }; Rust 解法： impl Solution { pub fn is_power_of_three(n: i32) -&gt; bool { if n == 1 { return true; } if n &lt; 3 || n % 3 !
+      RLE 迭代器 我们可以使用游程编码(即 RLE )来编码一个整数序列。在偶数长度 encoding ( 从 0 开始 )的游程编码数组中，对于所有偶数 i ，encoding[i] 告诉我们非负整数 encoding[i + 1] 在序列中重复的次数。
+例如，序列 arr = [8,8,8,5,5] 可以被编码为 encoding =[3,8,2,5] 。encoding =[3,8,0,9,2,5] 和 encoding =[2,8,1,8,2,5] 也是 arr 有效的 RLE 。 给定一个游程长度的编码数组，设计一个迭代器来遍历它。
+实现 RLEIterator 类:
+RLEIterator(int[] encoded) 用编码后的数组初始化对象。 int next(int n) 以这种方式耗尽后 n 个元素并返回最后一个耗尽的元素。如果没有剩余的元素要耗尽，则返回 -1 。
+struct RLEIterator { iterator: std::vec::IntoIter&lt;i32&gt;, remain: (i32, i32), } /** * `&amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;mut self` instead.
     </div>
   </div>
 </div>
@@ -269,15 +274,14 @@ C 解法：  // 在题目给定的32位有符号整数的范围内，最大的3�
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rust-note-43/" class="link black dim">
-        Rust Note 43
+      <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A84/" class="link black dim">
+        Leetcode 迭代器4
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      罗马数字转整数 罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
-字符 数值 I 1 V 5 X 10 L 50 C 100 D 500 M 1000 例如， 罗马数字 2 写做 II ，即为两个并列的 1 。12 写做 XII ，即为 X + II 。 27 写做 XXVII, 即为 XX + V + II 。
-通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：
-I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。 X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。 给定一个罗马数字，将其转换成整数。
+      字母组合迭代器 请你设计一个迭代器类 CombinationIterator ，包括以下内容：
+CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。 函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。 函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true
+struct CombinationIterator { s: Vec&lt;u8&gt;, pos: Vec&lt;usize&gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;mut self) -&gt; String { fn dfs(pos: &amp;mut Vec&lt;usize&gt;, cur: usize, len: usize, has_next: &amp;mut bool) -&gt; usize { let i = pos.
     </div>
   </div>
 </div>
@@ -311,7 +315,7 @@ I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。 X 可以�
         <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul></article>
 

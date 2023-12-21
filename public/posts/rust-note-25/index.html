@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="回文链表 给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
 C 解法： class Solution { public: bool isPalindrome(ListNode* head) { vector&lt;int&gt; vals; while (head != nullptr) { vals.emplace_back(head-&gt;val); head = head-&gt;next; } for (int i = 0, j = (int)vals.size() - 1; i &lt; j; &#43;&#43;i, --j) { if (vals[i] != vals[j]) { return false; } } return true; } }; Rust 解法： // Definition for singly-linked list. // #[derive(PartialEq, Eq, Clone, Debug)] // pub struct ListNode { // pub val: i32, // pub next: Option&lt;Box&lt;ListNode&gt;&gt; // } // // impl ListNode { // #[inline] // fn new(val: i32) -&gt; Self { // ListNode { // next: None, // val // } // } // } impl Solution { pub fn is_palindrome(head: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; bool { if head == None { return false; } let mut vec = Vec::new(); let mut current = head; while let Some(mut tmp) = current.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -37,7 +37,6 @@ C 解法： class Solution { public: bool isPalindrome(ListNode* head) { vector&
 <meta property="og:url" content="http://example.org/posts/rust-note-25/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-04T21:16:10+08:00" />
 <meta property="article:modified_time" content="2023-06-04T21:16:10+08:00" />
-
 <meta itemprop="name" content="Rust Note 25">
 <meta itemprop="description" content="回文链表 给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
 C 解法： class Solution { public: bool isPalindrome(ListNode* head) { vector&lt;int&gt; vals; while (head != nullptr) { vals.emplace_back(head-&gt;val); head = head-&gt;next; } for (int i = 0, j = (int)vals.size() - 1; i &lt; j; &#43;&#43;i, --j) { if (vals[i] != vals[j]) { return false; } } return true; } }; Rust 解法： // Definition for singly-linked list. // #[derive(PartialEq, Eq, Clone, Debug)] // pub struct ListNode { // pub val: i32, // pub next: Option&lt;Box&lt;ListNode&gt;&gt; // } // // impl ListNode { // #[inline] // fn new(val: i32) -&gt; Self { // ListNode { // next: None, // val // } // } // } impl Solution { pub fn is_palindrome(head: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; bool { if head == None { return false; } let mut vec = Vec::new(); let mut current = head; while let Some(mut tmp) = current."><meta itemprop="datePublished" content="2023-06-04T21:16:10+08:00" />

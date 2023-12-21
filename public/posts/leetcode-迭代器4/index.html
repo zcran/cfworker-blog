@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 迭代器4 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="字母组合迭代器 请你设计一个迭代器类 CombinationIterator ，包括以下内容：
+CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。 函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。 函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true
+struct CombinationIterator { s: Vec&lt;u8&gt;, pos: Vec&lt;usize&gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;mut self) -&gt; String { fn dfs(pos: &amp;mut Vec&lt;usize&gt;, cur: usize, len: usize, has_next: &amp;mut bool) -&gt; usize { let i = pos.">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 迭代器4" />
+<meta property="og:description" content="字母组合迭代器 请你设计一个迭代器类 CombinationIterator ，包括以下内容：
+CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。 函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。 函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true
+struct CombinationIterator { s: Vec&lt;u8&gt;, pos: Vec&lt;usize&gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;mut self) -&gt; String { fn dfs(pos: &amp;mut Vec&lt;usize&gt;, cur: usize, len: usize, has_next: &amp;mut bool) -&gt; usize { let i = pos." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A84/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:49:00+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:49:00+08:00" />
+<meta itemprop="name" content="Leetcode 迭代器4">
+<meta itemprop="description" content="字母组合迭代器 请你设计一个迭代器类 CombinationIterator ，包括以下内容：
+CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。 函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。 函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true
+struct CombinationIterator { s: Vec&lt;u8&gt;, pos: Vec&lt;usize&gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;mut self) -&gt; String { fn dfs(pos: &amp;mut Vec&lt;usize&gt;, cur: usize, len: usize, has_next: &amp;mut bool) -&gt; usize { let i = pos."><meta itemprop="datePublished" content="2023-12-19T15:49:00+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:49:00+08:00" />
+<meta itemprop="wordCount" content="163">
+<meta itemprop="keywords" content="leetcode,迭代器," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 迭代器4"/>
+<meta name="twitter:description" content="字母组合迭代器 请你设计一个迭代器类 CombinationIterator ，包括以下内容：
+CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。 函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。 函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true
+struct CombinationIterator { s: Vec&lt;u8&gt;, pos: Vec&lt;usize&gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;mut self) -&gt; String { fn dfs(pos: &amp;mut Vec&lt;usize&gt;, cur: usize, len: usize, has_next: &amp;mut bool) -&gt; usize { let i = pos."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 迭代器4</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:49:00+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="字母组合迭代器">字母组合迭代器</h2>
+<p>请你设计一个迭代器类 CombinationIterator ，包括以下内容：</p>
+<p>CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。
+函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。
+函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true</p>
+<pre tabindex="0"><code>struct CombinationIterator {
+    s: Vec&lt;u8&gt;,
+    pos: Vec&lt;usize&gt;,
+    has_next: bool,
+}
+
+impl CombinationIterator {
+    fn new(characters: String, len: i32) -&gt; Self {
+        let mut s = characters.into_bytes();
+        s.sort_unstable();
+        Self {
+            s,
+            pos: (0..len as usize).collect(),
+            has_next: true,
+        }
+    }
+
+    fn next(&amp;mut self) -&gt; String {
+        fn dfs(pos: &amp;mut Vec&lt;usize&gt;, cur: usize, len: usize, has_next: &amp;mut bool) -&gt; usize {
+            let i = pos.len() - cur - 1;
+            if pos[i] + 1 == len - cur {
+                if i == 0 {
+                    *has_next = false;
+                } else {
+                    pos[i] = dfs(pos, cur + 1, len, has_next) + 1;
+                }
+            } else {
+                pos[i] += 1;
+            }
+            pos[i]
+        }
+        let mut ans = Vec::with_capacity(self.pos.len());
+        self.pos.iter().for_each(|&amp;i| ans.push(self.s[i]));
+        let len = self.s.len();
+        dfs(&amp;mut self.pos, 0, len, &amp;mut self.has_next);
+        unsafe { String::from_utf8_unchecked(ans) }
+    }
+
+    fn has_next(&amp;self) -&gt; bool {
+        self.has_next
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">迭代器</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A81/">Leetcode 迭代器1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A82/">Leetcode 迭代器2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A83/">Leetcode 迭代器3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A14/">Leetcode 概率与统计4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A15/">Leetcode 概率与统计5</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A11/">Leetcode 概率与统计1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A12/">Leetcode 概率与统计2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A13/">Leetcode 概率与统计3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%841/">Leetcode 后缀数组1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%842/">Leetcode 后缀数组2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%843/">Leetcode 后缀数组3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%844/">Leetcode 后缀数组4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F1/">Leetcode 桶排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F2/">Leetcode 桶排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F3/">Leetcode 桶排序3</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

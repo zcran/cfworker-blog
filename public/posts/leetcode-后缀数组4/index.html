@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 后缀数组4 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="最长重复子串 给你一个字符串 s ，考虑其所有 重复子串 ：即 s 的（连续）子串，在 s 中出现 2 次或更多次。这些出现之间可能存在重叠。
+返回 任意一个 可能具有最长长度的重复子串。如果 s 不含重复子串，那么答案为 &quot;&quot; 。
+impl Solution { // tp已经排好，开始排序第一关键字 fn sort(sa: &amp;mut Vec&lt;usize&gt;, rank: &amp;mut Vec&lt;usize&gt;, tp: &amp;Vec&lt;usize&gt;, n: usize, m: usize) { let mut tax = vec![0; m&#43;1]; // 第一关键字基数排序 rank[1..].iter().for_each(|x| tax[*x] &#43;= 1); // 前缀和，为了后面方便计算第几名 for i in 1..=m { tax[i] &#43;= tax[i-1]; } tp[1..].iter().rev().for_each(|&amp;key| { // 拿最小的第二关键字对应的后缀key_2，然后通过rank找到他对应的第一关键字所处的level(第一关键字排名) let level = rank[key]; // tax[level]就表示在这里level之下一共有j个数，则后缀(tp[i])排名第j // 此时放的是第一关键字相同，第二关键字最大 // rank其实也是排好的，拿的是前w/2的rank let j = tax[level]; sa[j] = key; tax[level] -= 1; }); } fn init(s: &amp;str, n: usize, m: usize) -&gt; (Vec&lt;usize&gt;, Vec&lt;usize&gt;, Vec&lt;usize&gt;) { // 只有第一关键字直接映射就好 let mut rank = vec!">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 后缀数组4" />
+<meta property="og:description" content="最长重复子串 给你一个字符串 s ，考虑其所有 重复子串 ：即 s 的（连续）子串，在 s 中出现 2 次或更多次。这些出现之间可能存在重叠。
+返回 任意一个 可能具有最长长度的重复子串。如果 s 不含重复子串，那么答案为 &quot;&quot; 。
+impl Solution { // tp已经排好，开始排序第一关键字 fn sort(sa: &amp;mut Vec&lt;usize&gt;, rank: &amp;mut Vec&lt;usize&gt;, tp: &amp;Vec&lt;usize&gt;, n: usize, m: usize) { let mut tax = vec![0; m&#43;1]; // 第一关键字基数排序 rank[1..].iter().for_each(|x| tax[*x] &#43;= 1); // 前缀和，为了后面方便计算第几名 for i in 1..=m { tax[i] &#43;= tax[i-1]; } tp[1..].iter().rev().for_each(|&amp;key| { // 拿最小的第二关键字对应的后缀key_2，然后通过rank找到他对应的第一关键字所处的level(第一关键字排名) let level = rank[key]; // tax[level]就表示在这里level之下一共有j个数，则后缀(tp[i])排名第j // 此时放的是第一关键字相同，第二关键字最大 // rank其实也是排好的，拿的是前w/2的rank let j = tax[level]; sa[j] = key; tax[level] -= 1; }); } fn init(s: &amp;str, n: usize, m: usize) -&gt; (Vec&lt;usize&gt;, Vec&lt;usize&gt;, Vec&lt;usize&gt;) { // 只有第一关键字直接映射就好 let mut rank = vec!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%844/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:46:47+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:46:47+08:00" />
+<meta itemprop="name" content="Leetcode 后缀数组4">
+<meta itemprop="description" content="最长重复子串 给你一个字符串 s ，考虑其所有 重复子串 ：即 s 的（连续）子串，在 s 中出现 2 次或更多次。这些出现之间可能存在重叠。
+返回 任意一个 可能具有最长长度的重复子串。如果 s 不含重复子串，那么答案为 &quot;&quot; 。
+impl Solution { // tp已经排好，开始排序第一关键字 fn sort(sa: &amp;mut Vec&lt;usize&gt;, rank: &amp;mut Vec&lt;usize&gt;, tp: &amp;Vec&lt;usize&gt;, n: usize, m: usize) { let mut tax = vec![0; m&#43;1]; // 第一关键字基数排序 rank[1..].iter().for_each(|x| tax[*x] &#43;= 1); // 前缀和，为了后面方便计算第几名 for i in 1..=m { tax[i] &#43;= tax[i-1]; } tp[1..].iter().rev().for_each(|&amp;key| { // 拿最小的第二关键字对应的后缀key_2，然后通过rank找到他对应的第一关键字所处的level(第一关键字排名) let level = rank[key]; // tax[level]就表示在这里level之下一共有j个数，则后缀(tp[i])排名第j // 此时放的是第一关键字相同，第二关键字最大 // rank其实也是排好的，拿的是前w/2的rank let j = tax[level]; sa[j] = key; tax[level] -= 1; }); } fn init(s: &amp;str, n: usize, m: usize) -&gt; (Vec&lt;usize&gt;, Vec&lt;usize&gt;, Vec&lt;usize&gt;) { // 只有第一关键字直接映射就好 let mut rank = vec!"><meta itemprop="datePublished" content="2023-12-19T15:46:47+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:46:47+08:00" />
+<meta itemprop="wordCount" content="481">
+<meta itemprop="keywords" content="leetcode,后缀数组," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 后缀数组4"/>
+<meta name="twitter:description" content="最长重复子串 给你一个字符串 s ，考虑其所有 重复子串 ：即 s 的（连续）子串，在 s 中出现 2 次或更多次。这些出现之间可能存在重叠。
+返回 任意一个 可能具有最长长度的重复子串。如果 s 不含重复子串，那么答案为 &quot;&quot; 。
+impl Solution { // tp已经排好，开始排序第一关键字 fn sort(sa: &amp;mut Vec&lt;usize&gt;, rank: &amp;mut Vec&lt;usize&gt;, tp: &amp;Vec&lt;usize&gt;, n: usize, m: usize) { let mut tax = vec![0; m&#43;1]; // 第一关键字基数排序 rank[1..].iter().for_each(|x| tax[*x] &#43;= 1); // 前缀和，为了后面方便计算第几名 for i in 1..=m { tax[i] &#43;= tax[i-1]; } tp[1..].iter().rev().for_each(|&amp;key| { // 拿最小的第二关键字对应的后缀key_2，然后通过rank找到他对应的第一关键字所处的level(第一关键字排名) let level = rank[key]; // tax[level]就表示在这里level之下一共有j个数，则后缀(tp[i])排名第j // 此时放的是第一关键字相同，第二关键字最大 // rank其实也是排好的，拿的是前w/2的rank let j = tax[level]; sa[j] = key; tax[level] -= 1; }); } fn init(s: &amp;str, n: usize, m: usize) -&gt; (Vec&lt;usize&gt;, Vec&lt;usize&gt;, Vec&lt;usize&gt;) { // 只有第一关键字直接映射就好 let mut rank = vec!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 后缀数组4</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:46:47+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="最长重复子串">最长重复子串</h2>
+<p>给你一个字符串 s ，考虑其所有 重复子串 ：即 s 的（连续）子串，在 s 中出现 2 次或更多次。这些出现之间可能存在重叠。</p>
+<p>返回 任意一个 可能具有最长长度的重复子串。如果 s 不含重复子串，那么答案为 &quot;&quot; 。</p>
+<pre tabindex="0"><code>impl Solution {
+    // tp已经排好，开始排序第一关键字
+    fn sort(sa: &amp;mut Vec&lt;usize&gt;, rank: &amp;mut Vec&lt;usize&gt;, tp: &amp;Vec&lt;usize&gt;, n: usize, m: usize) {
+        let mut tax = vec![0; m+1];
+        // 第一关键字基数排序
+        rank[1..].iter().for_each(|x| tax[*x] += 1);
+        // 前缀和，为了后面方便计算第几名
+        for i in 1..=m {
+            tax[i] += tax[i-1];
+        }
+        tp[1..].iter().rev().for_each(|&amp;key| {
+            // 拿最小的第二关键字对应的后缀key_2，然后通过rank找到他对应的第一关键字所处的level(第一关键字排名)
+            let level = rank[key];
+            // tax[level]就表示在这里level之下一共有j个数，则后缀(tp[i])排名第j
+            // 此时放的是第一关键字相同，第二关键字最大
+            // rank其实也是排好的，拿的是前w/2的rank
+            let j = tax[level];
+            sa[j] = key;
+            tax[level] -= 1;
+        });
+    }
+    fn init(s: &amp;str, n: usize, m: usize) -&gt; (Vec&lt;usize&gt;, Vec&lt;usize&gt;, Vec&lt;usize&gt;) {
+        // 只有第一关键字直接映射就好
+        let mut rank = vec![0usize];
+        rank.append(&amp;mut s.bytes().map(|x| (x + 1 - b&#39;a&#39;) as usize).collect::&lt;Vec&lt;_&gt;&gt;());
+        let tp = (0..=n).collect::&lt;Vec&lt;_&gt;&gt;();
+        let mut sa = vec![0; n+1];
+        Self::sort(&amp;mut sa, &amp;mut rank, &amp;tp, n, m);
+        
+        (sa, rank, tp)
+    }
+    fn suffix_sort(sa: &amp;mut Vec&lt;usize&gt;, rank: &amp;mut Vec&lt;usize&gt;, tp: &amp;mut Vec&lt;usize&gt;, n: usize, mut m: usize) {
+        let (mut w, mut p) = (1, 0);
+        // 配合最后一个for_each看，当p==n时证明每个后缀的排名都不相同，此时完成排序
+        while p &lt; n &amp;&amp; w &lt; n {
+            // w是当前倍增长度，现在要去求2w
+            p = 1; // 下标标记
+            // 后面w个放在最前面，因为后w无第二关键字
+            (1..=w).for_each(|i| {
+                tp[p] = n + i - w;
+                p += 1;
+            });
+            // 排序第二关键字，用第一关键字(前n-w个)来排
+            sa.iter().filter(|&amp;x| *x &gt; w).for_each(|x| {
+                tp[p] = *x - w;
+                p += 1;
+            });
+            Self::sort(sa, rank, tp, n, m);
+            // tp拿到rank,准备下一轮排序对应Self::sort
+            tp.swap_with_slice(rank);
+            // 接下来更新对应的rank
+            rank[sa[1]] = 1;
+            p = 1;
+            // 从sa[1..]来看 i是sa[k], j是sa[k+1]
+            sa[1..].iter().zip(&amp;sa[2..]).for_each(|(&amp;i, &amp;j)| {
+                // 如果上一个第二关键字不相等或者第一关键字不想等则排名+1
+                // 如果key2没有则是无穷小，这里是0
+                // 第一关键字排名，由于已经swap,tp存的就是全部关键字的排名,现在拿到相邻排名的后缀再去找他的第一关键字排名(前w)
+                let key1_1 = tp[i];
+                let key1_2 = tp[j];
+                // 拿到后缀i j对应的第二关键字排名（后w）
+                let key2_1 = if i + w &lt;= n { tp[i + w] } else { 0 };
+                let key2_2 = if j + w &lt;= n { tp[j + w] } else { 0 };
+                if key1_1 != key1_2 || key2_1 != key2_2 {
+                    p += 1;
+                }
+                // 得到sa[k+1]对应的后缀的排名(2w),逐步更新
+                rank[j] = p;
+            });
+            w *= 2;
+            m = p;
+        }
+    }
+    fn get_height(s: &amp;[u8], sa: &amp;Vec&lt;usize&gt;, rank: &amp;Vec&lt;usize&gt;, n: usize) -&gt; Vec&lt;usize&gt; {
+        let mut k = 0;
+        let mut height = vec![0; n+1];
+        // 排名第一的没有排名i-1的子串
+        (1..=n).filter(|x| rank[*x] != 1).for_each(|i| {
+            // 去掉第一个相同字符
+            if k &gt; 0 {
+                k -= 1;
+            }
+            // 找到排名在i前一位的后缀下标
+            let j = sa[rank[i]-1];
+            while i+k &lt;= n &amp;&amp; j+k &lt;= n &amp;&amp; s[i+k-1] == s[j+k-1] {
+                k += 1;
+            }
+            height[rank[i]] = k;
+        });
+        height
+    }
+    fn get_longest_dup_substring(s: &amp;str, height: &amp;Vec&lt;usize&gt;, sa: &amp;Vec&lt;usize&gt;) -&gt; String {
+        // 找到最长的
+        let (i, len) = height[1..].iter().enumerate().fold((0, 0), |state, x| {
+            // 注意height和sa对应，存的是排名第几的后缀，所以要去sa里面找到他的真实下标
+            if *x.1 &gt; state.1 {
+                (sa[x.0], *x.1)
+            } else {
+                state
+            }
+        });
+        // 返回字符串
+        match len {
+            0 =&gt; String::new(),
+            _ =&gt; s[i-1..i-1+len].to_string(),
+        }
+    }
+    pub fn longest_dup_substring(s: String) -&gt; String {
+        let m = 27; // 字符集大小
+        let n = s.len(); // 字符串长度
+        let (mut sa, mut rank, mut tp) = Self::init(&amp;s, n, m);
+        Self::suffix_sort(&amp;mut sa, &amp;mut rank, &amp;mut tp, n, m);
+        let height = Self::get_height(s.as_bytes(), &amp;sa, &amp;rank, n);
+        Self::get_longest_dup_substring(&amp;s, &amp;height, &amp;sa)
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">后缀数组</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%841/">Leetcode 后缀数组1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%842/">Leetcode 后缀数组2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%843/">Leetcode 后缀数组3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F1/">Leetcode 桶排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F2/">Leetcode 桶排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F3/">Leetcode 桶排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F4/">Leetcode 桶排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 计数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 计数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F3/">Leetcode 计数排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F4/">Leetcode 计数排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%911/">Leetcode 最小生成树1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF1/">Leetcode 扫描线1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF2/">Leetcode 扫描线2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF3/">Leetcode 扫描线3</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

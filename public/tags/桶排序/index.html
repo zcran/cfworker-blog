@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>桶排序 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E6%A1%B6%E6%8E%92%E5%BA%8F/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/tags/%E6%A1%B6%E6%8E%92%E5%BA%8F/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="桶排序" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/tags/%E6%A1%B6%E6%8E%92%E5%BA%8F/" />
+<meta itemprop="name" content="桶排序">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="桶排序"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          桶排序
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “桶排序”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F1/" class="link black dim">
+        Leetcode 桶排序1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      存在重复元素 III 给你一个整数数组 nums 和两个整数 indexDiff 和 valueDiff 。
+找出满足下述条件的下标对 (i, j)：
+i != j, abs(i - j) &lt;= indexDiff abs(nums[i] - nums[j]) &lt;= valueDiff 如果存在，返回 true ；否则，返回 false 。
+impl Solution { pub fn contains_nearby_almost_duplicate( nums: Vec&lt;i32&gt;, index_diff: i32, value_diff: i32, ) -&gt; bool { // NOTE 桶排序的好题，通过将数字划分为若干个区间，来判断是否滑动窗口内是否存在value_diff范围内的数字对 // 桶的大小为value_diff，作为整除的除数因此加一 let value_diff = value_diff as i64 + 1; let mut num_bucket = std::collections::HashMap::new(); for (i, &amp;num) in nums.iter().enumerate() { let key = Self::get_id(num, value_diff); if num_bucket.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F2/" class="link black dim">
+        Leetcode 桶排序2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      根据字符出现频率排序 给定一个字符串 s ，根据字符出现的 频率 对其进行 降序排序 。一个字符出现的 频率 是它出现在字符串中的次数。
+返回 已排序的字符串 。如果有多个答案，返回其中任何一个。
+impl Solution { pub fn frequency_sort(s: String) -&gt; String { let mut bucket = vec![(0,0);256]; for b in s.bytes() { bucket[b as usize].0 += 1; bucket[b as usize].1 = b; } bucket.sort_by(|a, b| b.0.cmp(&amp;a.0)); let mut res = String::new(); for (times, ch) in bucket { for _ in 0..times { res.push(ch as char); } } res } } 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F3/" class="link black dim">
+        Leetcode 桶排序3
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      前K个高频单词 给定一个单词列表 words 和一个整数 k ，返回前 k 个出现次数最多的单词。
+返回的答案应该按单词出现频率由高到低排序。如果不同的单词有相同出现频率， 按字典顺序 排序。
+use std::collections::{HashMap, BTreeSet}; impl Solution { pub fn top_k_frequent(words: Vec&lt;String&gt;, k: i32) -&gt; Vec&lt;String&gt; { let mut cnt = HashMap::new(); let mut max_freq = 0; for word in words { let entry = cnt.entry(word).or_insert(0); *entry += 1; max_freq = max_freq.max(*entry); } let mut buckets = vec![BTreeSet::new(); max_freq as usize + 1]; for (word, freq) in cnt.iter() { buckets[*freq as usize].
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F4/" class="link black dim">
+        Leetcode 桶排序4
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      前 K 个高频元素 给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+class Solution { public: vector&lt;int&gt; topKFrequent(vector&lt;int&gt;&amp; nums, int k) { unordered_map&lt;int,int&gt; mp; vector&lt;int&gt; res; //统计最大的频次，决定开多大的空间 int max_cnt=0; for(auto num:nums) { mp[num]++; max_cnt=max(max_cnt,mp[num]); } vector&lt;vector&lt;int&gt;&gt; bucket(max_cnt+1); //计数，桶号为频次，元素为数字 for(auto iter:mp){ bucket[iter.second].push_back(iter.first); } for(int i=bucket.size()-1;i&gt;=0 &amp;&amp; k;i--){ for(auto num:bucket[i]){ if(k--) res.push_back(num); else break; } } return res; } }; use std::{ cmp::Reverse, collections::{BinaryHeap, HashMap}, }; impl Solution { pub fn top_k_frequent(nums: Vec&lt;i32&gt;, k: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); nums.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

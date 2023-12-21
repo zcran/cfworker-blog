@@ -9,7 +9,7 @@
     <meta name="description" content="有效的字母异位词 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
 C 解法： class Solution { public boolean isAnagram(String s, String t) { if(s.length() != t.length()) return false; int[] alpha = new int[26]; for(int i = 0; i&lt; s.length(); i&#43;&#43;) { alpha[s.charAt(i) - &#39;a&#39;] &#43;&#43;; alpha[t.charAt(i) - &#39;a&#39;] --; } for(int i=0;i&lt;26;i&#43;&#43;) if(alpha[i] != 0) return false; return true; } } Rust 解法： impl Solution { pub fn is_anagram(s: String, t: String) -&gt; bool { if s.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -39,7 +39,6 @@ C 解法： class Solution { public boolean isAnagram(String s, String t) { if(s
 <meta property="og:url" content="http://example.org/posts/rustnote15/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
 <meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
-
 <meta itemprop="name" content="Rust Note 15">
 <meta itemprop="description" content="有效的字母异位词 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
@@ -133,8 +132,8 @@ C 解法： class Solution { public boolean isAnagram(String s, String t) { if(s
             return false;
         int[] alpha = new int[26];
         for(int i = 0; i&lt; s.length(); i++) {
-            alpha[s.charAt(i) - 'a'] ++;
-            alpha[t.charAt(i) - 'a'] --;
+            alpha[s.charAt(i) - &#39;a&#39;] ++;
+            alpha[t.charAt(i) - &#39;a&#39;] --;
         }
         for(int i=0;i&lt;26;i++)
             if(alpha[i] != 0)
@@ -149,8 +148,8 @@ C 解法： class Solution { public boolean isAnagram(String s, String t) { if(s
             return false;
         }
         let mut hash = [0; 26];
-        s.chars().for_each(|ch| hash[(ch as u8 -'a' as u8) as usize] += 1);
-        t.chars().for_each(|ch| hash[(ch as u8 -'a' as u8) as usize] -= 1);
+        s.chars().for_each(|ch| hash[(ch as u8 -&#39;a&#39; as u8) as usize] += 1);
+        t.chars().for_each(|ch| hash[(ch as u8 -&#39;a&#39; as u8) as usize] -= 1);
         !hash.iter().any(|&amp;x| x != 0)
     }
 }

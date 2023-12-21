@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>扫描线 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF/</link>
+    <description>Recent content in 扫描线 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:44:18 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 扫描线1</title>
+      <link>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF1/</link>
+      <pubDate>Tue, 19 Dec 2023 15:44:18 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF1/</guid>
+      <description>包含每个查询的最小区间 给你一个二维整数数组 intervals ，其中 intervals[i] = [left⌄i, right⌄i] 表示第 i 个区间开始于 left⌄i 、结束于 right⌄i（包含两侧取值，闭区间）。区间的 长度 定义为区间中包含的整数数目，更正式地表达是 right⌄i - left⌄i + 1 。
+再给你一个整数数组 queries 。第 j 个查询的答案是满足 left⌄i &amp;lt;= queries[j] &amp;lt;= right⌄i 的 长度最小区间 i 的长度 。如果不存在这样的区间，那么答案是 -1 。
+以数组形式返回对应查询的所有答案。
+struct Query{ int val; int index; int len; bool operator &amp;lt; (const Query&amp;amp; q) const{ return val &amp;lt; q.val; } }; struct Interval{ int tail; int len; bool operator &amp;lt; (const Interval&amp;amp; i) const{ return len &amp;gt; i.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 扫描线2</title>
+      <link>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF2/</link>
+      <pubDate>Tue, 19 Dec 2023 15:44:18 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF2/</guid>
+      <description>矩形面积 II 给你一个轴对齐的二维数组 rectangles 。 对于 rectangle[i] = [x1, y1, x2, y2]，其中（x1，y1）是矩形 i 左下角的坐标， (x⌄i1, y⌄i1) 是该矩形 左下角 的坐标， (x⌄i2, y⌄i2) 是该矩形 右上角 的坐标。
+计算平面中所有 rectangles 所覆盖的 总面积 。任何被两个或多个矩形覆盖的区域应只计算 一次 。
+返回 总面积 。因为答案可能太大，返回 10^9 + 7 的 模 。
+impl Solution { pub fn rectangle_area(rectangles: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; i32 { let mut heights = vec![]; for v in rectangles.iter() { heights.push(v[1]); heights.push(v[3]); } heights.sort(); let mut rs = rectangles; rs.sort_by(|a, b| a[0].</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 扫描线3</title>
+      <link>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF3/</link>
+      <pubDate>Tue, 19 Dec 2023 15:44:18 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF3/</guid>
+      <description>天际线问题 城市的 天际线 是从远处观看该城市中所有建筑物形成的轮廓的外部轮廓。给你所有建筑物的位置和高度，请返回 由这些建筑物形成的 天际线 。
+每个建筑物的几何信息由数组 buildings 表示，其中三元组 buildings[i] = [lefti, righti, heighti] 表示：
+left⌄i 是第 i 座建筑物左边缘的 x 坐标。 right⌄i 是第 i 座建筑物右边缘的 x 坐标。 height⌄i 是第 i 座建筑物的高度。 你可以假设所有的建筑都是完美的长方形，在高度为 0 的绝对平坦的表面上。
+天际线 应该表示为由 “关键点” 组成的列表，格式 [[x⌄1,y⌄1],[x⌄2,y⌄2],&amp;hellip;] ，并按 x 坐标 进行 排序 。关键点是水平线段的左端点。列表中最后一个点是最右侧建筑物的终点，y 坐标始终为 0 ，仅用于标记天际线的终点。此外，任何两个相邻建筑物之间的地面都应被视为天际线轮廓的一部分。
+注意：输出天际线中不得有连续的相同高度的水平线。例如 [&amp;hellip;[2 3], [4 5], [7 5], [11 5], [12 7]&amp;hellip;] 是不正确的答案；三条高度为 5 的线应该在最终输出中合并为一个：[&amp;hellip;[2 3], [4 5], [12 7], &amp;hellip;]
+impl Solution { pub fn get_skyline(buildings: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt; { let mut boundaries:Vec&amp;lt;i32&amp;gt; = buildings.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 扫描线4</title>
+      <link>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF4/</link>
+      <pubDate>Tue, 19 Dec 2023 15:44:18 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%89%AB%E6%8F%8F%E7%BA%BF4/</guid>
+      <description>完美矩形 给你一个数组 rectangles ，其中 rectangles[i] = [x⌄i, y⌄i, a⌄i, b⌄i] 表示一个坐标轴平行的矩形。这个矩形的左下顶点是 (x⌄i, y⌄i) ，右上顶点是 (a⌄i, b⌄i) 。
+如果所有矩形一起精确覆盖了某个矩形区域，则返回 true ；否则，返回 false 。
+// 格林公式 use std::collections::HashSet; impl Solution { pub fn is_rectangle_cover(rectangles: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; bool { let (x1, y1, x2, y2, a, s) = rectangles .iter() .fold((i32::MAX, i32::MAX, i32::MIN, i32::MIN, 0, HashSet::new()), |(x1, y1, x2, y2, a, mut s), rect| { for p in [(rect[0], rect[1]), (rect[2], rect[1]), (rect[0], rect[3]), (rect[2], rect[3])] { if !</description>
+    </item>
+    
+  </channel>
+</rss>

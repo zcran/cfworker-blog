@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>基数排序 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</link>
+    <description>Recent content in 基数排序 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:14:04 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 基数排序1</title>
+      <link>http://example.org/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/</link>
+      <pubDate>Tue, 19 Dec 2023 15:14:04 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/</guid>
+      <description>裁剪数字后查询第 K 小的数字 给你一个下标从 0 开始的字符串数组 nums ，其中每个字符串 长度相等 且只包含数字。
+再给你一个下标从 0 开始的二维整数数组 queries ，其中 queries[i] = [k^i, trim^i] 。对于每个 queries[i] ，你需要：
+将 nums 中每个数字 裁剪 到剩下 最右边 trim^i 个数位。 在裁剪过后的数字中，找到 nums 中第 k^i 小数字对应的 下标 。如果两个裁剪后数字一样大，那么下标 更小 的数字视为更小的数字。 将 nums 中每个数字恢复到原本字符串。 请你返回一个长度与 queries 相等的数组 answer，其中 answer[i]是第 i 次查询的结果。
+提示：
+裁剪到剩下最右边 x 个数位的意思是不断删除最左边的数位，直到剩下 x 个数位。 nums 中的字符串可能会有前导 0 。
+impl Solution { pub fn smallest_trimmed_numbers(nums: Vec&amp;lt;String&amp;gt;, queries: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; Vec&amp;lt;i32&amp;gt; { let l = nums.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 基数排序2</title>
+      <link>http://example.org/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/</link>
+      <pubDate>Tue, 19 Dec 2023 15:14:04 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/</guid>
+      <description>最大间距 给定一个无序的数组 nums，返回 数组在排序之后，相邻元素之间最大的差值 。如果数组元素个数小于 2，则返回 0 。
+您必须编写一个在「线性时间」内运行并使用「线性额外空间」的算法。
+impl Solution { pub fn maximum_gap(mut nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { let mut buckets = vec![vec![];10]; for i in 0..10 { nums.iter().for_each(|&amp;amp;num| buckets[((num / 10_i32.pow(i)) % 10) as usize].push(num)); buckets.iter().flat_map(|bucket| bucket.iter()).zip(nums.iter_mut()).for_each(|(&amp;amp;a, b)| *b = a); buckets.iter_mut().for_each(|bucket| bucket.clear()); } nums.windows(2).map(|w| w[1] - w[0]).max().unwrap_or(0) } } </description>
+    </item>
+    
+  </channel>
+</rss>

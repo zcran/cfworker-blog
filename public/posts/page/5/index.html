@@ -7,7 +7,7 @@
     <title>Paperubit的博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -38,7 +38,6 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -94,14 +93,18 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote20/" class="link black dim">
-        Rust Note 20
+      <a href="/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/" class="link black dim">
+        Leetcode 强连通分量1
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
-如果不存在公共前缀，返回空字符串 &ldquo;&quot;。
-C 解法：  // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &lt; num &amp;&amp; st[i] == en[i]; i ++); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&lt;String&gt;) -&gt; String { let mut x:Vec&lt;_&gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0].
+      使陆地分离的最少天数 给你一个大小为 m x n ，由若干 0 和 1 组成的二维网格 grid ，其中 1 表示陆地， 0 表示水。岛屿 由水平方向或竖直方向上相邻的 1 （陆地）连接形成。
+如果 恰好只有一座岛屿 ，则认为陆地是 连通的 ；否则，陆地就是 分离的 。
+一天内，可以将 任何单个 陆地单元（1）更改为水单元（0）。
+返回使陆地分离的最少天数。
+示例1: 输入：grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]] 输出：2 解释：至少需要 2 天才能得到分离的陆地。 将陆地 grid[1][1] 和 grid[0][2] 更改为水，得到两个分离的岛屿。
+示例2: 输入：grid = [[1,1]] 输出：2 解释：如果网格中都是水，也认为是分离的 ([[1,1]] -&gt; [[0,0]])，0 岛屿。
+impl Solution { pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let (m, n) = (grid.len(), grid[0].len()); let mut relabel = vec!
     </div>
   </div>
 </div>
@@ -113,15 +116,15 @@ C 解法：  // 先排序，后比较头尾 class Solution { public: string long
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote10/" class="link black dim">
-        Rust Note 10
+      <a href="/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/" class="link black dim">
+        Leetcode 强连通分量2
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      有效的数独 请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
-数字 1-9 在每一行只能出现一次。 数字 1-9 在每一列只能出现一次。 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。 注意：
-一个有效的数独（部分已被填充）不一定是可解的。 只需要根据以上规则，验证已经填入的数字是否有效即可。 空白格用 &lsquo;.&rsquo; 表示。
-C 解法： class Solution { public: bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) { int row[9][9] = {0}; int col[9][9] = {0}; int box[3][3][9] = {0}; for (int i = 0; i &lt; 9; i++) { for (int j = 0; j &lt; 9; j++) { char c = board[i][j]; if (c == '.
+      找到最小生成树里的关键边和伪关键边 给你一个 n 个点的带权无向连通图，节点编号为 0 到 n-1 ，同时还有一个数组 edges ，其中 edges[i] = [from⌄i, to⌄i, weight⌄i] 表示在 from⌄i 和 to⌄i 节点之间有一条带权无向边。最小生成树 (MST) 是给定图中边的一个子集，它连接了所有节点且没有环，而且这些边的权值和最小。
+请你找到给定图中最小生成树的所有关键边和伪关键边。如果从图中删去某条边，会导致最小生成树的权值和增加，那么我们就说它是一条关键边。伪关键边则是可能会出现在某些最小生成树中但不会出现在所有最小生成树中的边。
+请注意，你可以分别以任意顺序返回关键边的下标和伪关键边的下标。
+impl Solution { pub fn find_critical_and_pseudo_critical_edges(n: i32, edges: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut edges: Vec&lt;Vec&lt;_&gt;&gt; = edges .into_iter() .enumerate() .map(|(i, mut x)| { x.push(i as i32); x.into_iter().map(|e| e as usize).collect() }) .collect(); edges.sort_by_key(|x| x[2]); let n = n as usize; let m = edges.len(); let mut label = vec!
     </div>
   </div>
 </div>
@@ -133,15 +136,15 @@ C 解法： class Solution { public: bool isValidSudoku(vector&lt;vector&lt;char
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote09/" class="link black dim">
-        Rust Note 09
+      <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF1/" class="link black dim">
+        Leetcode 欧拉回路1
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
-你可以按任意顺序返回答案。
-C 解法： int* twoSum(int* nums, int numsSize, int target, int* returnSize) { for (int i = 0; i &lt; numsSize; ++i) { for (int j = i + 1; j &lt; numsSize; ++j) { if (nums[i] + nums[j] == target) { int* ret = malloc(sizeof(int) * 2); ret[0] = i, ret[1] = j; *returnSize = 2; return ret; } } } *returnSize = 0; return NULL; } Rust 解法： use std::collections::HashMap; impl Solution { pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; { let mut map = HashMap::new(); for (i,val) in nums.
+      合法重新排列数对 给你一个下标从 0 开始的二维整数数组 pairs ，其中 pairs[i] = [start⌄i, end⌄i] 。如果 pairs 的一个重新排列，满足对每一个下标 i （ 1 &lt;= i &lt; pairs.length ）都有 end⌄i-1 == start⌄i ，那么我们就认为这个重新排列是 pairs 的一个 合法重新排列 。
+请你返回 任意一个 pairs 的合法重新排列。
+注意：数据保证至少存在一个 pairs 的合法重新排列。
+class Solution { public: vector&lt;vector&lt;int&gt;&gt; validArrangement(vector&lt;vector&lt;int&gt;&gt;&amp; pairs) { // 存储图 unordered_map&lt;int, vector&lt;int&gt;&gt; edges; // 存储入度和出度 unordered_map&lt;int, int&gt; indeg, outdeg; for (const auto&amp; p: pairs) { int x = p[0], y = p[1]; edges[x].push_back(y); ++indeg[y]; ++outdeg[x]; } // 寻找起始节点 int start = pairs[0][0]; for (const auto&amp; [x, occ]: outdeg) { // 如果有节点出度比入度恰好多 1，那么只有它才能是起始节点 if (occ == indeg[x] + 1) { start = x; break; } } vector&lt;vector&lt;int&gt;&gt; ans; // 深度优先搜索（Hierholzer 算法）求解欧拉通路 function&lt;void(int)&gt; dfs = [&amp;](int u) { while (!
     </div>
   </div>
 </div>
@@ -153,14 +156,14 @@ C 解法： int* twoSum(int* nums, int numsSize, int target, int* returnSize) { 
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote08/" class="link black dim">
-        Rust Note 08
+      <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF2/" class="link black dim">
+        Leetcode 欧拉回路2
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      移动零 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
-请注意 ，必须在不复制数组的情况下原地对数组进行操作。
-C 解法： class Solution { public void moveZeroes(int[] nums) { int indexNow = 0; int indexNum = 0; int m = nums.length; while(indexNum&lt;m){ if(nums[indexNum] != 0) { nums[indexNow++] = nums[indexNum]; } ++indexNum; } for(int i = indexNow; i &lt; m; i++){ nums[i] = 0; } } } Rust 解法： impl Solution { pub fn move_zeroes(nums: &amp;mut Vec&lt;i32&gt;) { let len = nums.len(); nums.retain(|x| *x !
+      破解保险箱 有一个需要密码才能打开的保险箱。密码是 n 位数, 密码的每一位都是范围 [0, k - 1] 中的一个数字。
+保险箱有一种特殊的密码校验方法，你可以随意输入密码序列，保险箱会自动记住 最后 n 位输入 ，如果匹配，则能够打开保险箱。
+例如，正确的密码是 &ldquo;345&rdquo; ，并且你输入的是 &ldquo;012345&rdquo; ： 输入 0 之后，最后 3 位输入是 &ldquo;0&rdquo; ，不正确。 输入 1 之后，最后 3 位输入是 &ldquo;01&rdquo; ，不正确。 输入 2 之后，最后 3 位输入是 &ldquo;012&rdquo; ，不正确。 输入 3 之后，最后 3 位输入是 &ldquo;123&rdquo; ，不正确。 输入 4 之后，最后 3 位输入是 &ldquo;234&rdquo; ，不正确。 输入 5 之后，最后 3 位输入是 &ldquo;345&rdquo; ，正确，打开保险箱。 在只知道密码位数 n 和范围边界 k 的前提下，请你找出并返回确保在输入的 某个时刻 能够打开保险箱的任一 最短 密码序列 。
     </div>
   </div>
 </div>
@@ -172,15 +175,17 @@ C 解法： class Solution { public void moveZeroes(int[] nums) { int indexNow =
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote07/" class="link black dim">
-        Rust Note 07
+      <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF3/" class="link black dim">
+        Leetcode 欧拉回路3
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      加一 给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。
-最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
-你可以假设除了整数 0 之外，这个整数不会以零开头。
-C 解法： int* plusOne(int* digits, int digitsSize, int* returnSize){ for(int i = digitsSize - 1; i &gt;= 0; --i){ digits[i] = digits[i] + 1;//最后元素+1判断是不是10 //如果当前元素不为10，直接返回数组 if(digits[i] != 10){ *returnSize = digitsSize; return digits; } //第一个元素不为10，后面元素均为10的情况 if(digits[i] == 10) digits[i] = 0; } //元素全为9开辟新数组 int* ans = malloc(sizeof(int) * (digitsSize + 1)); memset(ans, 0, sizeof(int) * (digitsSize + 1));//全部置0 ans[0] = 1; *returnSize = digitsSize + 1; return ans; } Rust 解法： impl Solution { pub fn plus_one(digits: Vec&lt;i32&gt;) -&gt; Vec&lt;i32&gt; { match digits.
+      重新安排行程 给你一份航线列表 tickets ，其中 tickets[i] = [from⌄i, to⌄i] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
+所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
+例如，行程 [&ldquo;JFK&rdquo;, &ldquo;LGA&rdquo;] 与 [&ldquo;JFK&rdquo;, &ldquo;LGB&rdquo;] 相比就更小，排序更靠前。 假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。
+示例1: 输入：tickets = [[&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;],[&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;MUC&rdquo;,&ldquo;LHR&rdquo;,&ldquo;SFO&rdquo;,&ldquo;SJC&rdquo;]
+示例2: 输入：tickets = [[&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;],[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;],[&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;]] 输出：[&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] 解释：另一种有效的行程是 [&ldquo;JFK&rdquo;,&ldquo;SFO&rdquo;,&ldquo;ATL&rdquo;,&ldquo;JFK&rdquo;,&ldquo;ATL&rdquo;,&ldquo;SFO&rdquo;] ，但是它字典排序更大更靠后。
+// Hierholzer算法 impl Solution { pub fn find_itinerary(tickets: Vec&lt;Vec&lt;String&gt;&gt;) -&gt; Vec&lt;String&gt; { let mut hash_table = std::collections::HashMap::new(); for ticket in tickets { hash_table.entry(ticket[0].to_string()) .or_insert(Vec::new()) .push(ticket[1].to_string()); } for destination in hash_table.values_mut() { destination.sort_by(|a, b| a.
     </div>
   </div>
 </div>
@@ -192,13 +197,17 @@ C 解法： int* plusOne(int* digits, int digitsSize, int* returnSize){ for(int 
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote06/" class="link black dim">
-        Rust Note 06
+      <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/" class="link black dim">
+        Leetcode 基数排序1
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      两个数组的交集 给你两个整数数组 nums1 和 nums2 ，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。
-C解法 ： int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) { int* rearr = (int*)malloc(sizeof(int)*(nums1Size&gt;nums2Size?nums2Size:nums1Size)); int a[1001] = {0}; int b[1001] = {0}; for(int i = 0; i&lt;nums1Size; i++) { a[nums1[i]]++; } for(int i = 0; i&lt;nums2Size; i++) { b[nums2[i]]++; } *returnSize = 0; for(int i = 0; i&lt;1001; i++) { if(a[i]&gt;0&amp;&amp;b[i]&gt;0) { int n = (a[i]&gt;b[i])?b[i]:a[i]; for(int j = 0; j&lt;n ;j++) { rearr[*returnSize] = i; (*returnSize)++; } } } return rearr; } Rust 解法 ： use std::collections::HashMap; impl Solution { pub fn intersect(nums1: Vec&lt;i32&gt;, nums2: Vec&lt;i32&gt;) -&gt; Vec&lt;i32&gt; { let mut ans = vec!
+      裁剪数字后查询第 K 小的数字 给你一个下标从 0 开始的字符串数组 nums ，其中每个字符串 长度相等 且只包含数字。
+再给你一个下标从 0 开始的二维整数数组 queries ，其中 queries[i] = [k^i, trim^i] 。对于每个 queries[i] ，你需要：
+将 nums 中每个数字 裁剪 到剩下 最右边 trim^i 个数位。 在裁剪过后的数字中，找到 nums 中第 k^i 小数字对应的 下标 。如果两个裁剪后数字一样大，那么下标 更小 的数字视为更小的数字。 将 nums 中每个数字恢复到原本字符串。 请你返回一个长度与 queries 相等的数组 answer，其中 answer[i]是第 i 次查询的结果。
+提示：
+裁剪到剩下最右边 x 个数位的意思是不断删除最左边的数位，直到剩下 x 个数位。 nums 中的字符串可能会有前导 0 。
+impl Solution { pub fn smallest_trimmed_numbers(nums: Vec&lt;String&gt;, queries: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;i32&gt; { let l = nums.
     </div>
   </div>
 </div>
@@ -210,15 +219,14 @@ C解法 ： int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size,
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote05/" class="link black dim">
-        Rust Note 05
+      <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/" class="link black dim">
+        Leetcode 基数排序2
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      只出现一次的数字 给你一个 非空 整数数组 nums ，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
-你必须设计并实现线性时间复杂度的算法来解决此问题，且该算法只使用常量额外空间。
-C解法 ： int singleNumber(int* nums, int numsSize){ int a = 0; for (int i = 0; i &lt; numsSize; i++) { a = a ^ nums[i]; } return a; } Rust 解法 ： impl Solution { pub fn single_number(nums: Vec&lt;i32&gt;) -&gt; i32 { nums.iter().fold(0,|acc,x| acc^x) } } Rust fold() 函数 ： fn fold&lt;B, F&gt;(self, init: B, f: F) -&gt; B where
-F: FnMut(B, Self::Item) -&gt; B, 通过应用操作将每个元素 fold 到一个累加器中，返回最终结果。
+      最大间距 给定一个无序的数组 nums，返回 数组在排序之后，相邻元素之间最大的差值 。如果数组元素个数小于 2，则返回 0 。
+您必须编写一个在「线性时间」内运行并使用「线性额外空间」的算法。
+impl Solution { pub fn maximum_gap(mut nums: Vec&lt;i32&gt;) -&gt; i32 { let mut buckets = vec![vec![];10]; for i in 0..10 { nums.iter().for_each(|&amp;num| buckets[((num / 10_i32.pow(i)) % 10) as usize].push(num)); buckets.iter().flat_map(|bucket| bucket.iter()).zip(nums.iter_mut()).for_each(|(&amp;a, b)| *b = a); buckets.iter_mut().for_each(|bucket| bucket.clear()); } nums.windows(2).map(|w| w[1] - w[0]).max().unwrap_or(0) } } 
     </div>
   </div>
 </div>
@@ -230,13 +238,15 @@ F: FnMut(B, Self::Item) -&gt; B, 通过应用操作将每个元素 fold 到�
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote04/" class="link black dim">
-        Rust Note 04
+      <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/" class="link black dim">
+        Leetcode 双连通分量1
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      存在重复元素 给你一个整数数组 nums 。如果任一值在数组中出现 至少两次 ，返回 true ；如果数组中每个元素互不相同，返回 false 。
-C 解法 ： public boolean containsDuplicate(int[] nums) { Arrays.sort(nums); for (int ind = 1; ind &lt; nums.length; ind++) { if (nums[ind] == nums[ind - 1]) { return true; } } return false; } Rust 解法 1 : impl Solution { pub fn contains_duplicate(mut nums: Vec&lt;i32&gt;) -&gt; bool { nums.sort(); (&amp;nums).windows(2).fold(false, |mut res,y|{ (y[0] == y[1]) | res }) } } Rust 解法 2 ： impl Solution { pub fn contains_duplicate(nums: Vec&lt;i32&gt;) -&gt; bool { let mut vec = nums.
+      查找集群内的关键连接 数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以 服务器到服务器 的形式相互连接组成了一个内部集群，连接是无向的。用 connections 表示集群网络，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。
+关键连接 是在该集群中的重要连接，假如我们将它移除，便会导致某些服务器无法访问其他服务器。
+请你以任意顺序返回该集群内的所有 关键连接 。
+use std::iter::repeat; static mut DFN: [i32; 100010] = [0; 100010]; static mut LOW: [i32; 100010] = [0; 100010]; static mut DFN_CNT: i32 = 0; impl Solution { pub fn critical_connections(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { return unsafe{Solution::critical_connections2(n,connections)}; } pub unsafe fn critical_connections2(n: i32, connections: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;Vec&lt;i32&gt;&gt; { let mut graph: Vec&lt;Vec&lt;i32&gt;&gt; = repeat(vec!
     </div>
   </div>
 </div>
@@ -248,15 +258,24 @@ C 解法 ： public boolean containsDuplicate(int[] nums) { Arrays.sort(nums); f
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote03/" class="link black dim">
-        Rust Note 03
+      <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/" class="link black dim">
+        Leetcode 双连通分量2
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      买卖股票的最佳时机2 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
-在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
-返回 你能获得的 最大 利润 。
-C 解法 ： public int maxProfit(int[] prices) { if (prices == null || prices.length &lt; 2) return 0; int total = 0, index = 0, length = prices.length; while (index &lt; length) { //如果股票下跌就一直找，直到找到股票开始上涨为止 while (index &lt; length - 1 &amp;&amp; prices[index] &gt;= prices[index + 1]) index++; //股票上涨开始的值，也就是这段时间上涨的最小值 int min = prices[index]; //一直找到股票上涨的最大值为止 while (index &lt; length - 1 &amp;&amp; prices[index] &lt;= prices[index + 1]) index++; //计算这段上涨时间的差值，然后累加 total += prices[index++] - min; } return total; } Rust 解法1 ： impl Solution { pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 { let mut profit = 0; for i in 1.
+      夺回据点 欢迎各位勇者来到力扣城，本次试炼主题为「夺回据点」。
+魔物了占领若干据点，这些据点被若干条道路相连接，roads[i] = [x, y] 表示编号 x、y 的两个据点通过一条道路连接。
+现在勇者要将按照以下原则将这些据点逐一夺回：
+在开始的时候，勇者可以花费资源先夺回一些据点，初始夺回第 j 个据点所需消耗的资源数量为 cost[j]
+接下来，勇者在不消耗资源情况下，每次可以夺回一个和「已夺回据点」相连接的魔物据点，并对其进行夺回
+注：为了防止魔物暴动，勇者在每一次夺回据点后（包括花费资源夺回据点后），需要保证剩余的所有魔物据点之间是相连通的（不经过「已夺回据点」）。
+请返回勇者夺回所有据点需要消耗的最少资源数量。
+注意：
+输入保证初始所有据点都是连通的，且不存在重边和自环 示例 1：
+输入： cost = [1,2,3,4,5,6] roads = [[0,1],[0,2],[1,3],[2,3],[1,2],[2,4],[2,5]]
+输出：6
+解释： 勇者消耗资源 6 夺回据点 0 和 4，魔物据点 1、2、3、5 相连通； 第一次夺回据点 1，魔物据点 2、3、5 相连通； 第二次夺回据点 3，魔物据点 2、5 相连通； 第三次夺回据点 2，剩余魔物据点 5； 第四次夺回据点 5，无剩余魔物据点； 因此最少需要消耗资源为 6，可占领所有据点。
+// Trajan算法 class Solution { const int S = 0; int n; vector&lt;vector&lt;int&gt;&gt; e; vector&lt;bool&gt; isCut; vector&lt;int&gt; dfn, low; int clk = 0; stack&lt;int&gt; stk; // 所有点双连通分量 vector&lt;vector&lt;int&gt;&gt; dcc; void tarjan(int sn) { dfn[sn] = low[sn] = ++clk; stk.
     </div>
   </div>
 </div>
@@ -268,15 +287,15 @@ C 解法 ： public int maxProfit(int[] prices) { if (prices == null || prices.l
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/rustnote02/" class="link black dim">
-        Rust Note 02
+      <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/" class="link black dim">
+        Leetcode 拒绝采样2
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Rust官方迭代器介绍 fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; Advances the iterator and returns the next value.
-Returns None when iteration is finished. Individual iterator implementations may choose to resume iteration, and so calling next() again may or may not eventually start returning Some(Item) again at some point.
-Examples Basic usage:
-let a = [1, 2, 3]; let mut iter = a.iter(); // A call to next() returns the next value... assert_eq!(Some(&amp;1), iter.next()); assert_eq!
+      在圆内随机生成点 给定圆的半径和圆心的位置，实现函数 randPoint ，在圆中产生均匀随机点。
+实现 Solution 类:
+Solution(double radius, double x_center, double y_center) 用圆的半径 radius 和圆心的位置 (x_center, y_center) 初始化对象 randPoint() 返回圆内的一个随机点。圆周上的一点被认为在圆内。答案作为数组返回 [x, y] 。
+struct Solution { radius: f64, x_center: f64, y_center: f64, } /** * `&amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;mut self` instead. */ impl Solution { fn new(radius: f64, x_center: f64, y_center: f64) -&gt; Self { Solution { radius, x_center, y_center } } fn rand_point(&amp;self) -&gt; Vec&lt;f64&gt; { use rand::{Rng, thread_rng}; use std::f64::consts::PI; let mut rng = thread_rng(); let (len, deg) = (rng.
     </div>
   </div>
 </div>
@@ -292,9 +311,6 @@ let a = [1, 2, 3]; let mut iter = a.iter(); // A call to next() returns the next
         <a href="/posts/page/4/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item">
         <a href="/posts/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
       </li>
       <li class="page-item">
@@ -307,10 +323,13 @@ let a = [1, 2, 3]; let mut iter = a.iter(); // A call to next() returns the next
         <a href="/posts/page/6/" aria-label="Page 6" class="page-link" role="button">6</a>
       </li>
       <li class="page-item">
+        <a href="/posts/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
         <a href="/posts/page/6/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul></article>
 

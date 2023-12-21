@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 强连通分量1 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="使陆地分离的最少天数 给你一个大小为 m x n ，由若干 0 和 1 组成的二维网格 grid ，其中 1 表示陆地， 0 表示水。岛屿 由水平方向或竖直方向上相邻的 1 （陆地）连接形成。
+如果 恰好只有一座岛屿 ，则认为陆地是 连通的 ；否则，陆地就是 分离的 。
+一天内，可以将 任何单个 陆地单元（1）更改为水单元（0）。
+返回使陆地分离的最少天数。
+示例1: 输入：grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]] 输出：2 解释：至少需要 2 天才能得到分离的陆地。 将陆地 grid[1][1] 和 grid[0][2] 更改为水，得到两个分离的岛屿。
+示例2: 输入：grid = [[1,1]] 输出：2 解释：如果网格中都是水，也认为是分离的 ([[1,1]] -&gt; [[0,0]])，0 岛屿。
+impl Solution { pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let (m, n) = (grid.len(), grid[0].len()); let mut relabel = vec!">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 强连通分量1" />
+<meta property="og:description" content="使陆地分离的最少天数 给你一个大小为 m x n ，由若干 0 和 1 组成的二维网格 grid ，其中 1 表示陆地， 0 表示水。岛屿 由水平方向或竖直方向上相邻的 1 （陆地）连接形成。
+如果 恰好只有一座岛屿 ，则认为陆地是 连通的 ；否则，陆地就是 分离的 。
+一天内，可以将 任何单个 陆地单元（1）更改为水单元（0）。
+返回使陆地分离的最少天数。
+示例1: 输入：grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]] 输出：2 解释：至少需要 2 天才能得到分离的陆地。 将陆地 grid[1][1] 和 grid[0][2] 更改为水，得到两个分离的岛屿。
+示例2: 输入：grid = [[1,1]] 输出：2 解释：如果网格中都是水，也认为是分离的 ([[1,1]] -&gt; [[0,0]])，0 岛屿。
+impl Solution { pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let (m, n) = (grid.len(), grid[0].len()); let mut relabel = vec!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:20:40+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:20:40+08:00" />
+<meta itemprop="name" content="Leetcode 强连通分量1">
+<meta itemprop="description" content="使陆地分离的最少天数 给你一个大小为 m x n ，由若干 0 和 1 组成的二维网格 grid ，其中 1 表示陆地， 0 表示水。岛屿 由水平方向或竖直方向上相邻的 1 （陆地）连接形成。
+如果 恰好只有一座岛屿 ，则认为陆地是 连通的 ；否则，陆地就是 分离的 。
+一天内，可以将 任何单个 陆地单元（1）更改为水单元（0）。
+返回使陆地分离的最少天数。
+示例1: 输入：grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]] 输出：2 解释：至少需要 2 天才能得到分离的陆地。 将陆地 grid[1][1] 和 grid[0][2] 更改为水，得到两个分离的岛屿。
+示例2: 输入：grid = [[1,1]] 输出：2 解释：如果网格中都是水，也认为是分离的 ([[1,1]] -&gt; [[0,0]])，0 岛屿。
+impl Solution { pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let (m, n) = (grid.len(), grid[0].len()); let mut relabel = vec!"><meta itemprop="datePublished" content="2023-12-19T15:20:40+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:20:40+08:00" />
+<meta itemprop="wordCount" content="366">
+<meta itemprop="keywords" content="leetcode,强连通分量," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 强连通分量1"/>
+<meta name="twitter:description" content="使陆地分离的最少天数 给你一个大小为 m x n ，由若干 0 和 1 组成的二维网格 grid ，其中 1 表示陆地， 0 表示水。岛屿 由水平方向或竖直方向上相邻的 1 （陆地）连接形成。
+如果 恰好只有一座岛屿 ，则认为陆地是 连通的 ；否则，陆地就是 分离的 。
+一天内，可以将 任何单个 陆地单元（1）更改为水单元（0）。
+返回使陆地分离的最少天数。
+示例1: 输入：grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]] 输出：2 解释：至少需要 2 天才能得到分离的陆地。 将陆地 grid[1][1] 和 grid[0][2] 更改为水，得到两个分离的岛屿。
+示例2: 输入：grid = [[1,1]] 输出：2 解释：如果网格中都是水，也认为是分离的 ([[1,1]] -&gt; [[0,0]])，0 岛屿。
+impl Solution { pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 { let (m, n) = (grid.len(), grid[0].len()); let mut relabel = vec!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 强连通分量1</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:20:40+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="使陆地分离的最少天数">使陆地分离的最少天数</h2>
+<p>给你一个大小为 m x n ，由若干 0 和 1 组成的二维网格 grid ，其中 1 表示陆地， 0 表示水。岛屿 由水平方向或竖直方向上相邻的 1 （陆地）连接形成。</p>
+<p>如果 恰好只有一座岛屿 ，则认为陆地是 连通的 ；否则，陆地就是 分离的 。</p>
+<p>一天内，可以将 任何单个 陆地单元（1）更改为水单元（0）。</p>
+<p>返回使陆地分离的最少天数。</p>
+<p>示例1:
+输入：grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]]
+输出：2
+解释：至少需要 2 天才能得到分离的陆地。
+将陆地 grid[1][1] 和 grid[0][2] 更改为水，得到两个分离的岛屿。</p>
+<p>示例2:
+输入：grid = [[1,1]]
+输出：2
+解释：如果网格中都是水，也认为是分离的 ([[1,1]] -&gt; [[0,0]])，0 岛屿。</p>
+<pre tabindex="0"><code>impl Solution {
+    pub fn min_days(grid: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; i32 {
+        let (m, n) = (grid.len(), grid[0].len());
+
+        let mut relabel = vec![vec![0; n]; m];
+        let mut idx = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] == 1 {
+                    relabel[i][j] = idx;
+                    idx += 1;
+                }
+            }
+        }
+
+        if idx &lt;= 1 {
+            return idx as i32;
+        }
+
+        let f = |i: usize, j: usize| relabel[i][j];
+        let mut graph = vec![vec![]; idx];
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] == 1 {
+                    if i &lt; m - 1 &amp;&amp; grid[i + 1][j] == 1 {
+                        graph[f(i, j)].push(f(i + 1, j));
+                        graph[f(i + 1, j)].push(f(i, j));
+                    }
+                    if j &lt; n - 1 &amp;&amp; grid[i][j + 1] == 1 {
+                        graph[f(i, j)].push(f(i, j + 1));
+                        graph[f(i, j + 1)].push(f(i, j));
+                    }
+                }
+            }
+        }
+        let mut s = Solver::new(graph);
+        s.solve()
+    }
+}
+
+struct Solver {
+    timestamp: usize,
+    graph: Vec&lt;Vec&lt;usize&gt;&gt;,
+    dfn: Vec&lt;usize&gt;,
+    low: Vec&lt;usize&gt;,
+    cut_points: Vec&lt;usize&gt;,
+}
+
+impl Solver {
+    fn new(graph: Vec&lt;Vec&lt;usize&gt;&gt;) -&gt; Self {
+        Self {
+            timestamp: 1,
+            dfn: vec![0; graph.len()],
+            low: vec![0; graph.len()],
+            graph,
+            cut_points: vec![],
+        }
+    }
+
+    fn solve(&amp;mut self) -&gt; i32 {
+        self.dfs(0, self.graph.len());
+
+        let mut ans = 2;
+        if !self.cut_points.is_empty() {
+            ans = 1;
+        }
+        for i in 0..self.graph.len() {
+            if self.dfn[i] == 0 {
+                return 0;
+            }
+        }
+        ans
+    }
+
+    fn dfs(&amp;mut self, cur: usize, pre: usize) {
+        self.dfn[cur] = self.timestamp;
+        self.low[cur] = self.timestamp;
+        self.timestamp += 1;
+
+        let mut child = 0;
+        let mut is_cut = false;
+        
+        for i in 0..self.graph[cur].len() {
+            let nxt = self.graph[cur][i];
+            if nxt == pre {
+                continue;
+            }
+            if self.dfn[nxt] == 0 {
+                child += 1;
+                self.dfs(nxt, cur);
+                if !is_cut &amp;&amp; pre != self.graph.len() &amp;&amp; self.low[nxt] &gt;= self.dfn[cur] {
+                    is_cut = true;
+                    self.cut_points.push(cur);
+                }
+            }
+            self.low[cur] = self.low[cur].min(self.low[nxt]);
+        }
+
+        if !is_cut &amp;&amp; pre == self.graph.len() &amp;&amp; child &gt;= 2 {
+            self.cut_points.push(cur);
+        }
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">强连通分量</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/">Leetcode 强连通分量2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF1/">Leetcode 欧拉回路1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF2/">Leetcode 欧拉回路2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF3/">Leetcode 欧拉回路3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 基数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 基数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/">Leetcode 双连通分量1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/">Leetcode 双连通分量2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B72/">Leetcode 拒绝采样2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B71/">Leetcode 拒绝采样1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-45/">Rust Note 45</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-46/">Rust Note 46</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-47/">Rust Note 47</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-48/">Rust Note 48</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/rust-note-49/">Rust Note 49</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

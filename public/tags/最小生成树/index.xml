@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>最小生成树 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/</link>
+    <description>Recent content in 最小生成树 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:44:58 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 最小生成树1</title>
+      <link>http://example.org/posts/leetcode-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%911/</link>
+      <pubDate>Tue, 19 Dec 2023 15:44:58 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%911/</guid>
+      <description>连接所有点的最小费用 给你一个points 数组，表示 2D 平面上的一些点，其中 points[i] = [x⌄i, y⌄i] 。
+连接点 [x⌄i, y⌄i] 和点 [x⌄j, y⌄j] 的费用为它们之间的 曼哈顿距离 ：|x⌄i - x⌄j| + |y⌄i - y⌄j| ，其中 |val| 表示 val 的绝对值。
+请你返回将所有点连接的最小总费用。只有任意两点之间 有且仅有 一条简单路径时，才认为所有点都已连接。
+impl Solution { pub fn min_cost_connect_points(points: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; i32 { let n = points.len(); let mut dist = vec![i32::MAX; n]; let mut edges = vec![]; Self::build_edges(&amp;amp;mut edges, points.iter().map(|x| (x[0], x[1])).collect()); Self::build_edges(&amp;amp;mut edges, points.iter().map(|x| (x[1], x[0])).collect()); Self::build_edges(&amp;amp;mut edges, points.</description>
+    </item>
+    
+  </channel>
+</rss>

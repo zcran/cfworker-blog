@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>基数排序 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/index.xml" rel="alternate" type="application/rss+xml" title="Paperubit的博客" />
+      <link href="/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/index.xml" rel="feed" type="application/rss+xml" title="Paperubit的博客" />
+      
+    
+    
+    <meta property="og:title" content="基数排序" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/tags/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/" />
+<meta itemprop="name" content="基数排序">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基数排序"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          基数排序
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “基数排序”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/" class="link black dim">
+        Leetcode 基数排序1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      裁剪数字后查询第 K 小的数字 给你一个下标从 0 开始的字符串数组 nums ，其中每个字符串 长度相等 且只包含数字。
+再给你一个下标从 0 开始的二维整数数组 queries ，其中 queries[i] = [k^i, trim^i] 。对于每个 queries[i] ，你需要：
+将 nums 中每个数字 裁剪 到剩下 最右边 trim^i 个数位。 在裁剪过后的数字中，找到 nums 中第 k^i 小数字对应的 下标 。如果两个裁剪后数字一样大，那么下标 更小 的数字视为更小的数字。 将 nums 中每个数字恢复到原本字符串。 请你返回一个长度与 queries 相等的数组 answer，其中 answer[i]是第 i 次查询的结果。
+提示：
+裁剪到剩下最右边 x 个数位的意思是不断删除最左边的数位，直到剩下 x 个数位。 nums 中的字符串可能会有前导 0 。
+impl Solution { pub fn smallest_trimmed_numbers(nums: Vec&lt;String&gt;, queries: Vec&lt;Vec&lt;i32&gt;&gt;) -&gt; Vec&lt;i32&gt; { let l = nums.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/" class="link black dim">
+        Leetcode 基数排序2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最大间距 给定一个无序的数组 nums，返回 数组在排序之后，相邻元素之间最大的差值 。如果数组元素个数小于 2，则返回 0 。
+您必须编写一个在「线性时间」内运行并使用「线性额外空间」的算法。
+impl Solution { pub fn maximum_gap(mut nums: Vec&lt;i32&gt;) -&gt; i32 { let mut buckets = vec![vec![];10]; for i in 0..10 { nums.iter().for_each(|&amp;num| buckets[((num / 10_i32.pow(i)) % 10) as usize].push(num)); buckets.iter().flat_map(|bucket| bucket.iter()).zip(nums.iter_mut()).for_each(|(&amp;a, b)| *b = a); buckets.iter_mut().for_each(|bucket| bucket.clear()); } nums.windows(2).map(|w| w[1] - w[0]).max().unwrap_or(0) } } 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

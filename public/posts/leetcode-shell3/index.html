@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode Shell3 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="有效电话号码 给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。
+你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）
+你也可以假设每行前后没有多余的空格字符。
+// 三种方法 grep -P &#39;^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$&#39; file.txt sed -n -r &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/p&#39; file.txt awk &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-([0-9]{4})$/&#39; file.txt ">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode Shell3" />
+<meta property="og:description" content="有效电话号码 给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。
+你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）
+你也可以假设每行前后没有多余的空格字符。
+// 三种方法 grep -P &#39;^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$&#39; file.txt sed -n -r &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/p&#39; file.txt awk &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-([0-9]{4})$/&#39; file.txt " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-shell3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:22:29+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:22:29+08:00" />
+<meta itemprop="name" content="Leetcode Shell3">
+<meta itemprop="description" content="有效电话号码 给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。
+你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）
+你也可以假设每行前后没有多余的空格字符。
+// 三种方法 grep -P &#39;^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$&#39; file.txt sed -n -r &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/p&#39; file.txt awk &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-([0-9]{4})$/&#39; file.txt "><meta itemprop="datePublished" content="2023-12-19T15:22:29+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:22:29+08:00" />
+<meta itemprop="wordCount" content="29">
+<meta itemprop="keywords" content="leetcode,Shell," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode Shell3"/>
+<meta name="twitter:description" content="有效电话号码 给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。
+你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）
+你也可以假设每行前后没有多余的空格字符。
+// 三种方法 grep -P &#39;^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$&#39; file.txt sed -n -r &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/p&#39; file.txt awk &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-([0-9]{4})$/&#39; file.txt "/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode Shell3</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:22:29+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="有效电话号码">有效电话号码</h2>
+<p>给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。</p>
+<p>你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）</p>
+<p>你也可以假设每行前后没有多余的空格字符。</p>
+<pre tabindex="0"><code> // 三种方法
+grep -P &#39;^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$&#39; file.txt
+sed -n -r &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/p&#39; file.txt
+awk &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-([0-9]{4})$/&#39; file.txt
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/shell/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Shell</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-shell1/">Leetcode Shell1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-shell2/">Leetcode Shell2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-shell4/">Leetcode Shell4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B71/">Leetcode 水塘抽样1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B72/">Leetcode 水塘抽样2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B73/">Leetcode 水塘抽样3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B74/">Leetcode 水塘抽样4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/">Leetcode 强连通分量1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F2/">Leetcode 强连通分量2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF1/">Leetcode 欧拉回路1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF2/">Leetcode 欧拉回路2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF3/">Leetcode 欧拉回路3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 基数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 基数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F1/">Leetcode 双连通分量1</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

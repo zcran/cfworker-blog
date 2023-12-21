@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>快速选择 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/</link>
+    <description>Recent content in 快速选择 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:49:31 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 快速选择1</title>
+      <link>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A91/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:31 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A91/</guid>
+      <description>摆动排序 II 给你一个整数数组 nums，将它重新排列成 nums[0] &amp;lt; nums[1] &amp;gt; nums[2] &amp;lt; nums[3]&amp;hellip; 的顺序。
+你可以假设所有输入数组都可以得到满足题目要求的结果。
+impl Solution { pub fn wiggle_sort(nums: &amp;amp;mut Vec&amp;lt;i32&amp;gt;) { let mut nums_copy = nums.clone(); nums_copy.sort(); let n = nums.len(); let (mut p, mut q) = ((n - 1) / 2, n - 1); for i in 0..n { if (i &amp;amp; 1) == 1 { nums[i] = nums_copy[q]; q -= 1; } else { nums[i] = nums_copy[p]; p -= 1; }; } } } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 快速选择2</title>
+      <link>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A92/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:31 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A92/</guid>
+      <description>数组中的第K个最大元素 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+你必须设计并实现时间复杂度为 O(n) 的算法解决此问题。
+use std::collections::BinaryHeap; impl Solution { pub fn find_kth_largest(nums: Vec&amp;lt;i32&amp;gt;, k: i32) -&amp;gt; i32 { let mut h = BinaryHeap::from(nums.iter().map(|&amp;amp;i| -i).take(k as usize).collect::&amp;lt;Vec&amp;lt;_&amp;gt;&amp;gt;()); for i in k as usize..nums.len() { h.push(-nums[i]); h.pop(); } -h.peek().unwrap() } } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 快速选择3</title>
+      <link>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A93/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:31 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A93/</guid>
+      <description>找出第 K 大的异或坐标值 给你一个二维矩阵 matrix 和一个整数 k ，矩阵大小为 m x n 由非负整数组成。
+矩阵中坐标 (a, b) 的 值 可由对所有满足 0 &amp;lt;= i &amp;lt;= a &amp;lt; m 且 0 &amp;lt;= j &amp;lt;= b &amp;lt; n 的元素 matrix[i][j]（下标从 0 开始计数）执行异或运算得到。
+请你找出 matrix 的所有坐标中第 k 大的值（k 的值从 1 开始计数）。
+impl Solution { pub fn kth_largest_value(mut matrix: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;, k: i32) -&amp;gt; i32 { for row in 0..matrix.len() { let mut sum = 0; for col in 0.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 快速选择4</title>
+      <link>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A94/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:31 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A94/</guid>
+      <description>找出数组中的第 K 大整数 给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。
+返回 nums 中表示第 k 大整数的字符串。
+注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 [&amp;ldquo;1&amp;rdquo;,&amp;ldquo;2&amp;rdquo;,&amp;ldquo;2&amp;rdquo;]，那么 &amp;ldquo;2&amp;rdquo; 是最大的整数，&amp;ldquo;2&amp;rdquo; 是第二大的整数，&amp;ldquo;1&amp;rdquo; 是第三大的整数。
+impl Solution { pub fn kth_largest_number(mut nums: Vec&amp;lt;String&amp;gt;, k: i32) -&amp;gt; String { // 自定义比较函数，在 a 对应的整数较大时返回 true，反之返回 false nums.sort_by(|a, b| { // 首先比较字符串长度 if a.len() &amp;gt; b.len() { return std::cmp::Ordering::Greater; } else if a.len() &amp;lt; b.len() { return std::cmp::Ordering::Less; } else { // 长度相等时比较字符串字典序大小 a.cmp(&amp;amp;b) } }); nums[nums.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 快速选择5</title>
+      <link>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A95/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:31 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A95/</guid>
+      <description>最接近原点的 K 个点 给定一个数组 points ，其中 points[i] = [x⌄i, y⌄i] 表示 X-Y 平面上的一个点，并且是一个整数 k ，返回离原点 (0,0) 最近的 k 个点。
+这里，平面上两点之间的距离是 欧几里德距离（ √(x⌄1 - x⌄2)2 + (y⌄1 - y⌄2)2 ）。
+你可以按 任何顺序 返回答案。除了点坐标的顺序之外，答案 确保 是 唯一 的。
+impl Solution { pub fn k_closest(points: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;, k: i32) -&amp;gt; Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt; { let mut ans = points; ans.sort_unstable_by_key(|a| a[0] * a[0] + a[1] * a[1]); ans.truncate(k as usize); // 保留第一个 k 元素，然后丢弃其余的元素 ans } } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 快速选择6</title>
+      <link>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A96/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:31 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A96/</guid>
+      <description>最小K个数 设计一个算法，找出数组中最小的k个数。以任意顺序返回这k个数均可。
+示例：
+输入： arr = [1,3,5,7,2,4,6,8], k = 4 输出： [1,2,3,4] 提示：
+0 &amp;lt;= len(arr) &amp;lt;= 100000 0 &amp;lt;= k &amp;lt;= min(100000, len(arr))
+impl Solution { pub fn get_least_numbers(arr: Vec&amp;lt;i32&amp;gt;, k: i32) -&amp;gt; Vec&amp;lt;i32&amp;gt; { let mut arr = arr; arr.sort(); arr[..k as usize].iter().cloned().collect() } } </description>
+    </item>
+    
+  </channel>
+</rss>

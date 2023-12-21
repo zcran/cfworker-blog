@@ -27,7 +27,7 @@ C 解法1： class Solution { public: int hammingDistance(int x, int y) { return
       <description>颠倒二进制位 颠倒给定的 32 位无符号整数的二进制位。
 提示：
 请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。 在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在 示例 2 中，输入表示有符号整数 -3，输出表示有符号整数 -1073741825。
-C 解法1： // 逐位颠倒，n(logn) class Solution { public: uint32_t reverseBits(uint32_t n) { uint32_t rev = 0; for (int i = 0; i &amp;lt; 32 &amp;amp;&amp;amp; n &amp;gt; 0; ++i) { rev |= (n &amp;amp; 1) &amp;lt;&amp;lt; (31 - i); n &amp;gt;&amp;gt;= 1; } return rev; } }; C解法2:  // 分治 class Solution { private: const uint32_t M1 = 0x55555555; // 01010101010101010101010101010101 const uint32_t M2 = 0x33333333; // 00110011001100110011001100110011 const uint32_t M4 = 0x0f0f0f0f; // 00001111000011110000111100001111 const uint32_t M8 = 0x00ff00ff; // 00000000111111110000000011111111 public: uint32_t reverseBits(uint32_t n) { n = n &amp;gt;&amp;gt; 1 &amp;amp; M1 | (n &amp;amp; M1) &amp;lt;&amp;lt; 1; n = n &amp;gt;&amp;gt; 2 &amp;amp; M2 | (n &amp;amp; M2) &amp;lt;&amp;lt; 2; n = n &amp;gt;&amp;gt; 4 &amp;amp; M4 | (n &amp;amp; M4) &amp;lt;&amp;lt; 4; n = n &amp;gt;&amp;gt; 8 &amp;amp; M8 | (n &amp;amp; M8) &amp;lt;&amp;lt; 8; return n &amp;gt;&amp;gt; 16 | n &amp;lt;&amp;lt; 16; } }; Rust 解法： impl Solution { pub fn reverse_bits(mut x: u32) -&amp;gt; u32 { (0.</description>
+C 解法1： // 逐位颠倒，n(logn) class Solution { public: uint32_t reverseBits(uint32_t n) { uint32_t rev = 0; for (int i = 0; i &amp;lt; 32 &amp;amp;&amp;amp; n &amp;gt; 0; ++i) { rev |= (n &amp;amp; 1) &amp;lt;&amp;lt; (31 - i); n &amp;gt;&amp;gt;= 1; } return rev; } }; C解法2: // 分治 class Solution { private: const uint32_t M1 = 0x55555555; // 01010101010101010101010101010101 const uint32_t M2 = 0x33333333; // 00110011001100110011001100110011 const uint32_t M4 = 0x0f0f0f0f; // 00001111000011110000111100001111 const uint32_t M8 = 0x00ff00ff; // 00000000111111110000000011111111 public: uint32_t reverseBits(uint32_t n) { n = n &amp;gt;&amp;gt; 1 &amp;amp; M1 | (n &amp;amp; M1) &amp;lt;&amp;lt; 1; n = n &amp;gt;&amp;gt; 2 &amp;amp; M2 | (n &amp;amp; M2) &amp;lt;&amp;lt; 2; n = n &amp;gt;&amp;gt; 4 &amp;amp; M4 | (n &amp;amp; M4) &amp;lt;&amp;lt; 4; n = n &amp;gt;&amp;gt; 8 &amp;amp; M8 | (n &amp;amp; M8) &amp;lt;&amp;lt; 8; return n &amp;gt;&amp;gt; 16 | n &amp;lt;&amp;lt; 16; } }; Rust 解法： impl Solution { pub fn reverse_bits(mut x: u32) -&amp;gt; u32 { (0.</description>
     </item>
     
     <item>
@@ -47,10 +47,10 @@ C 解法： class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp
       <pubDate>Mon, 12 Jun 2023 10:35:06 +0800</pubDate>
       
       <guid>http://example.org/posts/rust-note-48/</guid>
-      <description>有效的括号 给定一个只包括 &amp;lsquo;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&amp;rsquo; 的字符串 s ，判断字符串是否有效。
+      <description>有效的括号 给定一个只包括 &amp;lsquo;(&amp;rsquo;，&amp;rsquo;)&amp;rsquo;，&amp;rsquo;{&amp;rsquo;，&amp;rsquo;}&amp;rsquo;，&amp;rsquo;[&amp;rsquo;，&amp;rsquo;]&amp;rsquo; 的字符串 s ，判断字符串是否有效。
 有效字符串需满足：
 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。
-C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&amp;lt;char, char&amp;gt; pairs = { {&#39;)&#39;, &#39;(&#39;}, {&#39;]&#39;, &#39;[&#39;}, {&#39;}&#39;, &#39;{&#39;} }; stack&amp;lt;char&amp;gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk.</description>
+C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&amp;lt;char, char&amp;gt; pairs = { {&amp;#39;)&amp;#39;, &amp;#39;(&amp;#39;}, {&amp;#39;]&amp;#39;, &amp;#39;[&amp;#39;}, {&amp;#39;}&amp;#39;, &amp;#39;{&amp;#39;} }; stack&amp;lt;char&amp;gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk.</description>
     </item>
     
     <item>
@@ -60,7 +60,7 @@ C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); 
       
       <guid>http://example.org/posts/rust-note-49/</guid>
       <description>缺失数字 给定一个包含 [0, n] 中 n 个数的数组 nums ，找出 [0, n] 这个范围内没有出现在数组中的那个数。
-C 解法：  // 位运算 class Solution { public: int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int res = 0; int n = nums.size(); for (int i = 0; i &amp;lt; n; i++) { res ^= nums[i]; } for (int i = 0; i &amp;lt;= n; i++) { res ^= i; } return res; } }; Rust 解法： impl Solution { pub fn missing_number(nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { [nums.</description>
+C 解法： // 位运算 class Solution { public: int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int res = 0; int n = nums.size(); for (int i = 0; i &amp;lt; n; i++) { res ^= nums[i]; } for (int i = 0; i &amp;lt;= n; i++) { res ^= i; } return res; } }; Rust 解法： impl Solution { pub fn missing_number(nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { [nums.</description>
     </item>
     
     <item>
@@ -71,8 +71,7 @@ C 解法：  // 位运算 class Solution { public: int missingNumber(vector&amp;
       <guid>http://example.org/posts/rust-note-41/</guid>
       <description>计数质数 给定整数 n ，返回 所有小于非负整数 n 的质数的数量 。
 C 解法： 解题思路：欧拉筛【时间复杂度O(nlgnlgn)】
-埃氏筛 假定我们要求100以内的质数，我们从2开始遍历。 遍历到2,2是质数，于是我们把2的所有倍数全部删除，比如4、6、8、10&amp;hellip;&amp;hellip; 遍历到3,3是质数，于是我们把3的所有倍数全都删除，比如6、9、12、15&amp;hellip;&amp;hellip; 遍历到4,4是合数已经删除,继续遍历，以此类推即可找到范围内所有的素数 欧拉筛 欧拉筛是埃氏筛的改进版本，由于某些合数会有很多质因数，因此在删除的过程中会重复的删除，比如6，遍历到2时会进行删除，遍历到3时也会进行删除，所以为了避免这样的开销，欧拉筛将筛选出来的质数进行记录，在删除的过程中，只通过数的最小质因数筛数。 0、1既不是质数，也不是合数。 一个数，如果只有1和它本身两个约数，这样的数叫质数或素数。一个数，如果除了1和它本身还有别的约数，这样的数叫合数。而0的约数只有0，所以既不是质数又不是合数。如果1是质数，那就要有两个因数：1=1×1；如果1是合数，那就要有三个及以上的因数：1×1×1×1……化简之后就是1=1，只有一个因数，因此，1既不是质数也不是合数。 
- // 枚举 class Solution { public: bool isPrime(int x) { for (int i = 2; i * i &amp;lt;= x; ++i) { if (x % i == 0) { return false; } } return true; } int countPrimes(int n) { int ans = 0; for (int i = 2; i &amp;lt; n; ++i) { ans += isPrime(i); } return ans; } }; Rust 解法： impl Solution { pub fn count_primes(n: i32) -&amp;gt; i32 { if n &amp;lt;= 2 { return 0; } let n = n as usize; let mut record = vec!</description>
+埃氏筛 假定我们要求100以内的质数，我们从2开始遍历。 遍历到2,2是质数，于是我们把2的所有倍数全部删除，比如4、6、8、10&amp;hellip;&amp;hellip; 遍历到3,3是质数，于是我们把3的所有倍数全都删除，比如6、9、12、15&amp;hellip;&amp;hellip; 遍历到4,4是合数已经删除,继续遍历，以此类推即可找到范围内所有的素数 欧拉筛 欧拉筛是埃氏筛的改进版本，由于某些合数会有很多质因数，因此在删除的过程中会重复的删除，比如6，遍历到2时会进行删除，遍历到3时也会进行删除，所以为了避免这样的开销，欧拉筛将筛选出来的质数进行记录，在删除的过程中，只通过数的最小质因数筛数。 0、1既不是质数，也不是合数。 一个数，如果只有1和它本身两个约数，这样的数叫质数或素数。一个数，如果除了1和它本身还有别的约数，这样的数叫合数。而0的约数只有0，所以既不是质数又不是合数。如果1是质数，那就要有两个因数：1=1×1；如果1是合数，那就要有三个及以上的因数：1×1×1×1……化简之后就是1=1，只有一个因数，因此，1既不是质数也不是合数。 // 枚举 class Solution { public: bool isPrime(int x) { for (int i = 2; i * i &amp;lt;= x; ++i) { if (x % i == 0) { return false; } } return true; } int countPrimes(int n) { int ans = 0; for (int i = 2; i &amp;lt; n; ++i) { ans += isPrime(i); } return ans; } }; Rust 解法： impl Solution { pub fn count_primes(n: i32) -&amp;gt; i32 { if n &amp;lt;= 2 { return 0; } let n = n as usize; let mut record = vec!</description>
     </item>
     
     <item>
@@ -83,7 +82,7 @@ C 解法： 解题思路：欧拉筛【时间复杂度O(nlgnlgn)】
       <guid>http://example.org/posts/rust-note-42/</guid>
       <description>3的幂 给定一个整数，写一个函数来判断它是否是 3 的幂次方。如果是，返回 true ；否则，返回 false 。
 整数 n 是 3 的幂次方需满足：存在整数 x 使得 n == 3^x
-C 解法：  // 在题目给定的32位有符号整数的范围内，最大的3的幂为 3^19 =1162261467。我们只需要判断n是否是3的约数即可。 class Solution { public: bool isPowerOfThree(int n) { return n &amp;gt; 0 &amp;amp;&amp;amp; 1162261467 % n == 0; } }; Rust 解法： impl Solution { pub fn is_power_of_three(n: i32) -&amp;gt; bool { if n == 1 { return true; } if n &amp;lt; 3 || n % 3 !</description>
+C 解法： // 在题目给定的32位有符号整数的范围内，最大的3的幂为 3^19 =1162261467。我们只需要判断n是否是3的约数即可。 class Solution { public: bool isPowerOfThree(int n) { return n &amp;gt; 0 &amp;amp;&amp;amp; 1162261467 % n == 0; } }; Rust 解法： impl Solution { pub fn is_power_of_three(n: i32) -&amp;gt; bool { if n == 1 { return true; } if n &amp;lt; 3 || n % 3 !</description>
     </item>
     
     <item>
@@ -105,7 +104,7 @@ I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。 X 可以�
       
       <guid>http://example.org/posts/rust-note-44/</guid>
       <description>位1的个数 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;lsquo;1&amp;rsquo; 的个数（也被称为汉明重量）。
- 提示：
+提示：
 请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。 在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在 示例 3 中，输入表示有符号整数 -3。
 C 解法： class Solution { public: int hammingWeight(uint32_t n) { int ret = 0; for (int i = 0; i &amp;lt; 32; i++) { if (n &amp;amp; (1 &amp;lt;&amp;lt; i)) { ret++; } } return ret; } }; Rust 解法： // u32::count_ones impl Solution { pub fn hammingWeight (n: u32) -&amp;gt; i32 { n.count_ones() as i32 } } </description>
     </item>
@@ -130,7 +129,7 @@ C 解法： class Solution { public: TreeNode* sortedArrayToBST(vector&amp;lt;in
       <description>合并两个有序数组 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
 请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。
 注意：最终，合并后数组不应由函数返回，而是存储在数组 nums1 中。为了应对这种情况，nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，后 n 个元素为 0 ，应忽略。nums2 的长度为 n 。
-C 解法：  // 逆向双指针 class Solution { public: void merge(vector&amp;lt;int&amp;gt;&amp;amp; nums1, int m, vector&amp;lt;int&amp;gt;&amp;amp; nums2, int n) { int p1 = m - 1, p2 = n - 1; int tail = m + n - 1; int cur; while (p1 &amp;gt;= 0 || p2 &amp;gt;= 0) { if (p1 == -1) { cur = nums2[p2--]; } else if (p2 == -1) { cur = nums1[p1--]; } else if (nums1[p1] &amp;gt; nums2[p2]) { cur = nums1[p1--]; } else { cur = nums2[p2--]; } nums1[tail--] = cur; } } }; Rust 解法： use std::cmp::Ordering::{Less, Equal, Greater}; impl Solution { pub fn merge(nums1: &amp;amp;mut Vec&amp;lt;i32&amp;gt;, m: i32, nums2: &amp;amp;mut Vec&amp;lt;i32&amp;gt;, n: i32) { let mut cur1 = m-1; let mut cur2 = (m+n-1) as usize; let mut cur3 = n-1; while cur1&amp;gt;=0 || cur3&amp;gt;=0{ // println!</description>
+C 解法： // 逆向双指针 class Solution { public: void merge(vector&amp;lt;int&amp;gt;&amp;amp; nums1, int m, vector&amp;lt;int&amp;gt;&amp;amp; nums2, int n) { int p1 = m - 1, p2 = n - 1; int tail = m + n - 1; int cur; while (p1 &amp;gt;= 0 || p2 &amp;gt;= 0) { if (p1 == -1) { cur = nums2[p2--]; } else if (p2 == -1) { cur = nums1[p1--]; } else if (nums1[p1] &amp;gt; nums2[p2]) { cur = nums1[p1--]; } else { cur = nums2[p2--]; } nums1[tail--] = cur; } } }; Rust 解法： use std::cmp::Ordering::{Less, Equal, Greater}; impl Solution { pub fn merge(nums1: &amp;amp;mut Vec&amp;lt;i32&amp;gt;, m: i32, nums2: &amp;amp;mut Vec&amp;lt;i32&amp;gt;, n: i32) { let mut cur1 = m-1; let mut cur2 = (m+n-1) as usize; let mut cur3 = n-1; while cur1&amp;gt;=0 || cur3&amp;gt;=0{ // println!</description>
     </item>
     
     <item>
@@ -153,9 +152,7 @@ C 解法： class Solution { public: int firstBadVersion(int n) { int left = 1, 
       <guid>http://example.org/posts/rust-note-34/</guid>
       <description>爬楼梯 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
-C 解法1： 
- // 通项公式法 class Solution { public: int climbStairs(int n) { double sqrt5 = sqrt(5); double fibn = pow((1 + sqrt5) / 2, n + 1) - pow((1 - sqrt5) / 2, n + 1); return (int)round(fibn / sqrt5); } }; C解法2: 
- // 矩阵快速幂 class Solution { public: vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; multiply(vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; &amp;amp;a, vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; &amp;amp;b) { vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; c(2, vector&amp;lt;long long&amp;gt;(2)); for (int i = 0; i &amp;lt; 2; i++) { for (int j = 0; j &amp;lt; 2; j++) { c[i][j] = a[i][0] * b[0][j] + a[i][1] * b[1][j]; } } return c; } vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; matrixPow(vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; a, int n) { vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; ret = {{1, 0}, {0, 1}}; while (n &amp;gt; 0) { if ((n &amp;amp; 1) == 1) { ret = multiply(ret, a); } n &amp;gt;&amp;gt;= 1; a = multiply(a, a); } return ret; } int climbStairs(int n) { vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; ret = {{1, 1}, {1, 0}}; vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; res = matrixPow(ret, n); return res[0][0]; } }; Rust 解法： impl Solution { pub fn climb_stairs(n: i32) -&amp;gt; i32 { let (mut a, mut b) = (1, 1); (0.</description>
+C 解法1： // 通项公式法 class Solution { public: int climbStairs(int n) { double sqrt5 = sqrt(5); double fibn = pow((1 + sqrt5) / 2, n + 1) - pow((1 - sqrt5) / 2, n + 1); return (int)round(fibn / sqrt5); } }; C解法2: // 矩阵快速幂 class Solution { public: vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; multiply(vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; &amp;amp;a, vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; &amp;amp;b) { vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; c(2, vector&amp;lt;long long&amp;gt;(2)); for (int i = 0; i &amp;lt; 2; i++) { for (int j = 0; j &amp;lt; 2; j++) { c[i][j] = a[i][0] * b[0][j] + a[i][1] * b[1][j]; } } return c; } vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; matrixPow(vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; a, int n) { vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; ret = {{1, 0}, {0, 1}}; while (n &amp;gt; 0) { if ((n &amp;amp; 1) == 1) { ret = multiply(ret, a); } n &amp;gt;&amp;gt;= 1; a = multiply(a, a); } return ret; } int climbStairs(int n) { vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; ret = {{1, 1}, {1, 0}}; vector&amp;lt;vector&amp;lt;long long&amp;gt;&amp;gt; res = matrixPow(ret, n); return res[0][0]; } }; Rust 解法： impl Solution { pub fn climb_stairs(n: i32) -&amp;gt; i32 { let (mut a, mut b) = (1, 1); (0.</description>
     </item>
     
     <item>
@@ -178,7 +175,7 @@ C 解法： class Solution { public: int maxProfit(vector&amp;lt;int&amp;gt;&amp
       <guid>http://example.org/posts/rust-note-36/</guid>
       <description>最大子序和 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 子数组 是数组中的一个连续部分。
-C 解法1： // 动态规划 class Solution { public: int maxSubArray(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int pre = 0, maxAns = nums[0]; for (const auto &amp;amp;x: nums) { pre = max(pre + x, x); maxAns = max(maxAns, pre); } return maxAns; } }; C解法2:  // 分治法 class Solution { public: struct Status { int lSum, rSum, mSum, iSum; }; Status pushUp(Status l, Status r) { int iSum = l.</description>
+C 解法1： // 动态规划 class Solution { public: int maxSubArray(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int pre = 0, maxAns = nums[0]; for (const auto &amp;amp;x: nums) { pre = max(pre + x, x); maxAns = max(maxAns, pre); } return maxAns; } }; C解法2: // 分治法 class Solution { public: struct Status { int lSum, rSum, mSum, iSum; }; Status pushUp(Status l, Status r) { int iSum = l.</description>
     </item>
     
     <item>
@@ -213,7 +210,7 @@ C 解法： // 原地乱序，Fisher-Yates 洗牌算法 class Solution { public:
       <description>最小栈 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
 实现 MinStack 类:
 MinStack() 初始化堆栈对象。 void push(int val) 将元素val推入堆栈。 void pop() 删除堆栈顶部的元素。 int top() 获取堆栈顶部的元素。 int getMin() 获取堆栈中的最小元素。
-C 解法：  // 辅助栈 class MinStack { stack&amp;lt;int&amp;gt; x_stack; stack&amp;lt;int&amp;gt; min_stack; public: MinStack() { min_stack.push(INT_MAX); } void push(int x) { x_stack.push(x); min_stack.push(min(min_stack.top(), x)); } void pop() { x_stack.pop(); min_stack.pop(); } int top() { return x_stack.top(); } int getMin() { return min_stack.top(); } }; python解法：  // 原地，栈里保存差值 class MinStack: def __init__(self): &amp;quot;&amp;quot;&amp;quot; initialize your data structure here.</description>
+C 解法： // 辅助栈 class MinStack { stack&amp;lt;int&amp;gt; x_stack; stack&amp;lt;int&amp;gt; min_stack; public: MinStack() { min_stack.push(INT_MAX); } void push(int x) { x_stack.push(x); min_stack.push(min(min_stack.top(), x)); } void pop() { x_stack.pop(); min_stack.pop(); } int top() { return x_stack.top(); } int getMin() { return min_stack.top(); } }; python解法： // 原地，栈里保存差值 class MinStack: def __init__(self): &amp;#34;&amp;#34;&amp;#34; initialize your data structure here.</description>
     </item>
     
     <item>
@@ -224,7 +221,7 @@ C 解法：  // 辅助栈 class MinStack { stack&amp;lt;int&amp;gt; x_stack; sta
       <guid>http://example.org/posts/rust-note-40/</guid>
       <description>Fizz Buzz 给你一个整数 n ，找出从 1 到 n 各个整数的 Fizz Buzz 表示，并用字符串数组 answer（下标从 1 开始）返回结果，其中：
 answer[i] == &amp;ldquo;FizzBuzz&amp;rdquo; 如果 i 同时是 3 和 5 的倍数。 answer[i] == &amp;ldquo;Fizz&amp;rdquo; 如果 i 是 3 的倍数。 answer[i] == &amp;ldquo;Buzz&amp;rdquo; 如果 i 是 5 的倍数。 answer[i] == i （以字符串形式）如果上述条件全不满足。
-C 解法： class Solution { public: vector&amp;lt;string&amp;gt; fizzBuzz(int n) { vector&amp;lt;string&amp;gt; answer; for (int i = 1; i &amp;lt;= n; i++) { string curr; if (i % 3 == 0) { curr　+= &amp;quot;Fizz&amp;quot;; } if (i % 5 == 0) { curr += &amp;quot;Buzz&amp;quot;; } if (curr.</description>
+C 解法： class Solution { public: vector&amp;lt;string&amp;gt; fizzBuzz(int n) { vector&amp;lt;string&amp;gt; answer; for (int i = 1; i &amp;lt;= n; i++) { string curr; if (i % 3 == 0) { curr　+= &amp;#34;Fizz&amp;#34;; } if (i % 5 == 0) { curr += &amp;#34;Buzz&amp;#34;; } if (curr.</description>
     </item>
     
     <item>
@@ -244,7 +241,7 @@ C 解法： class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp
       
       <guid>http://example.org/posts/rust-note-29/</guid>
       <description>对称二叉树 给你一个二叉树的根节点 root ， 检查它是否轴对称。
-C 解法：  // 递归 class Solution { public: bool check(TreeNode *p, TreeNode *q) { if (!p &amp;amp;&amp;amp; !q) return true; if (!p || !q) return false; return p-&amp;gt;val == q-&amp;gt;val &amp;amp;&amp;amp; check(p-&amp;gt;left, q-&amp;gt;right) &amp;amp;&amp;amp; check(p-&amp;gt;right, q-&amp;gt;left); } bool isSymmetric(TreeNode* root) { return check(root, root); } }; Rust 解法： use std::cell::RefCell; use std::rc::Rc; impl Solution { fn cmp(left: &amp;amp;Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, right: &amp;amp;Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;) -&amp;gt; bool { match (&amp;amp;left, &amp;amp;right) { (None, None) =&amp;gt; true, (Some(left), Some(right)) =&amp;gt; { left.</description>
+C 解法： // 递归 class Solution { public: bool check(TreeNode *p, TreeNode *q) { if (!p &amp;amp;&amp;amp; !q) return true; if (!p || !q) return false; return p-&amp;gt;val == q-&amp;gt;val &amp;amp;&amp;amp; check(p-&amp;gt;left, q-&amp;gt;right) &amp;amp;&amp;amp; check(p-&amp;gt;right, q-&amp;gt;left); } bool isSymmetric(TreeNode* root) { return check(root, root); } }; Rust 解法： use std::cell::RefCell; use std::rc::Rc; impl Solution { fn cmp(left: &amp;amp;Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, right: &amp;amp;Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;) -&amp;gt; bool { match (&amp;amp;left, &amp;amp;right) { (None, None) =&amp;gt; true, (Some(left), Some(right)) =&amp;gt; { left.</description>
     </item>
     
     <item>
@@ -268,7 +265,7 @@ C 解法： class Solution { public: bool isValidBST(TreeNode* root) { stack&amp
       <description>二叉树的最大深度 给定一个二叉树，找出其最大深度。
 二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
 说明: 叶子节点是指没有子节点的节点。
-C 解法：  // 深度优先，递归 class Solution { public: int maxDepth(TreeNode* root) { if (root == nullptr) return 0; return max(maxDepth(root-&amp;gt;left), maxDepth(root-&amp;gt;right)) + 1; } }; Rust 解法： // Definition for a binary tree node. // #[derive(Debug, PartialEq, Eq)] // pub struct TreeNode { // pub val: i32, // pub left: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, // pub right: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, // } // // impl TreeNode { // #[inline] // pub fn new(val: i32) -&amp;gt; Self { // TreeNode { // val, // left: None, // right: None // } // } // } use std::rc::Rc; use std::cell::RefCell; impl Solution { pub fn max_depth(root: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;) -&amp;gt; i32 { Self::max_depth_traverse_impl(&amp;amp;root, 1) } pub fn max_depth_traverse_impl(root: &amp;amp;Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, mut depth: i32) -&amp;gt; i32 { use std::cmp::Ordering; if let Some(node) = root { let (left, right) = (node.</description>
+C 解法： // 深度优先，递归 class Solution { public: int maxDepth(TreeNode* root) { if (root == nullptr) return 0; return max(maxDepth(root-&amp;gt;left), maxDepth(root-&amp;gt;right)) + 1; } }; Rust 解法： // Definition for a binary tree node. // #[derive(Debug, PartialEq, Eq)] // pub struct TreeNode { // pub val: i32, // pub left: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, // pub right: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, // } // // impl TreeNode { // #[inline] // pub fn new(val: i32) -&amp;gt; Self { // TreeNode { // val, // left: None, // right: None // } // } // } use std::rc::Rc; use std::cell::RefCell; impl Solution { pub fn max_depth(root: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;) -&amp;gt; i32 { Self::max_depth_traverse_impl(&amp;amp;root, 1) } pub fn max_depth_traverse_impl(root: &amp;amp;Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;, mut depth: i32) -&amp;gt; i32 { use std::cmp::Ordering; if let Some(node) = root { let (left, right) = (node.</description>
     </item>
     
     <item>
@@ -280,7 +277,7 @@ C 解法：  // 深度优先，递归 class Solution { public: int maxDepth(Tree
       <description>环形链表 给你一个链表的头节点 head ，判断链表中是否有环。
 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。
 如果链表中存在环 ，则返回 true 。 否则，返回 false 。
-C 解法：  // 快慢指针，floyd判圈算法 class Solution { public: bool hasCycle(ListNode* head) { if (head == nullptr || head-&amp;gt;next == nullptr) { return false; } ListNode* slow = head; ListNode* fast = head-&amp;gt;next; while (slow != fast) { if (fast == nullptr || fast-&amp;gt;next == nullptr) { return false; } slow = slow-&amp;gt;next; fast = fast-&amp;gt;next-&amp;gt;next; } return true; } }; Rust 解法1：  // hash set use std::rc::Rc; use std::cell::RefCell; use std::collections::HashSet; struct ListNode{ val: i32, next: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;ListNode&amp;gt;&amp;gt;&amp;gt;, } impl ListNode{ pub fn new(val: i32) -&amp;gt; ListNode { ListNode { val, next: None, } } } pub fn has_cycle(head: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;ListNode&amp;gt;&amp;gt;&amp;gt;) -&amp;gt; bool { let mut set = HashSet::new(); let mut h = match head { Some(ref node) =&amp;gt; Rc::clone(node), _ =&amp;gt; return false, }; loop { if set.</description>
+C 解法： // 快慢指针，floyd判圈算法 class Solution { public: bool hasCycle(ListNode* head) { if (head == nullptr || head-&amp;gt;next == nullptr) { return false; } ListNode* slow = head; ListNode* fast = head-&amp;gt;next; while (slow != fast) { if (fast == nullptr || fast-&amp;gt;next == nullptr) { return false; } slow = slow-&amp;gt;next; fast = fast-&amp;gt;next-&amp;gt;next; } return true; } }; Rust 解法1： // hash set use std::rc::Rc; use std::cell::RefCell; use std::collections::HashSet; struct ListNode{ val: i32, next: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;ListNode&amp;gt;&amp;gt;&amp;gt;, } impl ListNode{ pub fn new(val: i32) -&amp;gt; ListNode { ListNode { val, next: None, } } } pub fn has_cycle(head: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;ListNode&amp;gt;&amp;gt;&amp;gt;) -&amp;gt; bool { let mut set = HashSet::new(); let mut h = match head { Some(ref node) =&amp;gt; Rc::clone(node), _ =&amp;gt; return false, }; loop { if set.</description>
     </item>
     
     <item>
@@ -320,7 +317,7 @@ C 解法： class Solution { public: ListNode* reverseList(ListNode* head) { Lis
       
       <guid>http://example.org/posts/rust-note-22/</guid>
       <description>删除链表的倒数第N个节点 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
-Java 解法：  // 回溯后序遍历 public ListNode removeNthFromEnd(ListNode head, int n) { int traverse = traverse(head, n); if(traverse == n) return head.next; return head; } private int traverse(ListNode node, int n) { if(node == null) return 0; int num = traverse(node.next, n); if(num == n) node.next = node.next.next; return num + 1; } Rust 解法：  // 快慢指针法 // Definition for singly-linked list. // #[derive(PartialEq, Eq, Clone, Debug)] // pub struct ListNode { // pub val: i32, // pub next: Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt; // } // // impl ListNode { // #[inline] // fn new(val: i32) -&amp;gt; Self { // ListNode { // next: None, // val // } // } // } impl Solution { pub fn remove_nth_from_end(head: Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt;, n: i32) -&amp;gt; Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt; { let mut dummy = Some(Box::new(ListNode{val: 0, next: head})); let mut slow_p = &amp;amp;mut dummy; let mut fast_p = &amp;amp;slow_p.</description>
+Java 解法： // 回溯后序遍历 public ListNode removeNthFromEnd(ListNode head, int n) { int traverse = traverse(head, n); if(traverse == n) return head.next; return head; } private int traverse(ListNode node, int n) { if(node == null) return 0; int num = traverse(node.next, n); if(num == n) node.next = node.next.next; return num + 1; } Rust 解法： // 快慢指针法 // Definition for singly-linked list. // #[derive(PartialEq, Eq, Clone, Debug)] // pub struct ListNode { // pub val: i32, // pub next: Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt; // } // // impl ListNode { // #[inline] // fn new(val: i32) -&amp;gt; Self { // ListNode { // next: None, // val // } // } // } impl Solution { pub fn remove_nth_from_end(head: Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt;, n: i32) -&amp;gt; Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt; { let mut dummy = Some(Box::new(ListNode{val: 0, next: head})); let mut slow_p = &amp;amp;mut dummy; let mut fast_p = &amp;amp;slow_p.</description>
     </item>
     
     <item>
@@ -334,7 +331,7 @@ Java 解法：  // 回溯后序遍历 public ListNode removeNthFromEnd(ListNode 
 链表的所有值都是 唯一的，并且保证给定的节点 node 不是链表中的最后一个节点。
 删除给定的节点。注意，删除节点并不是指从内存中删除它。这里的意思是：
 给定节点的值不应该存在于链表中。 链表中的节点数应该减少 1。 node 前面的所有值顺序相同。 node 后面的所有值顺序相同。
-C 解法： class Solution { public: void deleteNode(ListNode* node) { node-&amp;gt;val = node-&amp;gt;next-&amp;gt;val; node-&amp;gt;next = node-&amp;gt;next-&amp;gt;next; } }; Rust 解法：  </description>
+C 解法： class Solution { public: void deleteNode(ListNode* node) { node-&amp;gt;val = node-&amp;gt;next-&amp;gt;val; node-&amp;gt;next = node-&amp;gt;next-&amp;gt;next; } }; Rust 解法： </description>
     </item>
     
     <item>
@@ -368,7 +365,7 @@ C 解法： void swap(char *a, char *b) { char t = *a; *a = *b, *b = t; } void r
       <description>整数反转 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
 如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。
 假设环境不允许存储 64 位整数（有符号或无符号）。
-C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&amp;gt;0 &amp;amp;&amp;amp; res&amp;gt;(INT_MAX-x%10)/10) return 0; if(x&amp;lt;0 &amp;amp;&amp;amp; res&amp;lt;(INT_MIN-x%10)/10) return 0; res = res*10+x%10; x/=10; } return res; } }; Rust 解法：  impl Solution { pub fn reverse(x: i32) -&amp;gt; i32 { x.abs() .to_string() .chars().rev() .collect::&amp;lt;String&amp;gt;() .parse::&amp;lt;i32&amp;gt;() .</description>
+C 解法： class Solution { public: int reverse(int x) { int res=0; while(x){ if(x&amp;gt;0 &amp;amp;&amp;amp; res&amp;gt;(INT_MAX-x%10)/10) return 0; if(x&amp;lt;0 &amp;amp;&amp;amp; res&amp;lt;(INT_MIN-x%10)/10) return 0; res = res*10+x%10; x/=10; } return res; } }; Rust 解法： impl Solution { pub fn reverse(x: i32) -&amp;gt; i32 { x.abs() .to_string() .chars().rev() .collect::&amp;lt;String&amp;gt;() .parse::&amp;lt;i32&amp;gt;() .unwrap_or(0) * x.</description>
     </item>
     
     <item>
@@ -389,7 +386,7 @@ C 解法： class Solution { public: int firstUniqChar(string s) { unordered_map
       <guid>http://example.org/posts/rustnote15/</guid>
       <description>有效的字母异位词 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
-C 解法： class Solution { public boolean isAnagram(String s, String t) { if(s.length() != t.length()) return false; int[] alpha = new int[26]; for(int i = 0; i&amp;lt; s.length(); i++) { alpha[s.charAt(i) - &#39;a&#39;] ++; alpha[t.charAt(i) - &#39;a&#39;] --; } for(int i=0;i&amp;lt;26;i++) if(alpha[i] != 0) return false; return true; } } Rust 解法： impl Solution { pub fn is_anagram(s: String, t: String) -&amp;gt; bool { if s.</description>
+C 解法： class Solution { public boolean isAnagram(String s, String t) { if(s.length() != t.length()) return false; int[] alpha = new int[26]; for(int i = 0; i&amp;lt; s.length(); i++) { alpha[s.charAt(i) - &amp;#39;a&amp;#39;] ++; alpha[t.charAt(i) - &amp;#39;a&amp;#39;] --; } for(int i=0;i&amp;lt;26;i++) if(alpha[i] != 0) return false; return true; } } Rust 解法： impl Solution { pub fn is_anagram(s: String, t: String) -&amp;gt; bool { if s.</description>
     </item>
     
     <item>
@@ -413,8 +410,8 @@ C 解法： class Solution { public: bool isPalindrome(string s) { int n = s.siz
       <description>字符串转换整数 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
 函数 myAtoi(string s) 的算法如下：
 读入字符串并丢弃无用的前导空格 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。 读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。 将前面步骤读入的这些数字转换为整数（即，&amp;ldquo;123&amp;rdquo; -&amp;gt; 123， &amp;ldquo;0032&amp;rdquo; -&amp;gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。 如果整数数超过 32 位有符号整数范围 [−231, 231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。 返回整数作为最终结果。 注意：
-本题中的空白字符只包括空格字符 &#39; &#39; 。 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
-C 解法：  // 自动机 class Automaton { string state = &amp;quot;start&amp;quot;; unordered_map&amp;lt;string, vector&amp;lt;string&amp;gt;&amp;gt; table = { {&amp;quot;start&amp;quot;, {&amp;quot;start&amp;quot;, &amp;quot;signed&amp;quot;, &amp;quot;in_number&amp;quot;, &amp;quot;end&amp;quot;}}, {&amp;quot;signed&amp;quot;, {&amp;quot;end&amp;quot;, &amp;quot;end&amp;quot;, &amp;quot;in_number&amp;quot;, &amp;quot;end&amp;quot;}}, {&amp;quot;in_number&amp;quot;, {&amp;quot;end&amp;quot;, &amp;quot;end&amp;quot;, &amp;quot;in_number&amp;quot;, &amp;quot;end&amp;quot;}}, {&amp;quot;end&amp;quot;, {&amp;quot;end&amp;quot;, &amp;quot;end&amp;quot;, &amp;quot;end&amp;quot;, &amp;quot;end&amp;quot;}} }; int get_col(char c) { if (isspace(c)) return 0; if (c == &#39;+&#39; or c == &#39;-&#39;) return 1; if (isdigit(c)) return 2; return 3; } public: int sign = 1; long long ans = 0; void get(char c) { state = table[state][get_col(c)]; if (state == &amp;quot;in_number&amp;quot;) { ans = ans * 10 + c - &#39;0&#39;; ans = sign == 1 ?</description>
+本题中的空白字符只包括空格字符 &amp;rsquo; &amp;rsquo; 。 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+C 解法： // 自动机 class Automaton { string state = &amp;#34;start&amp;#34;; unordered_map&amp;lt;string, vector&amp;lt;string&amp;gt;&amp;gt; table = { {&amp;#34;start&amp;#34;, {&amp;#34;start&amp;#34;, &amp;#34;signed&amp;#34;, &amp;#34;in_number&amp;#34;, &amp;#34;end&amp;#34;}}, {&amp;#34;signed&amp;#34;, {&amp;#34;end&amp;#34;, &amp;#34;end&amp;#34;, &amp;#34;in_number&amp;#34;, &amp;#34;end&amp;#34;}}, {&amp;#34;in_number&amp;#34;, {&amp;#34;end&amp;#34;, &amp;#34;end&amp;#34;, &amp;#34;in_number&amp;#34;, &amp;#34;end&amp;#34;}}, {&amp;#34;end&amp;#34;, {&amp;#34;end&amp;#34;, &amp;#34;end&amp;#34;, &amp;#34;end&amp;#34;, &amp;#34;end&amp;#34;}} }; int get_col(char c) { if (isspace(c)) return 0; if (c == &amp;#39;+&amp;#39; or c == &amp;#39;-&amp;#39;) return 1; if (isdigit(c)) return 2; return 3; } public: int sign = 1; long long ans = 0; void get(char c) { state = table[state][get_col(c)]; if (state == &amp;#34;in_number&amp;#34;) { ans = ans * 10 + c - &amp;#39;0&amp;#39;; ans = sign == 1 ?</description>
     </item>
     
     <item>
@@ -424,7 +421,7 @@ C 解法：  // 自动机 class Automaton { string state = &amp;quot;start&amp;q
       
       <guid>http://example.org/posts/rustnote18/</guid>
       <description>实现strStr() 给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串的第一个匹配项的下标（下标从 0 开始）。如果 needle 不是 haystack 的一部分，则返回 -1 。
-C 解法：  // 暴力匹配 class Solution { public: int strStr(string haystack, string needle) { int n = haystack.size(), m = needle.size(); for (int i = 0; i + m &amp;lt;= n; i++) { bool flag = true; for (int j = 0; j &amp;lt; m; j++) { if (haystack[i + j] !</description>
+C 解法： // 暴力匹配 class Solution { public: int strStr(string haystack, string needle) { int n = haystack.size(), m = needle.size(); for (int i = 0; i + m &amp;lt;= n; i++) { bool flag = true; for (int j = 0; j &amp;lt; m; j++) { if (haystack[i + j] != needle[j]) { flag = false; break; } } if (flag) { return i; } } return -1; } }; Rust 解法1： // KMP算法 impl Solution { pub fn str_str(haystack: String, needle: String) -&amp;gt; i32 { let haystack = haystack.</description>
     </item>
     
     <item>
@@ -437,7 +434,7 @@ C 解法：  // 暴力匹配 class Solution { public: int strStr(string haystack
 「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。
 你可以将其视作是由递归公式定义的数字字符串序列：
 countAndSay(1) = &amp;ldquo;1&amp;rdquo; countAndSay(n) 是对 countAndSay(n-1) 的描述，然后转换成另一个数字字符串。 前五项如下：
-  1    11    21    1211    111221    第一项是数字 1 描述前一项，这个数是 1 即 “ 一 个 1 ”，记作 &amp;ldquo;11&amp;rdquo; 描述前一项，这个数是 11 即 “ 二 个 1 ” ，记作 &amp;ldquo;21&amp;rdquo; 描述前一项，这个数是 21 即 “ 一 个 2 + 一 个 1 ” ，记作 &amp;ldquo;1211&amp;rdquo; 描述前一项，这个数是 1211 即 “ 一 个 1 + 一 个 2 + 二 个 1 ” ，记作 &amp;ldquo;111221&amp;rdquo; 要 描述 一个数字字符串，首先要将字符串分割为 最小 数量的组，每个组都由连续的最多 相同字符 组成。然后对于每个组，先描述字符的数量，然后描述字符，形成一个描述组。要将描述转换为数字字符串，先将每组中的字符数量用数字替换，再将所有描述组连接起来。</description>
+1 11 21 1211 111221 第一项是数字 1 描述前一项，这个数是 1 即 “ 一 个 1 ”，记作 &amp;ldquo;11&amp;rdquo; 描述前一项，这个数是 11 即 “ 二 个 1 ” ，记作 &amp;ldquo;21&amp;rdquo; 描述前一项，这个数是 21 即 “ 一 个 2 + 一 个 1 ” ，记作 &amp;ldquo;1211&amp;rdquo; 描述前一项，这个数是 1211 即 “ 一 个 1 + 一 个 2 + 二 个 1 ” ，记作 &amp;ldquo;111221&amp;rdquo; 要 描述 一个数字字符串，首先要将字符串分割为 最小 数量的组，每个组都由连续的最多 相同字符 组成。然后对于每个组，先描述字符的数量，然后描述字符，形成一个描述组。要将描述转换为数字字符串，先将每组中的字符数量用数字替换，再将所有描述组连接起来。</description>
     </item>
     
     <item>
@@ -448,7 +445,7 @@ countAndSay(1) = &amp;ldquo;1&amp;rdquo; countAndSay(n) 是对 countAndSay(n-1) 
       <guid>http://example.org/posts/rustnote20/</guid>
       <description>最长公共前缀 编写一个函数来查找字符串数组中的最长公共前缀。
 如果不存在公共前缀，返回空字符串 &amp;ldquo;&amp;quot;。
-C 解法：  // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &amp;lt; num &amp;amp;&amp;amp; st[i] == en[i]; i ++); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&amp;lt;String&amp;gt;) -&amp;gt; String { let mut x:Vec&amp;lt;_&amp;gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0].</description>
+C 解法： // 先排序，后比较头尾 class Solution { public: string longestCommonPrefix(vector&amp;lt;string&amp;gt;&amp;amp; strs) { if(strs.empty()) return string(); sort(strs.begin(), strs.end()); string st = strs.front(), en = strs.back(); int i, num = min(st.size(), en.size()); for(i = 0; i &amp;lt; num &amp;amp;&amp;amp; st[i] == en[i]; i ++); return string(st, 0, i); } }; Rust 解法1： impl Solution { pub fn longest_common_prefix(strs: Vec&amp;lt;String&amp;gt;) -&amp;gt; String { let mut x:Vec&amp;lt;_&amp;gt; = strs.iter().map(|c|c.chars()).collect(); let mut res = String::new(); while let Some(t) = x[0].</description>
     </item>
     
     <item>
@@ -460,7 +457,7 @@ C 解法：  // 先排序，后比较头尾 class Solution { public: string long
       <description>有效的数独 请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
 数字 1-9 在每一行只能出现一次。 数字 1-9 在每一列只能出现一次。 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。 注意：
 一个有效的数独（部分已被填充）不一定是可解的。 只需要根据以上规则，验证已经填入的数字是否有效即可。 空白格用 &amp;lsquo;.&amp;rsquo; 表示。
-C 解法： class Solution { public: bool isValidSudoku(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board) { int row[9][9] = {0}; int col[9][9] = {0}; int box[3][3][9] = {0}; for (int i = 0; i &amp;lt; 9; i++) { for (int j = 0; j &amp;lt; 9; j++) { char c = board[i][j]; if (c == &#39;.</description>
+C 解法： class Solution { public: bool isValidSudoku(vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board) { int row[9][9] = {0}; int col[9][9] = {0}; int box[3][3][9] = {0}; for (int i = 0; i &amp;lt; 9; i++) { for (int j = 0; j &amp;lt; 9; j++) { char c = board[i][j]; if (c == &amp;#39;.</description>
     </item>
     
     <item>
@@ -573,7 +570,7 @@ C 解法： //双指针解决 public int removeDuplicates(int[] A) { //边界条
       
       <guid>http://example.org/posts/my-first-post/</guid>
       <description>博文总述
-标签：  - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划  </description>
+标签： - rust - leetcode初级算法篇 leetcode算法类型： - 拒绝采样 - 数组 - 字符串 - 哈希表 - 动态规划 </description>
     </item>
     
   </channel>

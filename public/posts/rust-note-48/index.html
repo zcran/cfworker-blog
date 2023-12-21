@@ -6,11 +6,11 @@
     
     <title>Rust Note 48 | Paperubit的博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="有效的括号 给定一个只包括 &lsquo;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&rsquo; 的字符串 s ，判断字符串是否有效。
+    <meta name="description" content="有效的括号 给定一个只包括 &lsquo;(&rsquo;，&rsquo;)&rsquo;，&rsquo;{&rsquo;，&rsquo;}&rsquo;，&rsquo;[&rsquo;，&rsquo;]&rsquo; 的字符串 s ，判断字符串是否有效。
 有效字符串需满足：
 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。
 C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&lt;char, char&gt; pairs = { {&#39;)&#39;, &#39;(&#39;}, {&#39;]&#39;, &#39;[&#39;}, {&#39;}&#39;, &#39;{&#39;} }; stack&lt;char&gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -33,7 +33,7 @@ C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); 
     
     
     <meta property="og:title" content="Rust Note 48" />
-<meta property="og:description" content="有效的括号 给定一个只包括 &lsquo;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&rsquo; 的字符串 s ，判断字符串是否有效。
+<meta property="og:description" content="有效的括号 给定一个只包括 &lsquo;(&rsquo;，&rsquo;)&rsquo;，&rsquo;{&rsquo;，&rsquo;}&rsquo;，&rsquo;[&rsquo;，&rsquo;]&rsquo; 的字符串 s ，判断字符串是否有效。
 有效字符串需满足：
 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。
 C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&lt;char, char&gt; pairs = { {&#39;)&#39;, &#39;(&#39;}, {&#39;]&#39;, &#39;[&#39;}, {&#39;}&#39;, &#39;{&#39;} }; stack&lt;char&gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk." />
@@ -41,9 +41,8 @@ C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); 
 <meta property="og:url" content="http://example.org/posts/rust-note-48/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-12T10:35:06+08:00" />
 <meta property="article:modified_time" content="2023-06-12T10:35:06+08:00" />
-
 <meta itemprop="name" content="Rust Note 48">
-<meta itemprop="description" content="有效的括号 给定一个只包括 &lsquo;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&rsquo; 的字符串 s ，判断字符串是否有效。
+<meta itemprop="description" content="有效的括号 给定一个只包括 &lsquo;(&rsquo;，&rsquo;)&rsquo;，&rsquo;{&rsquo;，&rsquo;}&rsquo;，&rsquo;[&rsquo;，&rsquo;]&rsquo; 的字符串 s ，判断字符串是否有效。
 有效字符串需满足：
 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。
 C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&lt;char, char&gt; pairs = { {&#39;)&#39;, &#39;(&#39;}, {&#39;]&#39;, &#39;[&#39;}, {&#39;}&#39;, &#39;{&#39;} }; stack&lt;char&gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk."><meta itemprop="datePublished" content="2023-06-12T10:35:06+08:00" />
@@ -51,7 +50,7 @@ C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); 
 <meta itemprop="wordCount" content="118">
 <meta itemprop="keywords" content="rust,leetcode,初级算法篇," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Rust Note 48"/>
-<meta name="twitter:description" content="有效的括号 给定一个只包括 &lsquo;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&rsquo; 的字符串 s ，判断字符串是否有效。
+<meta name="twitter:description" content="有效的括号 给定一个只包括 &lsquo;(&rsquo;，&rsquo;)&rsquo;，&rsquo;{&rsquo;，&rsquo;}&rsquo;，&rsquo;[&rsquo;，&rsquo;]&rsquo; 的字符串 s ，判断字符串是否有效。
 有效字符串需满足：
 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 每个右括号都有一个对应的相同类型的左括号。
 C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); if (n % 2 == 1) { return false; } unordered_map&lt;char, char&gt; pairs = { {&#39;)&#39;, &#39;(&#39;}, {&#39;]&#39;, &#39;[&#39;}, {&#39;}&#39;, &#39;{&#39;} }; stack&lt;char&gt; stk; for (char ch: s) { if (pairs.count(ch)) { if (stk.empty() || stk.top() != pairs[ch]) { return false; } stk.pop(); } else { stk."/>
@@ -128,7 +127,7 @@ C 解法： class Solution { public: bool isValid(string s) { int n = s.size(); 
       
     </header>
     <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="有效的括号">有效的括号</h2>
-<p>给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo; 的字符串 s ，判断字符串是否有效。</p>
+<p>给定一个只包括 &lsquo;(&rsquo;，&rsquo;)&rsquo;，&rsquo;{&rsquo;，&rsquo;}&rsquo;，&rsquo;[&rsquo;，&rsquo;]&rsquo; 的字符串 s ，判断字符串是否有效。</p>
 <p>有效字符串需满足：</p>
 <p>左括号必须用相同类型的右括号闭合。
 左括号必须以正确的顺序闭合。
@@ -143,9 +142,9 @@ public:
         }
 
         unordered_map&lt;char, char&gt; pairs = {
-            {')', '('},
-            {']', '['},
-            {'}', '{'}
+            {&#39;)&#39;, &#39;(&#39;},
+            {&#39;]&#39;, &#39;[&#39;},
+            {&#39;}&#39;, &#39;{&#39;}
         };
         stack&lt;char&gt; stk;
         for (char ch: s) {
@@ -168,10 +167,10 @@ public:
         let mut stack = vec![];
         for c in s.chars(){
             match c {
-                '{'=&gt;stack.push('}'),
-                '['=&gt;stack.push(']'),
-                '('=&gt;stack.push(')'),
-                '}'|']'|')' if Some(c) != stack.pop() =&gt; return false,
+                &#39;{&#39;=&gt;stack.push(&#39;}&#39;),
+                &#39;[&#39;=&gt;stack.push(&#39;]&#39;),
+                &#39;(&#39;=&gt;stack.push(&#39;)&#39;),
+                &#39;}&#39;|&#39;]&#39;|&#39;)&#39; if Some(c) != stack.pop() =&gt; return false,
                 _=&gt;(),
             }
         }

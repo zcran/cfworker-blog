@@ -9,7 +9,7 @@
     <meta name="description" content="杨辉三角 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行。
 在「杨辉三角」中，每个数是它左上方和右上方的数的和。
 C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; generate(int numRows) { vector&lt;vector&lt;int&gt;&gt; ret(numRows); for (int i = 0; i &lt; numRows; &#43;&#43;i) { ret[i].resize(i &#43; 1); ret[i][0] = ret[i][i] = 1; for (int j = 1; j &lt; i; &#43;&#43;j) { ret[i][j] = ret[i - 1][j] &#43; ret[i - 1][j - 1]; } } return ret; } }; Rust 解法： impl Solution { pub fn makevec(number: i32) -&gt; Vec&lt;i32&gt; { let mut r = vec!">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -39,7 +39,6 @@ C 解法： class Solution { public: vector&lt;vector&lt;int&gt;&gt; generate(in
 <meta property="og:url" content="http://example.org/posts/rust-note-47/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-12T10:35:06+08:00" />
 <meta property="article:modified_time" content="2023-06-12T10:35:06+08:00" />
-
 <meta itemprop="name" content="Rust Note 47">
 <meta itemprop="description" content="杨辉三角 给定一个非负整数 numRows，生成「杨辉三角」的前 numRows 行。
 在「杨辉三角」中，每个数是它左上方和右上方的数的和。

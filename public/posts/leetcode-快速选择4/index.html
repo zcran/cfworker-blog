@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 快速选择4 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="找出数组中的第 K 大整数 给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。
+返回 nums 中表示第 k 大整数的字符串。
+注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 [&ldquo;1&rdquo;,&ldquo;2&rdquo;,&ldquo;2&rdquo;]，那么 &ldquo;2&rdquo; 是最大的整数，&ldquo;2&rdquo; 是第二大的整数，&ldquo;1&rdquo; 是第三大的整数。
+impl Solution { pub fn kth_largest_number(mut nums: Vec&lt;String&gt;, k: i32) -&gt; String { // 自定义比较函数，在 a 对应的整数较大时返回 true，反之返回 false nums.sort_by(|a, b| { // 首先比较字符串长度 if a.len() &gt; b.len() { return std::cmp::Ordering::Greater; } else if a.len() &lt; b.len() { return std::cmp::Ordering::Less; } else { // 长度相等时比较字符串字典序大小 a.cmp(&amp;b) } }); nums[nums.">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 快速选择4" />
+<meta property="og:description" content="找出数组中的第 K 大整数 给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。
+返回 nums 中表示第 k 大整数的字符串。
+注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 [&ldquo;1&rdquo;,&ldquo;2&rdquo;,&ldquo;2&rdquo;]，那么 &ldquo;2&rdquo; 是最大的整数，&ldquo;2&rdquo; 是第二大的整数，&ldquo;1&rdquo; 是第三大的整数。
+impl Solution { pub fn kth_largest_number(mut nums: Vec&lt;String&gt;, k: i32) -&gt; String { // 自定义比较函数，在 a 对应的整数较大时返回 true，反之返回 false nums.sort_by(|a, b| { // 首先比较字符串长度 if a.len() &gt; b.len() { return std::cmp::Ordering::Greater; } else if a.len() &lt; b.len() { return std::cmp::Ordering::Less; } else { // 长度相等时比较字符串字典序大小 a.cmp(&amp;b) } }); nums[nums." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A94/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:49:31+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:49:31+08:00" />
+<meta itemprop="name" content="Leetcode 快速选择4">
+<meta itemprop="description" content="找出数组中的第 K 大整数 给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。
+返回 nums 中表示第 k 大整数的字符串。
+注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 [&ldquo;1&rdquo;,&ldquo;2&rdquo;,&ldquo;2&rdquo;]，那么 &ldquo;2&rdquo; 是最大的整数，&ldquo;2&rdquo; 是第二大的整数，&ldquo;1&rdquo; 是第三大的整数。
+impl Solution { pub fn kth_largest_number(mut nums: Vec&lt;String&gt;, k: i32) -&gt; String { // 自定义比较函数，在 a 对应的整数较大时返回 true，反之返回 false nums.sort_by(|a, b| { // 首先比较字符串长度 if a.len() &gt; b.len() { return std::cmp::Ordering::Greater; } else if a.len() &lt; b.len() { return std::cmp::Ordering::Less; } else { // 长度相等时比较字符串字典序大小 a.cmp(&amp;b) } }); nums[nums."><meta itemprop="datePublished" content="2023-12-19T15:49:31+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:49:31+08:00" />
+<meta itemprop="wordCount" content="77">
+<meta itemprop="keywords" content="leetcode,快速选择," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 快速选择4"/>
+<meta name="twitter:description" content="找出数组中的第 K 大整数 给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。
+返回 nums 中表示第 k 大整数的字符串。
+注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 [&ldquo;1&rdquo;,&ldquo;2&rdquo;,&ldquo;2&rdquo;]，那么 &ldquo;2&rdquo; 是最大的整数，&ldquo;2&rdquo; 是第二大的整数，&ldquo;1&rdquo; 是第三大的整数。
+impl Solution { pub fn kth_largest_number(mut nums: Vec&lt;String&gt;, k: i32) -&gt; String { // 自定义比较函数，在 a 对应的整数较大时返回 true，反之返回 false nums.sort_by(|a, b| { // 首先比较字符串长度 if a.len() &gt; b.len() { return std::cmp::Ordering::Greater; } else if a.len() &lt; b.len() { return std::cmp::Ordering::Less; } else { // 长度相等时比较字符串字典序大小 a.cmp(&amp;b) } }); nums[nums."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 快速选择4</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:49:31+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="找出数组中的第-k-大整数">找出数组中的第 K 大整数</h2>
+<p>给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。</p>
+<p>返回 nums 中表示第 k 大整数的字符串。</p>
+<p>注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 [&ldquo;1&rdquo;,&ldquo;2&rdquo;,&ldquo;2&rdquo;]，那么 &ldquo;2&rdquo; 是最大的整数，&ldquo;2&rdquo; 是第二大的整数，&ldquo;1&rdquo; 是第三大的整数。</p>
+<pre tabindex="0"><code>impl Solution {
+    pub fn kth_largest_number(mut nums: Vec&lt;String&gt;, k: i32) -&gt; String {
+        // 自定义比较函数，在 a 对应的整数较大时返回 true，反之返回 false
+        nums.sort_by(|a, b| {
+			// 首先比较字符串长度
+            if a.len() &gt; b.len() {
+                return std::cmp::Ordering::Greater;
+            } else if a.len() &lt; b.len() {
+                return std::cmp::Ordering::Less;
+            } else {
+                // 长度相等时比较字符串字典序大小
+                a.cmp(&amp;b)
+            }
+        });
+
+        nums[nums.len() - k as usize].to_string()
+    }
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">快速选择</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A91/">Leetcode 快速选择1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A92/">Leetcode 快速选择2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A93/">Leetcode 快速选择3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A95/">Leetcode 快速选择5</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A96/">Leetcode 快速选择6</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A81/">Leetcode 迭代器1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A82/">Leetcode 迭代器2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A83/">Leetcode 迭代器3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A84/">Leetcode 迭代器4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A14/">Leetcode 概率与统计4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A15/">Leetcode 概率与统计5</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A11/">Leetcode 概率与统计1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A12/">Leetcode 概率与统计2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A13/">Leetcode 概率与统计3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%841/">Leetcode 后缀数组1</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -9,7 +9,7 @@
     <meta name="description" content="旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
 你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
 C 解法： void swap(int* a, int* b) { int t = *a; *a = *b, *b = t; } void rotate(int** matrix, int matrixSize, int* matrixColSize) { // 水平翻转 for (int i = 0; i &lt; matrixSize / 2; &#43;&#43;i) { for (int j = 0; j &lt; matrixSize; &#43;&#43;j) { swap(&amp;matrix[i][j], &amp;matrix[matrixSize - i - 1][j]); } } // 主对角线翻转 for (int i = 0; i &lt; matrixSize; &#43;&#43;i) { for (int j = 0; j &lt; i; &#43;&#43;j) { swap(&amp;matrix[i][j], &amp;matrix[j][i]); } } } Rust 解法： impl Solution { pub fn rotate(matrix: &amp;mut Vec&lt;Vec&lt;i32&gt;&gt;) { let m = matrix.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -39,7 +39,6 @@ C 解法： void swap(int* a, int* b) { int t = *a; *a = *b, *b = t; } void rota
 <meta property="og:url" content="http://example.org/posts/rustnote11/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
 <meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
-
 <meta itemprop="name" content="Rust Note 11">
 <meta itemprop="description" content="旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
 你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。

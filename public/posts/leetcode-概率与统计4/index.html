@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Leetcode 概率与统计4 | Paperubit的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="新 21 点 爱丽丝参与一个大致基于纸牌游戏 “21点” 规则的游戏，描述如下：
+爱丽丝以 0 分开始，并在她的得分少于 k 分时抽取数字。 抽取时，她从 [1, maxPts] 的范围中随机获得一个整数作为分数进行累计，其中 maxPts 是一个整数。 每次抽取都是独立的，其结果具有相同的概率。
+当爱丽丝获得 k 分 或更多分 时，她就停止抽取数字。
+爱丽丝的分数不超过 n 的概率是多少？
+与实际答案误差不超过 10-5 的答案将被视为正确答案。
+示例 1：
+输入：n = 10, k = 1, maxPts = 10 输出：1.00000 解释：爱丽丝得到一张牌，然后停止。 示例 2：
+输入：n = 6, k = 1, maxPts = 10 输出：0.60000 解释：爱丽丝得到一张牌，然后停止。 在 10 种可能性中的 6 种情况下，她的得分不超过 6 分。 示例 3：
+输入：n = 21, k = 17, maxPts = 10 输出：0.">
+    <meta name="generator" content="Hugo 0.113.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Leetcode 概率与统计4" />
+<meta property="og:description" content="新 21 点 爱丽丝参与一个大致基于纸牌游戏 “21点” 规则的游戏，描述如下：
+爱丽丝以 0 分开始，并在她的得分少于 k 分时抽取数字。 抽取时，她从 [1, maxPts] 的范围中随机获得一个整数作为分数进行累计，其中 maxPts 是一个整数。 每次抽取都是独立的，其结果具有相同的概率。
+当爱丽丝获得 k 分 或更多分 时，她就停止抽取数字。
+爱丽丝的分数不超过 n 的概率是多少？
+与实际答案误差不超过 10-5 的答案将被视为正确答案。
+示例 1：
+输入：n = 10, k = 1, maxPts = 10 输出：1.00000 解释：爱丽丝得到一张牌，然后停止。 示例 2：
+输入：n = 6, k = 1, maxPts = 10 输出：0.60000 解释：爱丽丝得到一张牌，然后停止。 在 10 种可能性中的 6 种情况下，她的得分不超过 6 分。 示例 3：
+输入：n = 21, k = 17, maxPts = 10 输出：0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A14/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-19T15:47:55+08:00" />
+<meta property="article:modified_time" content="2023-12-19T15:47:55+08:00" />
+<meta itemprop="name" content="Leetcode 概率与统计4">
+<meta itemprop="description" content="新 21 点 爱丽丝参与一个大致基于纸牌游戏 “21点” 规则的游戏，描述如下：
+爱丽丝以 0 分开始，并在她的得分少于 k 分时抽取数字。 抽取时，她从 [1, maxPts] 的范围中随机获得一个整数作为分数进行累计，其中 maxPts 是一个整数。 每次抽取都是独立的，其结果具有相同的概率。
+当爱丽丝获得 k 分 或更多分 时，她就停止抽取数字。
+爱丽丝的分数不超过 n 的概率是多少？
+与实际答案误差不超过 10-5 的答案将被视为正确答案。
+示例 1：
+输入：n = 10, k = 1, maxPts = 10 输出：1.00000 解释：爱丽丝得到一张牌，然后停止。 示例 2：
+输入：n = 6, k = 1, maxPts = 10 输出：0.60000 解释：爱丽丝得到一张牌，然后停止。 在 10 种可能性中的 6 种情况下，她的得分不超过 6 分。 示例 3：
+输入：n = 21, k = 17, maxPts = 10 输出：0."><meta itemprop="datePublished" content="2023-12-19T15:47:55+08:00" />
+<meta itemprop="dateModified" content="2023-12-19T15:47:55+08:00" />
+<meta itemprop="wordCount" content="166">
+<meta itemprop="keywords" content="leetcode,概率与统计," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode 概率与统计4"/>
+<meta name="twitter:description" content="新 21 点 爱丽丝参与一个大致基于纸牌游戏 “21点” 规则的游戏，描述如下：
+爱丽丝以 0 分开始，并在她的得分少于 k 分时抽取数字。 抽取时，她从 [1, maxPts] 的范围中随机获得一个整数作为分数进行累计，其中 maxPts 是一个整数。 每次抽取都是独立的，其结果具有相同的概率。
+当爱丽丝获得 k 分 或更多分 时，她就停止抽取数字。
+爱丽丝的分数不超过 n 的概率是多少？
+与实际答案误差不超过 10-5 的答案将被视为正确答案。
+示例 1：
+输入：n = 10, k = 1, maxPts = 10 输出：1.00000 解释：爱丽丝得到一张牌，然后停止。 示例 2：
+输入：n = 6, k = 1, maxPts = 10 输出：0.60000 解释：爱丽丝得到一张牌，然后停止。 在 10 种可能性中的 6 种情况下，她的得分不超过 6 分。 示例 3：
+输入：n = 21, k = 17, maxPts = 10 输出：0."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Paperubit的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Leetcode 概率与统计4</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-19T15:47:55+08:00">December 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="新-21-点">新 21 点</h2>
+<p>爱丽丝参与一个大致基于纸牌游戏 “21点” 规则的游戏，描述如下：</p>
+<p>爱丽丝以 0 分开始，并在她的得分少于 k 分时抽取数字。 抽取时，她从 [1, maxPts] 的范围中随机获得一个整数作为分数进行累计，其中 maxPts 是一个整数。 每次抽取都是独立的，其结果具有相同的概率。</p>
+<p>当爱丽丝获得 k 分 或更多分 时，她就停止抽取数字。</p>
+<p>爱丽丝的分数不超过 n 的概率是多少？</p>
+<p>与实际答案误差不超过 10-5 的答案将被视为正确答案。</p>
+<p>示例 1：</p>
+<p>输入：n = 10, k = 1, maxPts = 10
+输出：1.00000
+解释：爱丽丝得到一张牌，然后停止。
+示例 2：</p>
+<p>输入：n = 6, k = 1, maxPts = 10
+输出：0.60000
+解释：爱丽丝得到一张牌，然后停止。 在 10 种可能性中的 6 种情况下，她的得分不超过 6 分。
+示例 3：</p>
+<p>输入：n = 21, k = 17, maxPts = 10
+输出：0.73278</p>
+<p>提示：</p>
+<p>0 &lt;= k &lt;= n &lt;= 104
+1 &lt;= maxPts &lt;= 104</p>
+<pre tabindex="0"><code>//这是一个简单的概率论问题。
+//所以这道题考的是优化而非其他。
+impl Solution {
+pub fn new21_game(n: i32, k: i32, w: i32) -&gt; f64 {
+    let w=w as usize;
+    let k=k as usize;
+    let n=n as usize;
+    if k+w&lt;=n{
+        1.0
+    }else{
+        let mut v:Vec&lt;f64&gt;=vec![0.;k+w+1];
+        v[0]=0.;/*
+        for i in (n+1..k+w).rev() {
+            v[k]=0;//这是初始化步骤，由于我们其实已经初始化过了，所以这段代码可以省略
+        }*/
+        for i in k..n+1{//(k..n+1).rev()
+            v[i]=1.;
+        }
+        let mut sum=(n-k) as f64;//do not compute v[k] here.
+        for i in (1..k+1).rev(){
+            sum+=v[i]-v[i+w];
+//            let sum2:f64=v[i..i+w].iter().sum();
+//            println!(&#34;k={:02}  {}:{},{}&#34;,i,sum2-sum,sum,sum2);
+            v[i-1]=sum/w as f64;
+        }
+//        println!(&#34;{:?}&#34;,v);
+        v[0]
+    }
+}
+}
+</code></pre><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/leetcode/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">leetcode</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">概率与统计</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A15/">Leetcode 概率与统计5</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A11/">Leetcode 概率与统计1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A12/">Leetcode 概率与统计2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A13/">Leetcode 概率与统计3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%841/">Leetcode 后缀数组1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%842/">Leetcode 后缀数组2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%843/">Leetcode 后缀数组3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%844/">Leetcode 后缀数组4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F1/">Leetcode 桶排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F2/">Leetcode 桶排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F3/">Leetcode 桶排序3</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E6%A1%B6%E6%8E%92%E5%BA%8F4/">Leetcode 桶排序4</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F1/">Leetcode 计数排序1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F2/">Leetcode 计数排序2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/leetcode-%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F3/">Leetcode 计数排序3</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Paperubit的博客 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -9,7 +9,7 @@
     <meta name="description" content="反转字符串 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。
 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
 C 解法： void swap(char *a, char *b) { char t = *a; *a = *b, *b = t; } void reverseString(char *s, int sSize) { for (int left = 0, right = sSize - 1; left &lt; right; &#43;&#43;left, --right) { swap(s &#43; left, s &#43; right); } } Rust 解法： impl Solution { pub fn reverse_string(s: &amp;mut Vec&lt;char&gt;) { //let sl = s.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -39,7 +39,6 @@ C 解法： void swap(char *a, char *b) { char t = *a; *a = *b, *b = t; } void r
 <meta property="og:url" content="http://example.org/posts/rustnote12/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-22T20:28:46+08:00" />
 <meta property="article:modified_time" content="2023-05-22T20:28:46+08:00" />
-
 <meta itemprop="name" content="Rust Note 12">
 <meta itemprop="description" content="反转字符串 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。
 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
@@ -159,7 +158,7 @@ pub fn reverse(&amp;mut self)
 v.reverse();
 assert!(v == [3, 2, 1]);
 </code></pre><p>source:</p>
-<pre tabindex="0"><code>#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
+<pre tabindex="0"><code>#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
     #[inline]
     pub fn reverse(&amp;mut self) {
         let half_len = self.len() / 2;

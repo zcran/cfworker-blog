@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>水塘抽样 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B7/</link>
+    <description>Recent content in 水塘抽样 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:21:14 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 水塘抽样1</title>
+      <link>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B71/</link>
+      <pubDate>Tue, 19 Dec 2023 15:21:14 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B71/</guid>
+      <description>非重叠矩形中的随机点 给定一个由非重叠的轴对齐矩形的数组 rects ，其中 rects[i] = [ai, bi, xi, yi] 表示 (ai, bi) 是第 i 个矩形的左下角点，(xi, yi) 是第 i 个矩形的右上角点。设计一个算法来随机挑选一个被某一矩形覆盖的整数点。矩形周长上的点也算做是被矩形覆盖。所有满足要求的点必须等概率被返回。
+在给定的矩形覆盖的空间内的任何整数点都有可能被返回。
+请注意 ，整数点是具有整数坐标的点。
+实现 Solution 类:
+Solution(int[][] rects) 用给定的矩形数组 rects 初始化对象。 int[] pick() 返回一个随机的整数点 [u, v] 在给定的矩形所覆盖的空间内。
+use rand::{thread_rng, Rng}; struct Solution { rects: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;, arr: Vec&amp;lt;i32&amp;gt;, } impl Solution { fn new(rects: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;) -&amp;gt; Self { let arr = rects .iter() .scan(0, |v, rect| { *v += (rect[2] - rect[0] + 1) * (rect[3] - rect[1] + 1); Some(*v) }) .</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 水塘抽样2</title>
+      <link>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B72/</link>
+      <pubDate>Tue, 19 Dec 2023 15:21:14 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B72/</guid>
+      <description>链表随机节点 给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点 被选中的概率一样 。
+实现 Solution 类：
+Solution(ListNode head) 使用整数数组初始化对象。 int getRandom() 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。
+struct Solution { list: Vec&amp;lt;i32&amp;gt;, } impl Solution { fn new(mut head: Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt;) -&amp;gt; Self { let mut list = Vec::new(); while let Some(mut node) = head { list.push(node.val); head = node.next.take(); } Self { list } } fn get_random(&amp;amp;self) -&amp;gt; i32 { use rand::{Rng, thread_rng}; self.list[thread_rng().gen_range(0, self.list.len())] } } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 水塘抽样3</title>
+      <link>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B73/</link>
+      <pubDate>Tue, 19 Dec 2023 15:21:14 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B73/</guid>
+      <description>随机翻转矩阵 给你一个 m x n 的二元矩阵 matrix ，且所有值被初始化为 0 。请你设计一个算法，随机选取一个满足 matrix[i][j] == 0 的下标 (i, j) ，并将它的值变为 1 。所有满足 matrix[i][j] == 0 的下标 (i, j) 被选取的概率应当均等。
+尽量最少调用内置的随机函数，并且优化时间和空间复杂度。
+实现 Solution 类：
+Solution(int m, int n) 使用二元矩阵的大小 m 和 n 初始化该对象 int[] flip() 返回一个满足 matrix[i][j] == 0 的随机下标 [i, j] ，并将其对应格子中的值变为 1 void reset() 将矩阵中所有的值重置为 0
+use rand::prelude::*; use std::collections::HashMap; struct Solution { n: usize, idx: HashMap&amp;lt;usize, usize&amp;gt;, rng: ThreadRng, r: usize, c: usize, } impl Solution { fn new(m: i32, n: i32) -&amp;gt; Self { Solution { n: m as usize * n as usize, idx: HashMap::new(), rng: thread_rng(), r: m as usize, c: n as usize, } } fn flip(&amp;amp;mut self) -&amp;gt; Vec&amp;lt;i32&amp;gt; { let v = self.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 水塘抽样4</title>
+      <link>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B74/</link>
+      <pubDate>Tue, 19 Dec 2023 15:21:14 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A0%B74/</guid>
+      <description>随机数索引 给你一个可能含有 重复元素 的整数数组 nums ，请你随机输出给定的目标数字 target 的索引。你可以假设给定的数字一定存在于数组中。
+实现 Solution 类：
+Solution(int[] nums) 用数组 nums 初始化对象。 int pick(int target) 从 nums 中选出一个满足 nums[i] == target 的随机索引 i 。如果存在多个有效的索引，则每个索引的返回概率应当相等。
+use rand::{rngs::ThreadRng, Rng}; use std::collections::HashMap; struct Solution { map: HashMap&amp;lt;i32, Vec&amp;lt;usize&amp;gt;&amp;gt;, rand: ThreadRng, } impl Solution { fn new(nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; Self { Solution { map: nums .iter() .enumerate() .fold(HashMap::new(), |mut m, (i, &amp;amp;n)| { m.entry(n).and_modify(|v| v.push(i)).or_insert(vec![i]); m }), rand: rand::thread_rng(), } } fn pick(&amp;amp;mut self, target: i32) -&amp;gt; i32 { let v = self.</description>
+    </item>
+    
+  </channel>
+</rss>

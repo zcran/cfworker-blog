@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>迭代器 on Paperubit的博客</title>
+    <link>http://example.org/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/</link>
+    <description>Recent content in 迭代器 on Paperubit的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Dec 2023 15:49:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 迭代器1</title>
+      <link>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A81/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A81/</guid>
+      <description>二叉搜索树迭代器 实现一个二叉搜索树迭代器类BSTIterator ，表示一个按中序遍历二叉搜索树（BST）的迭代器： BSTIterator(TreeNode root) 初始化 BSTIterator 类的一个对象。BST 的根节点 root 会作为构造函数的一部分给出。指针应初始化为一个不存在于 BST 中的数字，且该数字小于 BST 中的任何元素。 boolean hasNext() 如果向指针右侧遍历存在数字，则返回 true ；否则返回 false 。 int next()将指针向右移动，然后返回指针处的数字。 注意，指针初始化为一个不存在于 BST 中的数字，所以对 next() 的首次调用将返回 BST 中的最小元素。
+你可以假设 next() 调用总是有效的，也就是说，当调用 next() 时，BST 的中序遍历中至少存在一个下一个数字。
+struct BSTIterator { stack: Vec&amp;lt;Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;&amp;gt;, } use std::cell::RefCell; use std::rc::Rc; impl BSTIterator { fn new(root: Option&amp;lt;Rc&amp;lt;RefCell&amp;lt;TreeNode&amp;gt;&amp;gt;&amp;gt;) -&amp;gt; Self { BSTIterator { stack: vec![root] } } fn next(&amp;amp;mut self) -&amp;gt; i32 { let mut node = self.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 迭代器2</title>
+      <link>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A82/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A82/</guid>
+      <description>扁平化嵌套列表迭代器 给你一个嵌套的整数列表 nestedList 。每个元素要么是一个整数，要么是一个列表；该列表的元素也可能是整数或者是其他列表。请你实现一个迭代器将其扁平化，使之能够遍历这个列表中的所有整数。
+实现扁平迭代器类 NestedIterator ：
+NestedIterator(List nestedList) 用嵌套列表 nestedList 初始化迭代器。 int next() 返回嵌套列表的下一个整数。 boolean hasNext() 如果仍然存在待迭代的整数，返回 true ；否则，返回 false 。 你的代码将会用下述伪代码检测：
+initialize iterator with nestedList res = [] while iterator.hasNext() append iterator.next() to the end of res return res 如果 res 与预期的扁平化列表匹配，那么你的代码将会被判为正确。
+struct NestedIterator(Vec&amp;lt;i32&amp;gt;); impl NestedIterator { fn new(nestedList: Vec&amp;lt;NestedInteger&amp;gt;) -&amp;gt; Self { let mut v=collect(nestedList); v.reverse(); Self(v) } #[inline(always)] fn next(&amp;amp;mut self) -&amp;gt; i32 { self.0.pop().unwrap() } #[inline(always)] fn has_next(&amp;amp;self) -&amp;gt; bool { self.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 迭代器3</title>
+      <link>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A83/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A83/</guid>
+      <description>RLE 迭代器 我们可以使用游程编码(即 RLE )来编码一个整数序列。在偶数长度 encoding ( 从 0 开始 )的游程编码数组中，对于所有偶数 i ，encoding[i] 告诉我们非负整数 encoding[i + 1] 在序列中重复的次数。
+例如，序列 arr = [8,8,8,5,5] 可以被编码为 encoding =[3,8,2,5] 。encoding =[3,8,0,9,2,5] 和 encoding =[2,8,1,8,2,5] 也是 arr 有效的 RLE 。 给定一个游程长度的编码数组，设计一个迭代器来遍历它。
+实现 RLEIterator 类:
+RLEIterator(int[] encoded) 用编码后的数组初始化对象。 int next(int n) 以这种方式耗尽后 n 个元素并返回最后一个耗尽的元素。如果没有剩余的元素要耗尽，则返回 -1 。
+struct RLEIterator { iterator: std::vec::IntoIter&amp;lt;i32&amp;gt;, remain: (i32, i32), } /** * `&amp;amp;self` means the method takes an immutable reference. * If you need a mutable reference, change it to `&amp;amp;mut self` instead.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 迭代器4</title>
+      <link>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A84/</link>
+      <pubDate>Tue, 19 Dec 2023 15:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/leetcode-%E8%BF%AD%E4%BB%A3%E5%99%A84/</guid>
+      <description>字母组合迭代器 请你设计一个迭代器类 CombinationIterator ，包括以下内容：
+CombinationIterator(string characters, int combinationLength) 一个构造函数，输入参数包括：用一个 有序且字符唯一 的字符串 characters（该字符串只包含小写英文字母）和一个数字 combinationLength 。 函数 next() ，按 字典序 返回长度为 combinationLength 的下一个字母组合。 函数 hasNext() ，只有存在长度为 combinationLength 的下一个字母组合时，才返回 true
+struct CombinationIterator { s: Vec&amp;lt;u8&amp;gt;, pos: Vec&amp;lt;usize&amp;gt;, has_next: bool, } impl CombinationIterator { fn new(characters: String, len: i32) -&amp;gt; Self { let mut s = characters.into_bytes(); s.sort_unstable(); Self { s, pos: (0..len as usize).collect(), has_next: true, } } fn next(&amp;amp;mut self) -&amp;gt; String { fn dfs(pos: &amp;amp;mut Vec&amp;lt;usize&amp;gt;, cur: usize, len: usize, has_next: &amp;amp;mut bool) -&amp;gt; usize { let i = pos.</description>
+    </item>
+    
+  </channel>
+</rss>

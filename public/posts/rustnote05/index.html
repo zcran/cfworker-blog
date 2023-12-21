@@ -10,7 +10,7 @@
 你必须设计并实现线性时间复杂度的算法来解决此问题，且该算法只使用常量额外空间。
 C解法 ： int singleNumber(int* nums, int numsSize){ int a = 0; for (int i = 0; i &lt; numsSize; i&#43;&#43;) { a = a ^ nums[i]; } return a; } Rust 解法 ： impl Solution { pub fn single_number(nums: Vec&lt;i32&gt;) -&gt; i32 { nums.iter().fold(0,|acc,x| acc^x) } } Rust fold() 函数 ： fn fold&lt;B, F&gt;(self, init: B, f: F) -&gt; B where
 F: FnMut(B, Self::Item) -&gt; B, 通过应用操作将每个元素 fold 到一个累加器中，返回最终结果。">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -41,7 +41,6 @@ F: FnMut(B, Self::Item) -&gt; B, 通过应用操作将每个元素 fold 到�
 <meta property="og:url" content="http://example.org/posts/rustnote05/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-19T21:35:34+08:00" />
 <meta property="article:modified_time" content="2023-05-19T21:35:34+08:00" />
-
 <meta itemprop="name" content="Rust Note 05">
 <meta itemprop="description" content="只出现一次的数字 给你一个 非空 整数数组 nums ，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
 你必须设计并实现线性时间复杂度的算法来解决此问题，且该算法只使用常量额外空间。
@@ -207,13 +206,13 @@ assert_eq!(sum, 6);
 <p>这个例子演示了 <code>fold()</code> 的左关联特性： 它构建一个字符串，从一个初始值开始，从前面到后面的每个元素继续：</p>
 <pre tabindex="0"><code>let numbers = [1, 2, 3, 4, 5];
 
-let zero = &quot;0&quot;.to_string();
+let zero = &#34;0&#34;.to_string();
 
 let result = numbers.iter().fold(zero, |acc, &amp;x| {
-    format!(&quot;({} + {})&quot;, acc, x)
+    format!(&#34;({} + {})&#34;, acc, x)
 });
 
-assert_eq!(result, &quot;(((((0 + 1) + 2) + 3) + 4) + 5)&quot;);
+assert_eq!(result, &#34;(((((0 + 1) + 2) + 3) + 4) + 5)&#34;);
 </code></pre><p>对于那些不经常使用迭代器的人，通常会使用 <code>for</code> 循环并附带一系列要建立结果的列表。那些可以变成 <code>fold ()</code> s：</p>
 <pre tabindex="0"><code>let numbers = [1, 2, 3, 4, 5];
 
@@ -230,9 +229,9 @@ let result2 = numbers.iter().fold(0, |acc, &amp;x| acc + x);
 // 他们是一样的
 assert_eq!(result, result2);
 </code></pre><h4 id="source-">source :</h4>
-<pre tabindex="0"><code>#[doc(alias = &quot;inject&quot;, alias = &quot;foldl&quot;)]
+<pre tabindex="0"><code>#[doc(alias = &#34;inject&#34;, alias = &#34;foldl&#34;)]
 #[inline]
-#[stable(feature = &quot;rust1&quot;, since = &quot;1.0.0&quot;)]
+#[stable(feature = &#34;rust1&#34;, since = &#34;1.0.0&#34;)]
 fn fold&lt;B, F&gt;(mut self, init: B, mut f: F) -&gt; B
 where
     Self: Sized,

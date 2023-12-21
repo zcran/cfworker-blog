@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="反转链表 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
 C 解法： class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* prev = nullptr; ListNode* curr = head; while (curr) { ListNode* next = curr-&gt;next; curr-&gt;next = prev; prev = curr; curr = next; } return prev; } }; Rust 解法： impl Solution { pub fn reverse_list(head: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; Option&lt;Box&lt;ListNode&gt;&gt; { let mut pre = None; let mut head = head; while let Some(mut node) = head { head = node.">
-    <meta name="generator" content="Hugo 0.91.2" />
+    <meta name="generator" content="Hugo 0.113.0">
     
     
     
@@ -37,7 +37,6 @@ C 解法： class Solution { public: ListNode* reverseList(ListNode* head) { Lis
 <meta property="og:url" content="http://example.org/posts/rust-note-23/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-04T21:15:11+08:00" />
 <meta property="article:modified_time" content="2023-06-04T21:15:11+08:00" />
-
 <meta itemprop="name" content="Rust Note 23">
 <meta itemprop="description" content="反转链表 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
 C 解法： class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* prev = nullptr; ListNode* curr = head; while (curr) { ListNode* next = curr-&gt;next; curr-&gt;next = prev; prev = curr; curr = next; } return prev; } }; Rust 解法： impl Solution { pub fn reverse_list(head: Option&lt;Box&lt;ListNode&gt;&gt;) -&gt; Option&lt;Box&lt;ListNode&gt;&gt; { let mut pre = None; let mut head = head; while let Some(mut node) = head { head = node."><meta itemprop="datePublished" content="2023-06-04T21:15:11+08:00" />
