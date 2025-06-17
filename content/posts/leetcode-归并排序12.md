@@ -5,3 +5,4 @@ tags: ["leetcode", "归并排序"]
 draft: false
 ---
 
+## 查找排列的下标

@@ -1,5 +1,7 @@
 #### rust数据结构与算法
 
+git add --all; git commit -m "normal update"; git push -u origin main
+
  - 这是结合rust的std库函数和leetcode的题库做(抄)出的答案集，大多都有rust的答案。
 
  - 除了常见的C++、Python或Java答案方便参考以外，通常会有rust的函数式写法(常常是链式和闭包形式)，更符合人体工程学，方便更改、注释和理解。
@@ -19,3 +21,8 @@ wrangler init --from-dash worker-solitary-credit-db82
 wrangler publish
 
 Wrangler docs 打开wrangler命令指南
+
+
+#### 尚未记载：
+归并排序 13 14 15
+双向链表 14 15 16 17
