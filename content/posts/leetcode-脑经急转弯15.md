@@ -23,3 +23,20 @@ draft: false
 注意：编号为 0 的计算机的密码已解锁，而 不是 排列中第一个位置的计算机密码已解锁。
 
 排列 是一个数组中所有元素的重新排列。
+
+
+```
+impl Solution {
+    pub fn count_permutations(complexity: Vec<i32>) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+
+        match complexity.split_first() {
+            Some((&first, rest)) if rest.iter().all(|&x| x > first) => {
+                (1..=rest.len() as i64)
+                    .fold(1, |acc, i| (acc * i) % MOD) as i32
+            }
+            _ => 0,
+        }
+    }
+}
+```
