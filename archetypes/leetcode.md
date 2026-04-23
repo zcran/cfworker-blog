@@ -1,6 +1,6 @@
 ---
 title: "{{ .Name }}"
 date: {{ .Date }}
-tags: ["leetcode", "博弈"]
+tags: ["leetcode", "最短路"]
 draft: false
 ---
