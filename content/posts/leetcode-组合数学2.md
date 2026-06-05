@@ -23,5 +23,16 @@ draft: false
 
 
 ```
-
+impl Solution {
+    pub fn poor_pigs(buckets: i32, minutes_to_die: i32, minutes_to_test: i32) -> i32 {
+        let n = minutes_to_test / minutes_to_die + 1;
+        let mut m = 1;
+        let mut pig = 0;
+        while m < buckets {
+            m *= n;
+            pig += 1;
+        }
+        return pig;
+    }
+}
 ```
