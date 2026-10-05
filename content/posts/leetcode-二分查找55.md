@@ -1,0 +1,53 @@
+---
+title: "leetcode-二分查找55"
+date: 2026-09-28T12:29:13+08:00
+tags: ["leetcode", "二分查找"]
+draft: false
+---
+
+
+## 同时运行 N 台电脑的最长时间
+
+你有 n 台电脑。给你整数 n 和一个下标从 0 开始的整数数组 batteries ，其中第 i 个电池可以让一台电脑 运行 batteries[i] 分钟。你想使用这些电池让 全部 n 台电脑 同时 运行。
+
+一开始，你可以给每台电脑连接 至多一个电池 。然后在任意整数时刻，你都可以将一台电脑与它的电池断开连接，并连接另一个电池，你可以进行这个操作 任意次 。新连接的电池可以是一个全新的电池，也可以是别的电脑用过的电池。断开连接和连接新的电池不会花费任何时间。
+
+注意，你不能给电池充电。
+
+请你返回你可以让 n 台电脑同时运行的 最长 分钟数。
+
+
+```
+impl Solution {
+    pub fn max_run_time(n: i32, batteries: Vec<i32>) -> i64 {
+        let n = n as i64;
+        let total: i64 = batteries.iter().map(|&b| b as i64).sum();
+
+        // 二分运行时间 mid：判断能否让 n 台电脑同时运行 mid 分钟
+        // 每块电池最多贡献 min(cap, mid) 分钟，总贡献 >= n * mid 即可行
+        let feasible = |mid: i64| -> bool {
+            let mut sum = 0i64;
+            for &cap in &batteries {
+                sum += (cap as i64).min(mid);
+                if sum >= n * mid {
+                    return true;
+                }
+            }
+            false
+        };
+
+        // 时间上界：所有电池均分给 n 台电脑
+        let mut lo = 0;
+        let mut hi = total / n;
+        while lo < hi {
+            let mid = lo + (hi - lo + 1) / 2;
+            if feasible(mid) {
+                lo = mid;
+            } else {
+                hi = mid - 1;
+            }
+        }
+        lo
+    }
+}
+```
